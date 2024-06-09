@@ -1,0 +1,627 @@
+<mvc:View controllerName="ZSD_APP_GREMI.ZSD_APP_GREMI.controller.CreateGre" xmlns="sap.m" xmlns:core="sap.ui.core"
+	xmlns:mvc="sap.ui.core.mvc" displayBlock="true" xmlns:semantic="sap.f.semantic" xmlns:l="sap.ui.layout" xmlns:f="sap.ui.layout.form">
+	<Page xmlns="sap.m" title="{i18n>TitleCreate}">
+		<headerContent>
+			<Button icon="sap-icon://action" tooltip="{i18n>ReturnCreate}" press=".onNavBack"/>
+		</headerContent>
+		<!--============================================================================================================================================================ -->
+		<!--# Contenido-->
+		<Panel expandable="true" headerText="{i18n>SectionHeader}" width="auto" class="sapUiResponsiveMargin" expanded="true">
+			<content>
+				<IconTabBar id="idIconTabBarNoIcons" expanded="{device>/isNoPhone}" class="sapUiResponsiveContentPadding" select=".onTabBar">
+					<items>
+						<!--============================================================================================================================-->
+						<!--============================================================================================================================-->
+						<!-- 01) TAB -  Datos de Cabecera -->
+						<IconTabFilter text="Info" key="info">
+							<VBox class="sapUiSmallMargin">
+								<f:Form id="FormHd01" editable="true">
+									<f:title>
+										<core:Title text="{i18n>TitleForm}"/>
+									</f:title>
+									<f:layout>
+										<f:ColumnLayout columnsM="2" columnsL="3" columnsXL="4"/>
+									</f:layout>
+									<f:formContainers>
+										<f:FormContainer>
+											<f:formElements >
+												<!-- Motivo de Traslado -->
+												<f:FormElement label="{i18n>MotivTras}">
+													<f:fields>
+														<Input id="TxtMotivTras" editable="true" showValueHelp="true" valueHelpRequest=".onValueHelpMotivTras" maxLength="2" required="true"
+															change=".onChangeMotiv">
+															<layoutData>
+																<f:ColumnElementData cellsSmall="3" cellsLarge="2" editable="false"/>
+															</layoutData>
+														</Input>
+														<Input id="TxtMotivTrasDesc" editable="false"/>
+													</f:fields>
+												</f:FormElement>
+												
+												<!-- Fecha de Emisión e Inicio de Traslado -->
+												<f:FormElement label="{i18n>DateMov}">
+													<DatePicker id="TxtDateMov" placeholder="{i18n>DatePlaceHolder}" change=".handleChangeDate" class="sapUiSmallMarginBottom" required="true"
+													    valueFormat="dd/MM/YYYY" editable="false"
+														value="{ path: 'view>/dDefaultDate', type: 'sap.ui.model.type.Date',formatOptions: { style: 'long',strictParsing: true }}"/>
+												</f:FormElement>
+												
+												<!--Centro Almacén -->
+												<f:FormElement label="{i18n>CentroAlmac}" visible="true">
+													<f:fields>
+														<Input id="TxtCentro" editable="true" showValueHelp="true" valueHelpRequest=".onValueHelpWerks" maxLength="4" required="true">
+															<layoutData>
+																<f:ColumnElementData cellsSmall="4" cellsLarge="4" editable="false"/>
+															</layoutData>
+														</Input>
+														<Input id="TxtCAlmacen" editable="false"/>
+													</f:fields>
+												</f:FormElement>
+												
+												<!-- Fecha de entrega de bienes -->
+												<f:FormElement label="{i18n>DateEntrega}">
+												<!--<DatePicker id="TxtDateEntrega" placeholder="{i18n>DatePlaceHolder}" change=".handleChangeDate" class="sapUiSmallMarginBottom"
+																required="true" displayFormat="dd/MM/YYYY" valueFormat="dd/MM/YYYY" editable="true"/>-->
+																
+												<DatePicker id="TxtDateEntrega" placeholder="{i18n>DatePlaceHolder}" change=".handleChangeDate" class="sapUiSmallMarginBottom"
+															 required="true"  displayFormat="long"/>				
+												</f:FormElement>
+												
+												<!--Centro Almacén Destino (New Campo) -->	
+												<f:FormElement label="{i18n>CentroAlmacDest}" visible="false" id="formElementWdest">
+													<f:fields>
+														<Input id="TxtCentroDest" editable="true" showValueHelp="true" valueHelpRequest=".onValueHelpWerksDest" maxLength="4" required="true">
+															<layoutData>
+																<f:ColumnElementData cellsSmall="4" cellsLarge="4" editable="false"/>
+															</layoutData>
+														</Input>
+														<Input id="TxtCAlmacenDest" editable="false"/>
+													</f:fields>
+												</f:FormElement>
+												<!-- Destinatario de Mercancía -->
+												<f:FormElement label="{i18n>DesMcia}">
+													<f:fields>
+														<Input id="TxtDesMcia" editable="true" showValueHelp="true" valueHelpRequest=".onValueHelpDesMcia" maxLength="10" required="true">
+															<layoutData>
+																<f:ColumnElementData cellsSmall="4" cellsLarge="4" editable="false"/>
+															</layoutData>
+														</Input>
+														<Input id="TxtDesMciaDesc" editable="false"/>
+													</f:fields>
+												</f:FormElement>
+												<!--Proveedor- Campo Nuevo -->
+												<f:FormElement label="{i18n>Proveed}" id="FieldProveed" visible="false">
+													<f:fields>
+														<Input id="TxtProveed" editable="true" showValueHelp="true" valueHelpRequest=".onValueHelpProveed" maxLength="10" required="true">
+															<layoutData>
+																<f:ColumnElementData cellsSmall="4" cellsLarge="4" editable="false"/>
+															</layoutData>
+														</Input>
+														<Input id="TxtProveedDesc" editable="false"/>
+													</f:fields>
+												</f:FormElement>
+											</f:formElements>
+										</f:FormContainer>
+									</f:formContainers>
+								</f:Form>
+							</VBox>
+							<!-- Textos Largos Adicionales -->
+							<l:VerticalLayout class="sapUiContentPadding" width="65%">
+								<Label text="{i18n>TxtPuntoPart}" labelFor="TxtPuntoPart" design="Bold" id="LblPuntoPart"/>
+								<Input id="TxtPuntoPart" editable="false"/>
+							</l:VerticalLayout>
+							<l:VerticalLayout class="sapUiContentPadding" width="65%">
+								<Label text="{i18n>TxtPuntoLlegada}" labelFor="TxtPuntoLleg" design="Bold" id="LblPuntoLleg"/>
+								<Input id="TxtPuntoLleg" editable="false"/>
+							</l:VerticalLayout>
+							<!-- Opción para el cliente Solicitante -->
+							<VBox class="sapUiSmallMargin">
+								<CheckBox text="{i18n>OpcionClienteSolic}" select=".onChkClienteSolic" id="CheckClienteSolic" visible="false"/>
+							</VBox>
+							<!-- Formulario  el Transportista de BP -->
+							<VBox class="sapUiSmallMargin">
+								<f:Form id="FormHd01_1" editable="true">
+									<f:title>
+										<core:Title text="{i18n>IdClientSoli}"/>
+									</f:title>
+									<f:layout>
+										<f:ResponsiveGridLayout labelSpanXL="3" labelSpanL="3" labelSpanM="3" labelSpanS="12" adjustLabelSpan="false" emptySpanXL="4" emptySpanL="4"
+											emptySpanM="4" emptySpanS="0" columnsXL="1" columnsL="1" columnsM="1" singleContainerFullSize="false"/>
+									</f:layout>
+									<f:formContainers>
+										<f:FormContainer>
+											<f:formElements>
+												<f:FormElement label="{i18n>IdClientSoli2}">
+													<f:fields>
+														<Input id="TxtClientSolic" editable="true" showValueHelp="true" valueHelpRequest=".onValueHelptClientSoli" maxLength="10" required="true"
+															placeholder="{i18n>IdTransPh}">
+															<layoutData>
+																<l:GridData span="XL1 L2 M2 S4"/>
+															</layoutData>
+														</Input>
+														<Input id="TxtClientSolicDesc" editable="false"/>
+													</f:fields>
+												</f:FormElement>
+											</f:formElements>
+										</f:FormContainer>
+									</f:formContainers>
+								</f:Form>
+							</VBox>
+						</IconTabFilter>
+						<!--============================================================================================================================-->
+						<!--============================================================================================================================-->
+						<!-- 02) TAB -  Datos de Traslado -->
+						<IconTabFilter text="{i18n>IdTitleTab2}" key="DatosTras">
+							<VBox class="sapUiSmallMargin">
+								<f:Form id="FormDt01" editable="true">
+									<!--
+									<f:title><core:Title text="{i18n>TitleForm2}"/></f:title>-->
+									<f:layout>
+										<f:ColumnLayout columnsM="2" columnsL="3" columnsXL="4"/>
+									</f:layout>
+									<f:formContainers>
+										<f:FormContainer>
+											<f:formElements>
+												<!--Retorno env/embal vacíos -->
+												<f:FormElement label="">
+													<f:fields>
+														<CheckBox id="FlgRev" editable="true" text="{i18n>FlagOption1}"/>
+													</f:fields>
+												</f:FormElement>
+												<!--Retorno vehículo vacíos -->
+												<f:FormElement label="">
+													<f:fields>
+														<CheckBox id="FlgRvv" editable="true" text="{i18n>FlagOption2}"/>
+													</f:fields>
+												</f:FormElement>
+												<!--Indicador 01" (Transbordo programado) -->
+												<f:FormElement label="">
+													<f:fields>
+														<CheckBox id="FlgTrp" editable="true" text="{i18n>FlagOption3}"/>
+													</f:fields>
+												</f:FormElement>
+												<!--Devolucion de Cliente -->
+												<f:FormElement label="">
+													<f:fields>
+														<CheckBox id="FlgDevc" editable="true" text="{i18n>FlagOption4}"  select=".onSelectDevc"/>
+													</f:fields>
+												</f:FormElement>
+											</f:formElements>
+										</f:FormContainer>
+									</f:formContainers>
+								</f:Form>
+							</VBox>
+							<!-- Part II -->
+							<VBox class="sapUiSmallMargin">
+								<f:SimpleForm id="FormDt02" editable="true" layout="ResponsiveGridLayout" title="{i18n>TitleForm2_1}" labelSpanXL="4" labelSpanL="3"
+									labelSpanM="4" labelSpanS="12" adjustLabelSpan="false" emptySpanXL="0" emptySpanL="4" emptySpanM="0" emptySpanS="0" columnsXL="2"
+									columnsL="1" columnsM="1" singleContainerFullSize="false">
+									<f:content>
+										<Label text="{i18n>PesoTotal}" required="true"/>
+										<Input id="TxtPesoTot" value="{SupplierName}" editable="true" placeholder="{i18n>PesoTotPh}" width="230px" type="Number"
+											change=".onChangePesoTot"/>
+											
+										<Label text="{i18n>NumeroBulto}"/>
+										<Input id="TxtNumBult" editable="true" width="230px" type="Number" liveChange=".onChangeInputPosit"/>
+										<!-- <MaskInput value="{path: 'Num', type: 'sap.ui.model.type.Integer'}" mask="99999" id="TxtNumBult"  editable="true" width="230px"/>-->
+										<Label text="{i18n>Unidadmedida}" required="true"/>
+										<!-- Unidad de Medida -->
+										<!--
+										<Input id="TxtUnidMed" editable="true" showValueHelp="true" valueHelpRequest=".onValueHelpUmHead" maxLength="3" required="true"
+											width="230px" placeholder="{i18n>UmPh}"/> -->
+										<Select id="TxtUnidMed" width="200px" editable="true">
+											<core:Item key="" text=""/>
+											<core:Item key="KG" text="Kilogramo"/>
+											<core:Item key="T" text="Tonelada"/>
+										</Select>
+									</f:content>
+								</f:SimpleForm>
+							</VBox>
+						</IconTabFilter>
+						<!--============================================================================================================================-->
+						<!--============================================================================================================================-->
+						<!-- 3) Datos de Transportista -->
+						<IconTabFilter text="{i18n>IdTitleTab3}" key="Transport">
+							<!-- Opción del Radio Button -->
+							<VBox class="sapUiSmallMargin">
+								<Label text="{i18n>TitleTransOp}" labelFor="GroupA"/>
+								<RadioButtonGroup id="">
+									<RadioButton text="{i18n>OpTipTrans}" select=".TransPub_handleR1" id="Rbopt1" selected="true"/>
+									<RadioButton text="{i18n>OpTipPriv}" select=".TransPri_handleR2" id="Rbopt2"/>
+								</RadioButtonGroup>
+							</VBox>
+							<!-- Formulario  el Transportista de BP -->
+							<VBox class="sapUiSmallMargin">
+								<f:Form id="FormTrans1" editable="true">
+									<f:title>
+										<core:Title text="{i18n>IdTitleTab3Form}"/>
+									</f:title>
+									<f:layout>
+										<f:ResponsiveGridLayout labelSpanXL="3" labelSpanL="3" labelSpanM="3" labelSpanS="12" adjustLabelSpan="false" emptySpanXL="4" emptySpanL="4"
+											emptySpanM="4" emptySpanS="0" columnsXL="1" columnsL="1" columnsM="1" singleContainerFullSize="false"/>
+									</f:layout>
+									<f:formContainers>
+										<f:FormContainer>
+											<f:formElements>
+												<f:FormElement label="{i18n>IdTransportista}">
+													<f:fields>
+														<Input id="TxtTransport" value="{SupplierName}" editable="true" showValueHelp="true" valueHelpRequest=".onValueHelpIdTrans" maxLength="10"
+															required="true" placeholder="{i18n>IdTransPh}">
+															<layoutData>
+																<l:GridData span="XL1 L2 M2 S4"/>
+															</layoutData>
+														</Input>
+														<Input id="TxtIdTransDesc" editable="false"/>
+													</f:fields>
+												</f:FormElement>
+											</f:formElements>
+										</f:FormContainer>
+									</f:formContainers>
+								</f:Form>
+							</VBox>
+							<FlexBox alignItems="Start" justifyContent="Center">
+								<CheckBox text="{i18n>OpcionManualTrans}" select=".onSelectTrasMan" id="CheckTrans" class="sapUiSmallMarginEnd"/>
+							</FlexBox>
+							<!-- ================================================== -->
+							<!-- Formulario  para el Transportista de datos Manual -->
+							<VBox class="sapUiSmallMargin">
+								<f:Form id="FormTrans1_1" editable="true">
+									<f:title>
+										<core:Title text="{i18n>FormTrans2}"/>
+									</f:title>
+									<f:layout>
+										<f:ResponsiveGridLayout labelSpanXL="3" labelSpanL="3" labelSpanM="3" labelSpanS="12" adjustLabelSpan="false" emptySpanXL="4" emptySpanL="4"
+											emptySpanM="4" emptySpanS="0" columnsXL="1" columnsL="1" columnsM="1" singleContainerFullSize="false"/>
+									</f:layout>
+									<f:formContainers>
+										<f:FormContainer>
+											<f:formElements>
+												<f:FormElement label="{i18n>DmTrans_razon}">
+													<f:fields>
+														<Input value="{SupplierName}" id="TxtDmRazon" required="true"/>
+													</f:fields>
+												</f:FormElement>
+												<f:FormElement label="{i18n>DmTransRuc}">
+													<f:fields>
+														<Input value="{SupplierName}" id="TxtDmRuc" required="true"/>
+													</f:fields>
+												</f:FormElement>
+												<f:FormElement label="{i18n>DmTransMtc}">
+													<f:fields>
+														<Input value="{SupplierName}" id="TxtDmMtc" required="true"/>
+													</f:fields>
+												</f:FormElement>
+											</f:formElements>
+										</f:FormContainer>
+									</f:formContainers>
+								</f:Form>
+							</VBox>
+							<!-- Formulario del Conductor o Chofer  de BP -->
+							<VBox class="sapUiSmallMargin">
+								<f:Form id="FormTrans2" editable="true">
+									<f:title>
+										<core:Title text="{i18n>IdTitleTab3_2Form}"/>
+									</f:title>
+									<f:layout>
+										<f:ResponsiveGridLayout labelSpanXL="3" labelSpanL="3" labelSpanM="3" labelSpanS="12" adjustLabelSpan="false" emptySpanXL="4" emptySpanL="4"
+											emptySpanM="4" emptySpanS="0" columnsXL="1" columnsL="1" columnsM="1" singleContainerFullSize="false"/>
+									</f:layout>
+									<f:formContainers>
+										<f:FormContainer>
+											<f:formElements>
+												<f:FormElement label="{i18n>Id_Conductor}">
+													<f:fields>
+														<Input id="TxtIdConductor" value="{SupplierName}" editable="true" showValueHelp="true" valueHelpRequest=".onValueHelpConduct" maxLength="10"
+															required="true" placeholder="{i18n>CodConducPh}">
+															<layoutData>
+																<l:GridData span="XL1 L2 M2 S4"/>
+															</layoutData>
+														</Input>
+														<Input id="TxtIdCondDesc" editable="false"/>
+													</f:fields>
+												</f:FormElement>
+												<f:FormElement label="{i18n>DmCondPlaca}">
+													<f:fields>
+														<Input id="TxtDmCPlacaCN" required="true" editable="true" width="170px"/>
+													</f:fields>
+												</f:FormElement>
+											</f:formElements>
+										</f:FormContainer>
+									</f:formContainers>
+								</f:Form>
+							</VBox>
+							<FlexBox alignItems="Start" justifyContent="Center">
+								<CheckBox text="{i18n>OpcionManualPriv}" select=".onSelectTrasPriv" id="CheckConduct" class="sapUiSmallMarginEnd"/>
+							</FlexBox>
+							<!-- Formulario  para el Conductor o Chofer  Manual -->
+							<VBox class="sapUiSmallMargin">
+								<f:Form id="FormTrans2_1" editable="true">
+									<f:title>
+										<core:Title text="{i18n>FormTrans3}"/>
+									</f:title>
+									<f:layout>
+										<f:ResponsiveGridLayout labelSpanXL="3" labelSpanL="3" labelSpanM="3" labelSpanS="12" adjustLabelSpan="false" emptySpanXL="4" emptySpanL="4"
+											emptySpanM="4" emptySpanS="0" columnsXL="1" columnsL="1" columnsM="1" singleContainerFullSize="false"/>
+									</f:layout>
+									<f:formContainers>
+										<f:FormContainer>
+											<f:formElements>
+												<f:FormElement label="{i18n>DmCondName}">
+													<f:fields>
+														<Input value="{SupplierName}" id="TxtDmCName" required="true"/>
+													</f:fields>
+												</f:FormElement>
+												<f:FormElement label="{i18n>DmCondApell}">
+													<f:fields>
+														<Input value="{SupplierName}" id="TxtDmCApell" required="true"/>
+													</f:fields>
+												</f:FormElement>
+												<f:FormElement label="{i18n>DmCondDni}">
+													<f:fields>
+														<Input value="{SupplierName}" id="TxtDmCDni" required="true"/>
+													</f:fields>
+												</f:FormElement>
+												<f:FormElement label="{i18n>DmCondPlaca}">
+													<f:fields>
+														<Input value="{SupplierName}" id="TxtDmCPlaca" required="true"/>
+													</f:fields>
+												</f:FormElement>
+												<f:FormElement label="{i18n>DmCondLicen}">
+													<f:fields>
+														<Input value="{SupplierName}" id="TxtDmCLicen" required="true"/>
+													</f:fields>
+												</f:FormElement>
+											</f:formElements>
+										</f:FormContainer>
+									</f:formContainers>
+								</f:Form>
+							</VBox>
+						</IconTabFilter>
+						<!--============================================================================================================================-->
+						<!--============================================================================================================================-->
+						<!-- 4) Datos de Destino-->
+						<IconTabFilter text="{i18n>IdTitleTab4_1}" key="Destino" visible="false">
+							<VBox class="sapUiSmallMargin">
+								<f:SimpleForm id="FormTrans01" editable="true" layout="ResponsiveGridLayout" title="{i18n>IdTitleTab3_1Form}" labelSpanXL="4" labelSpanL="3"
+									labelSpanM="4" labelSpanS="12" adjustLabelSpan="false" emptySpanXL="0" emptySpanL="4" emptySpanM="0" emptySpanS="0" columnsXL="2"
+									columnsL="1" columnsM="1" singleContainerFullSize="false">
+									<f:content>
+										<!-- Punto de Partida-->
+										<Label text="{i18n>PuntPart}"/>
+										<Input id="TxtPuntPart" editable="true" showValueHelp="true" valueHelpRequest=".onValueHelpIdTrans" maxLength="10" required="true"
+											placeholder="{i18n>IdPuntoPartPh}">
+											<layoutData>
+												<f:ColumnElementData cellsSmall="4" cellsLarge="4" editable="false"/>
+											</layoutData>
+										</Input>
+										<Input id="TxtPuntPartDesc" editable="false"/>
+										<!-- Punto de Llegada -->
+										<Label text="{i18n>PuntLLeg}"/>
+										<Input id="TxtPuntLLeg" editable="false"></Input>
+										<!-- Código de Sucursal -->
+										<Label text="{i18n>CodSuc}"/>
+										<Input id="TxtCodSuc" editable="true" showValueHelp="true" valueHelpRequest=".onValueHelpIdTrans" maxLength="10"
+											placeholder="{i18n>CodSucPh}">
+											<layoutData>
+												<f:ColumnElementData cellsSmall="4" cellsLarge="4" editable="false"/>
+											</layoutData>
+										</Input>
+										<Input id="TxtCodSucDesc" editable="false"/>
+									</f:content>
+								</f:SimpleForm>
+							</VBox>
+						</IconTabFilter>
+						<!--============================================================================================================================-->
+						<!--============================================================================================================================-->
+						<!-- 5) Observaciones-->
+						<IconTabFilter text="{i18n>IdTitleTab4}" key="Observ">
+							<VBox class="sapUiSmallMargin">
+								<f:SimpleForm id="FormOb01" editable="true" layout="ResponsiveGridLayout" title="{i18n>IdTitleTab4Form}" labelSpanXL="4" labelSpanL="3"
+									labelSpanM="4" labelSpanS="12" adjustLabelSpan="false" emptySpanXL="0" emptySpanL="4" emptySpanM="0" emptySpanS="0" columnsXL="2"
+									columnsL="1" columnsM="1" singleContainerFullSize="false">
+									<f:content>
+										<Label text="{i18n>Obs01}"/>
+										<TextArea id="TxtObservaciones" maxLength="255" editable="true"/>
+										<Label text="{i18n>Obs02}"/>
+										<TextArea id="TxtMotivo13" maxLength="50" editable="true"/>
+									</f:content>
+								</f:SimpleForm>
+							</VBox>
+						</IconTabFilter>
+						<!--============================================================================================================================-->
+						<!--============================================================================================================================-->
+						<!-- 6) Datos Adicionales-->
+						<IconTabFilter text="{i18n>IdTitleTabAdic}" key="Adic">
+							<VBox class="sapUiSmallMargin">
+								<f:Form id="FormAdic" editable="true">
+									<f:title>
+										<core:Title text="{i18n>tab6Datos}"/>
+									</f:title>
+									<f:layout>
+										<f:ColumnLayout columnsM="2" columnsL="3" columnsXL="3"/>
+									</f:layout>
+									<f:formContainers>
+										<f:FormContainer title="{i18n>tab6Grppeso}">
+											<f:formElements>
+												<f:FormElement label="{i18n>tab6TotTara}">
+													<f:fields>
+														<Input id="TxtTotTara" editable="true" placeholder="{i18n>tab6ValorPH}" type="Number" change=".onChangeParseDec"/>
+													</f:fields>
+												</f:FormElement>
+												<f:FormElement label="{i18n>tab6PesoNet}">
+													<f:fields>
+														<Input id="TxtPesoNet" editable="true" placeholder="{i18n>tab6ValorPH}" type="Number" change=".onChangeParseDec"/>
+													</f:fields>
+												</f:FormElement>
+												<f:FormElement label="{i18n>tab6PesoBru}">
+													<f:fields>
+														<Input id="TxtPesoBru" editable="true" placeholder="{i18n>tab6ValorPH}" type="Number" change=".onChangeParseDec"/>
+													</f:fields>
+												</f:FormElement>
+												<f:FormElement label="{i18n>tab6PesoPro}">
+													<f:fields>
+														<Input id="TxtPesoPro" editable="true" placeholder="{i18n>tab6ValorPH}" type="Number" change=".onChangeParseDec"/>
+													</f:fields>
+												</f:FormElement>
+											</f:formElements>
+										</f:FormContainer>
+									</f:formContainers>
+									<f:FormContainer title="{i18n>tab6GrpCant}">
+										<f:formElements>
+											<f:FormElement label="{i18n>tab6Njcb}">
+												<f:fields>
+													<Input id="TxtNjcb" editable="true" placeholder="{i18n>tab6ValorPH}" type="Number"  liveChange=".onChangeInputPosit"/>
+												</f:fields>
+											</f:FormElement>
+											<f:FormElement label="{i18n>tab6Np}">
+												<f:fields>
+													<Input id="TxtNp" editable="true" placeholder="{i18n>tab6ValorPH}" type="Number"  liveChange=".onChangeInputPosit"/>
+												</f:fields>
+											</f:FormElement>
+											<f:FormElement label="{i18n>tab6Npjab}">
+												<f:fields>
+													<Input id="TxtNpjab" editable="true" placeholder="{i18n>tab6ValorPH}" type="Number"  liveChange=".onChangeInputPosit"/>
+												</f:fields>
+											</f:FormElement>
+											<f:FormElement label="{i18n>tab6Nprecinto}" id="FieldPrecinto" visible="false">
+												<f:fields>
+													<Input id="TxtNPrecinto" editable="true" placeholder="{i18n>tab6ValorPH}" type="Number"  liveChange=".onChangeInputPosit"/>
+												</f:fields>
+											</f:FormElement>
+										</f:formElements>
+									</f:FormContainer>
+									<f:FormContainer title="{i18n>tab6GrpGran}">
+										<f:formElements>
+											<f:FormElement label="{i18n>tab6Ngranja}">
+												<f:fields>
+													<Input id="TxtNgranja" editable="true" placeholder="{i18n>tab6ValorPH}"/>
+												</f:fields>
+											</f:FormElement>
+											<f:FormElement label="{i18n>tab6NGalon}">
+												<f:fields>
+													<Input id="TxtNGalon" editable="true" placeholder="{i18n>tab6ValorPH}" type="Number"  liveChange=".onChangeInputPosit"/>
+												</f:fields>
+											</f:FormElement>
+											<f:FormElement label="{i18n>tab6NPedido}">
+												<f:fields>
+													<Input id="TxtNPedido" editable="true" placeholder="{i18n>tab6ValorPH}"/>
+												</f:fields>
+											</f:FormElement>
+										</f:formElements>
+									</f:FormContainer>
+								</f:Form>
+							</VBox>
+						</IconTabFilter>
+					</items>
+				</IconTabBar>
+			</content>
+		</Panel>
+		<!--============================================================================================================================ -->
+		<!--============================================================================================================================ -->
+		<!--============================================================================================================================ -->
+		<!-- Datos de Detalle -->
+		<Panel expandable="true" headerText="{i18n>SectionDetail}" width="auto" class="sapUiResponsiveMargin" expanded="true">
+			<content>
+				<!-- <Table id="DetalleEntreg" mode="MultiSelect" inset="false" items="{jsonDetail>/Detail}"> -->
+				<Table id="DetalleEntreg" mode="MultiSelect" items="{ path: 'detailProducts>/Detail' }" contextualWidth="Auto">
+					<headerToolbar>
+						<OverflowToolbar id="otbSubheader">
+							<Title text="{i18n>Products}" level="H2"/>
+							<ToolbarSpacer/>
+							<Button id="AddButton" text="{i18n>AddRowTable}" type="Transparent" press=".onAdd" icon="sap-icon://add-product"/>
+							<Button id="DeleteButton" text="{i18n>DeleteRowTable}" type="Transparent" press=".onDelete" icon="sap-icon://delete"/>
+						</OverflowToolbar>
+					</headerToolbar>
+					<columns>
+						<Column id="_IDGenColumn2cc" width="12em" vAlign="Bottom">
+							<header>
+								<Label id="_IDGenLabel2c" text="{i18n>DetMaterial}"/>
+							</header>
+						</Column>
+						<Column id="_IDGenColumn3cc" width="30em" vAlign="Bottom">
+							<header>
+								<Label id="_IDGenLabel3c" text="{i18n>DetDesc}" hAlign="Center"/>
+							</header>
+						</Column>
+						<Column id="_IDGenColumn32cc" width="12em">
+							<header>
+								<Label id="_IDGenLabel32c" text="{i18n>DetCodSunat}"/>
+							</header>
+						</Column>
+						<Column id="_IDGenColumn4cc" width="10em">
+							<header>
+								<Label id="_IDGenLabel4c" text="{i18n>DetCant}" hAlign="Center"/>
+							</header>
+						</Column>
+						<Column id="_IDGenColumn5cc" width="10em">
+							<header>
+								<Label id="_IDGenLabel5c" text="{i18n>DetUM}" hAlign="Center"/>
+							</header>
+						</Column>
+						<!-- ==================================================================-->
+						<!-- Campos Adicionales Detalle -->
+						<Column id="IdSexoItem" width="12em" visible="false">
+							<header>
+								<Label id="LblIdSexoItem" text="{i18n>SexoItem}"/>
+							</header>
+						</Column>
+						<Column id="IdNlote" width="12em" visible="false">
+							<header>
+								<Label id="LblIdNlote" text="{i18n>NLote}"/>
+							</header>
+						</Column>
+						<Column id="IdEdad" width="10em" visible="false">
+							<header>
+								<Label id="LblIdEdad" text="{i18n>Edad}"/>
+							</header>
+						</Column>
+						<Column id="IdSerie" width="15em" visible="false">
+							<header>
+								<Label id="LblIdSerie" text="{i18n>NSerie}"/>
+							</header>
+						</Column>
+						<Column id="IdFVenc" width="16em" visible="false">
+							<header>
+								<Label id="LblIdIdFVenc" text="{i18n>FVenc}"/>
+							</header>
+						</Column>
+					</columns>
+					<!-- Agregar Items -->
+					<items>
+						<ColumnListItem vAlign="Middle">
+							<cells>
+								<Input showValueHelp="true" editable="true" enabled="true" filterSuggests="false" showSuggestion="true" liveChange=".onLiveChangeProduct"
+									suggestionItemSelected="" suggest="" valueHelpRequest="onValueHelpIdProduct" value="{detailProducts>Matnr}" change=".onChangeProduct"/>
+								<Input editable="true" enabled="true" value="{detailProducts>Arktx}" liveChange=".onLiveChangeProductDesc"/>
+								<Input editable="true" enabled="true" value="{detailProducts>MatnrSunat}" change=".onChangeCodSunat"/>
+								<Input editable="true" enabled="true" type="Number" change=".onChangeInputQuantity" value="{detailProducts>Lfimg}" />
+								<Input showValueHelp="true" editable="true" enabled="true" filterSuggests="false" showSuggestion="true" liveChange=""
+									suggestionItemSelected="" suggest="" valueHelpRequest="onValueHelpUmDet" value="{detailProducts>Vrkme}" change=".onChangeUmDet"/>
+								<!-- Campos Adicionales Detalle -->
+								<Input editable="true" enabled="true" value="{}"/>
+								<!-- Sexo (item) -->
+								<Input editable="true" enabled="true" value="{}"/>
+								<!-- N°Lote (item) -->
+								<Input editable="true" enabled="true" value="{}" type="Number" maxLength="3" liveChange=".onChangeCheckLength3"/>
+								<!-- Edad (item) -->
+								<Input editable="true" enabled="true" value="{}"/>
+								<!-- N°Serie (solo para Equipos) item -->
+								<DatePicker class="sapUiSmallMarginBottom" displayFormat="dd/MM/YYYY" valueFormat="dd/MM/YYYY" editable="true"/>
+								<!-- Fecha de vencimiento  -->
+							</cells>
+						</ColumnListItem>
+					</items>
+				</Table>
+			</content>
+		</Panel>
+		<!--============================================================================================================================================================ -->
+		<!--# Sección de Footer-->
+		<footer>
+			<Toolbar>
+				<ToolbarSpacer/>
+				<Button type="Emphasized" text="{i18n>Grabar}" press=".onSaveGre"/>
+				<Button text="{i18n>Cancelar}" press=".onCancelar"/>
+				<Button icon="sap-icon://action" type="Transparent" press=".onNavBack"/>
+			</Toolbar>
+		</footer>
+	</Page>
+</mvc:View>

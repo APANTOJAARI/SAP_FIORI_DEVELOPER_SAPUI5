@@ -1,0 +1,162 @@
+<mvc:View controllerName="ZSD_APP_GREMI.ZSD_APP_GREMI.controller.Main" xmlns="sap.m" xmlns:core="sap.ui.core" xmlns:mvc="sap.ui.core.mvc"
+	displayBlock="true" xmlns:smartFilterBar="sap.ui.comp.smartfilterbar" xmlns:smartTable="sap.ui.comp.smarttable"
+	xmlns:html="http://www.w3.org/1999/xhtml" xmlns:app="http://schemas.sap.com/sapui5/extension/sap.ui.core.CustomData/1">
+	<Page id="PageMain" title="{i18n>title}">
+		<customHeader>
+			<Bar>
+				<contentLeft><Image height="35px" width="auto" src="https://acgg1zabk.accounts.ondemand.com/ui/public/cached/tenant/v/4/tenant_logo"/></contentLeft>
+				<!-- Logo -->
+			</Bar>
+		</customHeader>
+		<content>
+			<!-- use this to make the table occupy the available screen height  -->
+			<VBox fitContainer="true">
+				<smartFilterBar:SmartFilterBar id="smartFilterBar" entitySet="HeaderSet" persistencyKey="SmartFilter_Explored" basicSearchFieldName="Numgr"
+					enableBasicSearch="true">
+					<!-- <smartFilterBar:SmartFilterBar id="smartFilterBar" entitySet="HeaderSet"> -->
+					<smartFilterBar:controlConfiguration>
+						<smartFilterBar:ControlConfiguration key="Vbeln" visibleInAdvancedArea="true" preventInitialDataFetchInValueHelpDialog="true" index="1"/>
+						<smartFilterBar:ControlConfiguration key="Vkorg" visibleInAdvancedArea="true" preventInitialDataFetchInValueHelpDialog="true" index="2"/>
+						<smartFilterBar:ControlConfiguration key="Erdat" visibleInAdvancedArea="true" preventInitialDataFetchInValueHelpDialog="true" index="3"
+							conditionType="{ module: 'sap.ui.comp.config.condition.DateRangeType', ignoreTime: false }"/>
+						<smartFilterBar:ControlConfiguration key="Kunwe" visibleInAdvancedArea="true" preventInitialDataFetchInValueHelpDialog="true" index="4"/>
+					</smartFilterBar:controlConfiguration>
+					<!-- 
+					<smartFilterBar:ControlConfiguration key="Ernam">
+						<smartFilterBar:defaultFilterValues>
+								<smartFilterBar:SelectOption low="2014">
+								</smartFilterBar:SelectOption>
+							</smartFilterBar:defaultFilterValues>
+						</smartFilterBar:ControlConfiguration>-->
+					<!-- layout data used to make the table growing but the filter bar fixed -->
+					<smartFilterBar:layoutData>
+						<FlexItemData shrinkFactor="0"/>
+					</smartFilterBar:layoutData>
+				</smartFilterBar:SmartFilterBar>
+				<smartTable:SmartTable id="LineItemsSmartTable" entitySet="HeaderSet" smartFilterId="smartFilterBar" tableType="ResponsiveTable"
+					useExportToExcel="true" beforeExport="onBeforeExport" useVariantManagement="true" useTablePersonalisation="true" header="Entregas"
+					showRowCount="true" persistencyKey="SmartTableAnalytical_Explored" enableAutoBinding="true" class="sapUiResponsiveContentPadding"
+					enableAutoColumnWidth="true" demandPopin="true" beforeRebindTable=".onBeforeRebindTableExtension">
+					<!--+add-->
+					<!-- layout data used to make the table growing but the filter bar fixed -->
+					<smartTable:layoutData>
+						<FlexItemData growFactor="1" baseSize="0%"/>
+					</smartTable:layoutData>
+					<!-- Agregar el Botón de crear nuevo registro-->
+					<smartTable:customToolbar>
+						<OverflowToolbar design="Transparent">
+							<ToolbarSpacer/>
+							<OverflowToolbarButton icon="sap-icon://synchronize" tooltip="{i18n>BtnRefresh}" text="{i18n>BtnRefresh}" press="onRefresh"/>
+							<OverflowToolbarButton icon="sap-icon://create-form" tooltip="{i18n>BtnCrear}" text="{i18n>BtnCrear}" press="onCreate"/>
+						</OverflowToolbar>
+					</smartTable:customToolbar>
+					<Table>
+						<columns>
+							<!-- ID de la entrega -->
+							<Column id="IdEntrega" width="80px" vAlign="Middle" hAlign="Center">
+								<customData>
+									<core:CustomData key="p13nData" value='\{"columnKey": "Numgr", "columnIndex": 0, "leadingProperty": "Numgr", "sortProperty": "Numgr"}'/>
+								</customData>
+								<Text text="{i18n>TxtIdEntrega}"/>
+							</Column>
+							<!-- Entrega - Vbeln -->
+							<Column id="Entrega" vAlign="Middle" hAlign="Center" width="100px">
+								<customData>
+									<core:CustomData key="p13nData" value='\{"columnKey": "Vbeln", "columnIndex": 1, "leadingProperty": "Vbeln"}'/>
+								</customData>
+								<Text text="{/#Header/Vbeln/@sap:label}"/>
+							</Column>
+							<!-- Referencia. -->
+							<Column id="Referencia" vAlign="Middle" hAlign="Center">
+								<customData>
+									<core:CustomData key="p13nData" value='\{"columnKey": "Referencia", "columnIndex": 2, "leadingProperty": "Referencia"}'/>
+								</customData>
+								<Text text="{/#Header/Referencia/@sap:label}"/>
+							</Column>
+							<!-- Mov.mcía.prev.l -->
+							<Column id="WadatMain" vAlign="Middle" hAlign="Center">
+								<customData>
+									<core:CustomData key="p13nData" value='\{"columnKey": "Wadat", "columnIndex": 3, "leadingProperty": "Wadat"}'/>
+								</customData>
+								<Text text="{i18n>FechaEmisi}"/>
+							</Column>
+							<!-- Estatus Oper-->
+							<Column id="rpta_operador" vAlign="Middle" hAlign="Center">
+								<customData>
+									<core:CustomData key="p13nData" value='\{"columnKey": "rpta_operador", "columnIndex": 4, "leadingProperty": "rpta_operador"}'/>
+								</customData>
+								<Text text="{i18n>statusOper}"/>
+							</Column>
+							<!-- Estatus Oper-->
+							<Column id="msg_operador" vAlign="Middle" hAlign="Center">
+								<customData>
+									<core:CustomData key="p13nData" value='\{"columnKey": "msg_operador", "columnIndex": 5, "leadingProperty": "msg_operador"}'/>
+								</customData>
+								<Text text="{i18n>MensOper}"/>
+							</Column>
+							<Column id="estado_sunat" vAlign="Middle" hAlign="Center">
+								<customData>
+									<core:CustomData key="p13nData" value='\{"columnKey": "estado_sunat", "columnIndex": 6, "leadingProperty": "estado_sunat"}'/>
+								</customData>
+								<Text text="{/#Header/estado_sunat/@sap:label}"/>
+							</Column>
+							<!-- Estatus Oper-->
+							<Column id="msg_sunat" vAlign="Middle" hAlign="Center">
+								<customData>
+									<core:CustomData key="p13nData" value='\{"columnKey": "msg_sunat", "columnIndex": 7, "leadingProperty": "msg_sunat"}'/>
+								</customData>
+								<Text text="{i18n>MensSunat}"/>
+							</Column>
+							<Column id="pdf" vAlign="Middle" hAlign="Center">
+								<Text text="{i18n>VisPdf}"/>
+							</Column>
+							
+						</columns>
+						<ColumnListItem type="Navigation" press="onItemPress">
+							<cells>
+								<Text text="{Numgr}"></Text>
+								<!-- ID de la entrega -->
+							</cells>
+							<cells>
+								<Text text="{Vbeln}"></Text>
+								<!-- Entrega -->
+							</cells>
+							<cells>
+								<Text text="{Referencia}"></Text>
+								<!-- Referencia. -->
+							</cells>
+							<cells>
+								<Text text="{ path: 'Wadat', type: 'sap.ui.model.type.Date',formatOptions: { pattern: 'dd/MM/yyyy', strictParsing: true , UTC: true }}"></Text>
+							</cells>
+							<cells>
+								<ObjectStatus xmlns="sap.m" state="{= ${rpta_operador} === '1.Firmado' ? 'Success' : ${rpta_operador} === '2.No Firmado' ? 'Error' : None}"
+									text="{rpta_operador}"
+									icon="{= ${rpta_operador} === '1.Firmado' ? 'sap-icon://sys-enter-2' : ${msg_operador} !== '' ? 'sap-icon://error' : undefined }"
+									inverted="{= ${rpta_operador} === '0.Pendiente'}" />
+							</cells>
+							<cells>
+								<Button icon="sap-icon://message-information" press=".onLogOper" visible="{= ${Referencia} !== ''}" text="{i18n>VerMsg}"/>
+							</cells>
+							<cells>
+								<ObjectStatus xmlns="sap.m" state="{=${estado_sunat} === '1.Aceptado' ? 'Success' : 
+																	  ${estado_sunat} === '2.Rechazado' ? 'Error' :
+																	  ${estado_sunat} === '3.Acept.Observ' ? 'Warning' : None}"
+									text="{estado_sunat}"
+									icon="{= ${estado_sunat} === '1.Aceptado' ? 'sap-icon://sys-enter-2' : 
+											 ${estado_sunat} === '2.Rechazado' ? 'sap-icon://error' :
+											 ${estado_sunat} === '3.Acept.Obser' ? 'sap-icon://alert' : undefined }" inverted="{= ${estado_sunat} === '0.Pendiente'}"/>
+							</cells>
+							<cells>
+								<Button icon="sap-icon://message-information" press=".onLogSunat" visible="{= ${Referencia} !== ''}" text="{i18n>VerMsg}"/>
+							</cells>
+							<cells>
+								<Button icon="sap-icon://pdf-attachment" press=".onViewPdf" visible="{= ${rpta_operador} === '1.Firmado'}"/>
+							</cells> 
+
+						</ColumnListItem>
+					</Table>
+				</smartTable:SmartTable>
+			</VBox>
+		</content>
+	</Page>
+</mvc:View>

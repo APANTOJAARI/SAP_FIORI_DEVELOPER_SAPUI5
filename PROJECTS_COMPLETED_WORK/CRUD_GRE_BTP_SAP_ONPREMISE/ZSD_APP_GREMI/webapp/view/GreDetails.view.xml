@@ -1,0 +1,654 @@
+<mvc:View controllerName="ZSD_APP_GREMI.ZSD_APP_GREMI.controller.GreDetails" xmlns="sap.m" xmlns:core="sap.ui.core"
+	xmlns:mvc="sap.ui.core.mvc" displayBlock="true" xmlns:semantic="sap.f.semantic" xmlns:l="sap.ui.layout" xmlns:f="sap.ui.layout.form">
+	<!-- <Page id="_IDGrePage1" title="{i18n>title2}" showNavButton="true" navButtonPress=".onNavBack"> -->
+	<Page>
+		<customHeader>
+			<Bar>
+				<contentLeft>
+					<Button icon="sap-icon://nav-back" press=".onNavBack"></Button>
+				</contentLeft>
+				<contentMiddle>
+					<Text text="{i18n>TitleId} {modelDataGRE>/Numgr} - {i18n>TitleId2} {modelDataGRE>/Vbeln}"></Text>
+				</contentMiddle>
+			</Bar>
+		</customHeader>
+		<!--============================================================================================================================================================ -->
+		<!--# Contenido-->
+		<Panel expandable="true" headerText="{i18n>SectionHeader}" width="auto" class="sapUiResponsiveMargin" expanded="true">
+			<content>
+				<IconTabBar id="idIconTabBarNoIcons" expanded="{device>/isNoPhone}" class="sapUiResponsiveContentPadding" select=".onTabBar">
+					<items>
+						<!--============================================================================================================================-->
+						<!--============================================================================================================================-->
+						<!-- 01) TAB -  Datos de Cabecera -->
+						<IconTabFilter text="Info" key="info">
+							<VBox class="sapUiSmallMargin">
+								<f:Form id="FormHd01" editable="false">
+									<f:title>
+										<core:Title text="{i18n>TitleForm}"/>
+									</f:title>
+									<f:layout>
+										<f:ColumnLayout columnsM="2" columnsL="3" columnsXL="4"/>
+									</f:layout>
+									<f:formContainers>
+										<f:FormContainer>
+											<f:formElements >
+												<!-- Motivo de Traslado -->
+												<f:FormElement label="{i18n>MotivTras}">
+													<f:fields>
+														<Input id="TxtMotivTras" editable="false" showValueHelp="true" valueHelpRequest=".onValueHelpMotivTras" maxLength="2" required="true"
+															change=".onChangeMotiv" value="{modelDataGRE>/MotivoTraslado}">
+															<layoutData>
+																<f:ColumnElementData cellsSmall="3" cellsLarge="2" editable="false"/>
+															</layoutData>
+														</Input>
+														<Input id="TxtMotivTrasDesc" editable="false"/>
+													</f:fields>
+												</f:FormElement>
+												
+												<!-- Fecha de Emisión e Inicio de Traslado -->
+												<f:FormElement label="{i18n>DateMov}">
+													<DatePicker id="TxtDateMov" placeholder="{i18n>DatePlaceHolder}" change=".handleChangeDate" class="sapUiSmallMarginBottom" required="true"
+													    valueFormat="dd/MM/YYYY" editable="false"
+														value="{path: 'modelDataGRE>/Wadat', type: 'sap.ui.model.type.Date' , formatOptions: { style: 'long',strictParsing: true, UTC: true }}"/>
+												</f:FormElement>
+												
+												<!--Centro Almacén -->
+												<f:FormElement label="{i18n>CentroAlmac}" visible="true">
+													<f:fields>
+														<Input id="TxtCentro" editable="false" showValueHelp="true" valueHelpRequest=".onValueHelpWerks" maxLength="4" required="true"
+															value="{modelDataGRE>/Centro}">
+															<layoutData>
+																<f:ColumnElementData cellsSmall="4" cellsLarge="4" editable="false"/>
+															</layoutData>
+														</Input>
+														<Input id="TxtCAlmacen" editable="false" value="{modelDataGRE>/PuntoPartida}"/>
+													</f:fields>
+												</f:FormElement>
+												
+												<!-- Fecha de entrega de bienes -->
+												<f:FormElement label="{i18n>DateEntrega}">
+												<DatePicker id="TxtDateEntrega" placeholder="{i18n>DatePlaceHolder}" change=".handleChangeDate" class="sapUiSmallMarginBottom"
+															 required="true"  displayFormat="long" editable="false" value="{path: 'modelDataGRE>/DateTraslado', type: 'sap.ui.model.type.Date' , formatOptions: { style: 'long',strictParsing: true, UTC: true }}"/>				
+												</f:FormElement>
+												
+												<!--Centro Almacén Destino (New Campo) -->	
+												<f:FormElement label="{i18n>CentroAlmacDest}"  visible="{= ${modelDataGRE>/MotivoTraslado} === '04'}"  id="formElementWdest">
+													<f:fields>
+														<Input id="TxtCentroDest" editable="false" showValueHelp="true" valueHelpRequest=".onValueHelpWerksDest" maxLength="4" required="true" 	value="{modelDataGRE>/CentroDestino}">
+															<layoutData>
+																<f:ColumnElementData cellsSmall="4" cellsLarge="4" editable="false"/>
+															</layoutData>
+														</Input>
+														<Input id="TxtCAlmacenDest" editable="false" value="{modelDataGRE>/AlmacenDestino}"/>
+													</f:fields>
+												</f:FormElement>
+												
+												<!-- Destinatario de Mercancía -->
+												<f:FormElement label="{i18n>DesMcia}">
+													<f:fields>
+														<Input id="TxtDesMcia" editable="false" showValueHelp="true" valueHelpRequest=".onValueHelpDesMcia" maxLength="10" required="true"
+															value="{modelDataGRE>/Kunwe}">
+															<layoutData>
+																<f:ColumnElementData cellsSmall="4" cellsLarge="4" editable="false"/>
+															</layoutData>
+														</Input>
+														<Input id="TxtDesMciaDesc" editable="false"/>
+													</f:fields>
+												</f:FormElement>
+												<!--Proveedor- Campo Nuevo -->
+												<f:FormElement label="{i18n>Proveed}" visible="{= ${modelDataGRE>/MotivoTraslado} === '02' ||  ${modelDataGRE>/MotivoTraslado} === '07' }">
+													<f:fields>
+														<Input id="TxtProveed" editable="false" showValueHelp="true" valueHelpRequest=".onValueHelpProveed" maxLength="10" required="true"
+															value="{modelDataGRE>/Proveedor}">
+															<layoutData>
+																<f:ColumnElementData cellsSmall="4" cellsLarge="4" editable="false"/>
+															</layoutData>
+														</Input>
+														<Input id="TxtProveedDesc" editable="false"/>
+													</f:fields>
+												</f:FormElement>
+											</f:formElements>
+										</f:FormContainer>
+									</f:formContainers>
+								</f:Form>
+							</VBox>
+							<!-- Textos Largos Adicionales -->
+							<l:VerticalLayout class="sapUiContentPadding" width="65%">
+								<Label text="{= ${modelDataGRE>/MotivoTraslado} === '02' ? ${i18n>TxtPuntoPart2}   : 
+										        ${modelDataGRE>/MotivoTraslado} === '07' ? ${i18n>TxtPuntoPart2}   : 
+										    	${modelDataGRE>/CategoriaVehiculo} !== '' ? ${i18n>TxtPuntoPartM13} : ${i18n>TxtPuntoPart}}" 
+										        labelFor="TxtPuntoPart" design="Bold"/>
+												
+								<Input id="TxtPuntoPart" editable="false"/>
+							</l:VerticalLayout>
+							
+							<l:VerticalLayout class="sapUiContentPadding" width="65%">
+								<Label text="{= ${modelDataGRE>/MotivoTraslado} === '02' ? ${i18n>TxtPuntoLlegada3}   : 
+												${modelDataGRE>/MotivoTraslado} === '07' ? ${i18n>TxtPuntoLlegada3}   :
+												${modelDataGRE>/CategoriaVehiculo} !== '' ? ${i18n>TxtPuntoLlegadaM13} :
+												${modelDataGRE>/MotivoTraslado} === '04' ? ${i18n>TxtPuntoLlegada4} : ${i18n>TxtPuntoLlegada2} }" 
+												labelFor="TxtPuntoLleg" design="Bold"/>
+												
+								<Input id="TxtPuntoLleg" editable="false"/>
+								
+							</l:VerticalLayout>
+							<!-- Opción para el cliente Solicitante -->
+							<VBox class="sapUiSmallMargin">
+								<CheckBox text="{i18n>OpcionClienteSolic}" select=".onChkClienteSolic" id="CheckClienteSolic" editable="false"
+									selected="{= ${modelDataGRE>/KunnrSucur} !== '' }" visible="{= ${modelDataGRE>/MotivoTraslado} === '03' }"/>
+							</VBox>
+							<!-- Formulario BP -->
+							<VBox class="sapUiSmallMargin" visible="{= ${modelDataGRE>/KunnrSucur} !== ''}">
+								<f:Form id="FormHd01_1" editable="false">
+									<f:title>
+										<core:Title text="{i18n>IdClientSoli}"/>
+									</f:title>
+									<f:layout>
+										<f:ResponsiveGridLayout labelSpanXL="3" labelSpanL="3" labelSpanM="3" labelSpanS="12" adjustLabelSpan="false" emptySpanXL="4" emptySpanL="4"
+											emptySpanM="4" emptySpanS="0" columnsXL="1" columnsL="1" columnsM="1" singleContainerFullSize="false"/>
+									</f:layout>
+									<f:formContainers>
+										<f:FormContainer>
+											<f:formElements>
+												<f:FormElement label="{i18n>IdClientSoli2}">
+													<f:fields>
+														<Input id="TxtClientSolic" editable="false" showValueHelp="true" valueHelpRequest=".onValueHelptClientSoli" maxLength="10" required="true"
+															placeholder="{i18n>IdTransPh}" value="{modelDataGRE>/KunnrSucur}">
+															<layoutData>
+																<l:GridData span="XL1 L2 M2 S4"/>
+															</layoutData>
+														</Input>
+														<Input id="TxtClientSolicDesc" editable="false"/>
+													</f:fields>
+												</f:FormElement>
+											</f:formElements>
+										</f:FormContainer>
+									</f:formContainers>
+								</f:Form>
+							</VBox>
+						</IconTabFilter>
+						<!--============================================================================================================================-->
+						<!--============================================================================================================================-->
+						<!-- 02) TAB -  Datos de Traslado -->
+						<IconTabFilter text="{i18n>IdTitleTab2}" key="DatosTras">
+							<VBox class="sapUiSmallMargin">
+								<f:Form id="FormDt01" editable="false">
+									<!--
+									<f:title><core:Title text="{i18n>TitleForm2}"/></f:title>-->
+									<f:layout>
+										<f:ColumnLayout columnsM="2" columnsL="3" columnsXL="4"/>
+									</f:layout>
+									<f:formContainers>
+										<f:FormContainer>
+											<f:formElements>
+												<!--Retorno env/embal vacíos -->
+												<f:FormElement label="">
+													<f:fields>
+														<CheckBox id="FlgRev" editable="false" text="{i18n>FlagOption1}" selected="{= ${modelDataGRE>/RetornoEnvaceVacio} === 'X'}"/>
+													</f:fields>
+												</f:FormElement>
+												<!--Retorno vehículo vacíos -->
+												<f:FormElement label="">
+													<f:fields>
+														<CheckBox id="FlgRvv" editable="false" text="{i18n>FlagOption2}" selected="{= ${modelDataGRE>/RetornoVehiculoVacio} === 'X'}"/>
+													</f:fields>
+												</f:FormElement>
+												<!--Indicador 01" (Transbordo programado) -->
+												<f:FormElement label="">
+													<f:fields>
+														<CheckBox id="FlgTrp" editable="false" text="{i18n>FlagOption3}" selected="{= ${modelDataGRE>/Transbordo} === 'X'}"/>
+													</f:fields>
+												</f:FormElement>
+												<!--Devolucion de Cliente -->
+												<f:FormElement label="">
+													<f:fields>
+														<CheckBox id="FlgDevc" editable="false" text="{i18n>FlagOption4}" selected="{= ${modelDataGRE>/CategoriaVehiculo} === 'X'}"/>
+													</f:fields>
+												</f:FormElement>
+											</f:formElements>
+										</f:FormContainer>
+									</f:formContainers>
+								</f:Form>
+							</VBox>
+							<!-- Part II -->
+							<VBox class="sapUiSmallMargin">
+								<f:SimpleForm id="FormDt02" editable="false" layout="ResponsiveGridLayout" title="{i18n>TitleForm2_1}" labelSpanXL="4" labelSpanL="3"
+									labelSpanM="4" labelSpanS="12" adjustLabelSpan="false" emptySpanXL="0" emptySpanL="4" emptySpanM="0" emptySpanS="0" columnsXL="2"
+									columnsL="1" columnsM="1" singleContainerFullSize="false">
+									<f:content>
+										<Label text="{i18n>PesoTotal}" required="true"/>
+										<Input id="TxtPesoTot" editable="false" placeholder="{i18n>PesoTotPh}" width="230px" type="Number" change=".onChangePesoTot"
+											value="{modelDataGRE>/PesoTotal}"/>
+										<Label text="{i18n>NumeroBulto}"/>
+										<Input id="TxtNumBult" editable="false" width="230px" type="Number" value="{path: 'modelDataGRE>/CantidadBultos', type: 'Integer', formatter: '.formaterInteger'}"/>
+										<!-- Unidad de Medida -->
+										<!--
+										<Label text="{i18n>Unidadmedida}" required="true"/>
+										<Input id="TxtUnidMed" editable="false" showValueHelp="true" valueHelpRequest=".onValueHelpUmHead" maxLength="3" required="true"
+											width="230px" placeholder="{i18n>UmPh}" value="{modelDataGRE>/UnidadMedida}"/>-->
+										<Label text="{i18n>Unidadmedida}" required="true"/>
+										<ComboBox id="TxtUnidMed" width="200px" editable="false" selectedKey="{modelDataGRE>/UnidadMedida}">
+											<core:Item key="KG" text="Kilogramo"/>
+											<core:Item key="T" text="Tonelada"/>
+										</ComboBox>
+									</f:content>
+								</f:SimpleForm>
+							</VBox>
+						</IconTabFilter>
+						<!--============================================================================================================================-->
+						<!--============================================================================================================================-->
+						<!-- 3) Datos de Transportista -->
+						<IconTabFilter text="{i18n>IdTitleTab3}" key="Transport">
+							<!-- Opción del Radio Button -->
+							<VBox class="sapUiSmallMargin">
+								<Label text="{i18n>TitleTransOp}" labelFor="GroupA"/>
+								<RadioButtonGroup id="">
+									<RadioButton text="{i18n>OpTipTrans}" select=".TransPub_handleR1" id="Rbopt1" editable="false"
+										selected="{= ${modelDataGRE>/Transportista} !== '' || ${modelDataGRE>/TransportistaRazon} !== '' }"/>
+									<RadioButton text="{i18n>OpTipPriv}" select=".TransPri_handleR2" id="Rbopt2" editable="false"
+										selected="{= ${modelDataGRE>/Conductor} !== '' || ${modelDataGRE>/ConductorNombre} !== '' }"/>
+								</RadioButtonGroup>
+							</VBox>
+							<!-- Formulario  el Transportista de BP -->
+							<VBox class="sapUiSmallMargin" visible="{= ${modelDataGRE>/Transportista} !== ''}">
+								<f:Form id="FormTrans1" editable="false">
+									<f:title>
+										<core:Title text="{i18n>IdTitleTab3Form}"/>
+									</f:title>
+									<f:layout>
+										<f:ResponsiveGridLayout labelSpanXL="3" labelSpanL="3" labelSpanM="3" labelSpanS="12" adjustLabelSpan="false" emptySpanXL="4" emptySpanL="4"
+											emptySpanM="4" emptySpanS="0" columnsXL="1" columnsL="1" columnsM="1" singleContainerFullSize="false"/>
+									</f:layout>
+									<f:formContainers>
+										<f:FormContainer>
+											<f:formElements>
+												<f:FormElement label="{i18n>IdTransportista}">
+													<f:fields>
+														<Input id="TxtTransport" editable="false" showValueHelp="true" valueHelpRequest=".onValueHelpIdTrans" maxLength="10" required="true"
+															placeholder="{i18n>IdTransPh}" value="{modelDataGRE>/Transportista}">
+															<layoutData>
+																<l:GridData span="XL1 L2 M2 S4"/>
+															</layoutData>
+														</Input>
+														<Input id="TxtIdTransDesc" editable="false"/>
+													</f:fields>
+												</f:FormElement>
+											</f:formElements>
+										</f:FormContainer>
+									</f:formContainers>
+								</f:Form>
+							</VBox>
+							<FlexBox alignItems="Start" justifyContent="Center" visible="{= ${modelDataGRE>/TransportistaRazon} !== ''}">
+								<CheckBox text="{i18n>OpcionManualTrans}" select=".onSelectTrasMan" id="CheckTrans" class="sapUiSmallMarginEnd" editable="false"
+									selected="{= ${modelDataGRE>/TransportistaRazon} !== ''}"/>
+							</FlexBox>
+							<!-- ================================================== -->
+							<!-- Formulario  para el Transportista de datos Manual -->
+							<VBox class="sapUiSmallMargin" visible="{= ${modelDataGRE>/TransportistaRazon} !== ''}">
+								<f:Form id="FormTrans1_1" editable="false">
+									<f:title>
+										<core:Title text="{i18n>FormTrans2}"/>
+									</f:title>
+									<f:layout>
+										<f:ResponsiveGridLayout labelSpanXL="3" labelSpanL="3" labelSpanM="3" labelSpanS="12" adjustLabelSpan="false" emptySpanXL="4" emptySpanL="4"
+											emptySpanM="4" emptySpanS="0" columnsXL="1" columnsL="1" columnsM="1" singleContainerFullSize="false"/>
+									</f:layout>
+									<f:formContainers>
+										<f:FormContainer>
+											<f:formElements>
+												<f:FormElement label="{i18n>DmTrans_razon}">
+													<f:fields>
+														<Input id="TxtDmRazon" required="true" editable="false" value="{modelDataGRE>/TransportistaRazon}"/>
+													</f:fields>
+												</f:FormElement>
+												<f:FormElement label="{i18n>DmTransRuc}">
+													<f:fields>
+														<Input id="TxtDmRuc" required="true" editable="false" value="{modelDataGRE>/TransportistaRuc}"/>
+													</f:fields>
+												</f:FormElement>
+												<f:FormElement label="{i18n>DmTransMtc}">
+													<f:fields>
+														<Input id="TxtDmMtc" required="true" editable="false" value="{modelDataGRE>/TransportistaMtc}"/>
+													</f:fields>
+												</f:FormElement>
+											</f:formElements>
+										</f:FormContainer>
+									</f:formContainers>
+								</f:Form>
+							</VBox>
+							<!-- Formulario del Conductor o Chofer  de BP -->
+							<VBox class="sapUiSmallMargin" visible="{= ${modelDataGRE>/Conductor} !== ''}">
+								<f:Form id="FormTrans2" editable="false">
+									<f:title>
+										<core:Title text="{i18n>IdTitleTab3_2Form}"/>
+									</f:title>
+									<f:layout>
+										<f:ResponsiveGridLayout labelSpanXL="3" labelSpanL="3" labelSpanM="3" labelSpanS="12" adjustLabelSpan="false" emptySpanXL="4" emptySpanL="4"
+											emptySpanM="4" emptySpanS="0" columnsXL="1" columnsL="1" columnsM="1" singleContainerFullSize="false"/>
+									</f:layout>
+									<f:formContainers>
+										<f:FormContainer>
+											<f:formElements>
+												<f:FormElement label="{i18n>Id_Conductor}">
+													<f:fields>
+														<Input id="TxtIdConductor" editable="false" showValueHelp="true" valueHelpRequest=".onValueHelpConduct" maxLength="10" required="true"
+															placeholder="{i18n>CodConducPh}" value="{modelDataGRE>/Conductor}">
+															<layoutData>
+																<l:GridData span="XL1 L2 M2 S4"/>
+															</layoutData>
+														</Input>
+														<Input id="TxtIdCondDesc" editable="false"/>
+													</f:fields>
+												</f:FormElement>
+												<!--New Campo -->
+												<f:FormElement label="{i18n>DmCondPlaca}">
+													<f:fields>
+														<Input id="TxtDmCPlacaNP" required="true" editable="false" width="170px" value="{modelDataGRE>/ConductorPlaca}"/>
+													</f:fields>
+												</f:FormElement>
+											</f:formElements>
+										</f:FormContainer>
+									</f:formContainers>
+								</f:Form>
+							</VBox>
+							<FlexBox alignItems="Start" justifyContent="Center" visible="{= ${modelDataGRE>/ConductorNombre} !== ''}">
+								<CheckBox text="{i18n>OpcionManualPriv}" select=".onSelectTrasPriv" id="CheckConduct" class="sapUiSmallMarginEnd" editable="false"
+									selected="{= ${modelDataGRE>/ConductorNombre} !== ''}"/>
+							</FlexBox>
+							<!-- Formulario  para el Conductor o Chofer  Manual -->
+							<VBox class="sapUiSmallMargin" visible="{= ${modelDataGRE>/ConductorNombre} !== ''}">
+								<f:Form id="FormTrans2_1" editable="false">
+									<f:title>
+										<core:Title text="{i18n>FormTrans3}"/>
+									</f:title>
+									<f:layout>
+										<f:ResponsiveGridLayout labelSpanXL="3" labelSpanL="3" labelSpanM="3" labelSpanS="12" adjustLabelSpan="false" emptySpanXL="4" emptySpanL="4"
+											emptySpanM="4" emptySpanS="0" columnsXL="1" columnsL="1" columnsM="1" singleContainerFullSize="false"/>
+									</f:layout>
+									<f:formContainers>
+										<f:FormContainer>
+											<f:formElements>
+												<f:FormElement label="{i18n>DmCondName}">
+													<f:fields>
+														<Input id="TxtDmCName" required="true" editable="false" value="{modelDataGRE>/ConductorNombre}"/>
+													</f:fields>
+												</f:FormElement>
+												<f:FormElement label="{i18n>DmCondApell}">
+													<f:fields>
+														<Input id="TxtDmCApell" required="true" editable="false" value="{modelDataGRE>/ConductorApellido}"/>
+													</f:fields>
+												</f:FormElement>
+												<f:FormElement label="{i18n>DmCondDni}">
+													<f:fields>
+														<Input id="TxtDmCDni" required="true" editable="false" value="{modelDataGRE>/ConductorDocumento}"/>
+													</f:fields>
+												</f:FormElement>
+												<f:FormElement label="{i18n>DmCondPlaca}">
+													<f:fields>
+														<Input id="TxtDmCPlaca" required="true" editable="false" value="{modelDataGRE>/ConductorPlaca}"/>
+													</f:fields>
+												</f:FormElement>
+												<f:FormElement label="{i18n>DmCondLicen}">
+													<f:fields>
+														<Input id="TxtDmCLicen" required="true" editable="false" value="{modelDataGRE>/ConductorLicencia}"/>
+													</f:fields>
+												</f:FormElement>
+											</f:formElements>
+										</f:FormContainer>
+									</f:formContainers>
+								</f:Form>
+							</VBox>
+						</IconTabFilter>
+						<!--============================================================================================================================-->
+						<!--============================================================================================================================-->
+						<!-- 4) Datos de Destino-->
+						<IconTabFilter text="{i18n>IdTitleTab4_1}" key="Destino" visible="false">
+							<VBox class="sapUiSmallMargin">
+								<f:SimpleForm id="FormTrans01" editable="false" layout="ResponsiveGridLayout" title="{i18n>IdTitleTab3_1Form}" labelSpanXL="4"
+									labelSpanL="3" labelSpanM="4" labelSpanS="12" adjustLabelSpan="false" emptySpanXL="0" emptySpanL="4" emptySpanM="0" emptySpanS="0"
+									columnsXL="2" columnsL="1" columnsM="1" singleContainerFullSize="false">
+									<f:content>
+										<!-- Punto de Partida-->
+										<Label text="{i18n>PuntPart}"/>
+										<Input id="TxtPuntPart" editable="false" showValueHelp="true" valueHelpRequest=".onValueHelpIdTrans" maxLength="10" required="true"
+											placeholder="{i18n>IdPuntoPartPh}">
+											<layoutData>
+												<f:ColumnElementData cellsSmall="4" cellsLarge="4" editable="false"/>
+											</layoutData>
+										</Input>
+										<Input id="TxtPuntPartDesc" editable="false"/>
+										<!-- Punto de Llegada -->
+										<Label text="{i18n>PuntLLeg}"/>
+										<Input id="TxtPuntLLeg" editable="false"></Input>
+										<!-- Código de Sucursal -->
+										<Label text="{i18n>CodSuc}"/>
+										<Input id="TxtCodSuc" editable="false" showValueHelp="true" valueHelpRequest=".onValueHelpIdTrans" maxLength="10"
+											placeholder="{i18n>CodSucPh}">
+											<layoutData>
+												<f:ColumnElementData cellsSmall="4" cellsLarge="4" editable="false"/>
+											</layoutData>
+										</Input>
+										<Input id="TxtCodSucDesc" editable="false"/>
+									</f:content>
+								</f:SimpleForm>
+							</VBox>
+						</IconTabFilter>
+						<!--============================================================================================================================-->
+						<!--============================================================================================================================-->
+						<!-- 5) Observaciones-->
+						<IconTabFilter text="{i18n>IdTitleTab4}" key="Observ">
+							<VBox class="sapUiSmallMargin">
+								<f:SimpleForm id="FormOb01" editable="false" layout="ResponsiveGridLayout" title="{i18n>IdTitleTab4Form}" labelSpanXL="4" labelSpanL="3"
+									labelSpanM="4" labelSpanS="12" adjustLabelSpan="false" emptySpanXL="0" emptySpanL="4" emptySpanM="0" emptySpanS="0" columnsXL="2"
+									columnsL="1" columnsM="1" singleContainerFullSize="false">
+									<f:content>
+										<Label text="{i18n>Obs01}"/>
+										<TextArea id="TxtObservaciones" maxLength="255" editable="false" value="{modelDataGRE>/Observacion}"/>
+										<Label text="{i18n>Obs02}"/>
+										<TextArea id="TxtMotivo13" maxLength="50" editable="false" value="{modelDataGRE>/Motivo}"/>
+									</f:content>
+								</f:SimpleForm>
+							</VBox>
+						</IconTabFilter>
+						<!--============================================================================================================================-->
+						<!--============================================================================================================================-->
+						<!-- 6) Datos Adicionales-->
+						<IconTabFilter text="{i18n>IdTitleTabAdic}" key="Adic">
+							<VBox class="sapUiSmallMargin" visible="{= ${modelDataGRE>/MotivoTraslado} === '01' || ${modelDataGRE>/MotivoTraslado} === '04' }">
+								<f:Form id="FormAdic" editable="true">
+									<f:title>
+										<core:Title text="{i18n>tab6Datos}"/>
+									</f:title>
+									<f:layout>
+										<f:ColumnLayout columnsM="2" columnsL="3" columnsXL="3"/>
+									</f:layout>
+									<f:formContainers>
+										<f:FormContainer title="{i18n>tab6Grppeso}">
+											<f:formElements>
+												<f:FormElement label="{i18n>tab6TotTara}">
+													<f:fields>
+														<Input id="TxtTotTara" editable="false" placeholder="{i18n>tab6ValorPH}" type="Number" change=".onChangeParseDec"
+															value="{modelDataGRE>/TotalTara}"/>
+													</f:fields>
+												</f:FormElement>
+												<f:FormElement label="{i18n>tab6PesoNet}">
+													<f:fields>
+														<Input id="TxtPesoNet" editable="false" placeholder="{i18n>tab6ValorPH}" type="Number" change=".onChangeParseDec"
+															value="{modelDataGRE>/PesoNeto}"/>
+													</f:fields>
+												</f:FormElement>
+												<f:FormElement label="{i18n>tab6PesoBru}">
+													<f:fields>
+														<Input id="TxtPesoBru" editable="false" placeholder="{i18n>tab6ValorPH}" type="Number" change=".onChangeParseDec"
+															value="{modelDataGRE>/PesoBruto}"/>
+													</f:fields>
+												</f:FormElement>
+												<f:FormElement label="{i18n>tab6PesoPro}">
+													<f:fields>
+														<Input id="TxtPesoPro" editable="false" placeholder="{i18n>tab6ValorPH}" type="Number" change=".onChangeParseDec"
+															value="{modelDataGRE>/PesoPromedio}"/>
+													</f:fields>
+												</f:FormElement>
+											</f:formElements>
+										</f:FormContainer>
+									</f:formContainers>
+									<f:FormContainer title="{i18n>tab6GrpCant}">
+										<f:formElements>
+											<f:FormElement label="{i18n>tab6Njcb}">
+												<f:fields>
+													<Input id="TxtNjcb" editable="false" placeholder="{i18n>tab6ValorPH}" type="Number" value="{modelDataGRE>/NroJabas}"/>
+												</f:fields>
+											</f:FormElement>
+											<f:FormElement label="{i18n>tab6Np}">
+												<f:fields>
+													<Input id="TxtNp" editable="false" placeholder="{i18n>tab6ValorPH}" type="Number" value="{modelDataGRE>/NroPollos}"/>
+												</f:fields>
+											</f:FormElement>
+											<f:FormElement label="{i18n>tab6Npjab}">
+												<f:fields>
+													<Input id="TxtNpjab" editable="false" placeholder="{i18n>tab6ValorPH}" type="Number" value="{modelDataGRE>/NroPollosJaba}"/>
+												</f:fields>
+											</f:FormElement>
+											<f:FormElement label="{i18n>tab6Nprecinto}" visible="{= ${modelDataGRE>/MotivoTraslado} === '04'}">
+												<f:fields>
+													<Input id="TxtNPrecinto" editable="false" placeholder="{i18n>tab6ValorPH}" type="Number" value="{modelDataGRE>/NroPrecinto}"/>
+												</f:fields>
+											</f:FormElement>
+										</f:formElements>
+									</f:FormContainer>
+									<f:FormContainer title="{i18n>tab6GrpGran}">
+										<f:formElements>
+											<f:FormElement label="{i18n>tab6Ngranja}">
+												<f:fields>
+													<Input id="TxtNgranja" editable="false" placeholder="{i18n>tab6ValorPH}" value="{modelDataGRE>/NombreGranja}"/>
+												</f:fields>
+											</f:FormElement>
+											<f:FormElement label="{i18n>tab6NGalon}">
+												<f:fields>
+													<Input id="TxtNGalon" editable="false" placeholder="{i18n>tab6ValorPH}" type="Number" value="{modelDataGRE>/NroGalpon}"/>
+												</f:fields>
+											</f:FormElement>
+											<f:FormElement label="{i18n>tab6NPedido}">
+												<f:fields>
+													<Input id="TxtNPedido" editable="false" placeholder="{i18n>tab6ValorPH}" value="{modelDataGRE>/NroPedido}"/>
+												</f:fields>
+											</f:FormElement>
+										</f:formElements>
+									</f:FormContainer>
+								</f:Form>
+							</VBox>
+						</IconTabFilter>
+					</items>
+				</IconTabBar>
+			</content>
+		</Panel>
+		<!--============================================================================================================================ -->
+		<!--============================================================================================================================ -->
+		<!--============================================================================================================================ -->
+		<!-- Datos de Detalle -->
+		<Panel expandable="true" headerText="{i18n>SectionDetail}" width="auto" class="sapUiResponsiveMargin" expanded="true">
+			<content>
+				<!-- <Table id="DetalleEntreg" mode="MultiSelect" inset="false" items="{jsonDetail>/Detail}"> -->
+				<Table id="DetalleEntreg" items="{ path: 'detailProducts>/Detail' }">
+					<headerToolbar>
+						<OverflowToolbar id="otbSubheader">
+							<Title text="{i18n>Products}" level="H2"/>
+							<ToolbarSpacer/>
+							<Button id="AddButton" text="{i18n>AddRowTable}" type="Transparent" press=".onAdd" icon="sap-icon://add-product" visible="false"/>
+							<Button id="DeleteButton" text="{i18n>DeleteRowTable}" type="Transparent" press=".onDelete" icon="sap-icon://delete" visible="false"/>
+						</OverflowToolbar>
+					</headerToolbar>
+					<columns>
+						<Column id="_IDGenColumn2cc" width="160px">
+							<header>
+								<Label id="_IDGenLabel2c" text="{i18n>DetMaterial}"/>
+							</header>
+						</Column>
+						<Column id="_IDGenColumn3cc">
+							<header>
+								<Label id="_IDGenLabel3c" text="{i18n>DetDesc}"/>
+							</header>
+						</Column>
+						<Column id="_IDGenColumn32cc" width="150px">
+							<header>
+								<Label id="_IDGenLabel32c" text="{i18n>DetCodSunat}"/>
+							</header>
+						</Column>
+						<Column id="_IDGenColumn4cc" width="150px">
+							<header>
+								<Label id="_IDGenLabel4c" text="{i18n>DetCant}"/>
+							</header>
+						</Column>
+						<Column id="_IDGenColumn5cc" width="150px">
+							<header>
+								<Label id="_IDGenLabel5c" text="{i18n>DetUM}"/>
+							</header>
+						</Column>
+						<!-- ==================================================================-->
+						<!-- Campos Adicionales Detalle -->
+						<Column id="IdSexoItem" width="12em" visible="{= ${modelDataGRE>/MotivoTraslado} === '01' || ${modelDataGRE>/MotivoTraslado} === '04' }">
+							<header>
+								<Label id="LblIdSexoItem" text="{i18n>SexoItem}"/>
+							</header>
+						</Column>
+						<Column id="IdNlote" width="12em" visible="{= ${modelDataGRE>/MotivoTraslado} === '04' || ${modelDataGRE>/MotivoTraslado} === '01' }">
+							<header>
+								<Label id="LblIdNlote" text="{i18n>NLote}"/>
+							</header>
+						</Column>
+						<Column id="IdEdad" width="10em" visible="{= ${modelDataGRE>/MotivoTraslado} === '04' }">
+							<header>
+								<Label id="LblIdEdad" text="{i18n>Edad}"/>
+							</header>
+						</Column>
+						<Column id="IdSerie" width="15em" visible="{= ${modelDataGRE>/MotivoTraslado} === '04' }">
+							<header>
+								<Label id="LblIdSerie" text="{i18n>NSerie}"/>
+							</header>
+						</Column>
+						<Column id="IdFVenc" width="16em" visible="{= ${modelDataGRE>/MotivoTraslado} === '04' }">
+							<header>
+								<Label id="LblIdIdFVenc" text="{i18n>FVenc}"/>
+							</header>
+						</Column>
+					</columns>
+					<!-- Agregar Items -->
+					<items>
+						<ColumnListItem>
+							<cells>
+								<Input showValueHelp="true" editable="false" enabled="true" filterSuggests="false" showSuggestion="true" liveChange=".onLiveChangeProduct"
+									suggestionItemSelected="" suggest="" valueHelpRequest="onValueHelpIdProduct" value="{detailProducts>Matnr}" change=".onChangeProduct"/>
+								<Input editable="false" enabled="true" value="{detailProducts>Arktx}" liveChange=".onLiveChangeProductDesc"/>
+								<Input editable="false" enabled="true" value="{detailProducts>MatnrSunat}" change=".onChangeCodSunat"/>
+								<Input editable="false" enabled="true" type="Number" change=".onChangeInputQuantity" value="{detailProducts>Lfimg}"/>
+								<Input showValueHelp="true" editable="false" enabled="true" filterSuggests="false" showSuggestion="true" liveChange=""
+									suggestionItemSelected="" suggest="" valueHelpRequest="onValueHelpUmDet" value="{detailProducts>Vrkme}" change=".onChangeUmDet"/>
+								<!-- Campos Adicionales Detalle -->
+								<!-- Sexo (item) -->
+								<Input value="{detailProducts>Sexo}" editable="false"/>
+								<!-- N°Lote (item) -->
+								<Input value="{detailProducts>NroLote}" editable="false"/>
+								<!-- Edad (item) -->
+								<Input type="Number" maxLength="3" value="{detailProducts>Edad}" editable="false"/>
+								<!-- N°Serie (solo para Equipos) item -->
+								<Input value="{detailProducts>NroSerie}" editable="false"/>
+								<!-- Fecha de vencimiento  -->
+								<DatePicker class="sapUiSmallMarginBottom" displayFormat="dd/MM/YYYY" valueFormat="dd/MM/YYYY" editable="false"
+									value="{ path: 'detailProducts>FechaVencimiento', type: 'sap.ui.model.type.Date', formatOptions: { pattern: 'dd/MM/yyyy', strictParsing: true , UTC: true }}"/>
+							</cells>
+						</ColumnListItem>
+					</items>
+				</Table>
+			</content>
+		</Panel>
+		<!--============================================================================================================================ -->
+		<!-- Sección de Botones -->
+		<footer>
+			<Toolbar >
+				<ToolbarSpacer ></ToolbarSpacer>
+					<Button text="{i18n>BtnReturn}" press=".onNavBack" icon="sap-icon://nav-back"/>
+			</Toolbar>
+		</footer>
+	</Page>
+</mvc:View>

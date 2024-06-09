@@ -1,0 +1,11 @@
+<mvc:View controllerName="ZSD_APP_GREMI.ZSD_APP_GREMI.controller.App" 
+		  	xmlns="sap.m"
+			xmlns:core="sap.ui.core"
+			xmlns:mvc="sap.ui.core.mvc"
+		   displayBlock="true" >
+	
+	<Shell id="shell">
+		<App id="app">
+		</App>
+	</Shell>
+</mvc:View>

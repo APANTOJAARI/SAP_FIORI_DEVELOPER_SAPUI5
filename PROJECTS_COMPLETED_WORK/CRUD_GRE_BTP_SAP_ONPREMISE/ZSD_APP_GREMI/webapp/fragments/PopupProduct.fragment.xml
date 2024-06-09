@@ -1,0 +1,35 @@
+<core:FragmentDefinition xmlns="sap.m" xmlns:core="sap.ui.core">
+	<TableSelectDialog id="DialogProduct" noDataText="No se ha encontrado datos" title="{i18n>TitleF4Product}" search=".handleSearchProduct"
+		confirm=".handleCloseHpProduct" cancel=".handleCloseHpProduct" items="{ path : '/ZshMatnrGreSet' }" contentHeight="100%" contentWidth="50%">
+		<ColumnListItem>
+			<cells>
+				<Text text="{Matnr}"/>
+				<Text text="{Maktx}"/>
+				<Text text="{Meins}"/>
+				<Text text="{Normt}"/>
+			</cells>
+		</ColumnListItem>
+		<columns>
+			<Column minScreenWidth="Tablet" demandPopin="true" width="200px">
+				<header>
+					<Text text="{i18n>IdMatnr}"/>
+				</header>
+			</Column>
+			<Column minScreenWidth="Tablet" demandPopin="true">
+				<header>
+					<Text text="{i18n>IdMatnrDesc}"/>
+				</header>
+			</Column>
+			<Column minScreenWidth="Tablet" demandPopin="true">
+				<header>
+					<Text text="{i18n>IdPMeins}"/>
+				</header>
+			</Column>
+			<Column minScreenWidth="Tablet" demandPopin="true">
+				<header>
+					<Text text="{i18n>IdPNormt}"/>
+				</header>
+			</Column>
+		</columns>
+	</TableSelectDialog>
+</core:FragmentDefinition>
