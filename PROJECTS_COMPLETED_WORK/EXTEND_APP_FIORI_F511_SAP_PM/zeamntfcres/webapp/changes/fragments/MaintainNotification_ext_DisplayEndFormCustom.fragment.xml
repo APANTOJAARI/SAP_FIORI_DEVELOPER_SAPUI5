@@ -1,0 +1,21 @@
+<core:FragmentDefinition xmlns:core="sap.ui.core" xmlns="sap.m" xmlns:smartField="sap.ui.comp.smartfield" xmlns:form="sap.ui.layout.form" xmlns:layout="sap.ui.layout" xmlns:mvc="sap.ui.core.mvc">
+
+  <!-- ==== Priority ==== -->
+<sap.m:Label text="{/#NotificationHeader/Priority/@sap:label}" width="100%" 
+              xmlns:sap.m="sap.m" 
+              labelFor="txtPriorityText"
+              design="Bold"
+              id="label0"/>
+<Text xmlns="sap.m" text="{= ${Priority} !== '' ? ${Priority} + ' - ' +  ${PriorityText} : '' }" id="txtPriorityText" class="sapUiSmallMarginBegin"/>
+<!-- {Priority} - {PriorityText} -->
+
+  <!-- ==== Group Codificación ==== -->
+<sap.m:Label text="{/#NotificationHeader/Zqmcod/@sap:label}" width="100%" 
+              xmlns:sap.m="sap.m" 
+              design="Bold"
+              labelFor="ZqmgrpText"
+              id="label1"/>
+              
+<Text xmlns="sap.m" text="{= ${Zqmgrp} !== '' ? ${Zqmgrp} + ' - ' +  ${Zqmcod} + ' - ' + ${ZqmcodText} : '' }" id="ZqmgrpText" class="sapUiSmallMarginBegin"/>
+<!-- {Zqmgrp} - {Zqmcod} - {ZqmcodText} -->
+</core:FragmentDefinition>

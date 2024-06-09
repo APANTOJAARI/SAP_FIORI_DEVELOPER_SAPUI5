@@ -1,0 +1,68 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+	<meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+	<meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+	<title>Adaptation Project Preview</title>
+
+	<style>
+		/* hide variant management popover footer */
+		.sapUiFlVarMngmtPopover .sapMPageWithFooter>section { bottom: 0 !important; }
+		.sapUiFlVarMngmtPopover .sapMPageFooter, .sapUICompVarMngmtPopover .sapMPageFooter { display: none !important; }
+	</style>
+	
+	<script type="text/javascript">
+		window["sap-ushell-config"] = {
+			defaultRenderer : "fiori2",
+			renderers: {
+				fiori2: {
+					componentData: {
+						config: {
+							appState: "headerless",
+							rootIntent: "adaptationproject-display"
+						}
+					}
+				}
+			},
+			applications: {
+				"adaptationproject-display": {
+					title: "Adaptation Project Preview",
+					additionalInformation: "SAPUI5.Component=i2d.eam.pmnotification.create.s1",
+					applicationType: "URL",
+					applicationDependencies: {"name":"i2d.eam.pmnotification.create.s1","url":"/sap/bc/ui5_ui5/sap/eam_ntf_cres1/~85F8B8F779DD43C0BE1FB5486D204431~5","manifest":{"_version":"1.7.0","sap.app":{"_version":"1.2.0","id":"customer.zeamntfcres3ext","type":"application","i18n":"i18n/i18n.properties","applicationVersion":{"version":"9.0.1"},"title":"{{customer.zeamntfcres3ext_sap.app.title}}","tags":{"keywords":["{{Create}}"]},"ach":"PM-FIO","dataSources":{"EAM_NTF_CREATE":{"uri":"/sap/opu/odata/sap/EAM_NTF_CREATE/","settings":{"localUri":"localService/metadata.xml","annotations":["annotation"]}},"annotation":{"type":"ODataAnnotation","uri":"annotation/annotation.xml","settings":{"localUri":"annotation/annotation.xml"}}},"resources":"resources.json","crossNavigation":{"inbounds":{"MaintenanceNotificationCreate":{"semanticObject":"MaintenanceNotification","action":"create_simple","title":"Solicitar mantenimiento","signature":{"parameters":{"navTarget":{"defaultValue":{"value":"create"},"required":false},"NotificationType":{"required":false},"TechnicalObjectLabel":{"required":false},"TechObjIsEquipOrFuncnlLoc":{"required":false},"MaintenanceObject":{"required":false,"renameTo":"TechnicalObjectLabel"},"sap-iapp-state":{"required":false}},"additionalParameters":"ignored"}},"MaintenanceNotificationList":{"semanticObject":"MaintenanceNotification","action":"list_simple","title":"Monitorizar solicitudes de mantenimiento","signature":{"parameters":{"navTarget":{"filter":{"value":"list"},"required":true},"MaintenanceNotification":{"required":false},"sap-iapp-state":{"required":false}},"additionalParameters":"ignored"}}}},"destination":{"name":""}},"sap.ui":{"_version":"1.1.0","technology":"UI5","deviceTypes":{"desktop":true,"tablet":true,"phone":true},"supportedThemes":["sap_hcb","sap_bluecrystal","sap_belize"]},"sap.ui5":{"_version":"1.1.0","config":{"sapFiori2Adaptation":true},"contentDensities":{"compact":true,"cozy":true},"services":{"ShellUIService":{"factoryName":"sap.ushell.ui5service.ShellUIService"}},"dependencies":{"minUI5Version":"1.90.7","libs":{"sap.m":{"lazy":false},"sap.me":{"lazy":true},"sap.ushell":{"lazy":false},"sap.i2d.eam.lib.pmnotification.s1":{"lazy":false},"sap.ui.layout":{"lazy":false},"sap.ui.table":{"lazy":true},"sap.ui.comp":{"lazy":true},"sap.suite.ui.commons":{"lazy":true},"sap.ui.unified":{"lazy":false}},"components":{"sap.se.mi.plm.lib.attachmentservice.attachment":{"lazy":true}}},"componentUsages":{"attachmentReuseComponent":{"name":"sap.se.mi.plm.lib.attachmentservice.attachment","settings":{"lazy":true}}},"models":{"i18n":{"type":"sap.ui.model.resource.ResourceModel","uri":"i18n/i18n.properties","settings":{"enhanceWith":[{"bundleUrl":"i18n/i18n.properties","supportedLocales":[""],"fallbackLocale":"","bundleUrlRelativeTo":"manifest"}]}},"":{"dataSource":"EAM_NTF_CREATE","preload":true,"settings":{"defaultBindingMode":"TwoWay","defaultCountMode":"Inline","defaultUpdateMethod":"PUT","loadMetadataAsync":false}},"@i18n":{"type":"sap.ui.model.resource.ResourceModel","uri":"i18n/i18n.properties","settings":{"enhanceWith":[{"bundleUrl":"i18n/i18n.properties","supportedLocales":[""],"fallbackLocale":"","bundleUrlRelativeTo":"manifest"}]}}},"rootView":{"viewName":"i2d.eam.pmnotification.create.s1.view.App","type":"XML","async":true},"handleValidation":true,"routing":{"config":{"routerClass":"sap.m.routing.Router","viewType":"XML","viewPath":"i2d.eam.pmnotification.create.s1.view","controlId":"fioriContent","controlAggregation":"pages","bypassed":{"target":"notFound"},"clearAggregation":false,"async":true},"routes":[{"pattern":"Create:?iAppState:","name":"create","target":"create"},{"pattern":"Edit/{NotificationNumber}:?iAppState:","name":"edit","target":"edit"},{"pattern":"Display/{NotificationNumber}","name":"display","target":"display"},{"pattern":"List:?iAppState:","name":"list","target":"list"}],"targets":{"create":{"viewName":"S1","viewId":"create","viewLevel":1},"edit":{"viewName":"S2","viewId":"edit","viewLevel":4},"display":{"viewName":"S3","viewId":"display","viewLevel":3,"clearAggregation":false},"list":{"viewName":"S0","viewId":"list","viewLevel":1},"objectNotFound":{"viewName":"ObjectNotFound","viewId":"objectNotFound","viewLevel":3},"notFound":{"viewName":"NotFound","viewId":"notFound"}}},"componentName":"i2d.eam.pmnotification.create.s1","appVariantId":"customer.zeamntfcres3ext","appVariantIdHierarchy":[{"appVariantId":"i2d.eam.pmnotification.create.s1.Component","layer":"VENDOR","version":"9.0.1"}]},"sap.platform.abap":{"_version":"1.1.0","uri":"/sap/bc/ui5_ui5/sap/eam_ntf_cres1"},"sap.fiori":{"_version":"1.1.0","registrationIds":["F1511"],"archeType":"transactional"},"sap.copilot":{"_version":"1.0.0","contextAnalysis":{"whitelistedEntityTypes":["EAM_NTF_CREATE.NotificationHeader"]}}},"self":{"name":"i2d.eam.pmnotification.create.s1","url":"/sap/bc/ui5_ui5/sap/eam_ntf_cres1/~85F8B8F779DD43C0BE1FB5486D204431~5"},"asyncHints":{"libs":[{"name":"sap.ui.core"},{"name":"sap.ui.comp","lazy":true},{"name":"sap.ui.table","lazy":true},{"name":"sap.se.mi.plm.lib.attachmentservice","url":{"url":"/sap/bc/ui5_ui5/sap/plm_ath_cres1/~2F8EA82E7ED6290334990A5EF06263D0~5","final":true},"lazy":true},{"name":"sap.s4h.cfnd.featuretoggle","url":{"url":"/sap/bc/ui5_ui5/sap/featuretoggles1/~1CCDC2B0EF948A588D1FBD5867BBE189~5","final":true},"lazy":true},{"name":"sap.m"},{"name":"sap.ui.layout"},{"name":"sap.uxap","lazy":true},{"name":"sap.ushell"},{"name":"sap.collaboration","lazy":true},{"name":"sap.suite.ui.generic.template","lazy":true},{"name":"sap.ui.unified"},{"name":"sap.suite.ui.commons","lazy":true},{"name":"sap.i2d.eam.lib.pmnotification.s1","url":{"url":"/sap/bc/ui5_ui5/sap/eam_ntf_reuses1/~9D34DCDEB8F41533D57AC32BE03CE18B~5","final":true}},{"name":"sap.me","lazy":true}],"cacheTokens":{"dataSources":{"/sap/opu/odata/SAP/CA_FM_FEATURE_TOGGLE_STATUS_SRV":"20220403180345","/sap/opu/odata/sap/CV_ATTACHMENT_SRV/":"20220403192602","/sap/opu/odata/sap/EAM_NTF_CREATE/":"20221108162433"}},"requests":[{"name":"sap.ui.fl.changes","reference":"i2d.eam.pmnotification.create.s1.Component"}]},"altManifestUrl":"webapp/manifest.appdescr_variant","componentData":{"startupParameters":{"sap-ui-fl-max-layer":["CUSTOMER_BASE"]}}}
+				}
+			}
+		};
+	</script>
+
+	<script src="../../1.90.7/test-resources/sap/ushell/bootstrap/sandbox.js" id="sap-ushell-bootstrap"></script>
+
+	<script id="sap-ui-bootstrap"
+			src="../../1.90.7/resources/sap-ui-core.js"
+			data-sap-ui-libs="sap.ushell, sap.ui.rta"
+			data-sap-ui-theme="sap_belize"
+			data-sap-ui-compatVersion="edge"
+			data-sap-ui-xx-bindingSyntax="complex"
+			data-sap-ui-xx-rootComponentNode="content"
+			data-sap-ui-xx-designMode="true"
+			data-sap-ui-flexibilityServices='[{"connector": "LrepConnector", "layers": [], "url": "/sap/bc/lrep"},{"applyConnector": "WorkspaceApplyConnector", "writeConnector": "WorkspaceWriteConnector", "custom": true, "layers": ["CUSTOMER_BASE"]}]'
+			data-sap-ui-xx-suppressDeactivationOfControllerCode="true">
+	</script>
+
+	<script type="text/javascript">
+		sap.ui.getCore().attachInit(function() {
+			sap.ushell.Container.createRenderer().placeAt("content");
+		});
+	</script>
+
+	<script src="https://port8888-workspaces-ws-ffjrl.us10.trial.applicationstudio.cloud.sap/watt/resources/sap/watt/lib/lodash/lodash.js" type="text/javascript"></script>
+	<script src="https://port8888-workspaces-ws-ffjrl.us10.trial.applicationstudio.cloud.sap/features/SAP.ui5-visual-editor-vscode/1.0.96/sap.watt.saptoolsets.fiori.project.uiadaptationfeature/client/v1.0.96_1668095348825/src/uiadaptation/util/UIAdaptationTransceiver.js" type="text/javascript"></script>
+	<script src="https://port8888-workspaces-ws-ffjrl.us10.trial.applicationstudio.cloud.sap/features/SAP.ui5-visual-editor-vscode/1.0.96/sap.watt.saptoolsets.fiori.project.uiadaptationfeature/client/v1.0.96_1668095348825/src/uiadaptation/util/AppVariantPreviewHelper.js" type="text/javascript"></script>
+
+</head>
+
+<body class="sapUiBody" id="content" role="application">
+</body>
+
+</html>

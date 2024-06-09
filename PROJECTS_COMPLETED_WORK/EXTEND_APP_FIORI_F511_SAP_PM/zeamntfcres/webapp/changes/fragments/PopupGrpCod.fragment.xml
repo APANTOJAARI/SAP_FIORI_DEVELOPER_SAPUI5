@@ -1,0 +1,54 @@
+<core:FragmentDefinition xmlns="sap.m" xmlns:core="sap.ui.core">
+    <TableSelectDialog id="myDialog2" 
+                       noDataText="No se ha encontrado datos" 
+                       title="Seleccione Grupo de códigos: Codificación" 
+                       search=".handleSearchGrp" 
+                       confirm=".handleCloseGrp" 
+                       cancel=".handleCloseGrp" 
+                       items="{
+			path : '/NotificationGrpCodigoSet',
+			sorter : [ { path: 'Codegruppe',
+                         descending: false,
+                         group: true },
+                         { path: 'Katalogart',
+                            descending: false } ] }">
+
+        <ColumnListItem>
+            <cells>
+                <Text text="{Katalogart}"/>
+                <Text text="{Codegruppe}" />
+                <Text text="{CodegruppeTxt}" />
+                <Text text="{Code}" />
+                <Text text="{CodeTxt}" />
+            </cells>
+        </ColumnListItem>
+
+        <columns>
+            <Column width="12em">
+                <header>
+                   <Text text="{/#NotificationGrpCodigo/Katalogart/@sap:label}" />
+                </header>
+            </Column>
+            <Column minScreenWidth="Tablet" demandPopin="true">
+                <header>
+                    <Text text="{/#NotificationGrpCodigo/Codegruppe/@sap:label}" />
+                </header>
+            </Column>
+            <Column minScreenWidth="Tablet" demandPopin="true">
+                <header>
+                    <Text text="{/#NotificationGrpCodigo/CodegruppeTxt/@sap:label}" />
+                </header>
+            </Column>
+            <Column minScreenWidth="Tablet" demandPopin="true">
+                <header>
+                    <Text text="{/#NotificationHeader/Zqmcod/@sap:label}" />
+                </header>
+            </Column>
+                  <Column minScreenWidth="Tablet" demandPopin="true">
+                <header>
+                    <Text text="{/#NotificationHeader/ZqmcodText/@sap:label}" />
+                </header>
+            </Column>
+        </columns>
+    </TableSelectDialog>
+</core:FragmentDefinition>

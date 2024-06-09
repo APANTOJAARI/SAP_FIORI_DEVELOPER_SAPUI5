@@ -1,0 +1,45 @@
+{
+  "fileName": "manifest",
+  "layer": "CUSTOMER_BASE",
+  "fileType": "appdescr_variant",
+  "reference": "i2d.eam.pmnotification.create.s1",
+  "id": "customer.zeamntfcres3ext",
+  "namespace": "apps/i2d.eam.pmnotification.create.s1/appVariants/customer.zeamntfcres3ext/",
+  "content": [
+    {
+      "changeType": "appdescr_app_setTitle",
+      "content": {},
+      "texts": {
+        "i18n": "i18n/i18n.properties"
+      }
+    },
+    {
+      "changeType": "appdescr_ui5_addNewModelEnhanceWith",
+      "content": {
+        "modelId": "i18n",
+        "bundleUrl": "i18n/i18n.properties",
+        "supportedLocales": [
+          ""
+        ],
+        "fallbackLocale": ""
+      }
+    },
+    {
+      "changeType": "appdescr_ui5_addNewModelEnhanceWith",
+      "content": {
+        "modelId": "@i18n",
+        "bundleUrl": "i18n/i18n.properties",
+        "supportedLocales": [
+          ""
+        ],
+        "fallbackLocale": ""
+      }
+    },
+    {
+      "changeType": "appdescr_ui5_setMinUI5Version",
+      "content": {
+        "minUI5Version": "1.90.7"
+      }
+    }
+  ]
+}

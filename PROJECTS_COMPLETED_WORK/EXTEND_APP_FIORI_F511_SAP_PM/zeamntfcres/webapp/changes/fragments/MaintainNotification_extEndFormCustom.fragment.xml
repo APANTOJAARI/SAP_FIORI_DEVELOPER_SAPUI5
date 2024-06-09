@@ -1,0 +1,59 @@
+<core:FragmentDefinition xmlns:core="sap.ui.core" xmlns:form="sap.ui.layout.form" xmlns:layout="sap.ui.layout" xmlns:mvc="sap.ui.core.mvc">
+
+  <!-- ==== Priority ==== -->
+<sap.m:Label text="{/#NotificationHeader/Priority/@sap:label}" width="100%" 
+              xmlns:sap.m="sap.m" 
+              required="true"
+              labelFor="pmNotifInputPriority"
+              id="label0"/>
+
+<Input xmlns="sap.m" value="{Priority}" id="pmNotifInputpriority" width="20%" maxLength="1" valueHelpRequest=".extension.customer.zeamntfcres3ext.MaintainNotificationCustom.onValueHelpInputPriority" showValueHelp="true" liveChange=".extension.customer.zeamntfcres3ext.MaintainNotificationCustom.onValidationPriority" />
+
+
+  <!-- ==== Priority ==== -->
+<sap.m:Label text="{/#NotificationHeader/Priority/@sap:label}" width="100%" 
+              xmlns:sap.m="sap.m" 
+              labelFor="pmNotifInputPriorityText"
+              visible="false"
+              id="label1"/>
+
+<Input xmlns="sap.m" value="{PriorityText}" id="pmNotifInputPriorityText" width="20%" enabled="false"/>
+
+
+
+  <!-- ==== Priority ==== -->
+<sap.m:Label text="{/#NotificationHeader/Priority/@sap:label}" width="100%" 
+              xmlns:sap.m="sap.m" 
+              labelFor="pmNotifInputPriorityType"
+              visible="false"
+              id="label2"/>
+
+<Input xmlns="sap.m" value="{PriorityType}" id="pmNotifInputPriorityType" width="20%" visible="false"/>
+
+  <!-- ==== Group Codificación ==== -->
+<sap.m:Label text="{/#NotificationHeader/Zqmcod/@sap:label}" width="100%" 
+              xmlns:sap.m="sap.m" 
+              required="true"
+              labelFor="pmNotifInputZqmgrp"
+              id="label3"/>
+
+<Input xmlns="sap.m" id="pmNotifInputZqmgrp" width="40%" maxLength="8" value="{Zqmgrp}" valueHelpRequest=".extension.customer.zeamntfcres3ext.MaintainNotificationCustom.onValueHelpInputCodif" showValueHelp="true" liveChange=".extension.customer.zeamntfcres3ext.MaintainNotificationCustom.onValidationGrp"/>
+  <!-- ==== Group Codificación ==== -->
+<sap.m:Label text="{/#NotificationHeader/Zqmcod/@sap:label}" width="100%" 
+              xmlns:sap.m="sap.m" 
+              labelFor="pmNotifInputZqmcod"
+              visible="false"
+              id="label4"/>
+
+<Input xmlns="sap.m" id="pmNotifInputZqmcod" width="40%" value="{Zqmcod}" enabled="false" />
+
+  <!-- ==== Group Codificación ==== -->
+<sap.m:Label text="{/#NotificationHeader/Zqmcod/@sap:label}" width="100%" 
+              xmlns:sap.m="sap.m" 
+              labelFor="pmNotifLabelTxtZqmcod"
+              visible="false"
+              id="label5"/>
+
+<Input xmlns="sap.m" id="pmNotifLabelTxtZqmcod" width="40%" value="{ZqmcodText}" enabled="false"  />
+
+</core:FragmentDefinition>

@@ -1,0 +1,60 @@
+*    data: lo_ann_target  type ref to /iwbep/if_mgw_vocan_ann_target.   " Vocabulary Annotation Target
+*    data: lo_ann_target2 type ref to /iwbep/if_mgw_vocan_ann_target.   " Vocabulary Annotation Target
+*    data: lo_annotation  type ref to /iwbep/if_mgw_vocan_annotation.   " Vocabulary Annotation
+*    data: lo_collection  type ref to /iwbep/if_mgw_vocan_collection.   " Vocabulary Annotation Collection
+*    data: lo_function    type ref to /iwbep/if_mgw_vocan_function.     " Vocabulary Annotation Function
+*    data: lo_fun_param   type ref to /iwbep/if_mgw_vocan_fun_param.    " Vocabulary Annotation Function Parameter
+*    data: lo_property    type ref to /iwbep/if_mgw_vocan_property.     " Vocabulary Annotation Property
+*    data: lo_record      type ref to /iwbep/if_mgw_vocan_record.       " Vocabulary Annotation Record
+*    data: lo_simp_value  type ref to /iwbep/if_mgw_vocan_simple_val.   " Vocabulary Annotation Simple Value
+*    data: lo_url         type ref to /iwbep/if_mgw_vocan_url.          " Vocabulary Annotation URL
+*    data: lo_label_elem  type ref to /iwbep/if_mgw_vocan_label_elem.   " Vocabulary Annotation Labeled Element
+*    data: lo_reference   type ref to /iwbep/if_mgw_vocan_reference.    " Vocabulary Annotation Reference
+*
+*    DATA: lo_block_property TYPE REF TO /IWBEP/IF_MGW_VOCAN_PROPERTY.
+*
+*
+*lo_reference = vocab_anno_model->create_vocabulary_reference( iv_vocab_id = '/IWBEP/VOC_UI' iv_vocab_version = '0001').
+*lo_reference->create_include( iv_namespace = 'com.sap.vocabularies.UI.v1' iv_alias = 'UI' ).
+*
+**annotations for entity type Sales Order
+*lo_ann_target = vocab_anno_model->create_annotations_target( 'EAM_NTF_CREATE.NotificationHeader/Zqmgrp' ).
+*lo_ann_target->set_namespace_qualifier( '' ).
+*
+**Header Info
+*lo_annotation = lo_ann_target->create_annotation( iv_term = 'com.sap.vocabularies.Common.v1.ValueList' ).
+*lo_record = lo_annotation->create_record( ).
+*
+*lo_record->create_property( 'CollectionPath' )->create_simple_value( )->set_string('NotificationGrpCodigoSet').
+*lo_block_property = lo_record->create_property( 'Parameters' ).
+*
+*
+*lo_collection = lo_block_property->create_collection( ).
+*lo_record = lo_collection->create_record( iv_record_type = 'com.sap.vocabularies.Common.v1.ValueListParameterInOut' ).
+*
+*lo_property = lo_record->create_property( 'LocalDataProperty' ).
+*lo_simp_value = lo_property->create_simple_value( ).
+*lo_simp_value->set_property_path( 'Zqmgrp' ).
+*
+*lo_property = lo_record->create_property( 'ValueListProperty' ).
+*lo_simp_value = lo_property->create_simple_value( ).
+*lo_simp_value->set_string( 'Codegruppe' ).
+*
+**+2
+*lo_record = lo_collection->create_record( iv_record_type = 'com.sap.vocabularies.Common.v1.ValueListParameterInOut' ).
+*lo_property = lo_record->create_property( 'LocalDataProperty' ).
+*lo_simp_value = lo_property->create_simple_value( ).
+*lo_simp_value->set_property_path( 'Zqmcod' ).
+*
+*lo_property = lo_record->create_property( 'ValueListProperty' ).
+*lo_simp_value = lo_property->create_simple_value( ).
+*lo_simp_value->set_string( 'Code' ).
+*
+***+3
+*
+****+++
+*lo_record = lo_collection->create_record( iv_record_type = 'com.sap.vocabularies.Common.v1.ValueListParameterDisplayOnly' ).
+*
+*lo_property = lo_record->create_property( 'ValueListProperty' ).
+*lo_simp_value = lo_property->create_simple_value( ).
+*lo_simp_value->set_string( 'CodeTxt' ).
