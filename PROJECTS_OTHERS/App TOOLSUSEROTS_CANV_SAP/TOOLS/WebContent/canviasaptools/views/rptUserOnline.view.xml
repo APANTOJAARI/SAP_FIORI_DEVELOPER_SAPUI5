@@ -1,0 +1,151 @@
+<core:View controllerName="canviasaptools.controllers.rptUserOnline"
+		   xmlns:core="sap.ui.core" 
+		   xmlns:mvc="sap.ui.core.mvc" 
+		   xmlns="sap.m"
+		   xmlns:f="sap.ui.layout.form"
+		   xmlns:t="sap.ui.table"
+		   xmlns:html="http://www.w3.org/1999/xhtml">
+	<Page title="CANVIA SAP Tools: Reporte de usuarios SAP conectados"
+          showNavButton = "true"
+          navButtonPress="onNavBackrptUserOnline">
+		<content>
+			<VBox class="sapUiSmallMargin">
+				<f:SimpleForm id="sfUserSAP"
+								editable="true"
+								layout="ResponsiveGridLayout"
+								labelSpanXL="2"
+								labelSpanL="2"
+								labelSpanM="2"
+								labelSpanS="12"
+								adjustLabelSpan="true"
+								emptySpanXL="4"
+								emptySpanL="4"
+								emptySpanM="4"
+								emptySpanS="0"
+								columnsXL="1"
+								columnsL="1"
+								columnsM="1">
+					<f:content>
+						<Label text="Compañía " />
+						<ComboBox
+							id="cmbCompanyFind"
+							placeholder="Sel.Compañia..."
+							showSecondaryValues= "false"
+							width="200px"
+							change="onChangeCompany"
+							items="{/}">
+							<core:ListItem key="{comp_id}" text="{comp_descr_cmb}" additionalText = "{comp_id}"/>
+						</ComboBox>
+						<Label text="Ambiente SAP " />
+						<ComboBox
+							id="cmbConnectionFind"
+							placeholder="Sel.Ambiente SAP..."
+							showSecondaryValues= "false"
+							width="200px"
+							change="onChangeConnectionSAP"
+							items="{/}">
+							<core:ListItem key="{conn_source}" text="{conn_source}" additionalText = "{conn_source}" />
+						</ComboBox>
+						<Label text="Usuario SAP " />
+						<Input id="txtUsuarioSAPFind" width="200px" placeholder="Usuario" />
+					</f:content>
+				</f:SimpleForm>
+			</VBox>
+			<t:Table id="tbUserSAP"
+					 class="sapUiSmallMargin"
+				   rows="{/}"
+				   rowActionCount="1" 
+				   selectionMode="Single"
+				   visibleRowCount="7"
+				   alternateRowColors="true"
+				   ariaLabelledBy="title">
+				<t:extension>
+					<OverflowToolbar>
+						<Title id="title" text="Usuarios conectados"/>
+						<ToolbarSpacer/>
+						<Button id="btnSearchFind" icon="sap-icon://search"  text="Buscar" press="onPressFindPopUp" />
+						<Button id="btnClearUserSAPFind" icon="sap-icon://sys-find" text="Nueva Búsqueda" press="onPressCancel" />
+					</OverflowToolbar>
+				</t:extension>
+				<t:columns>
+					<t:Column sortProperty="bname" filterProperty="bname">
+						<Label text="Usuario"/>
+						<t:template>
+							<Text text="{bname}" wrapping="true"/>
+						</t:template>
+					</t:Column>
+					<t:Column sortProperty="terminal" filterProperty="terminal">
+						<Label text="Terminal"/>
+						<t:template>
+							<Text text="{terminal}" wrapping="true"/>
+						</t:template>
+					</t:Column>
+					<t:Column>
+						<Label text="Hora"/>
+						<t:template>
+							<Text text="{hora_dialog}" wrapping="true"/>
+						</t:template>
+					</t:Column>
+					<t:Column>
+						<Label text="Modos"/>
+						<t:template>
+							<Text text="{modos}" wrapping="true"/>
+						</t:template>
+					</t:Column>
+					<t:Column>
+						<Label text="Tipo"/>
+						<t:template>
+							<Text text="{types}" wrapping="true"/>
+						</t:template>
+					</t:Column>
+					<t:Column>
+						<Label text="Memoria"/>
+						<t:template>
+							<Text text="{memory}" wrapping="true"/>
+						</t:template>
+					</t:Column>
+					<t:Column>
+						<Label text="IP Address"/>
+						<t:template>
+							<Text text="{ipaddres}" wrapping="true"/>
+						</t:template>
+					</t:Column>
+					<t:Column>
+						<Label text="ID Sesión"/>
+						<t:template>
+							<Text text="{idsession}" wrapping="true"/>
+						</t:template>
+					</t:Column>
+					<t:Column>
+						<Label text="Estado"/>
+						<t:template>
+							<Text text="{status}" wrapping="true"/>
+						</t:template>
+					</t:Column>
+					<t:Column>
+						<Label text="Trace"/>
+						<t:template>
+							<Text text="{trace}" wrapping="true"/>
+						</t:template>
+					</t:Column>
+					<t:Column>
+						<Label text="Versión"/>
+						<t:template>
+							<Text text="{version_gui}" wrapping="true"/>
+						</t:template>
+					</t:Column>
+				</t:columns>
+			    <t:rowActionTemplate>
+			        <t:RowAction>
+			            <t:items>
+			            	<t:RowActionItem icon="sap-icon://detail-view" text="Ver detalle" press="onPressDetail"></t:RowActionItem>
+							<t:RowActionItem icon="sap-icon://grid" text="Ver sesiones" press="onPressSession"></t:RowActionItem>
+							<t:RowActionItem icon="sap-icon://laptop" text="Ver memoria" press="onPressMem"></t:RowActionItem>
+							<t:RowActionItem icon="sap-icon://create-session" text="Cerrar sesión" press="onPressEndSes"></t:RowActionItem>
+				    	</t:items>
+					</t:RowAction>
+			    </t:rowActionTemplate>
+			</t:Table>
+		</content>
+	</Page>
+</core:View>

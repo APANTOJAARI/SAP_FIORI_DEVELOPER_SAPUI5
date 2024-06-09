@@ -1,0 +1,63 @@
+{
+  "welcomeFile": "/index.html",
+  "routes": [
+    {
+      "path": "/sap/opu/odata",
+      "target": {
+        "type": "destination",
+        "name": "SAP_Gateway_QAS600_BA",
+        "entryPath": "/sap/opu/odata"
+      },
+      "description": "OData service"
+    },
+    {
+      "path": "/resources",
+      "target": {
+        "type": "service",
+        "name": "sapui5",
+        "entryPath": "/resources",
+        "version": "1.71.16"
+      },
+      "description": "SAPUI5 Resources"
+    },
+    {
+      "path": "/test-resources",
+      "target": {
+        "type": "service",
+        "name": "sapui5",
+        "entryPath": "/test-resources",
+        "version": "1.71.16"
+      },
+      "description": "SAPUI5 Resources"
+    },
+    {
+      "path": "/resources",
+      "target": {
+        "type": "service",
+        "name": "sapui5",
+        "entryPath": "/resources",
+        "version": "1.71.16"
+      },
+      "description": "SAPUI5 Resources"
+    },
+    {
+      "path": "/test-resources",
+      "target": {
+        "type": "service",
+        "name": "sapui5",
+        "entryPath": "/test-resources",
+        "version": "1.71.16"
+      },
+      "description": "SAPUI5 Test Resources"
+    },
+    {
+      "path": "/H2H/PropuestaPago",
+      "target": {
+        "type": "destination",
+        "name": "H2HPP_HANA"
+      },
+      "description": "H2HPP_HANA"
+    }
+  ],
+  "sendWelcomeFileRedirect": true
+}

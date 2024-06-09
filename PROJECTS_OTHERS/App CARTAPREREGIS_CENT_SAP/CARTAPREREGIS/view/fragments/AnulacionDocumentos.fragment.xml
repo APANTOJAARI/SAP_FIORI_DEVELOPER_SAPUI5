@@ -1,0 +1,54 @@
+<core:FragmentDefinition xmlns:f="sap.ui.layout.form" xmlns:mvc="sap.ui.core.mvc" xmlns:u="sap.ui.unified" xmlns="sap.m"
+	xmlns:core="sap.ui.core" height="100%" xmlns:l="sap.ui.layout" controllerName="com.centria.CartaPreregistro.controller.View1">
+	<Dialog title="{i18n>titleAnulaDoc}">
+		<f:Form editable="true">
+			<f:layout>
+				<f:ResponsiveGridLayout labelSpanXL="12" labelSpanL="12" labelSpanM="12" labelSpanS="12" adjustLabelSpan="false" emptySpanXL="0"
+					emptySpanL="0" emptySpanM="0" emptySpanS="0" columnsXL="3" columnsL="3" columnsM="1" singleContainerFullSize="false"/>
+			</f:layout>
+			<f:formContainers>
+				<f:FormContainer>
+					<f:formElements>
+						<f:FormElement label="{i18n>labelNumDoc}">
+							<Input value="{AnulacionDoc>/NumDoc}" required="true" valueState="{AnulacionDoc>/StateNumDoc}">
+								<layoutData>
+									<l:GridData span="L9 M9 S9"/>
+								</layoutData>
+							</Input>
+						</f:FormElement>
+						<f:FormElement label="{i18n>labelSociedad}">
+							<Input id="idInputSociedad9" valueHelpRequest="openMatchCodeSociedad"  showValueHelp="true" required="true" value="{AnulacionDoc>/Sociedad}" valueState="{AnulacionDoc>/StateSociedad}">
+								<layoutData>
+									<l:GridData span="L9 M9 S9"/>
+								</layoutData>
+							</Input>
+							<!--<Input id="idInputSociedad9" valueHelpRequest="openMatchCodeSociedad" showValueHelp="true">-->
+							<!--	<layoutData>-->
+							<!--		<l:GridData span="L9 M9 S9"/>-->
+							<!--	</layoutData>-->
+							<!--</Input>-->
+							<!--<Input editable="false">-->
+							<!--	<layoutData>-->
+							<!--		<l:GridData span="L6 M6 S6"/>-->
+							<!--	</layoutData>-->
+							<!--</Input>-->
+						</f:FormElement>
+						<f:FormElement label="{i18n>labelEjercicio}">
+							<Input value="{AnulacionDoc>/Ejercicio}" required="true" valueState="{AnulacionDoc>/StateEjercicio}">
+								<layoutData>
+									<l:GridData span="L9 M9 S9"/>
+								</layoutData>
+							</Input>
+						</f:FormElement>
+					</f:formElements>
+				</f:FormContainer>
+			</f:formContainers>
+		</f:Form>
+		<beginButton>
+			<Button type="Accept" text="{i18n>btnAnular}" press="_onAnularDocumentos"/>
+		</beginButton>
+		<endButton>
+			<Button type="Reject" text="{i18n>btnCancelar}" press="closeDialog"/>
+		</endButton>
+	</Dialog>
+</core:FragmentDefinition>

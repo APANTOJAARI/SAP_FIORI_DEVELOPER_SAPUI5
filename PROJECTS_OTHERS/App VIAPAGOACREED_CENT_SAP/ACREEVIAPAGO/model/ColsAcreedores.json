@@ -1,0 +1,33 @@
+{
+	"cols": [{
+		"label": "Código",
+		"template": "MatchModel>cod",
+		"width": "10rem"
+
+	}, {
+		"label": "Nombre",
+		"template": "MatchModel>name",
+		"width": "15rem"
+
+	}, {
+		"label": "País",
+		"template": "MatchModel>opc1",
+		"width": "5rem"
+
+	}, {
+		"label": "Ubicación",
+		"template": "MatchModel>opc2",
+		"width": "7rem"
+
+	}, {
+		"label": "Código de sociedad",
+		"template": "MatchModel>opc3",
+		"width": "5rem"
+
+	}, {
+		"label": "Tipo",
+		"template": "MatchModel>opc4",
+		"width": "10rem"
+
+	}]
+}

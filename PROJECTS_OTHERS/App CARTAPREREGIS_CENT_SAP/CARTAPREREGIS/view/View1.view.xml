@@ -1,0 +1,124 @@
+<mvc:View controllerName="com.centria.CartaPreregistro.controller.View1" xmlns:mvc="sap.ui.core.mvc" displayBlock="true" xmlns="sap.m"
+	xmlns:core="sap.ui.core" height="100%" xmlns:l="sap.ui.layout" xmlns:f="sap.ui.layout.form"
+	xmlns:app="http://schemas.sap.com/sapui5/extension/sap.ui.core.CustomData/1" class="sapUiSizeCompact">
+	<Shell id="shell">
+		<App id="app">
+			<pages>
+				<Page id="page" showHeader="false">
+		<!--			<customHeader>
+						<OverflowToolbar>
+							<core:Icon src="sap-icon://customfont/sap" class="size3" color="#019CE0" press="onPressHome" tooltip="Navegar a la página inicial"
+								visible="{oDeviceModel>/system/desktop}">
+								<core:layoutData>
+									<FlexItemData growFactor="1"/>
+								</core:layoutData>
+							</core:Icon>
+							<Title text="{i18n>title}"/>
+							<ToolbarSpacer/>
+						</OverflowToolbar>
+					</customHeader>-->
+					<content>
+						<f:Form editable="true" id="formCartas" visible="false">
+							<f:layout>
+								<f:ResponsiveGridLayout labelSpanXL="12" labelSpanL="12" labelSpanM="12" labelSpanS="12" adjustLabelSpan="false" emptySpanXL="0"
+									emptySpanL="0" emptySpanM="0" emptySpanS="0" columnsXL="3" columnsL="3" columnsM="3" singleContainerFullSize="false"/>
+							</f:layout>
+							<f:formContainers>
+								<f:FormContainer id="idButtonContainer">
+									<f:formElements>
+										<f:FormElement>
+											<Button text="{i18n>titleDepositosPlazo}" app:fragmentIntent="1" press="onChangingMainFragment" visible="{Botones>/BUT1}"/>
+										</f:FormElement>
+										<f:FormElement>
+											<Button text="{i18n>titleTransInter}" app:fragmentIntent="2" press="onChangingMainFragment" visible="{Botones>/BUT2}"/>
+										</f:FormElement>
+										<f:FormElement>
+											<Button text="{i18n>titleTransEntreCuentasYSoc}" app:fragmentIntent="3" press="onChangingMainFragment" visible="{Botones>/BUT3}"/>
+										</f:FormElement>
+										<f:FormElement>
+											<Button text="{i18n>titleTransExterior}" app:fragmentIntent="4" press="onChangingMainFragment" visible="{Botones>/BUT9}"/>
+										</f:FormElement>
+										<f:FormElement>
+											<Button text="{i18n>titleOpCambio}" app:fragmentIntent="5" press="onChangingMainFragment" visible="{Botones>/BUT4}"/>
+										</f:FormElement>
+										<f:FormElement>
+											<Button text="{i18n>titleOpCambioConTransBCR}" app:fragmentIntent="6" press="onChangingMainFragment" visible="{Botones>/BUT5}"/>
+										</f:FormElement>
+										<f:FormElement>
+											<Button text="{i18n>titleEmisionCheques}" app:fragmentIntent="7" press="onChangingMainFragment" visible="{Botones>/BUT6}"/>
+										</f:FormElement>
+										<f:FormElement>
+											<Button text="{i18n>titleContabilizacionDepPlazo}" app:fragmentIntent="8" press="onOpeningFragmentContabilizacion" visible="{Botones>/BUT7}"/>
+										</f:FormElement>
+										<f:FormElement>
+											<Button text="{i18n>titleAnulaDoc}" app:fragmentIntent="9" press="onOpeningFragmentAnulacion" visible="{Botones>/BUT8}"/>
+										</f:FormElement>
+									</f:formElements>
+									<f:layoutData>
+										<l:GridData span="L4 M4 S12"/>
+									</f:layoutData>
+								</f:FormContainer>
+								<f:FormContainer>
+									<f:formElements>
+										<f:FormElement id="FormElementFragmentContainer">
+											<!--<VBox  class="sapUiSmallMargin" visible="{ModelFragments>/Fragments/0/visible}">-->
+											<!--<core:Fragment fragmentName="com.centria.CartaPreregistro.view.fragments.DepositosAPlazo" type="XML"/>-->
+											<!--</VBox>-->
+											<!--<VBox  class="sapUiSmallMargin" visible="{ModelFragments>/Fragments/1/visible}">-->
+											<!--<core:Fragment fragmentName="com.centria.CartaPreregistro.view.fragments.TransferenciasInterbancarias" type="XML"/>-->
+											<!--</VBox>-->
+											<!--<VBox  class="sapUiSmallMargin" visible="{ModelFragments>/Fragments/2/visible}">-->
+											<!--<core:Fragment fragmentName="com.centria.CartaPreregistro.view.fragments.TransEntreCuentasYOtrasSociedades" type="XML"/>-->
+											<!--</VBox>-->
+											<!--<VBox  class="sapUiSmallMargin" visible="{ModelFragments>/Fragments/3/visible}">-->
+											<!--<core:Fragment fragmentName="com.centria.CartaPreregistro.view.fragments.TransAlExterior" type="XML"/>-->
+											<!--</VBox>-->
+											<!--<VBox  class="sapUiSmallMargin" visible="{ModelFragments>/Fragments/4/visible}">-->
+											<!--<core:Fragment fragmentName="com.centria.CartaPreregistro.view.fragments.OperacionesDeCambio" type="XML"/>-->
+											<!--</VBox>-->
+											<!--<VBox  class="sapUiSmallMargin" visible="{ModelFragments>/Fragments/5/visible}">-->
+											<!--<core:Fragment fragmentName="com.centria.CartaPreregistro.view.fragments.OperacionesCambioConTransferenciaBCR" type="XML"/>-->
+											<!--</VBox>-->
+											<!--<VBox  class="sapUiSmallMargin" visible="{ModelFragments>/Fragments/6/visible}">-->
+											<!--<core:Fragment fragmentName="com.centria.CartaPreregistro.view.fragments.EmisionCheques" type="XML"/>-->
+											<!--</VBox>-->
+										</f:FormElement>
+									</f:formElements>
+									<f:layoutData>
+										<l:GridData span="L8 M8 S12"/>
+									</f:layoutData>
+								</f:FormContainer>
+							</f:formContainers>
+						</f:Form>
+					</content>
+					<footer>
+						<OverflowToolbar id="otbFooter">
+							<ToolbarSpacer/>
+							<Button type="Ghost" icon="sap-icon://display" text="{i18n>btnVisCar}" press="onVisualizarCarta">
+								<layoutData><OverflowToolbarLayoutData priority="NeverOverflow"/></layoutData>
+							</Button>
+							<Button type="Ghost" icon="sap-icon://print" text="{i18n>btnImprCar}" press="onImprimirCarta">
+								<layoutData><OverflowToolbarLayoutData priority="NeverOverflow"/></layoutData>
+							</Button>
+							<Button type="Accept" icon="sap-icon://message-success" text="{i18n>btnGenAsAut}" press="onGenerarAsiento">
+								<layoutData><OverflowToolbarLayoutData priority="NeverOverflow"/></layoutData>
+							</Button>
+							<Button type="Emphasized" icon="sap-icon://company-view" text="{i18n>btnMantProv}" press="openFragmentMantProv">
+								<layoutData><OverflowToolbarLayoutData priority="NeverOverflow"/></layoutData>
+							</Button>
+							<Button type="Emphasized" icon="sap-icon://accounting-document-verification" press="openFragmentMantCtaInt" text="{i18n>btnMantCuenInt}">
+								<layoutData><OverflowToolbarLayoutData priority="NeverOverflow"/></layoutData>
+							</Button>
+							<Button type="Emphasized" icon="sap-icon://wallet" text="{i18n>btnMantDep}" press="openFragmentDepositos">
+								<layoutData><OverflowToolbarLayoutData priority="NeverOverflow"/></layoutData>
+							</Button>
+							<!--<Button type="Ghost" icon="sap-icon://collaborate" text="{i18n>btnMantProvExt}">-->
+							<!--	<layoutData><OverflowToolbarLayoutData priority="NeverOverflow"/></layoutData>-->
+							<!--</Button>-->
+						</OverflowToolbar>
+					</footer>
+				</Page>
+			</pages>
+		</App>
+	</Shell>
+</mvc:View>

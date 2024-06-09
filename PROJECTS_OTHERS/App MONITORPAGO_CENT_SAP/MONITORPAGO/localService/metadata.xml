@@ -1,0 +1,197 @@
+<edmx:Edmx xmlns:edmx="http://schemas.microsoft.com/ado/2007/06/edmx"
+	xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata" xmlns:sap="http://www.sap.com/Protocols/SAPData" Version="1.0">
+	<edmx:DataServices m:DataServiceVersion="2.0">
+		<Schema xmlns="http://schemas.microsoft.com/ado/2008/09/edm" Namespace="ZFISO_MONITOR_RPA_H2H_SRV" xml:lang="en" sap:schema-version="1">
+			<EntityType Name="ListaPagosRPA" sap:content-version="1" sap:semantics="aggregate">
+				<Key>
+					<PropertyRef Name="Bukrs"/>
+					<PropertyRef Name="Belnr"/>
+				</Key>
+				<Property Name="Check" Type="Edm.String" Nullable="false" MaxLength="1" sap:aggregation-role="dimension" sap:unicode="false"
+					sap:label="Indicator" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+				<Property Name="Bukrs" Type="Edm.String" Nullable="false" MaxLength="4" sap:aggregation-role="dimension"
+					sap:filter-restriction="single-value" sap:required-in-filter="true" sap:unicode="false" sap:value-list="standard" sap:label="Company Code"
+					sap:creatable="false" sap:updatable="false" sap:sortable="false"/>
+				<Property Name="Belnr" Type="Edm.String" Nullable="false" MaxLength="10" sap:aggregation-role="dimension" sap:unicode="false"
+					sap:label="Document Number" sap:creatable="false" sap:updatable="false" sap:filterable="false"/>
+				<Property Name="Gjahr" Type="Edm.String" Nullable="false" MaxLength="4" sap:aggregation-role="dimension" sap:unicode="false"
+					sap:label="Fiscal Year" sap:creatable="false" sap:updatable="false" sap:filterable="false"/>
+				<Property Name="Blart" Type="Edm.String" Nullable="false" MaxLength="2" sap:aggregation-role="dimension" sap:unicode="false"
+					sap:label="Document type" sap:creatable="false" sap:updatable="false" sap:filterable="false"/>
+				<Property Name="Budat" Type="Edm.DateTime" Precision="7" sap:aggregation-role="dimension" sap:display-format="date" sap:unicode="false"
+					sap:label="Posting Date" sap:creatable="false" sap:updatable="false"/>
+				<Property Name="Hbkid" Type="Edm.String" Nullable="false" MaxLength="5" sap:aggregation-role="dimension" sap:unicode="false"
+					sap:label="House bank" sap:creatable="false" sap:updatable="false"/>
+				<Property Name="Hkont" Type="Edm.String" Nullable="false" MaxLength="10" sap:aggregation-role="dimension" sap:unicode="false"
+					sap:label="G/L Acct" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+				<Property Name="Wrbtr" Type="Edm.Decimal" Nullable="false" Precision="24" Scale="3" sap:aggregation-role="measure" sap:unicode="false"
+					sap:label="Amount" sap:creatable="false" sap:updatable="false" sap:filterable="false"/>
+				<Property Name="Waers" Type="Edm.String" Nullable="false" MaxLength="5" sap:aggregation-role="dimension" sap:unicode="false"
+					sap:label="Currency" sap:creatable="false" sap:updatable="false" sap:filterable="false" sap:semantics="currency-code"/>
+			</EntityType>
+			<EntityType Name="ListaProPagoRPA" sap:content-version="1">
+				<Key>
+					<PropertyRef Name="Bukrs"/>
+					<PropertyRef Name="Laufi"/>
+				</Key>
+				<Property Name="Check" Type="Edm.String" Nullable="false" MaxLength="1" sap:aggregation-role="dimension" sap:unicode="false"
+					sap:label="Indicator" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+				<Property Name="Bukrs" Type="Edm.String" Nullable="false" MaxLength="4" sap:aggregation-role="dimension"
+					sap:filter-restriction="single-value" sap:required-in-filter="true" sap:unicode="false" sap:value-list="standard" sap:label="Company Code"
+					sap:creatable="false" sap:updatable="false" sap:sortable="false"/>
+				<Property Name="Laufi" Type="Edm.String" Nullable="false" MaxLength="6" sap:aggregation-role="dimension" sap:unicode="false"
+					sap:creatable="false" sap:updatable="false"/>
+				<Property Name="Laufd" Type="Edm.DateTime" Precision="7" sap:aggregation-role="dimension" sap:display-format="Date" sap:unicode="false"
+					sap:creatable="false" sap:updatable="false"/>
+				<Property Name="Uname" Type="Edm.String" Nullable="false" MaxLength="12" sap:aggregation-role="dimension" sap:unicode="false"
+					sap:label="User Name" sap:creatable="false" sap:updatable="false" sap:filterable="false"/>
+				<Property Name="Tipos" Type="Edm.String" Nullable="false" MaxLength="5" sap:aggregation-role="dimension" sap:unicode="false"
+					sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+				<Property Name="Banco" Type="Edm.String" Nullable="false" MaxLength="5" sap:aggregation-role="dimension" sap:unicode="false"
+					sap:creatable="false" sap:updatable="false" sap:filterable="false"/>
+				<Property Name="Wrbpe" Type="Edm.Decimal" Nullable="false" Precision="24" Scale="3" sap:aggregation-role="measure" sap:unicode="false"
+					sap:label="Amount" sap:creatable="false" sap:updatable="false" sap:filterable="false"/>
+				<Property Name="Wrbus" Type="Edm.Decimal" Nullable="false" Precision="24" Scale="3" sap:aggregation-role="measure" sap:unicode="false"
+					sap:label="Amount" sap:creatable="false" sap:updatable="false" sap:filterable="false"/>
+				<Property Name="Anula" Type="Edm.String" Nullable="false" MaxLength="10" sap:aggregation-role="dimension" sap:unicode="false"
+					sap:creatable="false" sap:updatable="false" sap:filterable="false"/>
+			</EntityType>
+			<EntityType Name="DetalleProPagoRPA" sap:content-version="1">
+				<Key>
+					<PropertyRef Name="Bukrs"/>
+					<PropertyRef Name="Laufi"/>
+					<PropertyRef Name="Belnr"/>
+				</Key>
+				<Property Name="Bukrs" Type="Edm.String" Nullable="false" MaxLength="4" sap:aggregation-role="dimension"
+					sap:filter-restriction="single-value" sap:required-in-filter="true" sap:unicode="false" sap:value-list="standard"
+					sap:label="Paying co. code" sap:creatable="false" sap:updatable="false" sap:sortable="false"/>
+				<Property Name="Laufd" Type="Edm.DateTime" Precision="7" sap:aggregation-role="dimension" sap:display-format="Date"
+					sap:required-in-filter="true" sap:unicode="false" sap:creatable="false" sap:updatable="false" sap:sortable="false"/>
+				<Property Name="Laufi" Type="Edm.String" Nullable="false" MaxLength="6" sap:aggregation-role="dimension" sap:required-in-filter="true"
+					sap:unicode="false" sap:creatable="false" sap:updatable="false" sap:sortable="false"/>
+				<Property Name="Versn" Type="Edm.String" Nullable="false" MaxLength="4" sap:aggregation-role="dimension" sap:unicode="false"
+					sap:label="Change Status" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+				<Property Name="Belnr" Type="Edm.String" Nullable="false" MaxLength="10" sap:aggregation-role="dimension" sap:unicode="false"
+					sap:label="Document Number" sap:creatable="false" sap:updatable="false" sap:filterable="false"/>
+				<Property Name="Gjahr" Type="Edm.String" Nullable="false" MaxLength="4" sap:aggregation-role="dimension" sap:unicode="false"
+					sap:label="Fiscal Year" sap:creatable="false" sap:updatable="false" sap:filterable="false"/>
+				<Property Name="Lifnr" Type="Edm.String" Nullable="false" MaxLength="10" sap:aggregation-role="dimension" sap:unicode="false"
+					sap:label="Vendor" sap:creatable="false" sap:updatable="false" sap:filterable="false"/>
+				<Property Name="Hkont" Type="Edm.String" Nullable="false" MaxLength="10" sap:aggregation-role="dimension" sap:unicode="false"
+					sap:label="G/L Acct" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+				<Property Name="Hbkid" Type="Edm.String" Nullable="false" MaxLength="5" sap:aggregation-role="dimension" sap:unicode="false"
+					sap:label="House bank" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+				<Property Name="Waers" Type="Edm.String" Nullable="false" MaxLength="5" sap:aggregation-role="dimension" sap:unicode="false"
+					sap:label="Currency" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false" sap:semantics="currency-code"/>
+				<Property Name="Wrbtr" Type="Edm.Decimal" Nullable="false" Precision="24" Scale="3" sap:aggregation-role="measure" sap:unicode="false"
+					sap:label="Amount" sap:creatable="false" sap:updatable="false" sap:filterable="false"/>
+				<Property Name="Zlsch" Type="Edm.String" Nullable="false" MaxLength="1" sap:aggregation-role="dimension" sap:unicode="false"
+					sap:label="Pymt Meth." sap:creatable="false" sap:updatable="false" sap:filterable="false"/>
+				<Property Name="Estado" Type="Edm.String" Nullable="false" MaxLength="10" sap:aggregation-role="dimension" sap:unicode="false"
+					sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+			</EntityType>
+			<EntityType Name="ClaveBanco" sap:content-version="1">
+				<Key>
+					<PropertyRef Name="Bukrs"/>
+					<PropertyRef Name="Hbkid"/>
+				</Key>
+				<Property Name="Bukrs" Type="Edm.String" Nullable="false" MaxLength="4" sap:unicode="false" sap:label="Company Code" sap:creatable="false"
+					sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+				<Property Name="Hbkid" Type="Edm.String" Nullable="false" MaxLength="5" sap:unicode="false" sap:label="House bank" sap:creatable="false"
+					sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+				<Property Name="Banks" Type="Edm.String" Nullable="false" MaxLength="3" sap:unicode="false" sap:label="Bank Country" sap:creatable="false"
+					sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+				<Property Name="Bankl" Type="Edm.String" Nullable="false" MaxLength="15" sap:unicode="false" sap:label="Bank Key" sap:creatable="false"
+					sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+				<Property Name="Banka" Type="Edm.String" Nullable="false" MaxLength="60" sap:unicode="false" sap:label="Bank name" sap:creatable="false"
+					sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+				<Property Name="Ort01" Type="Edm.String" Nullable="false" MaxLength="35" sap:unicode="false" sap:label="City" sap:creatable="false"
+					sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+				<Property Name="Name1" Type="Edm.String" Nullable="false" MaxLength="30" sap:unicode="false" sap:label="Contact Person"
+					sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+			</EntityType>
+			<EntityType Name="HeaderRPA" sap:content-version="1">
+				<Key>
+					<PropertyRef Name="Bukrs"/>
+				</Key>
+				<Property Name="Accbtn" Type="Edm.String" Nullable="false" MaxLength="15" sap:unicode="false" sap:creatable="false" sap:updatable="false"
+					sap:sortable="false" sap:filterable="false"/>
+				<Property Name="Bukrs" Type="Edm.String" Nullable="false" MaxLength="4" sap:unicode="false" sap:label="Company Code" sap:creatable="false"
+					sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+				<Property Name="Mtype" Type="Edm.String" Nullable="false" MaxLength="1" sap:unicode="false" sap:label="Message type" sap:creatable="false"
+					sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+				<Property Name="Mensaje" Type="Edm.String" Nullable="false" MaxLength="220" sap:unicode="false" sap:label="Message Text"
+					sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+				<NavigationProperty Name="ListaPagosRPASet" Relationship="ZFISO_MONITOR_RPA_H2H_SRV.HeaderPagosRPA" FromRole="FromRole_HeaderPagosRPA"
+					ToRole="ToRole_HeaderPagosRPA"/>
+				<NavigationProperty Name="ListaProPagoRPASet" Relationship="ZFISO_MONITOR_RPA_H2H_SRV.HeaderProPagoRPA" FromRole="FromRole_HeaderProPagoRPA"
+					ToRole="ToRole_HeaderProPagoRPA"/>
+			</EntityType>
+			<EntityType Name="Sociedad" sap:content-version="1">
+				<Key>
+					<PropertyRef Name="Companycode"/>
+				</Key>
+				<Property Name="Companycode" Type="Edm.String" Nullable="false" MaxLength="4" sap:unicode="false" sap:label="Company Code"
+					sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+				<Property Name="Companycodename" Type="Edm.String" Nullable="false" MaxLength="25" sap:unicode="false" sap:label="Company Name"
+					sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+				<Property Name="Controllingarea" Type="Edm.String" Nullable="false" MaxLength="4" sap:unicode="false" sap:label="CO Area"
+					sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+				<Property Name="Country" Type="Edm.String" Nullable="false" MaxLength="3" sap:unicode="false" sap:label="Country" sap:creatable="false"
+					sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+			</EntityType>
+			<Association Name="HeaderProPagoRPA" sap:content-version="1">
+				<End Type="ZFISO_MONITOR_RPA_H2H_SRV.HeaderRPA" Multiplicity="1" Role="FromRole_HeaderProPagoRPA"/>
+				<End Type="ZFISO_MONITOR_RPA_H2H_SRV.ListaProPagoRPA" Multiplicity="*" Role="ToRole_HeaderProPagoRPA"/>
+				<ReferentialConstraint>
+					<Principal Role="FromRole_HeaderProPagoRPA">
+						<PropertyRef Name="Bukrs"/>
+					</Principal>
+					<Dependent Role="ToRole_HeaderProPagoRPA">
+						<PropertyRef Name="Bukrs"/>
+					</Dependent>
+				</ReferentialConstraint>
+			</Association>
+			<Association Name="HeaderPagosRPA" sap:content-version="1">
+				<End Type="ZFISO_MONITOR_RPA_H2H_SRV.HeaderRPA" Multiplicity="1" Role="FromRole_HeaderPagosRPA"/>
+				<End Type="ZFISO_MONITOR_RPA_H2H_SRV.ListaPagosRPA" Multiplicity="*" Role="ToRole_HeaderPagosRPA"/>
+				<ReferentialConstraint>
+					<Principal Role="FromRole_HeaderPagosRPA">
+						<PropertyRef Name="Bukrs"/>
+					</Principal>
+					<Dependent Role="ToRole_HeaderPagosRPA">
+						<PropertyRef Name="Bukrs"/>
+					</Dependent>
+				</ReferentialConstraint>
+			</Association>
+			<EntityContainer Name="ZFISO_MONITOR_RPA_H2H_SRV_Entities" m:IsDefaultEntityContainer="true" sap:supported-formats="atom json xlsx">
+				<EntitySet Name="ListaPagosRPASet" EntityType="ZFISO_MONITOR_RPA_H2H_SRV.ListaPagosRPA" sap:creatable="false" sap:updatable="false"
+					sap:deletable="false" sap:pageable="false" sap:content-version="1"/>
+				<EntitySet Name="ListaProPagoRPASet" EntityType="ZFISO_MONITOR_RPA_H2H_SRV.ListaProPagoRPA" sap:creatable="false" sap:updatable="false"
+					sap:deletable="false" sap:pageable="false" sap:content-version="1"/>
+				<EntitySet Name="DetalleProPagoRPASet" EntityType="ZFISO_MONITOR_RPA_H2H_SRV.DetalleProPagoRPA" sap:creatable="false" sap:updatable="false"
+					sap:deletable="false" sap:pageable="false" sap:content-version="1"/>
+				<EntitySet Name="ClaveBancoSet" EntityType="ZFISO_MONITOR_RPA_H2H_SRV.ClaveBanco" sap:creatable="false" sap:updatable="false"
+					sap:deletable="false" sap:pageable="false" sap:content-version="1"/>
+				<EntitySet Name="OpcionesRPASet" EntityType="ZFISO_MONITOR_RPA_H2H_SRV.HeaderRPA" sap:creatable="false" sap:updatable="false"
+					sap:deletable="false" sap:pageable="false" sap:content-version="1"/>
+				<EntitySet Name="SociedadSet" EntityType="ZFISO_MONITOR_RPA_H2H_SRV.Sociedad" sap:creatable="false" sap:updatable="false"
+					sap:deletable="false" sap:pageable="false" sap:content-version="1"/>
+				<AssociationSet Name="HeaderPagosRPASet" Association="ZFISO_MONITOR_RPA_H2H_SRV.HeaderPagosRPA" sap:creatable="false" sap:updatable="false"
+					sap:deletable="false" sap:content-version="1">
+					<End EntitySet="OpcionesRPASet" Role="FromRole_HeaderPagosRPA"/>
+					<End EntitySet="ListaPagosRPASet" Role="ToRole_HeaderPagosRPA"/>
+				</AssociationSet>
+				<AssociationSet Name="HeaderProPagoRPASet" Association="ZFISO_MONITOR_RPA_H2H_SRV.HeaderProPagoRPA" sap:creatable="false"
+					sap:updatable="false" sap:deletable="false" sap:content-version="1">
+					<End EntitySet="OpcionesRPASet" Role="FromRole_HeaderProPagoRPA"/>
+					<End EntitySet="ListaProPagoRPASet" Role="ToRole_HeaderProPagoRPA"/>
+				</AssociationSet>
+			</EntityContainer>
+			<atom:link xmlns:atom="http://www.w3.org/2005/Atom" rel="self"
+				href="https://vcens4haeq01:8010/sap/opu/odata/sap/ZFISO_MONITOR_RPA_H2H_SRV/$metadata"/>
+			<atom:link xmlns:atom="http://www.w3.org/2005/Atom" rel="latest-version"
+				href="https://vcens4haeq01:8010/sap/opu/odata/sap/ZFISO_MONITOR_RPA_H2H_SRV/$metadata"/>
+		</Schema>
+	</edmx:DataServices>
+</edmx:Edmx>

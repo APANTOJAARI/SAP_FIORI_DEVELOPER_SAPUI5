@@ -1,0 +1,2 @@
+<core:FragmentDefinition xmlns="sap.m" xmlns:core="sap.ui.core" ><SelectDialog id="selectDialog" noDataText="{i18n>sinDatos}"  class="sapUiSizeCompact" title="{i18n>seleccioneUna}" liveChange=".onSearchGenericVHelp" confirm="confirmGenericVHelp" cancel="closeGenericVHelp"
+		></SelectDialog></core:FragmentDefinition>

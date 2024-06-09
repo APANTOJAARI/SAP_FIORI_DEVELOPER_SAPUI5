@@ -1,0 +1,1 @@
+function initModel(){var a="/sap/opu/odata/sap/ZFISO_PORTAL_H2H_SRV/";var e=new sap.ui.model.odata.ODataModel(a,true);sap.ui.getCore().setModel(e)}

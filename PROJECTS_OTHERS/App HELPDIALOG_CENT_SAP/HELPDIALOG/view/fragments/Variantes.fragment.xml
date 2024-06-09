@@ -1,0 +1,42 @@
+<core:FragmentDefinition xmlns="sap.m" xmlns:core="sap.ui.core" xmlns:t="sap.ui.table">
+	<Dialog title="{i18n>txtVariantes}" afterClose="onAfterCloseFragment" contentWidth="50%" class="sapUiSizeCompact">
+		<content>
+			<t:Table id="tVariants" selectionMode="Single" rows="{oVariantsModel>/rows}" visibleRowCount="7">
+				<t:extension>
+					<OverflowToolbar>
+						<ToolbarSpacer/>
+						<Button text="{i18n>txtNuevo}" icon="sap-icon://document" press="onNewVariant"/>
+						<Button text="{i18n>txtEditar}" icon="sap-icon://write-new-document" press="onEditVariant"/>
+						<Button text="{i18n>txtEliminar}" icon="sap-icon://delete" press="onDeleteVariant"/>
+					</OverflowToolbar>
+				</t:extension>
+				<t:columns>
+					<t:Column width="7rem">
+						<Label text="Nombre"/>
+						<t:template>
+							<Text text="{oVariantsModel>Nombre}" wrapping="false"/>
+						</t:template>
+					</t:Column>
+					<t:Column width="7rem">
+						<Label text="Descripción"/>
+						<t:template>
+							<Text text="{oVariantsModel>Descripcion}" wrapping="false"/>
+						</t:template>
+					</t:Column>
+					<t:Column width="7rem">
+						<Label text="Autor"/>
+						<t:template>
+							<Text text="{oVariantsModel>Usuario}" wrapping="false"/>
+						</t:template>
+					</t:Column>
+				</t:columns>
+			</t:Table>
+		</content>
+		<beginButton>
+			<Button text="Aplicar" icon="sap-icon://synchronize" press="onApplyVariant"/>
+		</beginButton>
+		<endButton>
+			<Button text="Cerrar" icon="sap-icon://cancel" press="onCloseFragment"/>
+		</endButton>
+	</Dialog>
+</core:FragmentDefinition>

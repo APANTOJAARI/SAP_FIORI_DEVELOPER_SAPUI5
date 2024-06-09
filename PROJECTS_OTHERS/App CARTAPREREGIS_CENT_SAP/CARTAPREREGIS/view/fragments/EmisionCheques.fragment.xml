@@ -1,0 +1,126 @@
+<core:FragmentDefinition xmlns:f="sap.ui.layout.form" xmlns:mvc="sap.ui.core.mvc" xmlns:u="sap.ui.unified" xmlns="sap.m"
+	xmlns:core="sap.ui.core" height="100%" xmlns:l="sap.ui.layout" xmlns:app="http://schemas.sap.com/sapui5/extension/sap.ui.core.CustomData/1"
+	controllerName="com.centria.CartaPreregistro.controller.View1">
+	<f:Form editable="true">
+		<f:toolbar>
+			<Toolbar>
+				<Title text="{i18n>titleEmisionCheques}"/>
+				<ToolbarSpacer/>
+			</Toolbar>
+		</f:toolbar>
+		<f:layout>
+			<f:ResponsiveGridLayout labelSpanXL="12" labelSpanL="12" labelSpanM="12" labelSpanS="12" adjustLabelSpan="false" emptySpanXL="0"
+				emptySpanL="0" emptySpanM="0" emptySpanS="0" columnsXL="3" columnsL="3" columnsM="1" singleContainerFullSize="false"/>
+		</f:layout>
+		<f:formContainers>
+			<f:FormContainer>
+				<f:formElements>
+					<f:FormElement>
+						<RadioButtonGroup columns="2" width="50%" class="sapUiTinyMarginBottom">
+							<RadioButton text="{i18n>bulletCTS}"/>
+							<RadioButton text="{i18n>bulletPagoProv}"/>
+						</RadioButtonGroup>
+					</f:FormElement>
+					<f:FormElement label="{i18n>inputSociedad}">
+						<Input id="idInputSociedad7" suggestionItems="{ path: 'ServiceH2HModel>/SociedadSet',length: 10000 }"
+							valueHelpRequest="openMatchCodeSociedad" showValueHelp="true" class="UpperCase" showSuggestion="true"
+							selectedKey="{oModelDataGlobal>/InpSociedad}" value="{oModelDataGlobal>/InpSociedad}">
+							<layoutData>
+								<l:GridData span="L4 M4 S12"/>
+							</layoutData>
+							<core:ListItem key="{ServiceH2HModel>Companycode}" text="{ServiceH2HModel>Companycode}" additionalText="{ServiceH2HModel>Companycodename}"/>
+						</Input>
+					</f:FormElement>
+					<!--	<f:FormElement label="{i18n>inputProveedor}">
+						<Input showValueHelp="true" value="{oModelDataGlobal>/inputProveedor}">
+							<layoutData>
+								<l:GridData span="L6 M6 S12"/>
+							</layoutData>
+						</Input>
+						<Input>
+							<layoutData>
+								<l:GridData span="L6 M6 S12"/>
+							</layoutData>
+						</Input>
+					</f:FormElement>!-->
+					<f:FormElement label="{i18n>inputProveedor}">
+						<Input valueHelpRequest="openAcreedores" showValueHelp="true" class="UpperCase" value="{oModelDataGlobal>/inputProveedor}">
+							<layoutData>
+								<l:GridData span="L4 M4 S12"/>
+							</layoutData>
+						</Input>
+					</f:FormElement>
+					<f:FormElement label="{i18n>inputPortador}">
+						<Input value="{oModelDataGlobal>/inputPortador}">
+							<layoutData>
+								<l:GridData span="L9 M9 S12"/>
+							</layoutData>
+						</Input>
+					</f:FormElement>
+					<f:FormElement label="{i18n>inputDNI}">
+						<Input value="{oModelDataGlobal>/inputDNI}">
+							<layoutData>
+								<l:GridData span="L4 M4 S12"/>
+							</layoutData>
+						</Input>
+					</f:FormElement>
+					<f:FormElement label="{i18n>inputImport}">
+						<Input value="{oModelDataGlobal>/InpImporte}">
+							<layoutData>
+								<l:GridData span="L4 M4 S12"/>
+							</layoutData>
+						</Input>
+					</f:FormElement>
+					<f:FormElement label="{i18n>inputFecReg}">
+						<DatePicker dateValue="{oModelDataGlobal>/InpFecRegistro}">
+							<layoutData>
+								<l:GridData span="L4 M4 S12"/>
+							</layoutData>
+						</DatePicker>
+					</f:FormElement>
+					<f:FormElement label="{i18n>inputFecCont}">
+						<DatePicker dateValue="{oModelDataGlobal>/InpFecConta}">
+							<layoutData>
+								<l:GridData span="L4 M4 S12"/>
+							</layoutData>
+						</DatePicker>
+					</f:FormElement>
+					<f:FormElement label="{i18n>inputTipCam}">
+						<Input value="{oModelDataGlobal>/inputTipCambio}">
+							<layoutData>
+								<l:GridData span="L4 M4 S12"/>
+							</layoutData>
+						</Input>
+					</f:FormElement>
+					<f:FormElement label="{i18n>inputContVal}">
+						<Input value="{oModelDataGlobal>/inputContrValor}">
+							<layoutData>
+								<l:GridData span="L4 M4 S12"/>
+							</layoutData>
+						</Input>
+					</f:FormElement>
+					<f:FormElement label="{i18n>inputClaBanC}">
+						<Input showValueHelp="true" value="{oModelDataGlobal>/inputClaBanCargar}">
+							<layoutData>
+								<l:GridData span="L4 M4 S12"/>
+							</layoutData>
+						</Input>
+					</f:FormElement>
+					<f:FormElement label="{i18n>inputCuentaC}">
+						<Input value="{oModelDataGlobal>/InpCuentaCargo}">
+							<layoutData>
+								<l:GridData span="L6 M6 S12"/>
+							</layoutData>
+						</Input>
+					</f:FormElement>
+					<f:FormElement label="{i18n>inputRemPorPagar}">
+						<RadioButtonGroup columns="2" width="50%" class="sapUiTinyMarginBottom">
+							<RadioButton text="{i18n>bulletEmpleados}"/>
+							<RadioButton text="{i18n>bulletObreros}"/>
+						</RadioButtonGroup>
+					</f:FormElement>
+				</f:formElements>
+			</f:FormContainer>
+		</f:formContainers>
+	</f:Form>
+</core:FragmentDefinition>

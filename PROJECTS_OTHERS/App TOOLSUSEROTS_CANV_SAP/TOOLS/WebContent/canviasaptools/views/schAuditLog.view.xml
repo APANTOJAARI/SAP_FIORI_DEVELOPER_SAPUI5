@@ -1,0 +1,196 @@
+<core:View controllerName="canviasaptools.controllers.schAuditLog"
+		   xmlns:core="sap.ui.core" 
+		   xmlns:mvc="sap.ui.core.mvc" 
+		   xmlns="sap.m"
+		   xmlns:f="sap.ui.layout.form"
+		   xmlns:t="sap.ui.table"
+		   xmlns:html="http://www.w3.org/1999/xhtml">
+	<Page title="CANVIA SAP Tools: Log de auditoría"
+          showNavButton = "true"
+          navButtonPress="onNavBackAuditLog">
+		<content>
+			<VBox class="sapUiSmallMargin">
+				<f:SimpleForm id="sfUser"
+								editable="true"
+								layout="ResponsiveGridLayout"
+								labelSpanXL="3"
+								labelSpanL="3"
+								labelSpanM="3"
+								labelSpanS="12"
+								adjustLabelSpan="true"
+								emptySpanXL="4"
+								emptySpanL="4"
+								emptySpanM="4"
+								emptySpanS="0"
+								columnsXL="1"
+								columnsL="1"
+								columnsM="1"  >
+					<f:content>
+						<Label text="Compañia " />
+						<ComboBox
+							id="cmbCompany"
+							width="59.35%"
+							placeholder="Sel.Compañia..."
+							showSecondaryValues= "false"
+							change="onChangeCompany"
+							items="{/}">
+							<core:ListItem key="{comp_id}" text="{comp_descr_cmb}" additionalText = "{comp_id}"/>
+						</ComboBox>
+						<Label text="Ambiente SAP "/>
+						<ComboBox
+							id="cmbConnection"
+							placeholder="Sel.Ambiente SAP..."
+							showSecondaryValues= "false"
+							change="onChangeConnectionSAP"
+							items="{/}">
+							<core:ListItem key="{conn_source}" text="{conn_source}" additionalText = "{conn_source}" />
+						</ComboBox>
+						<Button id="btnHistorialFind" icon="sap-icon://work-history"  text="Ver histórico" press="onPressHistory" />
+						<Label text="Usuario SAP " />
+						<Input id="txtUsuarioSAP" width="59.35%" placeholder="Usuario" />
+						<Label text="Transacción SAP " />
+						<Input id="txtTcodeSAP" width="59.35%" placeholder="Transacción" />
+						<Label text="Programa " />
+						<Input id="txtPrograSAP" width="59.35%" placeholder="Programa" />
+						<Label text="Búsq.text cualquiera " />
+						<Input id="txtAnyText" width="59.35%" placeholder="Texto" />
+						<Label text="De fecha/hora" />
+						<DatePicker
+							id="dpFromDate"
+							required="true"
+							placeholder="Selecciona la fecha ..."
+							displayFormat="short"
+							valueFormat="dd/MM/yyyy" />
+						<TimePicker
+							id="dpFromHour"
+							required="true"
+							valueFormat="HH:mm:ss"
+							placeholder="Selecciona la hora ..." />
+						<Label text="A fecha/hora " />
+						<DatePicker
+							id="dpToDate"
+							required="true"
+							placeholder="Selecciona la fecha ..."
+							displayFormat="short"
+							valueFormat="dd/MM/yyyy" />
+						<TimePicker
+							id="dpToHour"
+							required="true"
+							valueFormat="HH:mm:ss"
+							placeholder="Selecciona la hora ..." />
+					</f:content>
+				</f:SimpleForm>
+			</VBox>
+			<t:Table id="tbAuditLog"
+					class="sapUiSmallMargin"
+				   rows="{/}"
+				   rowActionCount="1" 
+				   selectionMode="Single"
+				   visibleRowCount="5"
+				   alternateRowColors="true"
+				   ariaLabelledBy="title">
+				<t:extension>
+					<OverflowToolbar>
+						<Title id="title" text="Log de auditoría"/>
+						<ToolbarSpacer/>
+						<Button id="btnSearchFind" icon="sap-icon://search"  text="Buscar" press="onPressFindPopUp" />
+						<Button id="btnExportFind" icon="sap-icon://download"  text="Exportar" press="onPressExport" />
+						<Button id="btnClearUserSAPFind" icon="sap-icon://sys-find" text="Nueva Búsqueda" press="onPressCancel" />
+					</OverflowToolbar>
+				</t:extension>
+				<t:columns>
+					<t:Column width="6rem" sortProperty="date" filterProperty="date">
+						<Label text="Fecha"/>
+						<t:template>
+							<Text text="{date}" wrapping="true"/>
+						</t:template>
+					</t:Column>
+					<t:Column width="5rem" >
+						<Label text="Tiempo"/>
+						<t:template>
+							<Text text="{time}" wrapping="true"/>
+						</t:template>
+					</t:Column>
+					<t:Column width="6rem" >
+						<Label text="Mandante"/>
+						<t:template>
+							<Text text="{mandt}" wrapping="true"/>
+						</t:template>
+					</t:Column>
+					<t:Column width="10rem" sortProperty="user" filterProperty="user">
+						<Label text="Usuario"/>
+						<t:template>
+							<Text text="{user}" wrapping="true"/>
+						</t:template>
+					</t:Column>
+					<t:Column width="11rem" sortProperty="terminal" filterProperty="terminal">
+						<Label text="Terminal"/>
+						<t:template>
+							<Text text="{terminal}" wrapping="true"/>
+						</t:template>
+					</t:Column>
+					<t:Column width="8rem" sortProperty="tcode" filterProperty="tcode">
+						<Label text="Transacción"/>
+						<t:template>
+							<Text text="{tcode}" wrapping="true"/>
+						</t:template>
+					</t:Column>
+					<t:Column width="16rem" sortProperty="prog" filterProperty="prog">
+						<Label text="Programa"/>
+						<t:template>
+							<Text text="{prog}" wrapping="true"/>
+						</t:template>
+					</t:Column>
+					<t:Column width="50rem" >
+						<Label text="Mensaje"/>
+						<t:template>
+							<Text text="{message}" wrapping="true"/>
+						</t:template>
+					</t:Column>
+					<t:Column width="8rem" >
+						<Label text="Nota"/>
+						<t:template>
+							<Text text="{note}" wrapping="true"/>
+						</t:template>
+					</t:Column>
+					<t:Column width="5rem" >
+						<Label text="Proc.SAP"/>
+						<t:template>
+							<Text text="{prc_sap}" wrapping="true"/>
+						</t:template>
+					</t:Column>
+					<t:Column width="5rem" >
+						<Label text="Proc.Trabajo"/>
+						<t:template>
+							<Text text="{prc_tra}" wrapping="true"/>
+						</t:template>
+					</t:Column>
+					<t:Column width="15rem" >
+						<Label text="Dato Var 1"/>
+						<t:template>
+							<Text text="{dat_var1}" wrapping="true"/>
+						</t:template>
+					</t:Column>
+					<t:Column width="15rem" >
+						<Label text="Dato Var 2"/>
+						<t:template>
+							<Text text="{dat_var2}" wrapping="true"/>
+						</t:template>
+					</t:Column>
+					<t:Column width="15rem" >
+						<Label text="Dato Var 3"/>
+						<t:template>
+							<Text text="{dat_var3}" wrapping="true"/>
+						</t:template>
+					</t:Column>
+					<t:Column width="15rem" >
+						<Label text="Dato Var 4"/>
+						<t:template>
+							<Text text="{dat_var4}" wrapping="true"/>
+						</t:template>
+					</t:Column>
+				</t:columns>
+			</t:Table>
+		</content>
+	</Page>
+</core:View>

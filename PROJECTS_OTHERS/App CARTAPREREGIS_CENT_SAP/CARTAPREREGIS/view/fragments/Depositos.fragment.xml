@@ -1,0 +1,23 @@
+<core:FragmentDefinition xmlns:f="sap.ui.layout.form" xmlns:mvc="sap.ui.core.mvc" xmlns:u="sap.ui.unified" xmlns="sap.m"
+	xmlns:core="sap.ui.core"  xmlns:t="sap.ui.table" xmlns:l="sap.ui.layout" xmlns:st="sap.ui.comp.smarttable"
+	controllerName="com.centria.CartaPreregistro.controller.View1">
+	<Dialog title="Mantenimiento Cuentas Depósitos" horizontalScrolling="true" verticalScrolling="true" contentWidth="70%">
+		<st:SmartTable id="stDepoPlazo" entitySet="CuentaDepPlazoSet" tableType="ResponsiveTable"  
+			useExportToExcel="true" persistencyKey="zfir107_DepotKey" useVariantManagement="true" class="sapUiResponsiveMargin" beforeRebindTable="onBeforeRebindMantTable"
+			useTablePersonalisation="true" header="Cuentas Dep. Plazo" showRowCount="true" enableAutoBinding="true" demandPopin="true" >
+			<st:customToolbar>
+				<OverflowToolbar>
+					<ToolbarSpacer/>
+					<Button   icon="sap-icon://refresh" press="onRefreshTabla"></Button>
+					<Button text="{i18n>txtAgregarRegistro}" icon="sap-icon://add" press="onAddDeposito"></Button>
+					<Button text="{i18n>txtModificarRegistro}" icon="sap-icon://edit" press="onEditDeposito"></Button>
+					<Button text="{i18n>txtEliminarRegistro}" icon="sap-icon://delete" press="onDeleteDeposito"></Button>
+				</OverflowToolbar>
+			</st:customToolbar>
+			<Table mode="SingleSelectLeft" growingScrollToLoad="true" growing="true" sticky="ColumnHeaders"/>
+		</st:SmartTable>
+		<endButton>
+			<Button type="Ghost" icon="sap-icon://undo" text="{i18n>btnRegresar}" press="closeDialog"/>
+		</endButton>
+	</Dialog>
+</core:FragmentDefinition>

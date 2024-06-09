@@ -1,0 +1,149 @@
+<core:View controllerName="canviasaptools.controllers.listMonitorSAP"
+		   xmlns:core="sap.ui.core" 
+		   xmlns:mvc="sap.ui.core.mvc" 
+		   xmlns="sap.m"
+		   xmlns:f="sap.ui.layout.form"
+		   xmlns:t="sap.ui.table"
+		   xmlns:html="http://www.w3.org/1999/xhtml">
+	<Page title="CANVIA SAP Tools: Lista de programaciones de monitor SAP"
+          showNavButton = "true"
+          navButtonPress="onNavBackListMonitorSAP">
+		<content>
+				<Button id="btnHideData" class="sapUiSmallMargin" icon="sap-icon://hide" text="Ocultar parámetros" press="onPressHide" />
+				<Button id="btnShowData" class="sapUiSmallMargin" icon="sap-icon://show" text="Mostrar parámetros" press="onPressShow" />
+			<f:SimpleForm id="sfSystem"
+							class="sapUiSmallMargin"
+							editable="true"
+							layout="ResponsiveGridLayout"
+							labelSpanXL="2"
+							labelSpanL="2"
+							labelSpanM="2"
+							labelSpanS="2"
+							adjustLabelSpan="false"
+								emptySpanXL="4"
+								emptySpanL="4"
+								emptySpanM="4"
+								emptySpanS="0"
+							columnsXL="1"
+							columnsL="1"
+							columnsM="1">
+				<f:content>				
+					<Label text="Compañia"/>
+					<ComboBox
+						id="cmbCompany"
+						width="32.5%"
+						showSecondaryValues= "false"
+						placeholder="Sel.Compañia..."
+						change="onChangeCompany"
+						items="{/}">
+						<core:ListItem key="{comp_id}" text="{comp_descr_cmb}" additionalText = "{comp_id}"/>
+					</ComboBox>
+					<Label text="Ambiente SAP " />
+					<ComboBox
+						id="cmbConnMntSAP" width="250px" 
+						placeholder="Ambiente SAP..."
+						showSecondaryValues= "false"
+						items="{/}">
+						<core:ListItem key="{conn_source}" text="{conn_source}" additionalText = "{conn_source}" />
+					</ComboBox>
+					<Label text="Usuario " />
+					<ComboBox
+						id="cmbUser"
+						width="32.5%"
+						placeholder="Sel.Usuario..."
+						showSecondaryValues= "true"
+						items="{/}">
+						<core:ListItem key="{user_name}" text="{user_fullname}" additionalText = "{user_name}"/>
+					</ComboBox>
+					<Label text="Creado el " />
+					<DatePicker
+						id="dpCrtDateFrom"
+						placeholder="Desde"
+						displayFormat="short"
+						valueFormat="dd/MM/yyyy" />
+					<Text text="hasta" />
+					<DatePicker
+						id="dpCrtDateTo"
+						placeholder="Hasta"
+						displayFormat="short"
+						valueFormat="dd/MM/yyyy" />
+						<Label text="Ver alertas" />
+					<RadioButtonGroup id="rbg3" columns="5" >
+						<RadioButton id="rbSchedule" text="Programado" />
+						<RadioButton id="rbProcess" text="En proceso" />
+						<RadioButton id="rbFinished" text="Finalizados" />
+						<RadioButton id="rbError" text="Con error" />
+						<RadioButton id="rbAll" text="Todos" />
+					</RadioButtonGroup>
+				</f:content>
+			</f:SimpleForm>
+			<t:Table id="tbAlerts"
+				   rows="{/}"
+				   rowActionCount="1" 
+				   class="sapUiSmallMargin"
+				   visibleRowCount="2"
+				   selectionMode="Single"
+				   alternateRowColors="true"
+				   ariaLabelledBy="title">
+				<t:extension>
+					<OverflowToolbar>
+						<Title id="title" text="Lista de alertas"/>
+						<ToolbarSpacer/>
+						<Button id="btnFindReq" icon="sap-icon://search" text="Buscar alertas" press="onPressFind" />
+						<Button id="btnInmAlert" icon="sap-icon://create" text="Ejecución inmediata" press="onPressInmAlert" />
+						<Button id="btnAddAlert" icon="sap-icon://pending" text="Programar Ejecución" press="onPressAddAlert" />
+						<Button id="btnClearFindAlert" icon="sap-icon://sys-find" text="Nueva búsqueda" press="onPressCancel" />
+					</OverflowToolbar>
+				</t:extension>
+				<t:columns>
+					<t:Column sortProperty="comp_descr" filterProperty="comp_descr">
+						<Label text="Compañia"/>
+						<t:template>
+							<Text text="{comp_descr}" wrapping="false"/>
+						</t:template>
+					</t:Column>
+					<t:Column sortProperty="conn_source" filterProperty="conn_source">
+						<Label text="Ambiente SAP"/>
+						<t:template>
+							<Text text="{conn_source}" wrapping="false"/>
+						</t:template>
+					</t:Column>
+					<t:Column sortProperty="monitor_sch_date" filterProperty="monitor_sch_date">
+						<Label text="Fecha programada"/>
+						<t:template>
+							<Text text="{monitor_sch_date}" />
+						</t:template>
+					</t:Column>
+					<t:Column sortProperty="monitor_sch_hour" filterProperty="monitor_sch_hour">
+						<Label text="Hora programada"  wrapping="false" />
+						<t:template>
+							<Text text="{monitor_sch_hour}" />
+						</t:template>
+					</t:Column>
+					<t:Column >
+						<Label text="Frecuencia"/>
+						<t:template>
+							<Text text="{monitor_freq_txt}" wrapping="false"/>
+						</t:template>
+					</t:Column>
+					<t:Column>
+						<Label text="Estado"/>
+						<t:template>
+							<Text text="{monitor_status_txt}" wrapping="false"/>
+						</t:template>
+					</t:Column>
+				</t:columns>
+			    <t:rowActionTemplate>
+			        <t:RowAction>
+			            <t:items>
+			            	<t:RowActionItem icon="sap-icon://detail-view" text="Visualizar" press="onPressLinkAlert"></t:RowActionItem>
+							<t:RowActionItem icon="sap-icon://edit" text="Modificar" press="onPressEdit"></t:RowActionItem>
+							<t:RowActionItem icon="sap-icon://delete" text="Eliminar" press="onPressDel"></t:RowActionItem>
+							<t:RowActionItem icon="sap-icon://history" text="Historial" press="onPressHistory"></t:RowActionItem>
+				    	</t:items>
+					</t:RowAction>
+			    </t:rowActionTemplate>
+			</t:Table>
+		</content>
+	</Page>
+</core:View>

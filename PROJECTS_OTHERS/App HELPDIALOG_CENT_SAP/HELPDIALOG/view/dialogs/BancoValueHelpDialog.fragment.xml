@@ -1,0 +1,21 @@
+<core:FragmentDefinition xmlns="sap.ui.comp.valuehelpdialog" xmlns:core="sap.ui.core" xmlns:fb="sap.ui.comp.filterbar" xmlns:m="sap.m">
+	<ValueHelpDialog title="{i18n>txtBancos}" ok=".onBancoValueHelpOkPress" cancel=".onValueHelpCancelPress" afterClose=".onValueHelpAfterClose"
+		supportMultiselect="true" key="Hbkid" descriptionKey="Banka" supportRanges="true" class="sapUiSizeCompact">
+		<filterBar>
+			<fb:FilterBar search=".onBancosFilterBarSearch">
+				<fb:filterGroupItems>
+					<fb:FilterGroupItem groupName="__$INTERNAL$" name="Hbkid" label="Código del banco" visibleInFilterBar="true">
+						<fb:control>
+							<m:Input name="Hbkid"/>
+						</fb:control>
+					</fb:FilterGroupItem>
+					<fb:FilterGroupItem groupName="__$INTERNAL$" name="Banka" label="Nombre de la empresa" visibleInFilterBar="true">
+						<fb:control>
+							<m:Input name="Banka"/>
+						</fb:control>
+					</fb:FilterGroupItem>
+				</fb:filterGroupItems>
+			</fb:FilterBar>
+		</filterBar>
+	</ValueHelpDialog>
+</core:FragmentDefinition>

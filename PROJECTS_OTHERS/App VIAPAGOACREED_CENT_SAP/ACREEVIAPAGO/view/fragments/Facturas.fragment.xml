@@ -1,0 +1,259 @@
+<core:FragmentDefinition xmlns:f="sap.ui.layout.form" xmlns:mvc="sap.ui.core.mvc" xmlns:u="sap.ui.unified" xmlns="sap.m"
+	xmlns:core="sap.ui.core" height="100%" xmlns:t="sap.ui.table" xmlns:l="sap.ui.layout"
+	controllerName="com.centria.ReclasificacionViasPagoAcreedores.controller.View1" xmlns:smartTable="sap.ui.comp.smarttable">
+	<Dialog contentHeight="40em" title="{i18n>btnFacturas}" contentWidth="120em" draggable="false" class="sapUiSizeCompact">
+		<!--<ScrollContainer vertical="true" height="20em" horizontal="true" width="120em">-->
+		<smartTable:SmartTable id="smtFactura" entitySet="dataDetalleFacturas" tableBindingPath="TablaResultadosModel>/dataDetalleFacturas"
+			header="{i18n>titleFacturas}" showRowCount="false" tableType="ResponsiveTable" showFullScreenButton="false" useVariantManagement="true"
+			enableAutoBinding="false" useExportToExcel="false" demandPopin="false" useTablePersonalisation="true" persistencyKey="ztr072_factura"
+			class="sapUiResponsiveMargin" initialise="onInitialiseFacturas" beforeRebindTable="onBeforeRebindFactura">
+			<smartTable:customToolbar>
+				<OverflowToolbar design="Transparent">
+					<ToolbarSpacer/>
+					<Button text="{i18n>btnExcel}" icon="sap-icon://excel-attachment" press="onExportarExcel"/>
+					<Button text="TEST_TODO" icon="sap-icon://excel-attachment" press="onExportarExcelTest" visible="false"/>
+				</OverflowToolbar>
+			</smartTable:customToolbar>
+			<Table id="tblFacturas" mode="MultiSelect" sticky="ColumnHeaders" updateFinished="onUpdateFinishFactura" busy="true">
+				<columns>
+					<Column width="5em">
+						<customData>
+							<core:CustomData key="p13nData"
+								value='\{"columnKey": "Zlsch", "columnIndex":"1", "leadingProperty": "Zlsch","sortProperty": "Zlsch","filterProperty":"Zlsch"}'/>
+						</customData>
+						<Label text="{i18n>columnFactViaP}"/>
+					</Column>
+					<Column width="5em">
+						<customData>
+							<core:CustomData key="p13nData"
+								value='\{"columnKey": "Bukrs", "columnIndex":"2", "leadingProperty": "Bukrs","sortProperty": "Bukrs","filterProperty":"Bukrs"}'/>
+						</customData>
+						<Label text="{i18n>columnFactSoc}"/>
+					</Column>
+					<Column width="7em">
+						<customData>
+							<core:CustomData key="p13nData"
+								value='\{"columnKey": "Lifnr", "columnIndex":"3", "leadingProperty": "Lifnr","sortProperty": "Lifnr","filterProperty":"Lifnr"}'/>
+						</customData>
+						<Label text="{i18n>columnFactAcre}"/>
+					</Column>
+					<Column width="10em">
+						<customData>
+							<core:CustomData key="p13nData"
+								value='\{"columnKey": "Xref1Hd", "columnIndex":"4", "leadingProperty": "Xref1Hd","sortProperty": "Xref1Hd","filterProperty":"Xref1Hd"}'/>
+						</customData>
+						<Label text="{i18n>columnFactClavRef1}"/>
+					</Column>
+					<Column width="8em">
+						<customData>
+							<core:CustomData key="p13nData"
+								value='\{"columnKey": "Stcd1", "columnIndex":"5", "leadingProperty": "Stcd1","sortProperty": "Stcd1","filterProperty":"Stcd1"}'/>
+						</customData>
+						<Label text="{i18n>columnFactRUC}"/>
+					</Column>
+					<Column width="5em">
+						<customData>
+							<core:CustomData key="p13nData"
+								value='\{"columnKey": "Stcd2", "columnIndex":"6", "leadingProperty": "Stcd2","sortProperty": "Stcd2","filterProperty":"Stcd2"}'/>
+						</customData>
+						<Label text="{i18n>columnFactDNI}"/>
+					</Column>
+					<Column width="5em">
+						<customData>
+							<core:CustomData key="p13nData"
+								value='\{"columnKey": "Stcdt", "columnIndex":"7", "leadingProperty": "Stcdt","sortProperty": "Stcdt","filterProperty":"Stcdt"}'/>
+						</customData>
+						<Label text="{i18n>columnFactTipoNIF}"/>
+					</Column>
+					<Column width="20em">
+						<customData>
+							<core:CustomData key="p13nData"
+								value='\{"columnKey": "Zname", "columnIndex":"8", "leadingProperty": "Zname","sortProperty": "Zname","filterProperty":"Zname"}'/>
+						</customData>
+						<Label text="{i18n>columnFactDescripcion}"/>
+					</Column>
+					<Column width="5em">
+						<customData>
+							<core:CustomData key="p13nData"
+								value='\{"columnKey": "Banco", "columnIndex":"9", "leadingProperty": "Banco","sortProperty": "Banco","filterProperty":"Banco"}'/>
+						</customData>
+						<Label text="{i18n>columnFactBanco}"/>
+					</Column>
+					<Column width="13em">
+						<customData>
+							<core:CustomData key="p13nData"
+								value='\{"columnKey": "Cuent", "columnIndex":"10", "leadingProperty": "Cuent","sortProperty": "Cuent","filterProperty":"Cuent"}'/>
+						</customData>
+						<Label text="{i18n>columnFactCtaBan}"/>
+					</Column>
+					<Column width="13em">
+						<customData>
+							<core:CustomData key="p13nData"
+								value='\{"columnKey": "Cueni", "columnIndex":"11", "leadingProperty": "Cueni","sortProperty": "Cueni","filterProperty":"Cueni"}'/>
+						</customData>
+						<Label text="{i18n>columnFactCCI}"/>
+					</Column>
+					<Column width="12em">
+						<customData>
+							<core:CustomData key="p13nData"
+								value='\{"columnKey": "Kidno", "columnIndex":"12", "leadingProperty": "Kidno","sortProperty": "Kidno","filterProperty":"Kidno"}'/>
+						</customData>
+						<Label text="{i18n>columnFactRefPago}"/>
+					</Column>
+					<Column width="10em">
+						<customData>
+							<core:CustomData key="p13nData"
+								value='\{"columnKey": "Xblnr", "columnIndex":"13", "leadingProperty": "Xblnr","sortProperty": "Xblnr","filterProperty":"Xblnr"}'/>
+						</customData>
+						<Label text="{i18n>columnFactRef}"/>
+					</Column>
+					<Column width="5em">
+						<customData>
+							<core:CustomData key="p13nData"
+								value='\{"columnKey": "Hbkid", "columnIndex":"14", "leadingProperty": "Hbkid","sortProperty": "Hbkid","filterProperty":"Hbkid"}'/>
+						</customData>
+						<Label text="{i18n>columnFactBancos}"/>
+					</Column>
+					<Column width="5em">
+						<customData>
+							<core:CustomData key="p13nData"
+								value='\{"columnKey": "Waers", "columnIndex":"15", "leadingProperty": "Waers","sortProperty": "Waers","filterProperty":"Waers"}'/>
+						</customData>
+						<Label text="{i18n>columnFactMoneda}"/>
+					</Column>
+					<Column width="10em">
+						<customData>
+							<core:CustomData key="p13nData"
+								value='\{"columnKey": "Belnr", "columnIndex":"16", "leadingProperty": "Belnr","sortProperty": "Belnr","filterProperty":"Belnr"}'/>
+						</customData>
+						<Label text="{i18n>columnFactDoc}"/>
+					</Column>
+					<Column width="10em">
+						<customData>
+							<core:CustomData key="p13nData"
+								value='\{"columnKey": "Bldat", "columnIndex":"17", "leadingProperty": "Bldat","sortProperty": "Bldat","filterProperty":"Bldat","type":"date"}'/>
+						</customData>
+						<Label text="{i18n>columnFactFecEmi}"/>
+					</Column>
+					<Column width="10em">
+						<customData>
+							<core:CustomData key="p13nData"
+								value='\{"columnKey": "Budat", "columnIndex":"18", "leadingProperty": "Budat","sortProperty": "Budat","filterProperty":"Budat","type":"date"}'/>
+						</customData>
+						<Label text="{i18n>columnFactFecCont}"/>
+					</Column>
+					<Column width="10em">
+						<customData>
+							<core:CustomData key="p13nData"
+								value='\{"columnKey": "Zfbdt", "columnIndex":"19", "leadingProperty": "Zfbdt","sortProperty": "Zfbdt","filterProperty":"Zfbdt","type":"date"}'/>
+						</customData>
+						<Label text="{i18n>columnFactFecBas}"/>
+					</Column>
+					<Column width="5em">
+						<customData>
+							<core:CustomData key="p13nData"
+								value='\{"columnKey": "Zbd1t", "columnIndex":"20", "leadingProperty": "Zbd1t","sortProperty": "Zbd1t","filterProperty":"Zbd1t"}'/>
+						</customData>
+						<Label text="{i18n>columnFactDias}"/>
+					</Column>
+					<Column width="10em">
+						<customData>
+							<core:CustomData key="p13nData"
+								value='\{"columnKey": "Zvenc", "columnIndex":"21", "leadingProperty": "Zvenc","sortProperty": "Zvenc","filterProperty":"Zvenc","type":"date"}'/>
+						</customData>
+						<Label text="{i18n>columnFactFecVen}"/>
+					</Column>
+					<Column width="5em">
+						<customData>
+							<core:CustomData key="p13nData"
+								value='\{"columnKey": "Blart", "columnIndex":"22", "leadingProperty": "Blart","sortProperty": "Blart","filterProperty":"Blart"}'/>
+						</customData>
+						<Label text="{i18n>columnFactClaDoc}"/>
+					</Column>
+					<Column width="10em">
+						<customData>
+							<core:CustomData key="p13nData"
+								value='\{"columnKey": "Dmbtr", "columnIndex":"23", "leadingProperty": "Dmbtr","sortProperty": "Dmbtr","type":"numeric"}'/>
+						</customData>
+						<Label text="{i18n>columnFactMonPEN}"/>
+						<footer>
+							<Label design="Bold"
+								text="{parts: [{path: 'ModeloTotales>/MontoFacturaPEN'}, {path: 'ModeloTotales>/sPEN'}], type: 'sap.ui.model.type.Currency', formatOptions: {maxFractionDigits: 2,showMeasure: false , decimalSeparator:'.' ,groupingSeparator :','}}">
+								<customData>
+									<core:CustomData key="resaltar" value="true" writeToDom="true"/>
+								</customData>
+							</Label>
+						</footer>
+					</Column>
+					<Column width="10em">
+						<customData>
+							<core:CustomData key="p13nData"
+								value='\{"columnKey": "Wrbtr", "columnIndex":"24", "leadingProperty": "Wrbtr","sortProperty": "Wrbtr","type":"numeric"}'/>
+						</customData>
+						<Label text="{i18n>columnFactMonUSD}"/>
+						<footer>
+							<Label design="Bold"
+								text="{parts: [{path: 'ModeloTotales>/MontoFacturaUSD'}, {path: 'ModeloTotales>/sUSD'}], type: 'sap.ui.model.type.Currency', formatOptions: {maxFractionDigits: 2,showMeasure: false , decimalSeparator:'.' ,groupingSeparator :','}}">
+								<customData>
+									<core:CustomData key="resaltar" value="true" writeToDom="true"/>
+								</customData>
+							</Label>
+						</footer>
+					</Column>
+					<Column width="15em">
+						<customData>
+							<core:CustomData key="p13nData"
+								value='\{"columnKey": "Texto", "columnIndex":"25", "leadingProperty": "Texto","sortProperty": "Texto","filterProperty":"Texto"}'/>
+						</customData>
+						<Label text="{i18n>columnFactTexto}"/>
+					</Column>
+					<Column width="25em">
+						<customData>
+							<core:CustomData key="p13nData"
+								value='\{"columnKey": "Sgtxt", "columnIndex":"26", "leadingProperty": "Sgtxt","sortProperty": "Sgtxt","filterProperty":"Sgtxt"}'/>
+						</customData>
+						<Label text="{i18n>columnFactGlosa}"/>
+					</Column>
+				</columns>
+				<items>
+					<ColumnListItem id="templateFactura">
+						<Text text="{path:'TablaResultadosModel>Zlsch' }"/>
+						<Text text="{path:'TablaResultadosModel>Bukrs' }"/>
+						<Text text="{path:'TablaResultadosModel>Lifnr' }"/>
+						<Text text="{path:'TablaResultadosModel>Xref1Hd' }"/>
+						<Text text="{path:'TablaResultadosModel>Stcd1' }"/>
+						<Text text="{path:'TablaResultadosModel>Stcd2' }"/>
+						<Text text="{path:'TablaResultadosModel>Stcdt' }"/>
+						<Text text="{path:'TablaResultadosModel>Zname' }"/>
+						<Text text="{path:'TablaResultadosModel>Banco' }"/>
+						<Text text="{path:'TablaResultadosModel>Cuent' }"/>
+						<Text text="{path:'TablaResultadosModel>Cueni' }"/>
+						<Text text="{path:'TablaResultadosModel>Kidno' }"/>
+						<Text text="{path:'TablaResultadosModel>Xblnr' }"/>
+						<Text text="{path:'TablaResultadosModel>Hbkid' }"/>
+						<Text text="{path:'TablaResultadosModel>Waers' }"/>
+						<Text text="{path:'TablaResultadosModel>Belnr' }"/>
+						<Text text="{path: 'TablaResultadosModel>Bldat', type: 'sap.ui.model.type.Date', formatOptions: { UTC: true, pattern: 'dd/MM/yyyy' }}"/>
+						<Text text="{path: 'TablaResultadosModel>Budat', type: 'sap.ui.model.type.Date', formatOptions: { UTC: true, pattern: 'dd/MM/yyyy' }}"/>
+						<Text text="{path: 'TablaResultadosModel>Zfbdt', type: 'sap.ui.model.type.Date', formatOptions: { UTC: true, pattern: 'dd/MM/yyyy' }}"/>
+						<Text text="{path:'TablaResultadosModel>Zbd1t' }"/>
+						<Text text="{path: 'TablaResultadosModel>Zvenc', type: 'sap.ui.model.type.Date', formatOptions: { UTC: true, pattern: 'dd/MM/yyyy' }}"/>
+						<Text text="{path:'TablaResultadosModel>Blart' }"/>
+						<Text
+							text="{parts: [{path: 'TablaResultadosModel>Dmbtr'}, {path: 'ModeloTotales>/sPEN'}], type: 'sap.ui.model.type.Currency', formatOptions: {maxFractionDigits: 2,showMeasure: false , decimalSeparator:'.' ,groupingSeparator :','}}"/>
+						<Text
+							text="{parts: [{path: 'TablaResultadosModel>Wrbtr'}, {path: 'ModeloTotales>/sUSD'}], type: 'sap.ui.model.type.Currency', formatOptions: {maxFractionDigits: 2,showMeasure: false , decimalSeparator:'.' ,groupingSeparator :','}}"/>
+						<Text text="{path:'TablaResultadosModel>Texto' }"/>
+						<Text text="{path:'TablaResultadosModel>Sgtxt' }"/>
+					</ColumnListItem>
+				</items>
+			</Table>
+		</smartTable:SmartTable>
+		<!--	</ScrollContainer>-->
+		<buttons>
+			<!--<Button type="Ghost" icon="sap-icon://excel-attachment" text="{i18n>btnDescargarExcel}" press="downloadExcelFacturas"/>-->
+			<Button type="Negative" icon="sap-icon://delete" text="{i18n>btnEliminarRegs}" press="deleteRegisters"/>
+			<Button type="Emphasized" icon="sap-icon://undo" text="{i18n>btnVolver}" press="closeDialog"/>
+		</buttons>
+	</Dialog>
+</core:FragmentDefinition>

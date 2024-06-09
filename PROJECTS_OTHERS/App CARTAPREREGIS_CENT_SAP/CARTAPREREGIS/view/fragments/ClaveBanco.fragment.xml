@@ -1,0 +1,24 @@
+<core:FragmentDefinition xmlns:core="sap.ui.core" xmlns="sap.m">
+	<TableSelectDialog id="tbsClaveBanco" noDataText="No se encontraron claves de banco" title="Seleccione una clave de banco" search=".onClaveBancoSearch"
+		confirm=".onClaveBancoValueHelpOkPress" cancel=".onClaveBancoValueHelpOkPress" items="{ path : 'ServiceH2HModel>/ClaveBancoSet' }"
+		contentWidth="50%" contentHeight="50%" growing="true" growingThreshold="20" class="sapUiSizeCompact">
+		<ColumnListItem>
+			<cells>
+				<Text text="{ServiceH2HModel>Banka}"/>
+				<Text text="{ServiceH2HModel>Hbkid}"/>
+			</cells>
+		</ColumnListItem>
+		<columns>
+			<Column width="12em">
+				<header>
+					<Text text="Nombre de Inst. financiera"/>
+				</header>
+			</Column>
+			<Column minScreenWidth="Tablet" demandPopin="true" width="25em">
+				<header>
+					<Text text="Clave Banco"/>
+				</header>
+			</Column>
+		</columns>
+	</TableSelectDialog>
+</core:FragmentDefinition>

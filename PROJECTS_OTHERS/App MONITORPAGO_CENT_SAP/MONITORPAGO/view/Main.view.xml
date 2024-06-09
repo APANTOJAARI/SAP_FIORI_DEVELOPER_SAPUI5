@@ -1,0 +1,7 @@
+<mvc:View controllerName="h2h.centria.h2hmonitorpagosrpa.controller.Main" displayBlock="true" xmlns="sap.m" xmlns:f="sap.f"
+	xmlns:core="sap.ui.core" xmlns:mvc="sap.ui.core.mvc">
+	<!-- <f:FlexibleColumnLayout id="fcl" stateChange="onStateChanged" layout="{/layout}" backgroundDesign="Translucent"/> -->
+	<App id="app">
+		<f:FlexibleColumnLayout id="layout" layout="{appModel>/layout}" backgroundDesign="Transparent"/>
+	</App>
+</mvc:View>

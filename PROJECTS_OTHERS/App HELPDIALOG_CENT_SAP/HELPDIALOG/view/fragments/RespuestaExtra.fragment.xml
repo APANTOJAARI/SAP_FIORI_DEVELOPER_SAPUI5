@@ -1,0 +1,160 @@
+<core:FragmentDefinition xmlns:core="sap.ui.core" xmlns="sap.ui.table" xmlns:mvc="sap.ui.core.mvc" xmlns:u="sap.ui.unified" xmlns:m="sap.m">
+	<m:Dialog title="{i18n>txtRespuesta}" afterClose="onAfterCloseFragment" class="sapUiSizeCompact">
+		<Table id="tRespuestaExtra" selectionMode="None" rows="{oModelRespuesta>/Respuesta}" visibleRowCount="15" sort="onSortTable">
+			<extension>
+				<m:OverflowToolbar>
+					<m:ToolbarSpacer/>
+					<m:Button text="{i18n>txtLimpiarFiltros}" icon="sap-icon://clear-filter" press="clearAllFilters"/>
+					<m:Button text="{i18n>txtDescargarTxt}" icon="sap-icon://download" press="onDownload"/>
+				</m:OverflowToolbar>
+			</extension>
+			<columns>
+				<Column width="6em" sortProperty="Laufi" filterProperty="Laufi">
+					<m:Label text="Identificador"/>
+					<template>
+						<m:Text text="{oModelRespuesta>Laufi}" wrapping="false"/>
+					</template>
+				</Column>
+				<Column width="8em" sortProperty="Laufd">
+					<m:Label text="Día de ejecución"/>
+					<template>
+						<m:Text text="{path: 'oModelRespuesta>Laufd', type: 'sap.ui.model.type.Date', formatOptions: { UTC: true, pattern: 'dd/MM/yyyy' }}"
+							wrapping="false"/>
+					</template>
+				</Column>
+				<Column width="5em" sortProperty="Zbukr" filterProperty="Zbukr">
+					<m:Label text="Soc.pag."/>
+					<template>
+						<m:Text text="{oModelRespuesta>Zbukr}" wrapping="false"/>
+					</template>
+				</Column>
+				<Column width="7em" sortProperty="Lifnr" filterProperty="Lifnr">
+					<m:Label text="Proveedor"/>
+					<template>
+						<m:Text text="{oModelRespuesta>Lifnr}" wrapping="false"/>
+					</template>
+				</Column>
+				<Column width="15em" sortProperty="Name1" filterProperty="Name1">
+					<m:Label text="Nombre Proveedor"/>
+					<template>
+						<m:Text text="{oModelRespuesta>Name1}" wrapping="true"/>
+					</template>
+				</Column>
+				<Column width="8em" sortProperty="Budat1">
+					<m:Label text="Fec. Comp."/>
+					<template>
+						<m:Text text="{path: 'oModelRespuesta>Budat1', type: 'sap.ui.model.type.Date', formatOptions: { UTC: true, pattern: 'dd/MM/yyyy' }}"
+							wrapping="false"/>
+					</template>
+				</Column>
+				<Column width="7em" sortProperty="Vblnr" filterProperty="Vblnr">
+					<m:Label text="Pago"/>
+					<template>
+						<m:Link text="{oModelRespuesta>Vblnr}" target="_blank"
+							href="{ parts: [ 'oModelRespuesta>Vblnr', 'oModelRespuesta>Laufd','oModelRespuesta>Lifnr','oModelRespuesta>Zbukr'], formatter: '.getDocumentUrl' }"/>
+					</template>
+				</Column>
+				<Column width="10em" sortProperty="Xblnr" filterProperty="Xblnr">
+					<m:Label text="Referencia"/>
+					<template>
+						<m:Text text="{oModelRespuesta>Xblnr}" wrapping="false"/>
+					</template>
+				</Column>
+				<Column width="7em" sortProperty="Belnr" filterProperty="Belnr">
+					<m:Label text="N° doc"/>
+					<template>
+						<m:Text text="{oModelRespuesta>Belnr}" wrapping="false"/>
+					</template>
+				</Column>
+				<Column width="4em" sortProperty="Blart" filterProperty="Blart">
+					<m:Label text="Clase"/>
+					<template>
+						<m:Text text="{oModelRespuesta>Blart}" wrapping="false"/>
+					</template>
+				</Column>
+				<Column width="8em" sortProperty="Budat">
+					<m:Label text="Fec. Contab"/>
+					<template>
+						<m:Text text="{path: 'oModelRespuesta>Budat', type: 'sap.ui.model.type.Date', formatOptions: { UTC: true, pattern: 'dd/MM/yyyy' }}"
+							wrapping="false"/>
+					</template>
+				</Column>
+				<Column width="8em" sortProperty="Bldat">
+					<m:Label text="Fec. doc."/>
+					<template>
+						<m:Text text="{path: 'oModelRespuesta>Bldat', type: 'sap.ui.model.type.Date', formatOptions: { UTC: true, pattern: 'dd/MM/yyyy' }}"
+							wrapping="false"/>
+					</template>
+				</Column>
+				<Column width="7em" sortProperty="Dmbtr" filterProperty="Dmbtr">
+					<m:Label text="Importe ML"/>
+					<template>
+						<m:ObjectNumber textAlign="End"
+							number="{parts: [{path: 'oModelRespuesta>Dmbtr'}, {path: 'oModelRespuesta>Waers'}], type: 'sap.ui.model.type.Currency', formatOptions: {maxFractionDigits: 2,showMeasure: false , decimalSeparator:'.' ,groupingSeparator :','}}"/>
+						<!--		<m:Text text="{oModelRespuesta>Dmbtr}" wrapping="false"/>-->
+					</template>
+				</Column>
+				<Column width="4em" sortProperty="Koart" filterProperty="Koart">
+					<m:Label text="ClCta"/>
+					<template>
+						<m:Text text="{oModelRespuesta>Koart}" wrapping="false"/>
+					</template>
+				</Column>
+				<Column width="5em" sortProperty="Waers" filterProperty="Waers">
+					<m:Label text="Moneda"/>
+					<template>
+						<m:Text text="{oModelRespuesta>Waers}" wrapping="false"/>
+					</template>
+				</Column>
+				<Column width="3em" sortProperty="Zlsch" filterProperty="Zlsch">
+					<m:Label text="VP"/>
+					<template>
+						<m:Text text="{oModelRespuesta>Zlsch}" wrapping="false"/>
+					</template>
+				</Column>
+				<Column width="9em" sortProperty="Text3" filterProperty="Text3">
+					<m:Label text="Significado"/>
+					<template>
+						<m:Text text="{oModelRespuesta>Text3}" wrapping="false"/>
+					</template>
+				</Column>
+				<Column width="7em" sortProperty="Ubknt" filterProperty="Ubknt">
+					<m:Label text="Nuestro num Cta"/>
+					<template>
+						<m:Text text="{oModelRespuesta>Ubknt}" wrapping="false"/>
+					</template>
+				</Column>
+				<Column width="9em" sortProperty="Text2" filterProperty="Text2">
+					<m:Label text="Denominación"/>
+					<template>
+						<m:Text text="{oModelRespuesta>Text2}" wrapping="false"/>
+					</template>
+				</Column>
+				<Column width="11em" sortProperty="Kidno" filterProperty="Kidno">
+					<m:Label text="Referencia de pago"/>
+					<template>
+						<m:Text text="{oModelRespuesta>Kidno}" wrapping="false"/>
+					</template>
+				</Column>
+				<Column width="11em" sortProperty="Koinh" filterProperty="Koinh">
+					<m:Label text="Titular de la cuenta"/>
+					<template>
+						<m:Text text="{oModelRespuesta>Koinh}" wrapping="false"/>
+					</template>
+				</Column>
+			</columns>
+			<footer>
+				<m:OverflowToolbar>
+					<m:ToolbarSpacer/>
+					<m:Label text="Total Importe ML"/>
+					<!--	<m:ObjectNumber number="{oModelRespuesta>/sumaImporte}"/>-->
+					<m:ObjectNumber textAlign="End"
+						number="{parts: [{path: 'oModelRespuesta>/sumaImporte'}, {path: 'oModelRespuesta>Waers'}], type: 'sap.ui.model.type.Currency', formatOptions: {maxFractionDigits: 2,showMeasure: false , decimalSeparator:'.' ,groupingSeparator :','}}"/>
+				</m:OverflowToolbar>
+			</footer>
+		</Table>
+		<m:endButton>
+			<m:Button text="Cerrar" icon="sap-icon://cancel" press="onCloseFragment"/>
+		</m:endButton>
+	</m:Dialog>
+</core:FragmentDefinition>

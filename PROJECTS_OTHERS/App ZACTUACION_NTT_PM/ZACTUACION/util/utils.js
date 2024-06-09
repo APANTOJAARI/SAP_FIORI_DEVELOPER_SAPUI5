@@ -1,0 +1,1 @@
+sap.ui.define(["efolder/efol/BSP_SAPMUTILS/util/BaseUtils"],(function(e){"use strict";return e.extend("efolder.sap.ZACTUACION.util.utils",{}).prototype}));

@@ -1,0 +1,44 @@
+{
+	"Fragments": [{
+		"id": "1",
+		"name": "Depósitos a plazo",
+		"route": "DepositosAPlazo",
+		"visible": true
+	}, {
+		"id": "2",
+		"name": "Transferencias interbancarias",
+		"route": "TransferenciasInterbancarias",
+		"visible": true
+	}, {
+		"id": "3",
+		"name": "Transferencias entre cuentas y/o otras sociedades",
+		"route": "TransEntreCuentasYOtrasSociedades",
+		"visible": true
+	}, {
+		"id": "4",
+		"name": "Transferencias al exterior",
+		"route": "TransAlExterior",
+		"visible": true
+	}, {
+		"id": "5",
+		"name": "Operaciones de cambio",
+		"route": "OperacionesDeCambio",
+		"visible": true
+	}, {
+		"id": "6",
+		"name": "Ope. de cambio con transf. al BCR",
+		"route": "OperacionesCambioConTransferenciaBCR",
+		"visible": true
+	}, {
+		"id": "7",
+		"name": "Emisión de Cheques",
+		"route": "EmisionCheques",
+		"visible": true
+	}, {
+		"id": "9",
+		"name": "Anulación de Documentos",
+		"route": "AnulacionDocumentos",
+		"visible": true
+	}]
+
+}

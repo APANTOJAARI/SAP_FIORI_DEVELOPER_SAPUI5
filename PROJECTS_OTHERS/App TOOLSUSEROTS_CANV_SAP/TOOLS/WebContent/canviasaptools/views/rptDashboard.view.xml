@@ -1,0 +1,166 @@
+<core:View controllerName="canviasaptools.controllers.rptDashboard"
+		   xmlns:core="sap.ui.core" 
+		   xmlns:mvc="sap.ui.core.mvc" 
+		   xmlns="sap.m"
+		   xmlns:f="sap.ui.layout.form"
+		   xmlns:t="sap.ui.table"
+		   xmlns:viz="sap.viz.ui5.controls"
+		   xmlns:html="http://www.w3.org/1999/xhtml">
+	<Page title="CANVIA SAP Tools: Dashboard"
+          showNavButton = "true"
+          navButtonPress="onNavBackRptDash">
+		<content>
+			<VBox class="sapUiSmallMargin">
+				<FlexBox
+					width="500px"
+					alignItems="Center"
+					justifyContent="Start">
+					<items>
+						<Label text="Compañia " width="150px" />
+						<ComboBox
+							id="cmbCompany"
+							showSecondaryValues= "false"
+							width="200px"
+							items="{/}">
+							<core:ListItem key="{comp_id}" text="{comp_descr_cmb}" additionalText = "{comp_id}"/>
+						</ComboBox>
+					</items>
+				</FlexBox>
+				<FlexBox
+					width="100%"
+					alignItems="Center"
+					justifyContent="Start">
+					<items>
+						<Label text="Periodo " width="150px"  labelFor="dpReqDateFrom" />
+						<DatePicker
+							id="dpReqPerFrom"
+							width="200px"
+							required="true"
+							placeholder="Desde"
+							displayFormat="MM-yyyy" />
+						<Label text="---" textAlign="Center" width="120px" />
+						<DatePicker
+							id="dpReqPerTo"
+							width="200px"
+							required="true"
+							placeholder="Hasta"
+							displayFormat="MM-yyyy" />
+						<Label text="    " textAlign="Center" width="120px" />
+						<Button id="btnSearchRptReq" icon="sap-icon://search" text="Buscar solicitudes" press="onPressSearchRptReq" />
+					</items>
+				</FlexBox>
+			</VBox>
+			<FlexBox
+				width="100%"
+				alignItems="Start"
+				justifyContent="Start">
+				<items>
+					<t:Table id="tbRptDashReq"
+						   width="95%"
+						   rows="{/}"
+						   rowActionCount="1" 
+						   selectionMode="Single"
+						   alternateRowColors="true"
+						   ariaLabelledBy="title">
+						<t:extension>
+							<OverflowToolbar>
+								<Title id="title" text="Reporte de solicitudes"/>
+								<ToolbarSpacer/>
+								<Button id="btnExportRptDsb" icon="sap-icon://excel-attachment"  text="Exportar datos" press="onPressExportRptDsb" />
+							</OverflowToolbar>
+						</t:extension>
+						<t:columns>
+							<t:Column sortProperty="dsb_per" filterProperty="dsb_per">
+								<Label text="Periodo"/>
+								<t:template>
+									<Text text="{dsb_per}" wrapping="false"/>
+								</t:template>
+							</t:Column>
+							<t:Column sortProperty="dsb_sol" filterProperty="dsb_sol">
+								<Label text="Solicitudes"/>
+								<t:template>
+									<Text text="{dsb_sol}" wrapping="false"/>
+								</t:template>
+							</t:Column>
+							<t:Column sortProperty="dsb_sol_par" filterProperty="dsb_sol_par">
+								<Label text="Solicitudes parciales"/>
+								<t:template>
+									<Text text="{dsb_sol_par}" wrapping="false"/>
+								</t:template>
+							</t:Column>
+							<t:Column sortProperty="dsb_tr" filterProperty="dsb_tr">
+								<Label text="Transportes"  wrapping="false" />
+								<t:template>
+									<Text text="{dsb_tr}" />
+								</t:template>
+							</t:Column>
+							<t:Column sortProperty="dsb_tr_error" filterProperty="dsb_tr_error">
+								<Label text="TR. con error"/>
+								<t:template>
+									<Text text="{dsb_tr_error}" wrapping="false"/>
+								</t:template>
+							</t:Column>
+						</t:columns>
+					</t:Table>
+					<FlexBox width="50%" justifyContent="Center" alignItems="Start">				
+					  <items>
+						<viz:VizFrame xmlns="sap.viz" id="idLineChart" vizType="line"/>	
+					 </items> 
+					</FlexBox>
+				</items>
+			</FlexBox>
+			<FlexBox width="50%" justifyContent="Center" alignItems="Start">				
+			  <items>
+				<Label text=" " width="150px" />		
+			 </items> 
+			</FlexBox>
+			<FlexBox
+				width="100%"
+				alignItems="Start"
+				justifyContent="Start">
+				<items>
+					<t:Table id="tbRptDashUser"
+						   width="95%"
+						   rows="{/}"
+						   rowActionCount="1" 
+						   selectionMode="Single"
+						   alternateRowColors="true"
+						   ariaLabelledBy="title">
+						<t:extension>
+							<OverflowToolbar>
+								<Title id="titleUser" text="Reporte de usuarios"/>
+								<ToolbarSpacer/>
+								<Button id="btnExportRptDsbUser" icon="sap-icon://excel-attachment"  text="Exportar datos" press="onPressExportRptDsbUser" />
+							</OverflowToolbar>
+						</t:extension>
+						<t:columns>
+							<t:Column sortProperty="dsb_per" filterProperty="dsb_per">
+								<Label text="Periodo"/>
+								<t:template>
+									<Text text="{dsb_per}" wrapping="false"/>
+								</t:template>
+							</t:Column>
+							<t:Column sortProperty="dsb_unlock" filterProperty="dsb_unlock">
+								<Label text="Desbloque"/>
+								<t:template>
+									<Text text="{dsb_unlock}" wrapping="false"/>
+								</t:template>
+							</t:Column>
+							<t:Column sortProperty="dsb_change" filterProperty="dsb_change">
+								<Label text="Cambio de contraseña"/>
+								<t:template>
+									<Text text="{dsb_change}" wrapping="false"/>
+								</t:template>
+							</t:Column>
+						</t:columns>
+					</t:Table>
+					<FlexBox width="50%" justifyContent="Center" alignItems="Start">				
+					  <items>
+						<viz:VizFrame xmlns="sap.viz" id="idLineChartUser" vizType="bar"/>
+					 </items> 
+					</FlexBox>
+				</items>
+			</FlexBox>
+		</content>
+	</Page>
+</core:View>

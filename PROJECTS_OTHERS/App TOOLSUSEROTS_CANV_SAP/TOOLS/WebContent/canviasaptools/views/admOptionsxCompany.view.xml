@@ -1,0 +1,112 @@
+<core:View controllerName="canviasaptools.controllers.admOptionsxCompany"
+		   xmlns:core="sap.ui.core" 
+		   xmlns:mvc="sap.ui.core.mvc" 
+		   xmlns="sap.m"
+		   xmlns:f="sap.ui.layout.form"
+		   xmlns:t="sap.ui.table"
+		   xmlns:html="http://www.w3.org/1999/xhtml"
+		   xmlns:l="sap.ui.layout">
+	<Page title="CANVIA SAP Tools: Administración de opciones por compañia"
+          showNavButton = "true"
+          navButtonPress="onNavBackAdmOptxComp">
+		<content>
+			<VBox class="sapUiSmallMargin">
+				<f:SimpleForm id="sfUser"
+								editable="true"
+								layout="ResponsiveGridLayout"
+								labelSpanXL="1"
+								labelSpanL="1"
+								labelSpanM="1"
+								labelSpanS="12"
+								adjustLabelSpan="true"
+								emptySpanXL="4"
+								emptySpanL="4"
+								emptySpanM="4"
+								emptySpanS="0"
+								columnsXL="1"
+								columnsL="1"
+								columnsM="1" >
+					<f:content>
+						<Label text="Compañia " />
+						<ComboBox
+							id="cmbCompany"
+							showSecondaryValues= "false"
+							placeholder="Sel.Compañia..."
+							change="onChangeCompanyVal"
+							items="{/}">
+							<core:ListItem key="{comp_id}" text="{comp_descr_cmb}" additionalText = "{comp_id}"/>
+						</ComboBox>
+						<Button id="btnSaveData" icon="sap-icon://save" text="Guardar" press="onPressSave" />
+						<Button id="btnClearData" icon="sap-icon://sys-find" text="Nueva búsqueda" press="onPressCancel" />
+					</f:content>
+				</f:SimpleForm>
+			</VBox>
+			<HBox class="sapUiSmallMargin">
+				<t:Table id="tbOCUnAssign"
+					   rows="{/}"
+					   rowActionCount="1" 
+					   selectionMode="MultiToggle"
+					   visibleRowCount="7"
+					   alternateRowColors="true"
+					   ariaLabelledBy="title">
+					<t:extension>
+						<OverflowToolbar>
+							<Title id="OCtitleUnAssign" text="Opciones disponibles"/>
+						</OverflowToolbar>
+					</t:extension>
+					<t:columns>
+						<t:Column>
+							<Label text="Página"/>
+							<t:template>
+								<Text text="{opt_id}" wrapping="false"/>
+							</t:template>
+						</t:Column>
+						<t:Column>
+							<Label text="Descripción"/>
+							<t:template>
+								<Text text="{opt_name}" wrapping="false"/>
+							</t:template>
+						</t:Column>
+					</t:columns>
+				</t:Table>
+				
+		        <VBox>
+		        	<VBox height="85px"></VBox>
+		        	<Button id="btnRight" icon="sap-icon://navigation-right-arrow"  press="onPressRight" />
+		        	<Button id="btnRightAll" icon="sap-icon://open-command-field" press="onPressRightAll" />
+		        	<Button id="btnLeft" icon="sap-icon://navigation-left-arrow" press="onPressLeft" />
+		        	<Button id="btnLeftAll" icon="sap-icon://close-command-field" press="onPressLeftAll" />
+		        </VBox>
+				
+				<t:Table id="tbOCAssign"
+					   rows="{/}"
+					   rowActionCount="1" 
+					   selectionMode="MultiToggle"
+					   visibleRowCount="7"
+					   alternateRowColors="true"
+					   ariaLabelledBy="title">
+					<t:extension>
+						<OverflowToolbar>
+							<Title id="titleOCAssign" text="Opciones asignadas"/>
+						</OverflowToolbar>
+					</t:extension>
+					<t:columns>
+						<t:Column>
+							<Label text="Página"/>
+							<t:template>
+								<Text text="{opt_id}" wrapping="false"/>
+							</t:template>
+						</t:Column>
+						<t:Column>
+							<Label text="Descripción"/>
+							<t:template>
+								<Text text="{opt_name}" wrapping="false"/>
+							</t:template>
+						</t:Column>
+					</t:columns>
+				</t:Table>
+
+			</HBox>
+		</content>
+	</Page>
+</core:View>

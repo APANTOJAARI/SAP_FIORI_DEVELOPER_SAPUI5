@@ -1,0 +1,174 @@
+<mvc:View xmlns:mvc="sap.ui.core.mvc" xmlns="sap.m" xmlns:l="sap.ui.layout" xmlns:f="sap.ui.layout.form" xmlns:core="sap.ui.core"
+	controllerName="com.everis.centria.ZFIR098.controller.Main" displayBlock="true">
+	<Shell id="shell">
+		<App id="app">
+			<pages>
+				<Page id="page" titleAlignment="Center" showHeader="false">
+				<!--	<customHeader>
+						<OverflowToolbar>
+							<core:Icon src="sap-icon://customfont/sap" class="size3" color="#019CE0" press="onPressHome" tooltip="Navegar a la página inicial"
+								visible="{oDeviceModel>/system/desktop}">
+								<core:layoutData>
+									<FlexItemData growFactor="1"/>
+								</core:layoutData>
+							</core:Icon>
+							<Title text="{i18n>title}"/>
+							<ToolbarSpacer/>
+						</OverflowToolbar>
+					</customHeader>-->
+					<content>
+						<Panel headerText="{i18n>txtParametro}" class="sapUiResponsiveMargin" width="auto">
+							<content>
+								<f:Form id="form" editable="true">
+									<f:layout>
+										<f:ResponsiveGridLayout labelSpanXL="4" labelSpanL="3" labelSpanM="4" labelSpanS="12" adjustLabelSpan="false" emptySpanXL="0" emptySpanL="4"
+											emptySpanM="0" emptySpanS="0" columnsXL="2" columnsL="1" columnsM="1" singleContainerFullSize="false"/>
+									</f:layout>
+									<f:formContainers>
+										<f:FormContainer>
+											<f:formElements>
+												<f:FormElement label="{i18n>txtBancos}">
+													<f:fields>
+														<Select id="sEntidad" items="{/Operaciones}">
+															<core:Item key="{CdFilt}" text="{CdText}"/>
+														</Select>
+													</f:fields>
+												</f:FormElement>
+												<f:FormElement label="{i18n>txtSociedad}">
+													<f:fields>
+														<MultiInput id="iSociedad" showValueHelp="true" valueHelpRequest="onSociedadValueHelpRequest" suggestionRows="{/Sociedades}" required="true"
+															showSuggestion="true" showTableSuggestionValueHelp="false">
+															<suggestionColumns>
+																<Column>
+																	<Label text="Cod."/>
+																</Column>
+																<Column>
+																	<Label text="Nombre de la empresa"/>
+																</Column>
+																<Column>
+																	<Label text="Población"/>
+																</Column>
+																<Column>
+																	<Label text="Moneda"/>
+																</Column>
+															</suggestionColumns>
+															<suggestionRows>
+																<ColumnListItem>
+																	<cells>
+																		<Label text="{Bukrs}"/>
+																		<Label text="{Butxt}"/>
+																		<Label text="{Ort01}"/>
+																		<Label text="{Waers}"/>
+																	</cells>
+																</ColumnListItem>
+															</suggestionRows>
+														</MultiInput>
+													</f:fields>
+												</f:FormElement>
+												<f:FormElement label="{i18n>txtDiaEjecucionPago}">
+													<f:fields>
+														<DateRangeSelection id="drsDiaEjecucion" displayFormat="dd/MM/yyyy" valueFormat="yyyyMMdd" required="true"/>
+													</f:fields>
+												</f:FormElement>
+												<f:FormElement label="{i18n>txtIdentificacion}">
+													<f:fields>
+														<Input id="iIdentificacionFrom" required="true" class="UpperCase"/>
+														<Text text="a" textAlign="Center"/>
+														<Input id="iIdentificacionTo" required="true" class="UpperCase"/>
+													</f:fields>
+												</f:FormElement>
+												<f:FormElement label="{i18n>txtBanco}">
+													<f:fields>
+														<MultiInput id="iBanco" showValueHelp="true" valueHelpRequest="onBancoValueHelpRequest" suggestionRows="{/Bancos}" showSuggestion="true"
+															showTableSuggestionValueHelp="false">
+															<suggestionColumns>
+																<Column>
+																	<Label text="Sociedad"/>
+																</Column>
+																<Column>
+																	<Label text="Bco. prp."/>
+																</Column>
+																<Column>
+																	<Label text="País"/>
+																</Column>
+																<Column>
+																	<Label text="Clave banco"/>
+																</Column>
+																<Column>
+																	<Label text="Nombre de la institución financiera"/>
+																</Column>
+																<Column>
+																	<Label text="Población"/>
+																</Column>
+															</suggestionColumns>
+															<suggestionRows>
+																<ColumnListItem>
+																	<Label text="{Bukrs}"/>
+																	<Label text="{Hbkid}"/>
+																	<Label text="{Banks}"/>
+																	<Label text="{Bankl}"/>
+																	<Label text="{Banka}"/>
+																	<Label text="{Ort01}"/>
+																</ColumnListItem>
+															</suggestionRows>
+														</MultiInput>
+													</f:fields>
+												</f:FormElement>
+												<f:FormElement label="{i18n>txtViasPago}">
+													<f:fields>
+														<MultiInput id="iViasPago" showValueHelp="true" valueHelpRequest="onViasPagoValueHelpRequest" suggestionRows="{/ViasPago}"
+															showSuggestion="true" showTableSuggestionValueHelp="false">
+															<suggestionColumns>
+																<Column>
+																	<Label text="Key"/>
+																</Column>
+																<Column>
+																	<Label text="País"/>
+																</Column>
+																<Column>
+																	<Label text="VP"/>
+																</Column>
+																<Column>
+																	<Label text="Significado"/>
+																</Column>
+															</suggestionColumns>
+															<suggestionRows>
+																<ColumnListItem>
+																	<Label text="{key}"/>
+																	<Label text="{Land1}"/>
+																	<Label text="{Zlsch}"/>
+																	<Label text="{Text1}"/>
+																</ColumnListItem>
+															</suggestionRows>
+														</MultiInput>
+													</f:fields>
+												</f:FormElement>
+												<f:FormElement label="{i18n>txtFechaProcesar}">
+													<f:fields>
+														<DatePicker id="dFechaProcesar" valueFormat="yyyyMMdd"/>
+													</f:fields>
+												</f:FormElement>
+												<f:FormElement label="{i18n>txtDescargaDirecta}">
+													<f:fields>
+														<Switch id="swDescargaDirecta"/>
+													</f:fields>
+												</f:FormElement>
+											</f:formElements>
+										</f:FormContainer>
+									</f:formContainers>
+								</f:Form>
+							</content>
+						</Panel>
+					</content>
+					<footer>
+						<OverflowToolbar>
+							<ToolbarSpacer/>
+							<Button id="btnVariantes" text="{i18n>txtVariantes}" press="onDisplayVariants" type="Emphasized"/>
+							<Button id="btnEjecutar" text="{i18n>txtEjecutar}" press="onEjecutar" type="Accept"/>
+						</OverflowToolbar>
+					</footer>
+				</Page>
+			</pages>
+		</App>
+	</Shell>
+</mvc:View>

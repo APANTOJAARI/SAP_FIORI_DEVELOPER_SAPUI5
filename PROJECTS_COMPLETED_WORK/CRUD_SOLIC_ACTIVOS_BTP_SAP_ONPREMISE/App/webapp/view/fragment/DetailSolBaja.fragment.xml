@@ -1,0 +1,113 @@
+<core:FragmentDefinition xmlns:core="sap.ui.core"
+    xmlns="sap.m">
+
+    <Table id="DetailSolBaj" mode="MultiSelect" items="{ path: 'solicBajaMain>/SolicBaja/DetailSolBajaSet' }" contextualWidth="Auto">
+        <headerToolbar>
+            <OverflowToolbar id="otbSubheader">
+                <ToolbarSpacer/>
+                <Button id="AddButton" text="{i18n>AddRowTable}" type="Transparent" press=".onAddIvent" icon="sap-icon://add-product" enabled="{=${solicBajaMain>/SolicBaja/FlgActiveAnexo} === true ?  false :
+                                                                                                                                                 ${solicBajaMain>/SolicBaja/FlgAnexoUpd} === true ?  false :
+                                                                                                                                                 ${authSolBaj>/AuthorizationSet/FlgUsolCreate} === true  &amp;&amp; ${statusForm>/Status/ActiveEditForm} === true ?  true :
+                                                                                                                                                 ${authSolBaj>/AuthorizationSet/FlgUsolEdit} === true &amp;&amp; ${statusForm>/Status/ActiveEditForm} === true  ? true:
+                                                                                                                                                 ${statusForm>/Status/ActiveEditForm} === true ?  true : false }"
+
+                                                                                                                                                 visible="{=${solicBajaMain>/SolicBaja/IdEstatus} === '4' ?  false :
+                                                                                                                                                            ${solicBajaMain>/SolicBaja/IdEstatus} === '2' ?  false : true}" />
+
+                <Button id="ModifButton" text="{i18n>ModRowTable}" type="Transparent" press=".onModifItem" icon="sap-icon://edit" enabled="{=${authSolBaj>/AuthorizationSet/FlgAprResponbaja} === true  &amp;&amp;  ${solicBajaMain>/SolicBaja/FlgNiv1Aprob} === false ? true :
+                                                                                                                                             ${solicBajaMain>/SolicBaja/FlgActiveAnexo} === true ?  false :
+                                                                                                                                             ${solicBajaMain>/SolicBaja/FlgAnexoUpd} === true ?  false :
+                                                                                                                                             ${authSolBaj>/AuthorizationSet/FlgUsolCreate} === true &amp;&amp; ${statusForm>/Status/ActiveEditForm} === true ?  true :
+                                                                                                                                             ${authSolBaj>/AuthorizationSet/FlgUsolEdit} === true &amp;&amp; ${statusForm>/Status/ActiveEditForm} === true ?  true :
+                                                                                                                                             ${statusForm>/Status/ActiveEditForm} === true ?  true : false }"  visible="{=${solicBajaMain>/SolicBaja/IdEstatus} === '4' ?  false :
+                                                                                                                                                                                                                                                                                                                                                                                           ${solicBajaMain>/SolicBaja/IdEstatus} === '2' ?  false : true}" />
+                <Button id="DeleteButton" text="{i18n>DeleteRowTable}" type="Transparent" press=".onDeleteDetailIvent" icon="sap-icon://delete" enabled="{=${solicBajaMain>/SolicBaja/FlgActiveAnexo} === true ?  false :
+                                                                                                                                             ${solicBajaMain>/SolicBaja/FlgAnexoUpd} === true ?  false :
+                                                                                                                                             ${authSolBaj>/AuthorizationSet/FlgUsolCreate} === true &amp;&amp; ${statusForm>/Status/ActiveEditForm} === true ?  true :
+                                                                                                                                             ${authSolBaj>/AuthorizationSet/FlgUsolEdit} === true &amp;&amp; ${statusForm>/Status/ActiveEditForm} === true ?  true :
+                                                                                                                                             ${statusForm>/Status/ActiveEditForm} === true ?  true : false }" visible="{=${solicBajaMain>/SolicBaja/IdEstatus} === '4' ?  false :
+                                                                                                                                                                                                                                                                                                                                            ${solicBajaMain>/SolicBaja/IdEstatus} === '2' ?  false : true}"/>
+            </OverflowToolbar>
+        </headerToolbar>
+        <!-- Agregar las columnas -->
+        <columns>
+            <!--1) Número de Inventario-->
+            <Column id="ColNumInvent" width="10em">
+                <header>
+                    <Label id="LblColNumInvent" text="{i18n>NumInvent}" textAlign="Center"/>
+                </header>
+            </Column>
+            <!--2) Código de Activo Fijo -->
+            <Column id="ColCodActivFijo" width="8em">
+                <header>
+                    <Label id="LblColCodActivFijo" text="{i18n>CodActivFijo}" textAlign="Center"/>
+                </header>
+            </Column>
+            <!--3) Descripción -->
+            <Column id="ColInventDesc" width="25em">
+                <header>
+                    <Label id="LblColInventDesc" text="{i18n>InventDesc}" textAlign="Center"/>
+                </header>
+            </Column>
+            <!--4) Marca -->
+            <Column id="ColInventMarca" width="10em">
+                <header>
+                    <Label id="LblColInventMarca" text="{i18n>InventMarca}" textAlign="Center"/>
+                </header>
+            </Column>
+            <!--5) Modelo -->
+            <Column id="ColInventModelo" width="10em">
+                <header>
+                    <Label id="LblColInventModelo" text="{i18n>InventModelo}" textAlign="Center"/>
+                </header>
+            </Column>
+            <!--6) Serie -->
+            <Column id="ColInventSerie" width="12em">
+                <header>
+                    <Label id="LblColInventSerie" text="{i18n>InventSerie}" textAlign="Center"/>
+                </header>
+            </Column>
+            <!--7) CeCo -->
+            <Column id="ColInventCeco" width="8em">
+                <header>
+                    <Label id="LblColInventCeco" text="{i18n>InventCeco}" textAlign="Center"/>
+                </header>
+            </Column>
+            <!--8) Valor Neto -->
+            <Column id="ColInventValNeto" width="10em">
+                <header>
+                    <Label id="LblColInventValNeto" text="{i18n>InventValNeto}" textAlign="Center"/>
+                </header>
+            </Column>
+            <!--9) Motivo de Baja -->
+            <Column id="ColInventMotivBaja" width="25em">
+                <header>
+                    <Label id="LblColInventMotivBaja" text="{i18n>InventMotivBaja}" textAlign="Center"/>
+                </header>
+            </Column>
+            <!--9) Tipo de Baja -->
+            <Column id="ColInventTipoBaja" width="25em">
+                <header>
+                    <Label id="LblColInventTipoBaja" text="{i18n>TipoBaja}" textAlign="Center"/>
+                </header>
+            </Column>
+        </columns>
+        <!-- Agregar Items -->
+        <items>
+            <ColumnListItem vAlign="Middle">
+                <cells>
+                   <Input value="{solicBajaMain>NumIvent}"   editable="false"/>
+                   <Input value="{solicBajaMain>CodActfijo}" editable="false"/>
+                   <Input value="{solicBajaMain>DesInvent}" editable="false"/>
+                   <Input value="{solicBajaMain>MarcaAct}"  editable="false"/>
+                   <Input value="{solicBajaMain>ModeloAct}" editable="false"/>
+                   <Input value="{solicBajaMain>SerInvent}" editable="false"/>
+                   <Input value="{solicBajaMain>CecoAct}"   editable="false"/>
+                   <Input value="{solicBajaMain>ValorNeto}" editable="false"/>
+                   <Input value="{solicBajaMain>Motivbaja}" editable="false"/>
+                   <Input value="{=${solicBajaMain>IdTipBaja} !== '6' ? ${solicBajaMain>TipoBaja} : ${solicBajaMain>oportsTbaja} }" editable="false"/>
+                </cells>
+            </ColumnListItem>
+        </items>
+    </Table>
+</core:FragmentDefinition>

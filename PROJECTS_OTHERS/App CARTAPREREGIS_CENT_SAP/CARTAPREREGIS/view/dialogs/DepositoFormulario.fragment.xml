@@ -1,0 +1,45 @@
+<core:FragmentDefinition xmlns:mvc="sap.ui.core.mvc" xmlns="sap.m" xmlns:core="sap.ui.core" height="100%" xmlns:l="sap.ui.layout"
+    xmlns:app="http://schemas.sap.com/sapui5/extension/sap.ui.core.CustomData/1"
+	xmlns:f="sap.ui.layout.form" controllerName="com.centria.CartaPreregistro.controller.View1">
+	<Dialog id="dialogDeposito" title="Deposito" class="sapUiSizeCompact" draggable="true" contentWidth="30%">
+		<f:Form id="fmDeposito" editable="false">
+			<f:layout>
+				<f:ResponsiveGridLayout labelSpanXL="3" labelSpanL="3" labelSpanM="3" labelSpanS="12" adjustLabelSpan="false" emptySpanXL="4" emptySpanL="4"
+					emptySpanM="0" emptySpanS="0" columnsXL="2" columnsL="2" columnsM="2" singleContainerFullSize="false"/>
+			</f:layout>
+			<f:formContainers>
+				<f:FormContainer>
+					<f:formElements>
+						<f:FormElement>
+							<f:label>
+								<Label text="{Hkont/#@sap:label}" required="true"></Label>
+							</f:label>
+							<f:fields>
+								<Input value="{Hkont}" maxLength="10" liveChange="onLiveChangeInput" editable="{oModelEditForm>/editable}"></Input>
+							</f:fields>
+						</f:FormElement>
+						<f:FormElement >
+							<f:label>
+								<Label text="{Txt50/#@sap:label}" required="true"></Label>
+							</f:label>
+							<f:fields>
+								<Input value="{Txt50}" maxLength="50" liveChange="onLiveChangeInput" editable="{oModelEditForm>/editable}"></Input>
+							</f:fields>
+						</f:FormElement>
+						<f:FormElement label="{Bankl/#@sap:label}">
+							<f:fields>
+								<Input value="{Bankl}" maxLength="15" liveChange="onLiveChangeInput"></Input>
+							</f:fields>
+						</f:FormElement>
+					</f:formElements>
+				</f:FormContainer>
+			</f:formContainers>
+		</f:Form>
+		<beginButton>
+			<Button text="Grabar" type="Accept" icon="sap-icon://save" press="onSaveEntidad" app:tabla="stDepoPlazo"/>
+		</beginButton>
+		<endButton>
+			<Button text="Cancelar" icon="sap-icon://cancel" press="closeFormMant" app:form="fmDeposito"/>
+		</endButton>
+	</Dialog>
+</core:FragmentDefinition>

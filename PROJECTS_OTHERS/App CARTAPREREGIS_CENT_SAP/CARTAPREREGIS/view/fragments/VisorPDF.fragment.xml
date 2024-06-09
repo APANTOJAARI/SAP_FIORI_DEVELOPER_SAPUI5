@@ -1,0 +1,20 @@
+<core:FragmentDefinition xmlns:f="sap.ui.layout.form" xmlns:mvc="sap.ui.core.mvc" xmlns:u="sap.ui.unified" xmlns="sap.m"
+	xmlns:core="sap.ui.core" height="100%" width="100%" xmlns:t="sap.ui.table" xmlns:l="sap.ui.layout"
+	controllerName="com.centria.CartaPreregistro.controller.View1">
+	<Dialog title="PDF" contentWidth="70%" contentHeight="80%" horizontalScrolling="true"  verticalScrolling="false">
+		<ScrollContainer height="100%" width="100%" horizontal="true" vertical="true">
+			<FlexBox class="sapUiSmallMargin" direction="Column" renderType="Div">
+				<FlexBox direction="Row" fitContainer="true" renderType="Div">
+					<PDFViewer class="sapUiSmallMarginEnd" source="{oModelPDF>/Source}" title="{oModelPDF>/Title}" height="{oModelPDF>/Height}" width="auto">
+						<layoutData>
+							<FlexItemData growFactor="1"/>
+						</layoutData>
+					</PDFViewer>
+				</FlexBox>
+			</FlexBox>
+		</ScrollContainer>
+		<endButton>
+			<Button type="Ghost" icon="sap-icon://undo" text="{i18n>btnRegresar}" press="closeDialog"/>
+		</endButton>
+	</Dialog>
+</core:FragmentDefinition>

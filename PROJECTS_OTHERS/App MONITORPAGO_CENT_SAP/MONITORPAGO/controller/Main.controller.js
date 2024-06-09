@@ -1,0 +1,1 @@
+sap.ui.define(["./BaseController","sap/ui/model/json/JSONModel"],function(e,n){"use strict";return e.extend("h2h.centria.h2hmonitorpagosrpa.controller.Main",{onInit:function(){let e=new n({busy:true,delay:0,layout:"OneColumn",previousLayout:"",actionButtonsInfo:{midColumn:{fullScreen:false}}});this.setAppModel(e,"appModel")}})});

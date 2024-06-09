@@ -1,0 +1,116 @@
+<core:View controllerName="canviasaptools.controllers.admClientSAP"
+		   xmlns:core="sap.ui.core" 
+		   xmlns:mvc="sap.ui.core.mvc" 
+		   xmlns="sap.m"
+		   xmlns:f="sap.ui.layout.form"
+		   xmlns:t="sap.ui.table"
+		   xmlns:html="http://www.w3.org/1999/xhtml">
+	<Page title="CANVIA SAP Tools: Administración de mandantes"
+          showNavButton = "true"
+          navButtonPress="onNavBackAdmClientSAP">
+		<content>
+				<f:SimpleForm id="sfUserSAP"
+								class="sapUiSmallMargin"
+								editable="true"
+								layout="ResponsiveGridLayout"
+								labelSpanXL="1"
+								labelSpanL="1"
+								labelSpanM="1"
+								labelSpanS="12"
+								adjustLabelSpan="true"
+								emptySpanXL="4"
+								emptySpanL="4"
+								emptySpanM="4"
+								emptySpanS="0"
+								columnsXL="1"
+								columnsL="1"
+								columnsM="1">
+					<f:content>
+						<Label text="Compañía " />
+						<ComboBox
+							id="cmbCompanyFind"
+							showSecondaryValues= "false"
+							placeholder="Sel.Compañia..."
+							width="35%"
+							change="onChangeCompany"
+							items="{/}">
+							<core:ListItem key="{comp_id}" text="{comp_descr_cmb}" additionalText = "{comp_id}"/>
+						</ComboBox>
+						<Label text="Ambiente SAP " />
+						<ComboBox
+							id="cmbConnectionFind"
+							showSecondaryValues= "false"
+							placeholder="Sel.Ambiente SAP..."
+							width="35%"
+							items="{/}">
+							<core:ListItem key="{conn_source}" text="{conn_source}" additionalText = "{conn_source}" />
+						</ComboBox>
+					</f:content>
+				</f:SimpleForm>
+			<t:Table id="tbClientSAP"
+				   class="sapUiSmallMargin"
+				   rows="{/}"
+				   rowActionCount="1" 
+				   selectionMode="Single"
+				   visibleRowCount="7"
+				   alternateRowColors="true"
+				   ariaLabelledBy="title">
+				<t:extension>
+					<OverflowToolbar>
+						<Title id="title" text="Lista de mandantes"/>
+						<ToolbarSpacer/>
+						<Button id="btnSearchFind" icon="sap-icon://search"  text="Buscar" press="onPressFindPopUp" />
+						<Button id="btnClearClientSAPFind" icon="sap-icon://sys-find" text="Nueva Búsqueda" press="onPressCancel" />
+					</OverflowToolbar>
+				</t:extension>
+				<t:columns>
+					<t:Column sortProperty="mandt" filterProperty="mandt">
+						<Label text="Mandante"/>
+						<t:template>
+							<Text text="{mandt}" wrapping="true"/>
+						</t:template>
+					</t:Column>
+					<t:Column>
+						<Label text="Descripción"/>
+						<t:template>
+							<Text text="{mandt_descr}" wrapping="true"/>
+						</t:template>
+					</t:Column>
+					<t:Column>
+						<Label text="Población"/>
+						<t:template>
+							<Text text="{ort01}" wrapping="true"/>
+						</t:template>
+					</t:Column>
+					<t:Column>
+						<Label text="Moneda"/>
+						<t:template>
+							<Text text="{mwaer}" wrapping="true"/>
+						</t:template>
+					</t:Column>
+					<t:Column>
+						<Label text="Modificador el"/>
+						<t:template>
+							<Text text="{datum}" wrapping="true"/>
+						</t:template>
+					</t:Column>
+					<t:Column>
+						<Label text="Estado"/>
+						<t:template>
+							<Text text="{status}" wrapping="true"/>
+						</t:template>
+					</t:Column>
+				</t:columns>
+			    <t:rowActionTemplate>
+			        <t:RowAction>
+			            <t:items>
+			            	<t:RowActionItem icon="sap-icon://message-information" text="Información actual" press="onPressStatuClient"></t:RowActionItem>
+							<t:RowActionItem icon="sap-icon://open-folder" text="Abrir mandante" press="onPressOpenClient"></t:RowActionItem>
+							<t:RowActionItem icon="sap-icon://folder-blank" text="Cerrar mandante" press="onPressCloseClient"></t:RowActionItem>
+				    	</t:items>
+					</t:RowAction>
+			    </t:rowActionTemplate>
+			</t:Table>
+		</content>
+	</Page>
+</core:View>

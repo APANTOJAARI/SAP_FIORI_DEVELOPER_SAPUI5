@@ -1,0 +1,15 @@
+{
+    "AuthorizationSet":
+    {
+        "Bukrs":"",
+        "FlgUsolCreate":false,
+        "FlgUsolEdit":false,
+        "FlgUsolVis":false,
+        "FlgAprResponbaja":false,
+        "FlgAprN2":false,
+        "FlgAprN3":false,
+        "FlgCordinador":false,
+        "RespBaja":"",
+        "NameRespBaja":""
+    }
+}

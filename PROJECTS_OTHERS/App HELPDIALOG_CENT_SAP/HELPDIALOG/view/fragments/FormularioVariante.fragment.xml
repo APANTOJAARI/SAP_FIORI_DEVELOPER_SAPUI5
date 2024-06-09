@@ -1,0 +1,34 @@
+<core:FragmentDefinition xmlns="sap.m" xmlns:l="sap.ui.layout" xmlns:f="sap.ui.layout.form" xmlns:core="sap.ui.core">
+	<Dialog title="Variante" afterClose="onAfterCloseFragmentEntidad" class="sapUiSizeCompact">
+		<VBox class="sapUiSmallMargin">
+			<f:Form id="fVariante" editable="false">
+				<f:layout>
+					<f:ResponsiveGridLayout labelSpanXL="3" labelSpanL="3" labelSpanM="3" labelSpanS="12" adjustLabelSpan="false" emptySpanXL="4" emptySpanL="4"
+						emptySpanM="4" emptySpanS="0" columnsXL="1" columnsL="1" columnsM="1" singleContainerFullSize="false"/>
+				</f:layout>
+				<f:formContainers>
+					<f:FormContainer>
+						<f:formElements>
+							<f:FormElement label="{i18n>txtNombre}">
+								<f:fields>
+									<Input value="{oModelEntidad>Nombre}" required="true"/>
+								</f:fields>
+							</f:FormElement>
+							<f:FormElement label="{i18n>txtDescripcion}">
+								<f:fields>
+									<Input value="{oModelEntidad>Descripcion}" required="true"/>
+								</f:fields>
+							</f:FormElement>
+						</f:formElements>
+					</f:FormContainer>
+				</f:formContainers>
+			</f:Form>
+		</VBox>
+		<beginButton>
+			<Button text="Grabar" icon="sap-icon://save" press="onSaveVariant"/>
+		</beginButton>
+		<endButton>
+			<Button text="Cancelar" icon="sap-icon://cancel" press="onCloseFragmentEntidad"/>
+		</endButton>
+	</Dialog>
+</core:FragmentDefinition>

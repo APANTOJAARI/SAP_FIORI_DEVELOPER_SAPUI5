@@ -1,0 +1,49 @@
+<core:FragmentDefinition xmlns:control="sap.gantt.control" xmlns:core="sap.ui.core"
+    xmlns="sap.m"
+    xmlns:semantic="sap.f.semantic"
+    xmlns:l="sap.ui.layout"
+    xmlns:f="sap.ui.layout.form">
+
+	<Table id="idStatusAprob"
+		   inset="false"
+		   items="{ path: 'statSolBaj>/Status'}">
+		<columns>
+			<Column
+				width="12em">
+				<Text text="{i18n>statApr1}" />
+			</Column>
+			<Column
+				minScreenWidth="Tablet"
+				demandPopin="true">
+				<Text text="{i18n>statApr2}" />
+			</Column>
+            <Column
+				minScreenWidth="Tablet"
+				demandPopin="true">
+				<Text text="{i18n>statApr3}" />
+			</Column>
+                  <Column
+				minScreenWidth="Tablet"
+				demandPopin="true">
+				<Text text="{i18n>statApr4}" />
+			</Column>
+		</columns>
+		<items>
+			<ColumnListItem vAlign="Middle">
+				<cells>
+                    <Text text="{statSolBaj>Uname}"/>
+                    <Text text="{statSolBaj>Fullname}" />
+					<Text text="{statSolBaj>Rol}" />
+					<ObjectStatus xmlns="sap.m" state="{=${statSolBaj>FlagAprob} === true ? 'Success' :
+														 ${statSolBaj>FlagRecha} === true ? 'Error' : 'None'}"
+
+									text="{=${statSolBaj>FlagAprob} === true ? ${i18n>statApr6}  : 
+											${statSolBaj>FlagRecha} === true ? ${i18n>statApr7} : ${i18n>statApr5} }"
+								
+									icon="{=${statSolBaj>FlagAprob} === true ? 'sap-icon://accept'  : 
+											${statSolBaj>FlagRecha} === true ? 'sap-icon://decline' : 'sap-icon://pending' }"/>
+				</cells>
+			</ColumnListItem>
+		</items>
+	</Table>
+</core:FragmentDefinition>

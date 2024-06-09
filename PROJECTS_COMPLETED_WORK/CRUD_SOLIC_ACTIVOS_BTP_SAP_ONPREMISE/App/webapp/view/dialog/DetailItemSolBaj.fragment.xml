@@ -1,0 +1,65 @@
+<core:FragmentDefinition xmlns="sap.m"
+    xmlns:l="sap.ui.layout"
+    xmlns:f="sap.ui.layout.form"
+    xmlns:core="sap.ui.core">
+    <Dialog showHeader="false" afterClose="onDialogAftercloseDetailItem" id="DialogDetailItem">
+            <content>
+                <f:SimpleForm id="FormDetailItem" editable="true" layout="ResponsiveGridLayout" title="" labelSpanXL="4" labelSpanL="4" labelSpanM="12" labelSpanS="12" adjustLabelSpan="false" emptySpanXL="0" emptySpanL="0" emptySpanM="0" emptySpanS="0" columnsXL="2" columnsL="2" columnsM="2" singleContainerFullSize="false">
+                    <f:content>
+                         <!-- Primera Columna-->
+                        <core:Title text="{i18n>DatosActivo}" />
+
+                        <Label text="{i18n>NumInvent}" />
+                        <Input id="TxtNumIvent" value="{detailProdAdd>/Detail/NumIvent}" showValueHelp="true" required="true" valueHelpRequest="onValueHelpIdIvent" editable="{authSolBaj>/AuthorizationSet/FlgUsolEdit}"/>
+                        
+                        <Label text="{i18n>InventDesc}" />
+                        <Input value="{detailProdAdd>/Detail/DesInvent}" editable="false"/>
+
+                        <Label text="{i18n>CodActivFijo}" />
+                        <Input value="{detailProdAdd>/Detail/CodActfijo}" editable="false"/>
+
+                        <Label text="{i18n>InventSerie}" />
+                        <Input value="{detailProdAdd>/Detail/SerInvent}" editable="false"/>
+
+                        <Label text="{i18n>InventCeco}" />
+                        <Input value="{detailProdAdd>/Detail/CecoAct}" editable="false"/>
+                        
+                        <Label text="{i18n>InventValNeto}" />
+                        <Input value="{detailProdAdd>/Detail/ValorNeto}" editable="false"/>
+
+                         <!-- Segunda Columna-->
+                        <core:Title text="{i18n>DatosAdic}" />
+
+                        <Label text="{i18n>InventMarca}" />
+                        <Input value="{detailProdAdd>/Detail/MarcaAct}" required="true" editable="{authSolBaj>/AuthorizationSet/FlgUsolEdit}"/>
+
+                        <Label text="{i18n>InventModelo}" />
+                        <Input value="{detailProdAdd>/Detail/ModeloAct}" required="true" editable="{authSolBaj>/AuthorizationSet/FlgUsolEdit}"/>
+                        
+                        <Label text="{i18n>InventMotivBaja}" />
+                        <TextArea rows="3" required="true" value="{detailProdAdd>/Detail/Motivbaja}" editable="{authSolBaj>/AuthorizationSet/FlgUsolEdit}">
+                        </TextArea>
+                        <!-- Opción para el responsable de baja-->
+                        <Label text="{i18n>InventTipoBaja}" id="LblSelectTipBaja" labelFor="SelectTipBaja" visible="{authSolBaj>/AuthorizationSet/FlgAprResponbaja}"/>
+                        <Select forceSelection="false"
+					            selectedKey="{detailProdAdd>/Detail/IdTipBaja}"
+					            items="{ path: '/TiposBajaSet' }" required="true" change=".onChangeSelectTbaj"
+                                id="SelectTipBaja"
+                                visible="{authSolBaj>/AuthorizationSet/FlgAprResponbaja}">
+					    <core:Item key="{IdTipbaja}" text="{TipoBaja}" />
+				        </Select>
+
+                        <Label text="{i18n>OtrosTipBaja2}" visible="false" id="LblTipBaja" labelFor="TxtTipBaja"/>
+                        <Input value="{detailProdAdd>/Detail/oportsTbaja}" required="true" visible="false" 
+                               placeholder="{i18n>OtrosTipBaja}" id="TxtTipBaja"/>
+                    </f:content>
+                </f:SimpleForm>
+            </content>
+                <beginButton>
+                    <Button id="btnItemAdd" type="Emphasized" text="{i18n>addItem}" press=".onPressDialogAddItem" icon="sap-icon://add-activity"/>
+                </beginButton>
+                <endButton>
+                    <Button type="Reject" text="{i18n>cancel}" press="onPressDialogCancel" icon="sap-icon://decline"/>
+                </endButton>
+    </Dialog>
+</core:FragmentDefinition>

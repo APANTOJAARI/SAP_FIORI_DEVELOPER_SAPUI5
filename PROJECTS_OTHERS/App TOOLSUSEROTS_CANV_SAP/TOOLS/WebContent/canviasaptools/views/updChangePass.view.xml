@@ -1,0 +1,58 @@
+<core:View controllerName="canviasaptools.controllers.updChangePass"
+		   xmlns:core="sap.ui.core" 
+		   xmlns:mvc="sap.ui.core.mvc" 
+		   xmlns="sap.m"
+		   xmlns:f="sap.ui.layout.form"
+		   xmlns:t="sap.ui.table"
+		   xmlns:html="http://www.w3.org/1999/xhtml">
+	<Page title="CANVIA SAP Tools: Cambio de contraseña"
+          showNavButton = "true"
+          navButtonPress="onNavBackChgPass">
+		<content>
+			<VBox class="sapUiSmallMargin" >
+				<f:SimpleForm id="sfUser"
+					editable="true"
+					singleContainerFullSize="false" >
+					<f:content>
+						<Label text="Compañía " />
+						<ComboBox
+							id="cmbCompanyFind"
+							showSecondaryValues= "false"
+							width="200px"
+							items="{/}">
+							<core:ListItem key="{comp_id}" text="{comp_descr_cmb}" additionalText = "{comp_id}"/>
+						</ComboBox>
+						<Label text="Usuario " />
+						<Input id="txtUsuarioFind" width="200px" placeholder="Usuario" />
+						<Label text="Contraseña actual" />
+						<Input id="txtOldPass" width="200px" type="Password" placeholder="Contraseña actual" />
+						<Label text="Contraseña nueva" />
+						<Input id="txtNewPass" width="200px" type="Password" liveChange="onTextChangePassNew" placeholder="Contraseña nueva" />
+						<Label text="Confirmar contraseña" />
+						<Input id="txtConfirmPass" width="200px" type="Password" liveChange="onTextChangePass" placeholder="Confirmar contraseña" />
+					</f:content>
+				</f:SimpleForm>
+					<f:SimpleForm id="sfButtons"
+									editable="true"
+									singleContainerFullSize="false" >
+						<f:content>
+							<HBox justifyContent="End" alignItems="End" alignContent="End">
+								<core:Icon
+									id="iconConfirmNewPass"
+									visible="false"
+									class="size1"
+									color="#031E48" width="auto" >
+									<core:layoutData>
+										<FlexItemData growFactor="1" />
+									</core:layoutData>
+								</core:Icon>
+								<Button id="btnSavePass" width="150px" icon="sap-icon://create" type="Accept" text="Guardar" press="onPressSave" />
+								<Label width="18px" />
+								<Button id="btnCancelPass" width="150px" icon="sap-icon://cancel" type="Reject" text="Cancelas" press="onPressCancel" />
+							</HBox>
+						</f:content>
+					</f:SimpleForm>
+			</VBox>
+		</content>
+	</Page>
+</core:View>

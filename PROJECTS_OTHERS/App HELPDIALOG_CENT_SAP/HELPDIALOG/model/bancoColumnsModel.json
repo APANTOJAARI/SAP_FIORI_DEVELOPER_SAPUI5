@@ -1,0 +1,32 @@
+{
+	"cols": [
+		{
+			"label": "Sociedad",
+			"template": "Bukrs",
+			"width": "5rem"
+		},
+		{
+			"label": "Bco. prp.",
+			"template": "Hbkid",
+			"width": "5rem"
+		},
+		{
+			"label": "País",
+			"template": "Banks",
+			"width": "5rem"
+		},
+		{
+			"label": "Clave banco",
+			"template": "Bankl",
+			"width": "5rem"
+		},
+		{
+			"label": "Nombre de la institución financiera",
+			"template": "Banka"
+		},
+		{
+			"label": "Población",
+			"template": "Ort01"
+		}
+	]
+}

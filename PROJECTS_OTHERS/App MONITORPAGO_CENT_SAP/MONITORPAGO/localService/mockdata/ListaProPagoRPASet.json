@@ -1,0 +1,151 @@
+[{
+	"Check": "Check 1",
+	"Bukrs": "Bukrs 1",
+	"Laufi": "Laufi 1",
+	"Laufd": "/Date(1088716412000)/",
+	"Uname": "Uname 1",
+	"Tipos": "Tipos 1",
+	"Banco": "Banco 1",
+	"Wrbpe": 6043.81,
+	"Wrbus": 4782.39,
+	"Anula": "Anula 1",
+	"__metadata": {
+		"uri": "ListaProPagoRPASet('Bukrs%201')",
+		"type": "ZFISO_MONITOR_RPA_H2H_SRV.ListaProPagoRPA"
+	}
+}, {
+	"Check": "Check 2",
+	"Bukrs": "Bukrs 2",
+	"Laufi": "Laufi 2",
+	"Laufd": "/Date(1450473212000)/",
+	"Uname": "Uname 2",
+	"Tipos": "Tipos 2",
+	"Banco": "Banco 2",
+	"Wrbpe": 5449.66,
+	"Wrbus": 7566.99,
+	"Anula": "Anula 2",
+	"__metadata": {
+		"uri": "ListaProPagoRPASet('Bukrs%202')",
+		"type": "ZFISO_MONITOR_RPA_H2H_SRV.ListaProPagoRPA"
+	}
+}, {
+	"Check": "Check 3",
+	"Bukrs": "Bukrs 3",
+	"Laufi": "Laufi 3",
+	"Laufd": "/Date(1125522812000)/",
+	"Uname": "Uname 3",
+	"Tipos": "Tipos 3",
+	"Banco": "Banco 3",
+	"Wrbpe": 8708.98,
+	"Wrbus": 2500.55,
+	"Anula": "Anula 3",
+	"__metadata": {
+		"uri": "ListaProPagoRPASet('Bukrs%203')",
+		"type": "ZFISO_MONITOR_RPA_H2H_SRV.ListaProPagoRPA"
+	}
+}, {
+	"Check": "Check 4",
+	"Bukrs": "Bukrs 4",
+	"Laufi": "Laufi 4",
+	"Laufd": "/Date(1542230012000)/",
+	"Uname": "Uname 4",
+	"Tipos": "Tipos 4",
+	"Banco": "Banco 4",
+	"Wrbpe": 7329.31,
+	"Wrbus": 5370.75,
+	"Anula": "Anula 4",
+	"__metadata": {
+		"uri": "ListaProPagoRPASet('Bukrs%204')",
+		"type": "ZFISO_MONITOR_RPA_H2H_SRV.ListaProPagoRPA"
+	}
+}, {
+	"Check": "Check 5",
+	"Bukrs": "Bukrs 5",
+	"Laufi": "Laufi 5",
+	"Laufd": "/Date(1245359612000)/",
+	"Uname": "Uname 5",
+	"Tipos": "Tipos 5",
+	"Banco": "Banco 5",
+	"Wrbpe": 4086.07,
+	"Wrbus": 7640.19,
+	"Anula": "Anula 5",
+	"__metadata": {
+		"uri": "ListaProPagoRPASet('Bukrs%205')",
+		"type": "ZFISO_MONITOR_RPA_H2H_SRV.ListaProPagoRPA"
+	}
+}, {
+	"Check": "Check 6",
+	"Bukrs": "Bukrs 6",
+	"Laufi": "Laufi 6",
+	"Laufd": "/Date(1105910012000)/",
+	"Uname": "Uname 6",
+	"Tipos": "Tipos 6",
+	"Banco": "Banco 6",
+	"Wrbpe": 3914.64,
+	"Wrbus": 3359.28,
+	"Anula": "Anula 6",
+	"__metadata": {
+		"uri": "ListaProPagoRPASet('Bukrs%206')",
+		"type": "ZFISO_MONITOR_RPA_H2H_SRV.ListaProPagoRPA"
+	}
+}, {
+	"Check": "Check 7",
+	"Bukrs": "Bukrs 7",
+	"Laufi": "Laufi 7",
+	"Laufd": "/Date(1499202812000)/",
+	"Uname": "Uname 7",
+	"Tipos": "Tipos 7",
+	"Banco": "Banco 7",
+	"Wrbpe": 4605.26,
+	"Wrbus": 3684.2,
+	"Anula": "Anula 7",
+	"__metadata": {
+		"uri": "ListaProPagoRPASet('Bukrs%207')",
+		"type": "ZFISO_MONITOR_RPA_H2H_SRV.ListaProPagoRPA"
+	}
+}, {
+	"Check": "Check 8",
+	"Bukrs": "Bukrs 8",
+	"Laufi": "Laufi 8",
+	"Laufd": "/Date(1201122812000)/",
+	"Uname": "Uname 8",
+	"Tipos": "Tipos 8",
+	"Banco": "Banco 8",
+	"Wrbpe": 1902.14,
+	"Wrbus": 161.29,
+	"Anula": "Anula 8",
+	"__metadata": {
+		"uri": "ListaProPagoRPASet('Bukrs%208')",
+		"type": "ZFISO_MONITOR_RPA_H2H_SRV.ListaProPagoRPA"
+	}
+}, {
+	"Check": "Check 9",
+	"Bukrs": "Bukrs 9",
+	"Laufi": "Laufi 9",
+	"Laufd": "/Date(1480799612000)/",
+	"Uname": "Uname 9",
+	"Tipos": "Tipos 9",
+	"Banco": "Banco 9",
+	"Wrbpe": 8419.26,
+	"Wrbus": 8175.99,
+	"Anula": "Anula 9",
+	"__metadata": {
+		"uri": "ListaProPagoRPASet('Bukrs%209')",
+		"type": "ZFISO_MONITOR_RPA_H2H_SRV.ListaProPagoRPA"
+	}
+}, {
+	"Check": "Check 10",
+	"Bukrs": "Bukrs 10",
+	"Laufi": "Laufi 10",
+	"Laufd": "/Date(1127078012000)/",
+	"Uname": "Uname 10",
+	"Tipos": "Tipos 10",
+	"Banco": "Banco 10",
+	"Wrbpe": 1149.33,
+	"Wrbus": 4983.7,
+	"Anula": "Anula 10",
+	"__metadata": {
+		"uri": "ListaProPagoRPASet('Bukrs%2010')",
+		"type": "ZFISO_MONITOR_RPA_H2H_SRV.ListaProPagoRPA"
+	}
+}]

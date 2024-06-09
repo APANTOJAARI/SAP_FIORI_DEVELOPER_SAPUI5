@@ -1,0 +1,52 @@
+<core:FragmentDefinition xmlns:core="sap.ui.core" 
+                         xmlns="sap.m"
+                         xmlns:upload="sap.m.upload"
+                         xmlns:mvc="sap.ui.core.mvc">
+
+    <Table id="DetailAdjunt" mode="None" items="{ path: 'solicBajaMain>/SolicBaja/AdjuntoSolBajaSet' }" contextualWidth="Auto">
+        <headerToolbar>
+            <OverflowToolbar id="otbSubheaderAdj">
+                <ToolbarSpacer/>
+                 <Button id="AddButtonAdj" text="{i18n>AddRowTable}" type="Transparent" press=".onPressAddAdjunt" icon="sap-icon://add-product" enabled="{=${solicBajaMain>/SolicBaja/FlgActiveAnexo} === true ? true : false }"/>
+            </OverflowToolbar>
+        </headerToolbar>
+        <!-- Agregar las columnas -->
+        <columns>
+            <!--2) Código de Activo Fijo -->
+            <Column width="80%">
+                <header>
+                    <Label id="LblColRutaFile" text="{i18n>RutaFile}" textAlign="Center"/>
+                </header>
+            </Column>
+            <Column width="7%">
+                <header>
+                    <Label id="ColDeleteAdj" text="{i18n>DelAdjunt}" textAlign="Center"/>
+                </header>
+            </Column>
+              <Column width="7%">
+                <header>
+                    <Label id="ColNavAdj" text="{i18n>NavAdjunt}" textAlign="Center"/>
+                </header>
+            </Column>
+        </columns>
+        <!-- Agregar Items -->
+        <items>
+            <ColumnListItem vAlign="Middle">
+                <cells>
+                <!--
+                    <Link enabled="{statusForm>/Status/ActiveEditForm}"
+                          href="{solicBajaMain>RutaArhivo}"
+                          text="{solicBajaMain>RutaArhivo}" press=".onLinkPressAdjuntos"
+                          target="_blank"/>-->
+
+                    <Input value="{solicBajaMain>RutaArhivo}" editable="{solicBajaMain>/SolicBaja/FlgActiveAnexo}"
+                                                              enabled="{solicBajaMain>/SolicBaja/FlgActiveAnexo}" 
+                                                              placeholder="{i18n>PHIngrLink}" />
+
+                 <Button icon="sap-icon://delete" press=".onDeleteItemAdjunt" type="Reject" enabled="{solicBajaMain>/SolicBaja/FlgActiveAnexo}"  />
+                 <Button icon="sap-icon://vds-file" press=".onNavLinkAdjunt(${solicBajaMain>RutaArhivo})" type="Transparent" enabled="true"  />
+                </cells>
+            </ColumnListItem>
+        </items>
+    </Table>
+</core:FragmentDefinition>

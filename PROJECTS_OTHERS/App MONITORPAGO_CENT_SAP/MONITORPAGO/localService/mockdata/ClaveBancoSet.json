@@ -1,0 +1,41 @@
+[{
+	"BUKRS": "0011",
+	"HBKID": "020",
+	"LAND1": "PE",
+	"OPKM": "020",
+	"PKMN": "BN - Soles",
+	"ORT01": "Lima",
+	"QWER": ""
+}, {
+	"BUKRS": "0011",
+	"HBKID": "030",
+	"LAND1": "PE",
+	"OPKM": "030",
+	"PKMN": "BCP - Soles",
+	"ORT01": "Lima",
+	"QWER": ""
+}, {
+	"BUKRS": "0011",
+	"HBKID": "031",
+	"LAND1": "PE",
+	"OPKM": "031",
+	"PKMN": "BCP - Dólares",
+	"ORT01": "Lima",
+	"QWER": ""
+}, {
+	"BUKRS": "0011",
+	"HBKID": "050",
+	"LAND1": "PE",
+	"OPKM": "050",
+	"PKMN": "Scotiabank - Soles",
+	"ORT01": "Lima",
+	"QWER": ""
+}, {
+	"BUKRS": "0011",
+	"HBKID": "060",
+	"LAND1": "PE",
+	"OPKM": "060",
+	"PKMN": "BBVA - Soles",
+	"ORT01": "Lima",
+	"QWER": ""
+}]

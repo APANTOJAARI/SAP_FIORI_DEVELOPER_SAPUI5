@@ -1,0 +1,138 @@
+<core:View controllerName="canviasaptools.controllers.rptMonitorSAP"
+		   xmlns:core="sap.ui.core" 
+		   xmlns:mvc="sap.ui.core.mvc" 
+		   xmlns="sap.m"
+		   xmlns:u="sap.ui.unified"
+		   xmlns:f="sap.ui.layout.form"
+		   xmlns:t="sap.ui.table"
+		   xmlns:html="http://www.w3.org/1999/xhtml">
+	<Page title="CANVIA SAP Tools: Monitor SAP"
+          showNavButton = "true"
+          navButtonPress="onNavBackRptReq">
+		<content>
+			<Panel>
+				<headerToolbar>
+					<Toolbar>
+						<Title level="H3" text="Parámetros de ingreso" />
+					</Toolbar>
+				</headerToolbar>
+				<FlexBox
+					width="1200px"
+					alignItems="Center"
+					justifyContent="Start">
+					<items>
+						<Label text="Compañia " width="200px" />
+						<ComboBox
+							id="cmbCompany" width="250px" 
+							placeholder="Sel.Compañia..."
+							showSecondaryValues= "false"
+							change="onChangeCompany"
+							items="{/}">
+							<core:ListItem key="{comp_id}" text="{comp_descr_cmb}" additionalText = "{comp_id}"/>
+						</ComboBox>
+					</items>
+				</FlexBox>
+				<FlexBox
+					width="1200px"
+					alignItems="Center"
+					justifyContent="Start">
+					<items>
+						<Label text="Ambiente SAP " width="200px" />
+						<ComboBox
+							id="cmbConnectionFind" width="250px" 
+							placeholder="Sel.Ambiente SAP..."
+							showSecondaryValues= "false"
+							change="onChangeConnectionSAP"
+							items="{/}">
+							<core:ListItem key="{conn_source}" text="{conn_source}" additionalText = "{conn_source}" />
+						</ComboBox>
+					</items>
+				</FlexBox>
+				<FlexBox
+					width="120px"
+					alignItems="Center"
+					justifyContent="Start">
+					<items>
+						<Label text="Creado el " labelFor="dpReqDateFrom" width="200px" />
+						<DatePicker
+							id="dpMntDate" width="250px" 
+							required="true"
+							placeholder="Desde"
+							displayFormat="short"
+							valueFormat="dd/MM/yyyy" />
+					</items>
+				</FlexBox>
+			</Panel>
+			<Panel>
+				<headerToolbar>
+					<Toolbar>
+						<Title level="H3" text="Información de salida" />
+					</Toolbar>
+				</headerToolbar>
+				<FlexBox
+					width="1200px"
+					alignItems="Center"
+					justifyContent="Start">
+					<items>
+						<CheckBox id="chkST22" text="Información ST22" width="250px" />
+						<CheckBox id="chkSM37" text="Información SM37" width="250px" />
+						<CheckBox id="chkSM66" text="Información SM66" width="250px" />
+					</items>
+				</FlexBox>
+				<FlexBox
+					width="1200px"
+					alignItems="Center"
+					justifyContent="Start">
+					<items>
+						<CheckBox id="chkSMQ1" text="Información SMQ1" width="250px" />
+						<CheckBox id="chkSMQ2" text="Información SMQ2" width="250px" />
+						<CheckBox id="chkSM50" text="Información SM50" width="250px" />
+					</items>
+				</FlexBox>
+				<FlexBox
+					width="1200px"
+					alignItems="Center"
+					justifyContent="Start">
+					<items>
+						<CheckBox id="chkSM04" text="Información SM04" width="250px" />
+						<CheckBox id="chkSM12" text="Información SM12" width="250px" />
+						<CheckBox id="chkSMLG" text="Información SMLG" width="250px" />
+					</items>
+				</FlexBox>
+			</Panel>
+			<Panel>
+				<headerToolbar>
+					<Toolbar>
+						<Title level="H3" text="Opciones de salida" />
+					</Toolbar>
+				</headerToolbar>
+				<FlexBox
+					width="1200px"
+					alignItems="Center"
+					justifyContent="Start">
+					<items>
+						<Label text="Opciones de salida " width="200px" />
+						<CheckBox id="chkSendEmail" text="Enviar correo"  width="500px" select="onSelectChkEmail" />
+					</items>
+				</FlexBox>
+				<FlexBox
+					width="1200px"
+					alignItems="Center"
+					justifyContent="Start">
+					<items>
+						<Label id="lblEmailReq" text="Emails (Separado por ';') " width="200px" />
+						<TextArea id="txtEmailReq" width="600px" value="" rows="2" />
+					</items>
+				</FlexBox>
+				<FlexBox
+					width="1200px"
+					alignItems="Center"
+					justifyContent="End">
+					<items>
+						<Button id="btnSearchRptReq" width="180px" icon="sap-icon://search" text="Generar reporte" press="onPressGenerateRpt" />
+					</items>
+				</FlexBox>
+			</Panel>
+		</content>
+	</Page>
+</core:View>

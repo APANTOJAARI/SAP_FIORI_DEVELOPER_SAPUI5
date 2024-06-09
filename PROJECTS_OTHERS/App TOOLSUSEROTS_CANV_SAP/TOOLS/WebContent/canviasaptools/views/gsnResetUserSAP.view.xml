@@ -1,0 +1,134 @@
+<core:View controllerName="canviasaptools.controllers.gsnResetUserSAP"
+		   xmlns:core="sap.ui.core" 
+		   xmlns:mvc="sap.ui.core.mvc" 
+		   xmlns="sap.m"
+		   xmlns:f="sap.ui.layout.form"
+		   xmlns:t="sap.ui.table"
+		   xmlns:html="http://www.w3.org/1999/xhtml">
+	<Page title="CANVIA SAP Tools: Reiniciar clave de usuario SAP"
+          showNavButton = "true"
+          navButtonPress="onNavBackAdmUserSAP">
+		<content>
+			<VBox class="sapUiSmallMargin">
+				<f:SimpleForm id="sfUserSAP"
+								editable="true"
+								layout="ResponsiveGridLayout"
+								labelSpanXL="2"
+								labelSpanL="2"
+								labelSpanM="2"
+								labelSpanS="12"
+								adjustLabelSpan="true"
+								emptySpanXL="4"
+								emptySpanL="4"
+								emptySpanM="4"
+								emptySpanS="0"
+								columnsXL="1"
+								columnsL="1"
+								columnsM="1" >
+					<f:content>
+						<Label text="Compañía " />
+						<ComboBox
+							id="cmbCompanyFind"
+							placeholder="Sel.Compañia..."
+							showSecondaryValues= "false"
+							width="200px"
+							change="onChangeCompany"
+							items="{/}">
+							<core:ListItem key="{comp_id}" text="{comp_descr_cmb}" additionalText = "{comp_id}"/>
+						</ComboBox>
+						<Label text="Ambiente SAP " />
+						<ComboBox
+							id="cmbConnectionFind"
+							placeholder="Sel.Ambiente SAP..."
+							showSecondaryValues= "false"
+							width="200px"
+							change="onChangeConnectionSAP"
+							items="{/}">
+							<core:ListItem key="{conn_source}" text="{conn_source}" additionalText = "{conn_source}" />
+						</ComboBox>
+						<Label text="Usuario SAP " />
+						<Input id="txtUsuarioSAPFind" width="200px" placeholder="Usuario" />
+						<Label text="Apellido " />
+						<Input id="txtApellidoSAPFind" width="200px" placeholder="Apellido" />
+						<Label text="Nombre pila " />
+						<Input id="txtNombreSAPFind" width="200px" placeholder="Nombre" />
+					</f:content>
+				</f:SimpleForm>
+			</VBox>
+			<t:Table id="tbUserSAP"
+					class="sapUiSmallMargin"
+				   rows="{/}"
+				   rowActionCount="1" 
+				   selectionMode="Single"
+				   visibleRowCount="7"
+				   alternateRowColors="true"
+				   ariaLabelledBy="title">
+				<t:extension>
+					<OverflowToolbar>
+						<Title id="title" text="Lista de usuarios"/>
+						<ToolbarSpacer/>
+						<Button id="btnSearchFind" icon="sap-icon://search" text="Buscar" press="onPressFindPopUp" />
+						<Button id="btnClearUserSAPFind" icon="sap-icon://sys-find" text="Nueva Búsqueda" press="onPressCancel" />
+					</OverflowToolbar>
+				</t:extension>
+				<t:columns>
+					<t:Column sortProperty="bname" filterProperty="bname">
+						<Label text="Usuario"/>
+						<t:template>
+							<Text text="{bname}" wrapping="true"/>
+						</t:template>
+					</t:Column>
+					<t:Column>
+						<Label text="Apellido"/>
+						<t:template>
+							<Text text="{name_last}" wrapping="true"/>
+						</t:template>
+					</t:Column>
+					<t:Column>
+						<Label text="Nombre"/>
+						<t:template>
+							<Text text="{name_first}" wrapping="true"/>
+						</t:template>
+					</t:Column>
+					<t:Column>
+						<Label text="Teléfono"/>
+						<t:template>
+							<Text text="{tel_number}" wrapping="true"/>
+						</t:template>
+					</t:Column>
+					<t:Column>
+						<Label text="Email"/>
+						<t:template>
+							<Text text="{smtp_addr}" wrapping="true"/>
+						</t:template>
+					</t:Column>
+					<t:Column sortProperty="start_text" filterProperty="start_text">
+						<Label text="Válido del"/>
+						<t:template>
+							<Text text="{start_text}" wrapping="true"/>
+						</t:template>
+					</t:Column>
+					<t:Column sortProperty="end_text" filterProperty="end_text">
+						<Label text="Válido hasta"/>
+						<t:template>
+							<Text text="{end_text}" wrapping="true"/>
+						</t:template>
+					</t:Column>
+					<t:Column>
+						<Label text="Estado"/>
+						<t:template>
+							<Text text="{status_text}" wrapping="true"/>
+						</t:template>
+					</t:Column>
+				</t:columns>
+			    <t:rowActionTemplate>
+			        <t:RowAction>
+			            <t:items>
+							<t:RowActionItem icon="sap-icon://reset" text="Resetear contraseña" press="onPressReset"></t:RowActionItem>
+				    	</t:items>
+					</t:RowAction>
+			    </t:rowActionTemplate>
+			</t:Table>
+		</content>
+	</Page>
+</core:View>

@@ -1,0 +1,1 @@
+sap.ui.define(["efolder/efol/BSP_SAPMUTILS/model/CoreOData"],(function(e){"use strict";return{updateCabecera:function(E,r){return new Promise((function(a,t){var u=e.EFOLDER_ODATA_EXPEDIENTE.createKey("/CabeceraSet",{Tipex:E.Tipex,Gjahr:E.Gjahr,Numex:E.Numex}),T=e.EFOLDER_ODATA_EXPEDIENTE.getETag(u);e.EFOLDER_ODATA_EXPEDIENTE.update(u,r,{success:a,error:t,eTag:T})}))}}}));

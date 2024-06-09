@@ -1,0 +1,9 @@
+{
+    "Status": 
+    {
+        "BtnEditEnable"  : false,
+        "BtnCrearEnable" : false,
+        "BtnAprobarEnable"  : false,
+        "ActiveEditForm": false   
+    }
+}

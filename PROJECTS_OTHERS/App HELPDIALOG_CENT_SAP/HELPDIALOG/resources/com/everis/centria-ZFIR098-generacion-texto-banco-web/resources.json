@@ -1,0 +1,137 @@
+{
+    "resources": [
+        {
+            "name": "../centria/ZFIR098/i18n/i18n_es.properties",
+            "raw": "i18n/i18n.properties",
+            "locale": "_es"
+        },
+        {
+            "name": "../centria/ZFIR098/i18n/i18n_en.properties",
+            "raw": "i18n/i18n.properties",
+            "locale": "_en"
+        },
+        {
+            "name": "../centria/ZFIR098/i18n/i18n.properties",
+            "raw": "i18n/i18n.properties"
+        },
+        {
+            "name": "../centria/ZFIR098/model/variante.json"
+        },
+        {
+            "name": "../centria/ZFIR098/model/sociedadColumnsModel.json"
+        },
+        {
+            "name": "../centria/ZFIR098/model/operaciones.json"
+        },
+        {
+            "name": "../centria/ZFIR098/model/bancoColumnsModel.json"
+        },
+        {
+            "name": "../centria/ZFIR098/manifest.json"
+        },
+        {
+            "name": "../centria/ZFIR098/model/viasPagoColumnsModel.json"
+        },
+        {
+            "name": "../centria/ZFIR098/services/Xsjs.js"
+        },
+        {
+            "name": "../centria/ZFIR098/model/models.js"
+        },
+        {
+            "name": "../centria/ZFIR098/controller/Main.controller.js"
+        },
+        {
+            "name": "../centria/ZFIR098/serviceBinding.js"
+        },
+        {
+            "name": "../centria/ZFIR098/Component.js"
+        },
+        {
+            "name": "../centria/ZFIR098/manifest-bundle.zip"
+        },
+        {
+            "name": "../centria/ZFIR098/Component-preload.js",
+            "merged": true
+        },
+        {
+            "name": "../centria/ZFIR098/serviceBinding-dbg.js",
+            "isDebug": true
+        },
+        {
+            "name": "../centria/ZFIR098/i18n/i18n_es_ES.properties",
+            "raw": "i18n/i18n.properties",
+            "locale": "_es_ES"
+        },
+        {
+            "name": "../centria/ZFIR098/services/Xsjs-dbg.js",
+            "isDebug": true
+        },
+        {
+            "name": "../centria/ZFIR098/model/models-dbg.js",
+            "isDebug": true
+        },
+        {
+            "name": "../centria/ZFIR098/controller/Main-dbg.controller.js",
+            "isDebug": true
+        },
+        {
+            "name": "../centria/ZFIR098/Component-dbg.js",
+            "isDebug": true
+        },
+        {
+            "name": "../../../sap-ui-version.json"
+        },
+        {
+            "name": "neo-app.json"
+        },
+        {
+            "name": "di.code-validation.core_issues.json"
+        },
+        {
+            "name": "../centria/ZFIR098/view/fragments/Variantes.fragment.xml"
+        },
+        {
+            "name": "../centria/ZFIR098/view/fragments/RespuestaExtra.fragment.xml"
+        },
+        {
+            "name": "../centria/ZFIR098/view/fragments/Respuesta.fragment.xml"
+        },
+        {
+            "name": "../centria/ZFIR098/view/fragments/FormularioVariante.fragment.xml"
+        },
+        {
+            "name": "../centria/ZFIR098/view/dialogs/ViasPagoValueHelpDialog.fragment.xml"
+        },
+        {
+            "name": "../centria/ZFIR098/view/dialogs/SociedadValueHelpDialog.fragment.xml"
+        },
+        {
+            "name": "../centria/ZFIR098/view/dialogs/BancoValueHelpDialog.fragment.xml"
+        },
+        {
+            "name": "../centria/ZFIR098/css/fonts/icomoon.woff"
+        },
+        {
+            "name": "../centria/ZFIR098/css/fonts/icomoon.ttf"
+        },
+        {
+            "name": "../centria/ZFIR098/css/fonts/icomoon.svg"
+        },
+        {
+            "name": "../centria/ZFIR098/css/fonts/icomoon.eot"
+        },
+        {
+            "name": "../centria/ZFIR098/view/Main.view.xml"
+        },
+        {
+            "name": "../centria/ZFIR098/localService/metadata.xml"
+        },
+        {
+            "name": "../centria/ZFIR098/css/style.css"
+        },
+        {
+            "name": "../centria/ZFIR098/index.html"
+        }
+    ]
+}

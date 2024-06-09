@@ -1,0 +1,21 @@
+<core:FragmentDefinition xmlns="sap.ui.comp.valuehelpdialog" xmlns:core="sap.ui.core" xmlns:fb="sap.ui.comp.filterbar" xmlns:m="sap.m">
+	<ValueHelpDialog title="{i18n>txtSociedad}" ok=".onSociedadValueHelpOkPress" cancel=".onValueHelpCancelPress" class="sapUiSizeCompact"
+		afterClose=".onValueHelpAfterClose" supportMultiselect="true" key="Bukrs" descriptionKey="Butxt" supportRanges="true">
+		<filterBar>
+			<fb:FilterBar search=".onSociedadesFilterBarSearch">
+				<fb:filterGroupItems>
+					<fb:FilterGroupItem groupName="__$INTERNAL$" name="Bukrs" label="Código de la empresa" visibleInFilterBar="true">
+						<fb:control>
+							<m:Input name="Bukrs"/>
+						</fb:control>
+					</fb:FilterGroupItem>
+					<fb:FilterGroupItem groupName="__$INTERNAL$" name="Butxt" label="Nombre de la empresa" visibleInFilterBar="true">
+						<fb:control>
+							<m:Input name="Butxt"/>
+						</fb:control>
+					</fb:FilterGroupItem>
+				</fb:filterGroupItems>
+			</fb:FilterBar>
+		</filterBar>
+	</ValueHelpDialog>
+</core:FragmentDefinition>

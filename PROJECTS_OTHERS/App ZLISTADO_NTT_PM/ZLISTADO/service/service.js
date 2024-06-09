@@ -1,0 +1,1 @@
+sap.ui.define(["efolder/efol/BSP_SAPMUTILS/model/CoreOData"],(function(e){"use strict";return{getModelCabeceraZ:function(){return new sap.ui.model.odata.v2.ODataModel("/sap/opu/odata/sap/zefol_listados_srv/",{json:!0,useBatch:!0,defaultUpdateMethod:"PUT",refreshAfterChange:!1})}}}));

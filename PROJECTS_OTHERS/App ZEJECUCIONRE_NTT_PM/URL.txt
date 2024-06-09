@@ -1,0 +1,2 @@
+https://naturgy-foundry-sapdelim-ccampp.cpp.cfapps.eu10.hana.ondemand.com/sap/bc/ui5_ui5/efol/bsp_sapmbase/index.html#/efolder.efol.BSP_SAPMTREE/main/efolder.sap.ZDTBASICOS/main/efolder.sap.ZEJECUCION_RE/main/DISPLAY/0000050015/EJE/2022/0000000000/
+https://naturgy-foundry-sapdelim-ccampp.cpp.cfapps.eu10.hana.ondemand.com/sap/bc/ui5_ui5/efol/bsp_sapmbase/index.html#/efolder.efol.BSP_SAPMTREE/main///efolder.efol.BSP_SAPMDETAIL/arbolTramitacion/DISPLAY/5000064296/EJE/2022/0000000000/

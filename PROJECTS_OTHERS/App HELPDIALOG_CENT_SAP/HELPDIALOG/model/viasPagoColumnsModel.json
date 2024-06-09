@@ -1,0 +1,22 @@
+{
+	"cols": [
+		{
+			"label": "Cod.",
+			"template": "key",
+			"width": "5rem"
+		},
+		{
+			"label": "País",
+			"template": "Land1",
+			"width": "5rem"
+		},
+		{
+			"label": "VP",
+			"template": "Zlsch"
+		},
+		{
+			"label": "Significado",
+			"template": "Text1"
+		}
+	]
+}

@@ -1,0 +1,146 @@
+<mvc:View controllerName="com.centria.ReclasificacionViasPagoAcreedores.controller.View1" xmlns:mvc="sap.ui.core.mvc" displayBlock="true"
+	xmlns="sap.m" xmlns:smartFilterBar="sap.ui.comp.smartfilterbar" xmlns:smartTable="sap.ui.comp.smarttable" xmlns:core="sap.ui.core"
+	xmlns:table="sap.ui.table" class="sapUiSizeCompact">
+	<Shell id="shell" appWidthLimited="false">
+		<App id="app">
+			<pages>
+				<Page id="page" title="{i18n>title}" showHeader="false">
+				<!--	<customHeader>
+						<OverflowToolbar>
+							<core:Icon src="sap-icon://customfont/sap" class="size3" color="#019CE0" press="onPressHome" tooltip="Navegar a la página inicial"
+								visible="{oDeviceModel>/system/desktop}">
+								<core:layoutData>
+									<FlexItemData growFactor="1"/>
+								</core:layoutData>
+							</core:Icon>
+							<Title text="{i18n>title}"/>
+							<ToolbarSpacer/>
+						</OverflowToolbar>
+					</customHeader>-->
+					<content>
+						<!--<core:Fragment fragmentName="com.centria.ReclasificacionViasPagoAcreedores.view.fragments.BarraFiltros" type="XML"/>-->
+						<!--<core:Fragment fragmentName="com.centria.ReclasificacionViasPagoAcreedores.view.fragments.TablaResultado" type="XML"/>-->
+						<smartFilterBar:SmartFilterBar id="sfbReporte" persistencyKey="key072" considerSelectionVariants="true"
+							beforeVariantSave="_fnBeforeVariantSave" afterVariantLoad="_fnAfterVariantLoad" entitySet="Im_TR072_Detalle_Set" showClearButton="true"
+							showClearOnFB="true" search="onSearchSmart" clear="onClearSmart">
+							<smartFilterBar:layoutData>
+								<FlexItemData shrinkFactor="0"/>
+							</smartFilterBar:layoutData>
+							<smartFilterBar:controlConfiguration>
+								<smartFilterBar:ControlConfiguration key="Zlsch" index="9" label="{i18n>columnFactViaP}" groupId="_BASIC" visibleInAdvancedArea="true"
+									mandatory="mandatory">
+									<smartFilterBar:customControl>
+										<MultiComboBox id="cboViaPago" items="{ path: 'ViaPagoModel>/vias' }" showSecondaryValues="true">
+											<core:ListItem key="{ViaPagoModel>key}" text="{ViaPagoModel>key}" additionalText="{ViaPagoModel>label}"/>
+										</MultiComboBox>
+									</smartFilterBar:customControl>
+								</smartFilterBar:ControlConfiguration>
+							</smartFilterBar:controlConfiguration>
+						</smartFilterBar:SmartFilterBar>
+						<ScrollContainer height="100%" width="100%" vertical="true" horizontal="true">
+							<smartTable:SmartTable id="smtReporte" entitySet="dataDetalleBancos" tableBindingPath="TablaResultadosModel>/dataDetalleBancos"
+								header="{i18n>titleTableDetBan}" showRowCount="false" tableType="ResponsiveTable" showFullScreenButton="false" useVariantManagement="true"
+								enableAutoBinding="false" useExportToExcel="false" demandPopin="false" useTablePersonalisation="true" persistencyKey="ztr072_bancos"
+								class="sapUiResponsiveMargin" initialise="onInitialise" requestAtLeastFields="Total">
+								<smartTable:customToolbar>
+									<OverflowToolbar design="Transparent">
+										<ToolbarSpacer/>
+										<Button text="{i18n>btnFacturas}" icon="sap-icon://account" press="openFragmentFacturas"/>
+										<Button text="{i18n>btnProveedores}" icon="sap-icon://group" press="openFragmentProveedores"/>
+										<Button text="{i18n>btnProcesar}" icon="sap-icon://workflow-tasks" type="Emphasized" press="processBankDetail"/>
+										<Button text="{i18n>btnExcel}" icon="sap-icon://excel-attachment" press="onExportarExcel"/>
+									</OverflowToolbar>
+								</smartTable:customToolbar>
+								<Table id="tableReporte" mode="MultiSelect" updateFinished="onUpdateFinished">
+									<columns>
+										<Column width="13em">
+											<customData>
+												<core:CustomData key="p13nData" value='\{"columnKey": "Bukrs", "columnIndex":"1", "leadingProperty": "Bukrs"}'/>
+											</customData>
+											<Text text="{i18n>ColumnSociedad}"/>
+										</Column>
+										<Column width="9em">
+											<customData>
+												<core:CustomData key="p13nData" value='\{"columnKey": "Hbkid", "columnIndex":"2", "leadingProperty": "Hbkid"}'/>
+											</customData>
+											<Text text="{i18n>ColumnBanco}"/>
+										</Column>
+										<Column width="9em">
+											<customData>
+												<core:CustomData key="p13nData" value='\{"columnKey": "Waers", "columnIndex":"3", "leadingProperty": "Waers"}'/>
+											</customData>
+											<Text text="{i18n>ColumnMoneda}"/>
+										</Column>
+										<Column width="9em">
+											<customData>
+												<core:CustomData key="p13nData" value='\{"columnKey": "Zlsch", "columnIndex":"4", "leadingProperty": "Zlsch"}'/>
+											</customData>
+											<Text text="{i18n>ColumnViaPago}"/>
+										</Column>
+										<Column width="13em">
+											<customData>
+												<core:CustomData key="p13nData" value='\{"columnKey": "Dmbtr", "columnIndex":"5", "leadingProperty": "Dmbtr","type":"numeric"}'/>
+											</customData>
+											<Text text="{i18n>ColumnMontoPEN}"/>
+											<footer>
+												<Label design="Bold"
+													text="{parts: [{path: 'ModeloTotales>/MontoBancoPEN'}, {path: 'ModeloTotales>/sPEN'}], type: 'sap.ui.model.type.Currency', formatOptions: {maxFractionDigits: 2,showMeasure: false , decimalSeparator:'.' ,groupingSeparator :','}}">
+													<customData>
+														<core:CustomData key="resaltar" value="true" writeToDom="true"/>
+													</customData>
+												</Label>
+											</footer>
+										</Column>
+										<Column width="13em">
+											<customData>
+												<core:CustomData key="p13nData" value='\{"columnKey": "Nrreg", "columnIndex":"6", "leadingProperty": "Nrreg","type":"numeric"}'/>
+											</customData>
+											<Text text="{i18n>ColumnRegistro}"/>
+										</Column>
+										<Column width="13em">
+											<customData>
+												<core:CustomData key="p13nData" value='\{"columnKey": "Wrbtr","columnIndex":"7", "leadingProperty": "Wrbtr","type":"numeric"}'/>
+											</customData>
+											<Text text="{i18n>ColumnMontoUSD}"/>
+											<footer>
+												<Label design="Bold"
+													text="{parts: [{path: 'ModeloTotales>/MontoBancoUSD'}, {path: 'ModeloTotales>/sUSD'}], type: 'sap.ui.model.type.Currency', formatOptions: {maxFractionDigits: 2,showMeasure: false , decimalSeparator:'.' ,groupingSeparator :','}}">
+													<customData>
+														<core:CustomData key="resaltar" value="true" writeToDom="true"/>
+													</customData>
+												</Label>
+											</footer>
+										</Column>
+										<Column width="25em">
+											<customData>
+												<core:CustomData key="p13nData" value='\{"columnKey": "Sgtxt", "columnIndex":"8", "leadingProperty": "Sgtxt"}'/>
+											</customData>
+											<Text text="{i18n>ColumnObservación}"/>
+										</Column>
+									</columns>
+									<items>
+										<ColumnListItem id="templateBancos">
+											<cells>
+												<Label text="{TablaResultadosModel>Bukrs}"/>
+												<Label text="{TablaResultadosModel>Hbkid}"/>
+												<Label text="{TablaResultadosModel>Waers}"/>
+												<Label text="{TablaResultadosModel>Zlsch}"/>
+												<Label
+													text="{parts: [{path: 'TablaResultadosModel>Dmbtr'}, {path: 'TablaResultadosModel>Waers'}], type: 'sap.ui.model.type.Currency', formatOptions: {maxFractionDigits: 2,showMeasure: false , decimalSeparator:'.' ,groupingSeparator :','}}"/>
+												<Label text="{TablaResultadosModel>Nrreg}"/>
+												<Label
+													text="{parts: [{path: 'TablaResultadosModel>Wrbtr'}, {path: 'TablaResultadosModel>Waers'}], type: 'sap.ui.model.type.Currency', formatOptions: {maxFractionDigits: 2,showMeasure: false , decimalSeparator:'.' ,groupingSeparator :','}}"/>
+												<Label text="{TablaResultadosModel>Sgtxt}"/>
+											</cells>
+										</ColumnListItem>
+									</items>
+								</Table>
+							</smartTable:SmartTable>
+						</ScrollContainer>
+						<!--<core:Fragment fragmentName="com.centria.ReclasificacionViasPagoAcreedores.view.fragments.TablaResultado" type="XML"/>-->
+					</content>
+				</Page>
+			</pages>
+		</App>
+	</Shell>
+</mvc:View>

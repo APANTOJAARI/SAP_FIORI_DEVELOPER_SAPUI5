@@ -1,0 +1,144 @@
+<core:FragmentDefinition xmlns:f="sap.ui.layout.form" xmlns:mvc="sap.ui.core.mvc" xmlns:u="sap.ui.unified" xmlns="sap.m"
+	xmlns:core="sap.ui.core" height="100%" xmlns:t="sap.ui.table" xmlns:l="sap.ui.layout"
+	controllerName="com.centria.CartaPreregistro.controller.View1">
+	<Dialog title="{i18n>titleContabilizacionDepPlazo}">
+		<t:Table width="auto" visibleRowCount="6" visibleRowCountMode="Interactive" rows="{TablaContDepPlazo>/TabContPlazo}"
+			rowSelectionChange="onContDepPlazoRowSelection" selectionMode="Single">
+			<!--<t:noData>-->
+			<!--	<MessagePage text="{i18n>DetailMessageTitle}" description="{i18n>DetailMessagePageText}" showHeader="false" icon="sap-icon://sales-quote"/>-->
+			<!--</t:noData>-->
+			<t:columns>
+				<t:Column >
+					<Label text="{i18n>columnNCar}"/>
+					<t:template>
+						<Text text="{TablaContDepPlazo>NroCarta}"/>
+					</t:template>
+				</t:Column>
+				<t:Column >
+					<Label text="{i18n>columnSoc}"/>
+					<t:template>
+						<Text text="{TablaContDepPlazo>Bukrs}"/>
+					</t:template>
+				</t:Column>
+				<t:Column >
+					<Label text="{i18n>columnMon}"/>
+					<t:template>
+						<Text text="{TablaContDepPlazo>Waers}"/>
+					</t:template>
+				</t:Column>
+				<t:Column >
+					<Label text="{i18n>columnImpML}"/>
+					<t:template>
+						<Text text="{TablaContDepPlazo>Dmbtr}"/>
+					</t:template>
+				</t:Column>
+				<t:Column >
+					<Label text="{i18n>columnImpInt}"/>
+					<t:template>
+						<Text text="{TablaContDepPlazo>Inter}"/>
+					</t:template>
+				</t:Column>
+				<t:Column >
+					<Label text="{i18n>columnDocAp}"/>
+					<t:template>
+						<Text text="{TablaContDepPlazo>BelnrApe}"/>
+					</t:template>
+				</t:Column>
+			</t:columns>
+		</t:Table>
+		<f:Form editable="true">
+			<f:layout>
+				<f:ResponsiveGridLayout labelSpanXL="12" labelSpanL="12" labelSpanM="12" labelSpanS="12" adjustLabelSpan="false" emptySpanXL="0"
+					emptySpanL="0" emptySpanM="0" emptySpanS="0" columnsXL="1" columnsL="1" columnsM="1" singleContainerFullSize="true"/>
+			</f:layout>
+			<f:formContainers>
+				<f:FormContainer>
+					<f:formElements>
+						<!--<f:FormElement>-->
+						<!--	<FlexBox>-->
+						<!--		<t:Table width="auto" visibleRowCount="6" visibleRowCountMode="Interactive" rows="{TablaContDepPlazo>/TabContPlazo}"-->
+						<!--			rowSelectionChange="onContDepPlazoRowSelection">-->
+						<!--<t:noData>-->
+						<!--	<MessagePage text="{i18n>DetailMessageTitle}" description="{i18n>DetailMessagePageText}" showHeader="false" icon="sap-icon://sales-quote"/>-->
+						<!--</t:noData>-->
+						<!--			<t:columns>-->
+						<!--				<t:Column >-->
+						<!--					<Label text="{i18n>columnNCar}"/>-->
+						<!--					<t:template>-->
+						<!--						<Text/>-->
+						<!--					</t:template>-->
+						<!--				</t:Column>-->
+						<!--				<t:Column >-->
+						<!--					<Label text="{i18n>columnSoc}"/>-->
+						<!--					<t:template>-->
+						<!--						<Text/>-->
+						<!--					</t:template>-->
+						<!--				</t:Column>-->
+						<!--				<t:Column >-->
+						<!--					<Label text="{i18n>columnMon}"/>-->
+						<!--					<t:template>-->
+						<!--						<Text/>-->
+						<!--					</t:template>-->
+						<!--				</t:Column>-->
+						<!--				<t:Column >-->
+						<!--					<Label text="{i18n>columnImpML}"/>-->
+						<!--					<t:template>-->
+						<!--						<Text/>-->
+						<!--					</t:template>-->
+						<!--				</t:Column>-->
+						<!--				<t:Column >-->
+						<!--					<Label text="{i18n>columnImpInt}"/>-->
+						<!--					<t:template>-->
+						<!--						<Text/>-->
+						<!--					</t:template>-->
+						<!--				</t:Column>-->
+						<!--				<t:Column >-->
+						<!--					<Label text="{i18n>columnDocAp}"/>-->
+						<!--					<t:template>-->
+						<!--						<Text/>-->
+						<!--					</t:template>-->
+						<!--				</t:Column>-->
+						<!--			</t:columns>-->
+						<!--		</t:Table>-->
+						<!--	</FlexBox>-->
+						<!--</f:FormElement>-->
+						<f:FormElement label="{i18n>inputNCar}">
+							<Input enabled="true" editable="false" value="{TablaContDepPlazo>/numCarta}">
+								<layoutData>
+									<l:GridData span="L6 M6 S6"/>
+								</layoutData>
+							</Input>
+						</f:FormElement>
+						<f:FormElement label="{i18n>inputFecVen}">
+							<DatePicker enabled="true" editable="false" value="{TablaContDepPlazo>/fechaVenc}" displayFormat="dd.MM.yyyy">
+								<layoutData>
+									<l:GridData span="L6 M6 S6"/>
+								</layoutData>
+							</DatePicker>
+						</f:FormElement>
+						<f:FormElement label="{i18n>inputFecCont}">
+							<DatePicker  value="{TablaContDepPlazo>/fechaContab}" change="_onChangeDateRangeSelection" required="true" displayFormat="dd.MM.yyyy" valueState="{TablaContDepPlazo>/StatefechaContab}" valueFormat="yyyy-MM-dd">
+								<layoutData>
+									<l:GridData span="L6 M6 S6"/>
+								</layoutData>
+							</DatePicker>
+						</f:FormElement>
+						<f:FormElement label="{i18n>inputTaInt}">
+							<Input  value="{TablaContDepPlazo>/tasaInteres}" required="true" valueState="{TablaContDepPlazo>/StatetasaInteres}">
+								<layoutData>
+									<l:GridData span="L6 M6 S6"/>
+								</layoutData>
+							</Input>
+						</f:FormElement>
+					</f:formElements>
+				</f:FormContainer>
+			</f:formContainers>
+		</f:Form>
+		<beginButton>
+			<Button type="Accept" text="{i18n>btnContabilizar}" press="_onContabilizar"/>
+		</beginButton>
+		<endButton>
+			<Button type="Reject" text="{i18n>btnCancelar}" press="closeDialog"/>
+		</endButton>
+	</Dialog>
+</core:FragmentDefinition>

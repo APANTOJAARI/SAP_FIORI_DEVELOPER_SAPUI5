@@ -1,0 +1,19 @@
+{
+	"vias": [{
+		"label": "Transferencia",
+		"key": "N" 
+
+	}, {
+		"label": "Transferencia interbancaria",
+		"key": "J" 
+
+	}, {
+		"label": " Cheque de gerencia",
+		"key": "V" 
+
+	}, {
+		"label": "Cheque de gerencia - Breca",
+		"key": "W" 
+
+	}]
+}

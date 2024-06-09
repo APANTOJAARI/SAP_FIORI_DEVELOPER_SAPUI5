@@ -1,0 +1,66 @@
+<core:FragmentDefinition xmlns="sap.m" xmlns:l="sap.ui.layout" xmlns:f="sap.ui.layout.form" xmlns:core="sap.ui.core">
+	<Dialog title="Transferencias al Exterior" draggable="true" class="sapUiSizeCompact" contentWidth="50%">
+		<Table id="tbFacturasExt" items="{ path: 'oModelRespuesta>/ImZfir107FacturasExtSet/results' }" mode="MultiSelect">
+			<headerToolbar>
+				<OverflowToolbar>
+					<content>
+						<Title text="Facturas"/>
+						<ToolbarSpacer/>
+					</content>
+				</OverflowToolbar>
+			</headerToolbar>
+			<columns>
+				<Column width="8em">
+					<Text text="Documento"/>
+				</Column>
+				<Column width="12em" minScreenWidth="Tablet" demandPopin="true">
+					<Text text="Referencia"/>
+				</Column>
+				<Column width="5em" minScreenWidth="Tablet" demandPopin="true">
+					<Text text="Moneda"/>
+				</Column>
+				<Column width="8em" hAlign="End" minScreenWidth="Tablet" demandPopin="true">
+					<Text text="Imp. PEN"/>
+					<footer>
+						<ObjectNumber textAlign="End"
+							number="{parts: [{path: 'oModelTotal>/Dmbtr'}, {path: 'oModelRespuesta>Waers'}], type: 'sap.ui.model.type.Currency', formatOptions: {maxFractionDigits: 2,showMeasure: false , decimalSeparator:'.' ,groupingSeparator :','}}">
+							<customData>
+								<core:CustomData key="resaltar" value="true" writeToDom="true"/>
+							</customData>
+						</ObjectNumber>
+					</footer>
+				</Column>
+				<Column width="8em" minScreenWidth="Tablet" demandPopin="true" hAlign="End">
+					<Text text="Imp. Doc"/>
+					<footer>
+						<ObjectNumber textAlign="End"
+							number="{parts: [{path: 'oModelTotal>/Wrbtr'}, {path: 'oModelRespuesta>Waers'}], type: 'sap.ui.model.type.Currency', formatOptions: {maxFractionDigits: 2,showMeasure: false , decimalSeparator:'.' ,groupingSeparator :','}}">
+							<customData>
+								<core:CustomData key="resaltar" value="true" writeToDom="true"/>
+							</customData>
+						</ObjectNumber>
+					</footer>
+				</Column>
+			</columns>
+			<items>
+				<ColumnListItem>
+					<cells>
+						<Text text="{oModelRespuesta>Belnr}"/>
+						<Text text="{oModelRespuesta>Xblnr}"/>
+						<Text text="{oModelRespuesta>Waers}"/>
+						<ObjectNumber textAlign="End"
+							number="{parts: [{path: 'oModelRespuesta>Dmbtr'}, {path: 'oModelRespuesta>Waers'}], type: 'sap.ui.model.type.Currency', formatOptions: {maxFractionDigits: 2,showMeasure: false , decimalSeparator:'.' ,groupingSeparator :','}}"/>
+						<ObjectNumber textAlign="End"
+							number="{parts: [{path: 'oModelRespuesta>Wrbtr'}, {path: 'oModelRespuesta>Waers'}], type: 'sap.ui.model.type.Currency', formatOptions: {maxFractionDigits: 2,showMeasure: false , decimalSeparator:'.' ,groupingSeparator :','}}"/>
+					</cells>
+				</ColumnListItem>
+			</items>
+		</Table>
+		<beginButton>
+			<Button text="Generar asientos" type="Accept" icon="sap-icon://accept" press="onGenerarTransExt"/>
+		</beginButton>
+		<endButton>
+			<Button text="Cancelar" icon="sap-icon://cancel" press="closeDialog"/>
+		</endButton>
+	</Dialog>
+</core:FragmentDefinition>

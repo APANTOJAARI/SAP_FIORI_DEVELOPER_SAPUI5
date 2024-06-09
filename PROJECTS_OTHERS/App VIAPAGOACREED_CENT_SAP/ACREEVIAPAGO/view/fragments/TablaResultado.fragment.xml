@@ -1,0 +1,85 @@
+<core:FragmentDefinition xmlns="sap.ui.table" xmlns:f="sap.ui.layout.form" xmlns:mvc="sap.ui.core.mvc" xmlns:u="sap.ui.unified"
+	xmlns:m="sap.m" xmlns:core="sap.ui.core" height="100%" width="100%"
+	controllerName="com.centria.ReclasificacionViasPagoAcreedores.controller.View1"
+	xmlns:app="http://schemas.sap.com/sapui5/extension/sap.ui.core.CustomData/1"
+	xmlns:template="http://schemas.sap.com/sapui5/extension/sap.ui.core.template/1">
+	<f:Form editable="true" class="sapUiSizeCompact">
+		<f:layout>
+			<f:ResponsiveGridLayout labelSpanXL="12" labelSpanL="12" labelSpanM="12" labelSpanS="12" adjustLabelSpan="false" emptySpanXL="0"
+				emptySpanL="0" emptySpanM="0" emptySpanS="0" columnsXL="1" columnsL="1" columnsM="1" singleContainerFullSize="true"/>
+		</f:layout>
+		<f:formContainers>
+			<f:FormContainer>
+				<f:formElements>
+					<f:FormElement>
+						<Table id="idTablePlanificador" visibleRowCountMode="Interactive" rows="{TablaResultadosModel>/dataDetalleBancos}"
+							enableCellFilter="{ui>/cellFilterOn}" ariaLabelledBy="title" rowSelectionChange="_onSelectItemTaPlanif">
+							<noData>
+								<m:MessagePage text="{i18n>DetailMessageTitle}" description="{i18n>DetailMessagePageText}" showHeader="false" icon="sap-icon://sales-quote"/>
+							</noData>
+							<extension>
+								<m:OverflowToolbar class="sapUiTinyMarginBottom">
+									<m:Title text="{i18n>titleTableDetBan}"/>
+									<m:ToolbarSpacer/>
+									<m:Button text="{i18n>btnFacturas}" icon="sap-icon://account" press="openFragmentFacturas"/>
+									<m:Button text="{i18n>btnProveedores}" icon="sap-icon://group" press="openFragmentProveedores"/>
+									<m:Button text="{i18n>btnProcesar}" icon="sap-icon://workflow-tasks" type="Emphasized" press="processBankDetail"/>
+								</m:OverflowToolbar>
+							</extension>
+							<columns>
+								<Column sortProperty="Bukrs" width="13em" hAlign="Begin" visible="true">
+									<m:Label wrapping="true" text="{i18n>ColumnSociedad}"/>
+									<template>
+										<m:Text text="{TablaResultadosModel>Bukrs}"/>
+									</template>
+								</Column>
+								<Column sortProperty="Hbkid" width="13em" hAlign="Begin" visible="true">
+									<m:Label wrapping="true" text="{i18n>ColumnBanco}"/>
+									<template>
+										<m:Text text="{TablaResultadosModel>Hbkid}"/>
+									</template>
+								</Column>
+								<Column sortProperty="Waers" width="13em" hAlign="Begin" visible="true">
+									<m:Label wrapping="true" text="{i18n>ColumnMoneda}"/>
+									<template>
+										<m:Text text="{TablaResultadosModel>Waers}"/>
+									</template>
+								</Column>
+								<Column sortProperty="Zlsch" width="13em" hAlign="Begin" visible="true">
+									<m:Label wrapping="true" text="{i18n>ColumnViaPago}"/>
+									<template>
+										<m:Text text="{TablaResultadosModel>Zlsch}"/>
+									</template>
+								</Column>
+								<Column sortProperty="Dmbtr" width="13em" hAlign="Begin" visible="true">
+									<m:Label wrapping="true" text="{i18n>ColumnMontoPEN}"/>
+									<template>
+										<m:Text text="{TablaResultadosModel>Dmbtr}"/>
+									</template>
+								</Column>
+								<Column sortProperty="Nrreg" width="13em" hAlign="Begin" visible="true">
+									<m:Label wrapping="true" text="{i18n>ColumnRegistro}"/>
+									<template>
+										<m:Text text="{TablaResultadosModel>Nrreg}"/>
+									</template>
+								</Column>
+								<Column sortProperty="Wrbtr" width="13em" hAlign="Begin" visible="true">
+									<m:Label wrapping="true" text="{i18n>ColumnMontoUSD}"/>
+									<template>
+										<m:Text text="{TablaResultadosModel>Wrbtr}"/>
+									</template>
+								</Column>
+								<Column sortProperty="Sgtxt" width="25em" hAlign="Begin" visible="true">
+									<m:Label wrapping="true" text="{i18n>ColumnObservación}"/>
+									<template>
+										<m:Text text="{TablaResultadosModel>Sgtxt}"/>
+									</template>
+								</Column>
+							</columns>
+						</Table>
+					</f:FormElement>
+				</f:formElements>
+			</f:FormContainer>
+		</f:formContainers>
+	</f:Form>
+</core:FragmentDefinition>

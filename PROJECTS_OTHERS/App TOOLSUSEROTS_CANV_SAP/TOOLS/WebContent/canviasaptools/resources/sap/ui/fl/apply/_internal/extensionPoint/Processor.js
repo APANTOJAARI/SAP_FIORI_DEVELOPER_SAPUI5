@@ -1,0 +1,6 @@
+/*!
+* OpenUI5
+ * (c) Copyright 2009-2020 SAP SE or an SAP affiliate company.
+ * Licensed under the Apache License, Version 2.0 - see LICENSE.txt.
+*/
+sap.ui.define(["sap/base/Log","sap/ui/fl/ChangePersistenceFactory","sap/ui/fl/apply/_internal/changes/Applier","sap/ui/fl/Utils","sap/ui/fl/registry/ExtensionPointRegistry","sap/ui/core/util/reflection/JsControlTreeModifier","sap/base/util/merge"],function(L,C,A,U,E,J,m){'use strict';var P={applyExtensionPoint:function(e){var a=U.getAppComponentForControl(e.targetControl);var c=C.getChangePersistenceForControl(e.targetControl);var p={};p.appComponent=U.getAppComponentForControl(e.targetControl);p.modifier=J;p.viewId=e.view.getId();p.name=e.name;var o=E.getInstance();var b=m({defaultContent:[]},e);o.registerExtensionPoints(b);return c.getChangesForExtensionPoint(p).then(function(d){if(d.length===0){e.createDefault().then(function(f){f.forEach(function(n,i){b.defaultContent.push(n.getId());J.insertAggregation(e.targetControl,e.aggregationName,n,e.index+i,e.view);});e.ready(f);});}else{d.forEach(function(f){if(f.isInInitialState()){f.setExtensionPointInfo(e);var s=f.getSelector();s.id=e.targetControl.getId();s.idIsLocal=false;f.setSelector(s);if(c.isChangeMapCreated()){c._addChangeAndUpdateDependencies(a,f);}}});}});}};return P;});

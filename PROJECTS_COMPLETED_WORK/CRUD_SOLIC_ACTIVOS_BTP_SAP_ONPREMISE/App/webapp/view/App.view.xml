@@ -1,0 +1,14 @@
+<mvc:View controllerName="centria.net.fisbactivos.controller.App"
+    xmlns:mvc="sap.ui.core.mvc" displayBlock="true"
+    xmlns="sap.m">
+
+    <!-- 
+    <Page id="page" title="{i18n>title}">
+        <content />
+    </Page>
+-->
+    <Shell id="shell">
+        <App id="app">
+        </App>
+    </Shell>
+</mvc:View>

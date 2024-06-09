@@ -1,0 +1,215 @@
+{
+  "_version": "1.37.0",
+  "sap.app": {
+    "id": "centria.net.fisbactivos",
+    "type": "application",
+    "i18n": "i18n/i18n.properties",
+    "applicationVersion": {
+      "version": "0.0.1"
+    },
+    "title": "{{appTitle}}",
+    "description": "{{appDescription}}",
+    "resources": "resources.json",
+    "sourceTemplate": {
+      "id": "@sap/generator-fiori:basic",
+      "version": "1.11.0",
+      "toolsId": "6c16b4a1-c333-4706-b892-f53f643b44f2"
+    },
+    "dataSources": {
+      "AddDetailProduct": 
+      {
+				"uri": "model/json/TemplateSingleItem.json",
+				"type": "JSON"
+			},
+      "SolicBaja": 
+      {
+				"uri": "model/json/TemplateSolBaja.json",
+				"type": "JSON"
+			},
+      "Status":
+      {
+				"uri": "model/json/TemplateStatus.json",
+				"type": "JSON"
+			},
+      "LogSolBaj":
+      {
+				"uri": "model/json/TemplateLog.json",
+				"type": "JSON"
+			},
+      "AuthSolBaj":
+      {
+				"uri": "model/json/TemplateAuth.json",
+				"type": "JSON"
+			},
+      "StatSolBaj":
+      {
+				"uri": "model/json/TemplateStatusAprob.json",
+				"type": "JSON"
+			},
+      
+      "mainService": {
+        "uri": "/sap/opu/odata/sap/ZFI_GW_SOLBAJ_ACTIVOS_SRV/",
+        "type": "OData",
+        "settings": {
+          "annotations": [],
+          "localUri": "localService/metadata.xml",
+          "odataVersion": "2.0"
+        }
+      }
+    }
+  },
+  "sap.ui": {
+    "technology": "UI5",
+    "icons": {
+      "icon": "",
+      "favIcon": "",
+      "phone": "",
+      "phone@2": "",
+      "tablet": "",
+      "tablet@2": ""
+    },
+    "deviceTypes": {
+      "desktop": true,
+      "tablet": true,
+      "phone": true
+    }
+  },
+  "sap.ui5": {
+    "flexEnabled": false,
+    "dependencies": {
+      "minUI5Version": "1.96.6",
+      "libs": {
+        "sap.m": {},
+        "sap.ui.core": {},
+        "sap.f": {},
+        "sap.suite.ui.generic.template": {},
+        "sap.ui.comp": {},
+        "sap.ui.generic.app": {},
+        "sap.ui.table": {},
+        "sap.ushell": {}
+      }
+    },
+    "contentDensities": {
+      "compact": true,
+      "cozy": true
+    },
+    "models": {
+      "i18n": {
+        "type": "sap.ui.model.resource.ResourceModel",
+        "settings": {
+          "bundleName": "centria.net.fisbactivos.i18n.i18n"
+        }
+      },
+
+      "DetProdAdd": 
+      {
+				"type": "sap.ui.model.json.JSONModel",
+				"dataSource": "AddDetailProduct"
+			},
+
+      "SolicitudBaja": 
+      {
+				"type": "sap.ui.model.json.JSONModel",
+				"dataSource": "SolicBaja"
+			},
+      "StatusForm": 
+      {
+				"type": "sap.ui.model.json.JSONModel",
+				"dataSource": "Status"
+			},
+      "LogSolBaj":
+      {
+        "type": "sap.ui.model.json.JSONModel",
+				"dataSource": "LogSolBaj"
+      },
+      "AuthSolBaj":
+      {
+        "type": "sap.ui.model.json.JSONModel",
+				"dataSource": "AuthSolBaj"
+      },
+      "StatSolBaj":
+      {
+        "type": "sap.ui.model.json.JSONModel",
+				"dataSource": "StatSolBaj"
+      },
+      "": {
+        "type": "sap.ui.model.odata.v2.ODataModel",
+        "settings": {
+          "defaultOperationMode": "Server",
+					"defaultBindingMode": "OneWay",
+					"defaultCountMode": "Request"
+        },
+        "dataSource": "mainService",
+        "preload": true
+        
+      }
+    },
+    "resources": {
+      "css": [
+        {
+          "uri": "css/style.css"
+        }
+      ]
+    },
+    "routing": {
+      "config": {
+        "routerClass": "sap.m.routing.Router",
+        "viewType": "XML",
+        "async": true,
+        "viewPath": "centria.net.fisbactivos.view",
+        "controlAggregation": "pages",
+        "controlId": "app",
+        "clearControlAggregation": false
+      },
+      "routes": [
+        {
+          "name": "RouteApp",
+          "pattern": ":?query:",
+          "target": [
+            "TargetApp"
+          ]
+        }	,
+        {
+					"name": "RouteSBajDetails",
+					"pattern": "SBajDetails/{inventPath}",
+					"target": [
+						"TargetSBajDetails"
+					]
+				},
+				{
+					"name": "RouteSBajCreate",
+					"pattern": "SBajCreate",
+					"target": [
+						"TargetSBajCreate"
+					]
+				}
+      ],
+      "targets": {
+        "TargetApp": {
+          "viewType": "XML",
+          "transition": "slide",
+          "clearControlAggregation": false,
+          "viewId": "Main", 
+          "viewName": "Main"
+        },
+				"TargetSBajDetails": 
+        {
+					"viewType": "XML",
+          "viewId": "SBDetails", 
+					"viewName": "SBDetails"
+				},
+				"TargetSBajCreate": {
+					"viewType": "XML",
+          "viewId": "SBCreate",
+					"viewName": "SBCreate"
+				}
+      }
+    },
+    "rootView": {
+      "viewName": "centria.net.fisbactivos.view.App",
+      "type": "XML",
+      "async": true,
+      "id": "App"
+    }
+  }
+}

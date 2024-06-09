@@ -1,0 +1,1 @@
+sap.ui.define(["sap/ui/base/ManagedObject"],function(t){"use strict";return{getFormattedDate:function(t,e){return t.toLocaleDateString()}}});

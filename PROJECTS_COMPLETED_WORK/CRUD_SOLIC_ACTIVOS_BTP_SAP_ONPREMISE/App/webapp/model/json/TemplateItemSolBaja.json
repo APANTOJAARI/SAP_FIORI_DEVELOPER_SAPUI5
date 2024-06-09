@@ -1,0 +1,23 @@
+{
+    "Detail":[
+    {
+        "Bukrs":"",
+        "IdSolic":"",
+        "ItemBaja":"",
+        "NumIvent":"",
+        "DesInvent":"",
+        "SerInvent":"",
+        "CodActfijo":"",
+        "MarcaAct":"",
+        "ModeloAct":"",
+        "CecoAct":"",
+        "CecoActdesc":"",
+        "IdMotbaja":"",
+        "Motivbaja":"",
+        "ValorNeto":null,
+        "Anln2Anla":"",
+        "IdTipBaja":"",
+        "TipoBaja":"",
+        "oportsTbaja":""
+    }]
+}

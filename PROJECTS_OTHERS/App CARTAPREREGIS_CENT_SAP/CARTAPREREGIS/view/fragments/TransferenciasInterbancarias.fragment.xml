@@ -1,0 +1,106 @@
+<core:FragmentDefinition xmlns:f="sap.ui.layout.form" xmlns:mvc="sap.ui.core.mvc" xmlns:u="sap.ui.unified" xmlns="sap.m"
+	xmlns:core="sap.ui.core" height="100%" xmlns:l="sap.ui.layout" controllerName="com.centria.CartaPreregistro.controller.View1">
+	<f:Form editable="true">
+		<f:toolbar>
+			<Toolbar>
+				<Title text="{i18n>titleTransInter}"/>
+				<ToolbarSpacer/>
+				<Button type="Emphasized" iconFirst="false" text="{i18n>tooltipPDF}" icon="sap-icon://pdf-attachment" tooltip="{i18n>tooltipPDF}"
+					press="onOpenPDFDialog"/>
+			</Toolbar>
+		</f:toolbar>
+		<f:layout>
+			<f:ResponsiveGridLayout labelSpanXL="12" labelSpanL="12" labelSpanM="12" labelSpanS="12" adjustLabelSpan="true" emptySpanXL="0"
+				emptySpanL="0" emptySpanM="0" emptySpanS="0" columnsXL="1" columnsL="1" columnsM="1" singleContainerFullSize="false"/>
+		</f:layout>
+		<f:formContainers>
+			<f:FormContainer>
+				<f:formElements>
+					<f:FormElement label="{i18n>inputSociedad}">
+						<Input id="idInputSociedad2" suggestionItems="{ path: 'ServiceH2HModel>/SociedadSet',length: 10000 }"
+							valueHelpRequest="openMatchCodeSociedad" showValueHelp="true" class="UpperCase" showSuggestion="true"
+							selectedKey="{oModelDataGlobal>/InpSociedad}" value="{oModelDataGlobal>/InpSociedad}" submit="onAutoCompletar">
+							<layoutData>
+								<l:GridData span="L4 M4 S12"/>
+							</layoutData>
+							<core:ListItem key="{ServiceH2HModel>Companycode}" text="{ServiceH2HModel>Companycode}" additionalText="{ServiceH2HModel>Companycodename}"/>
+						</Input>
+					</f:FormElement>
+			<!--		<f:FormElement visible="false" label="{i18n>inputAtte}">
+						<Input value="{oModelDataGlobal>/InpAtte}">
+							<layoutData>
+								<l:GridData span="L9 M9 S12"/>
+							</layoutData>
+						</Input>
+					</f:FormElement>-->
+					<f:FormElement label="{i18n>inputImport}">
+						<Input value="{oModelDataGlobal>/InpImporte}" submit="onAutoCompletar">
+							<layoutData>
+								<l:GridData span="L4 M4 S12"/>
+							</layoutData>
+						</Input>
+					</f:FormElement>
+					<f:FormElement label="{i18n>inputFecReg}">
+						<DatePicker dateValue="{oModelDataGlobal>/InpFecRegistro}">
+							<layoutData>
+								<l:GridData span="L4 M4 S12"/>
+							</layoutData>
+						</DatePicker>
+					</f:FormElement>
+					<f:FormElement label="{i18n>inputFecCont}">
+						<DatePicker dateValue="{oModelDataGlobal>/InpFecConta}">
+							<layoutData>
+								<l:GridData span="L4 M4 S12"/>
+							</layoutData>
+						</DatePicker>
+					</f:FormElement>
+					<f:FormElement label="{i18n>inputClaBanO}">
+						<Input showValueHelp="true" value="{oModelDataGlobal>/inputClaBanOrigen}" valueHelpRequest="openMatchCodeClaveBanco" submit="onAutoCompletar">
+							<layoutData value="{oModelDataGlobal>/inputClaBanOrigen}">
+								<l:GridData span="L4 M4 S12"/>
+							</layoutData>
+						</Input>
+					</f:FormElement>
+					<f:FormElement label="{i18n>inputCuentaC}">
+						<Input value="{oModelDataGlobal>/InpCuentaCargo}">
+							<layoutData>
+								<l:GridData span="L4 M4 S12"/>
+							</layoutData>
+						</Input>
+					</f:FormElement>
+					<f:FormElement label="{i18n>inputSocBen}">
+						<Input suggestionItems="{ path: 'ServiceH2HModel>/SociedadSet',length: 10000 }" valueHelpRequest="openMatchCodeSociedadBen"
+							showValueHelp="true" class="UpperCase" showSuggestion="true" selectedKey="{oModelDataGlobal>/inputSocBen}" submit="onAutoCompletar"
+							value="{oModelDataGlobal>/inputSocBen}">
+							<layoutData>
+								<l:GridData span="L4 M4 S12"/>
+							</layoutData>
+							<core:ListItem key="{ServiceH2HModel>Companycode}" text="{ServiceH2HModel>Companycode}" additionalText="{ServiceH2HModel>Companycodename}"/>
+						</Input>
+					</f:FormElement>
+					<f:FormElement label="{i18n>inputClaBanD}">
+						<Input showValueHelp="true" value="{oModelDataGlobal>/inputClaBanDestino}" valueHelpRequest="openMatchCodeClaveBancoDest" submit="onAutoCompletar">
+							<layoutData>
+								<l:GridData span="L4 M4 S12"/>
+							</layoutData>
+						</Input>
+					</f:FormElement>
+					<f:FormElement label="{i18n>inputCuentaInt}">
+						<Input showValueHelp="false" value="{oModelDataGlobal>/inputCuentaInterbancaria}" submit="onAutoCompletar">
+							<layoutData>
+								<l:GridData span="L6 M6 S12"/>
+							</layoutData>
+						</Input>
+					</f:FormElement>
+					<f:FormElement label="{i18n>inputComision}">
+						<Input value="{oModelDataGlobal>/inputComision}" submit="onAutoCompletar">
+							<layoutData>
+								<l:GridData span="L4 M4 S12"/>
+							</layoutData>
+						</Input>
+					</f:FormElement>
+				</f:formElements>
+			</f:FormContainer>
+		</f:formContainers>
+	</f:Form>
+</core:FragmentDefinition>

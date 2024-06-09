@@ -1,0 +1,221 @@
+{
+    "resources": [
+        {
+            "name": "i18n/i18n_es.properties",
+            "raw": "i18n/i18n.properties",
+            "locale": "_es"
+        },
+        {
+            "name": "i18n/i18n_en.properties",
+            "raw": "i18n/i18n.properties",
+            "locale": "_en"
+        },
+        {
+            "name": "i18n/i18n.properties",
+            "raw": "i18n/i18n.properties"
+        },
+        {
+            "name": "model/ModelFragments.json"
+        },
+        {
+            "name": "model/ConfigModel.json"
+        },
+        {
+            "name": "model/ColsSociedad.json"
+        },
+        {
+            "name": "model/ColsAcreedores.json"
+        },
+        {
+            "name": "manifest.json"
+        },
+        {
+            "name": "services/oData.js"
+        },
+        {
+            "name": "services/Xsjs.js"
+        },
+        {
+            "name": "model/models.js"
+        },
+        {
+            "name": "controller/utilities.js"
+        },
+        {
+            "name": "controller/View1.controller.js"
+        },
+        {
+            "name": "controller/ErrorHandler.js"
+        },
+        {
+            "name": "serviceBinding.js"
+        },
+        {
+            "name": "Component.js"
+        },
+        {
+            "name": "manifest-bundle.zip"
+        },
+        {
+            "name": "Component-preload.js",
+            "merged": true
+        },
+        {
+            "name": "i18n/i18n_es_ES.properties",
+            "raw": "i18n/i18n.properties",
+            "locale": "_es_ES"
+        },
+        {
+            "name": "services/oData-dbg.js",
+            "isDebug": true
+        },
+        {
+            "name": "services/Xsjs-dbg.js",
+            "isDebug": true
+        },
+        {
+            "name": "model/models-dbg.js",
+            "isDebug": true
+        },
+        {
+            "name": "controller/utilities-dbg.js",
+            "isDebug": true
+        },
+        {
+            "name": "controller/View1-dbg.controller.js",
+            "isDebug": true
+        },
+        {
+            "name": "controller/ErrorHandler-dbg.js",
+            "isDebug": true
+        },
+        {
+            "name": "serviceBinding-dbg.js",
+            "isDebug": true
+        },
+        {
+            "name": "Component-dbg.js",
+            "isDebug": true
+        },
+        {
+            "name": "../../../sap-ui-version.json"
+        },
+        {
+            "name": "neo-app.json"
+        },
+        {
+            "name": "di.code-validation.core_issues.json"
+        },
+        {
+            "name": "view/fragments/VisulaizarCartaVista.fragment.xml"
+        },
+        {
+            "name": "view/fragments/VisorPDF.fragment.xml"
+        },
+        {
+            "name": "view/fragments/TransferenciasInterbancarias.fragment.xml"
+        },
+        {
+            "name": "view/fragments/TransEntreCuentasYOtrasSociedades.fragment.xml"
+        },
+        {
+            "name": "view/fragments/TransAlExterior.fragment.xml"
+        },
+        {
+            "name": "view/fragments/TablaCont.fragment.xml"
+        },
+        {
+            "name": "view/fragments/SociedadFilterBen.fragment.xml"
+        },
+        {
+            "name": "view/fragments/SociedadFilter.fragment.xml"
+        },
+        {
+            "name": "view/fragments/OperacionesDeCambio.fragment.xml"
+        },
+        {
+            "name": "view/fragments/OperacionesCambioConTransferenciaBCR.fragment.xml"
+        },
+        {
+            "name": "view/fragments/ManProvExt.fragment.xml"
+        },
+        {
+            "name": "view/fragments/ImprimirCartaVista.fragment.xml"
+        },
+        {
+            "name": "view/fragments/GenerarAsientoVista.fragment.xml"
+        },
+        {
+            "name": "view/fragments/EmisionCheques.fragment.xml"
+        },
+        {
+            "name": "view/fragments/DepositosAPlazo.fragment.xml"
+        },
+        {
+            "name": "view/fragments/Depositos.fragment.xml"
+        },
+        {
+            "name": "view/fragments/ContabilizacionDepositoPlazo.fragment.xml"
+        },
+        {
+            "name": "view/fragments/ClaveBancoDestino.fragment.xml"
+        },
+        {
+            "name": "view/fragments/ClaveBanco.fragment.xml"
+        },
+        {
+            "name": "view/fragments/CCI.fragment.xml"
+        },
+        {
+            "name": "view/fragments/AnulacionDocumentos.fragment.xml"
+        },
+        {
+            "name": "view/fragments/Acreedor.fragment.xml"
+        },
+        {
+            "name": "view/dialogs/RegularizarCarta.fragment.xml"
+        },
+        {
+            "name": "view/dialogs/ProveedorFormulario.fragment.xml"
+        },
+        {
+            "name": "view/dialogs/Facturas.fragment.xml"
+        },
+        {
+            "name": "view/dialogs/DescargaPDF.fragment.xml"
+        },
+        {
+            "name": "view/dialogs/DepositoFormulario.fragment.xml"
+        },
+        {
+            "name": "view/dialogs/CCIFormulario.fragment.xml"
+        },
+        {
+            "name": "css/fonts/icomoon.woff"
+        },
+        {
+            "name": "css/fonts/icomoon.ttf"
+        },
+        {
+            "name": "css/fonts/icomoon.svg"
+        },
+        {
+            "name": "css/fonts/icomoon.eot"
+        },
+        {
+            "name": "view/View1.view.xml"
+        },
+        {
+            "name": "localService/metadata.xml"
+        },
+        {
+            "name": "css/style.css"
+        },
+        {
+            "name": "annotation/annotation.xml"
+        },
+        {
+            "name": "index.html"
+        }
+    ]
+}

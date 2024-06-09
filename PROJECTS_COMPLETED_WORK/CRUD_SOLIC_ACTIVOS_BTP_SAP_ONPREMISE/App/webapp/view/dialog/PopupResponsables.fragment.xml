@@ -1,0 +1,41 @@
+<core:FragmentDefinition xmlns="sap.m"
+    xmlns:core="sap.ui.core">
+    <TableSelectDialog id="DialogRespons" noDataText="{i18n>noData}" title="{i18n>titleActiv}" search=".onHandleSearchResp" confirm=".onHandleSelectResp" cancel=".onHandleClosePopup" items="{ path : '/Responsables_SHSet' }" contentHeight="100%" contentWidth="80%">
+        <ColumnListItem>
+            <cells>
+                <Text text="{Partner}" />
+                <Text text="{Bpext}"/>
+                <Text text="{BuSort1}"/>
+                <Text text="{Name1Text}"/>
+                <Text text="{Natio}"/>
+            </cells>
+        </ColumnListItem>
+        <columns>
+            <Column minScreenWidth="Tablet" demandPopin="true" width="120px">
+                <header>
+                    <Text text="{/#Responsables_SH/Partner/@sap:label}"/>
+                </header>
+            </Column>
+            <Column minScreenWidth="Tablet" demandPopin="true" width="100px">
+                <header>
+                    <Text text="{/#Responsables_SH/Bpext/@sap:label}"/>
+                </header>
+            </Column>
+            <Column minScreenWidth="Tablet" demandPopin="true">
+                <header>
+                    <Text text="{/#Responsables_SH/Name1Text/@sap:label}"/>
+                </header>
+            </Column>
+            <Column minScreenWidth="Tablet" demandPopin="true">
+                <header>
+                    <Text text="{/#Responsables_SH/BuSort1/@sap:label}"/>
+                </header>
+            </Column>
+            <Column minScreenWidth="Tablet" demandPopin="true">
+                <header>
+                    <Text text="{/#Responsables_SH/Natio/@sap:label}"/>
+                </header>
+            </Column>
+        </columns>
+    </TableSelectDialog>
+</core:FragmentDefinition>

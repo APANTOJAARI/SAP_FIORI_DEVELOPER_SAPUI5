@@ -1,0 +1,29 @@
+<core:FragmentDefinition xmlns:core="sap.ui.core"
+    xmlns="sap.m"
+    xmlns:semantic="sap.f.semantic"
+    xmlns:l="sap.ui.layout"
+    xmlns:f="sap.ui.layout.form">
+    <VBox class="sapUiSmallMargin">
+        <f:Form id="FormHd01" editable="true">
+            <f:layout>
+                <f:ColumnLayout columnsM="2" columnsL="3" columnsXL="4"/>
+            </f:layout>
+            <f:formContainers>
+                <f:FormContainer>
+                    <f:formElements >
+                        <!-- Fecha de Solicitud -->
+                        <f:FormElement label="{i18n>FechaSol}">
+                        <!-- <DatePicker id="TxtFechaSol" required="true" valueFormat="dd/MM/YYYY" editable="false" value="{ path: 'solicBajaMain>/SolicBaja/FecSolic', type: 'sap.ui.model.type.Date',formatOptions: { style: 'long',strictParsing: true , UTC: true }}"  /> -->
+                        <DatePicker id="TxtFechaSol" required="true" valueFormat="dd/MM/YYYY" editable="false" value="{ path: 'solicBajaMain>/SolicBaja/FecSolic', type: 'sap.ui.model.type.Date',formatOptions: { style: 'full'}}" />
+                        </f:FormElement>
+                        <!--Responsable de Baja-->
+                        <f:FormElement label="{i18n>RespBaja}">
+                            <Input id="TxtRespBaja" editable="false" showValueHelp="false" valueHelpRequest=".onValueHelpRespBaj" maxLength="12" required="true" value="{solicBajaMain>/SolicBaja/RespBaja2}" 
+                                   description="{solicBajaMain>/SolicBaja/NameRespBaja}" />
+                        </f:FormElement>
+                    </f:formElements>
+                </f:FormContainer>
+            </f:formContainers>
+        </f:Form>
+    </VBox>
+</core:FragmentDefinition>

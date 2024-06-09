@@ -1,0 +1,15 @@
+{
+	"cols": [
+		{
+			"label": "Código",
+			"template": "MatchModel>cod",
+			"width": "10rem"
+		},
+		{
+			"label": "Sociedad",
+			"template": "MatchModel>name",
+			"width": "15rem"
+
+		}
+	]
+}

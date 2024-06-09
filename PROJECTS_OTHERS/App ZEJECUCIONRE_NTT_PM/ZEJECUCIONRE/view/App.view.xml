@@ -1,0 +1,9 @@
+<mvc:View
+    xmlns:mvc="sap.ui.core.mvc"
+    xmlns="sap.m"
+    xmlns:core="sap.ui.core"
+    controllerName="efolder.sap.ZEJECUCION_RE.controller.App"
+    displayBlock="true"
+    busyIndicatorDelay="0"
+    busy="{= ${EFOLDER_BUSY>/ZEJECUCION_RE} !== 0}"
+    class="ZEJECUCION_RE"><App id="ZEJECUCION_APP" /></mvc:View>

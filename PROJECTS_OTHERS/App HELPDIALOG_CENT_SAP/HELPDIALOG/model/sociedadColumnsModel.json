@@ -1,0 +1,21 @@
+{
+	"cols": [
+		{
+			"label": "Cod.",
+			"template": "Bukrs",
+			"width": "5rem"
+		},
+		{
+			"label": "Nombre de la empresa",
+			"template": "Butxt"
+		},
+		{
+			"label": "Población",
+			"template": "Ort01"
+		},
+		{
+			"label": "Moneda",
+			"template": "Waers"
+		}
+	]
+}

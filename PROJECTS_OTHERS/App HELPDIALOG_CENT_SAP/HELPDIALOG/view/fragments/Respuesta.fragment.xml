@@ -1,0 +1,44 @@
+<core:FragmentDefinition xmlns:core="sap.ui.core" xmlns="sap.ui.table" xmlns:mvc="sap.ui.core.mvc" xmlns:u="sap.ui.unified" xmlns:m="sap.m">
+	<m:Dialog title="{i18n>txtRespuesta}" afterClose="onAfterCloseFragment" class="sapUiSizeCompact">
+		<Table id="tRespuesta" selectionMode="None" rows="{oModelRespuesta>/Respuesta}" visibleRowCount="15">
+			<extension>
+				<m:OverflowToolbar>
+					<m:ToolbarSpacer/>
+					<m:Button text="{i18n>txtLimpiarFiltros}" icon="sap-icon://clear-filter" press="clearAllFilters"/>
+					<m:Button text="{i18n>txtDescargarTxt}" icon="sap-icon://download" press="onDownload"/>
+				</m:OverflowToolbar>
+			</extension>
+			<columns>
+				<Column width="15%" sortProperty="Laufi" filterProperty="Laufi">
+					<m:Label text="Identificador"/>
+					<template>
+						<m:Text text="{oModelRespuesta>Laufi}" wrapping="false"/>
+					</template>
+				</Column>
+				<Column width="15%" sortProperty="Laufd">
+					<m:Label text="Día de ejecución"/>
+					<template>
+						<m:Text text="{path: 'oModelRespuesta>Laufd', type: 'sap.ui.model.type.Date', formatOptions: { UTC: true, pattern: 'dd/MM/yyyy' }}"
+							wrapping="false"/>
+					</template>
+				</Column>
+				<Column width="auto" sortProperty="Text1" filterProperty="Text1">
+					<m:Label text="Detalle"/>
+					<template>
+						<m:Text text="{oModelRespuesta>Text1}" wrapping="false"/>
+					</template>
+				</Column>
+			</columns>
+			<footer>
+				<m:OverflowToolbar>
+					<m:ToolbarSpacer/>
+					<m:Label text="Total Importe ML"/>
+					<m:ObjectNumber number="{oModelRespuesta>/sumaImporte}"/>
+				</m:OverflowToolbar>
+			</footer>
+		</Table>
+		<m:endButton>
+			<m:Button text="Cerrar" icon="sap-icon://cancel" press="onCloseFragment"/>
+		</m:endButton>
+	</m:Dialog>
+</core:FragmentDefinition>

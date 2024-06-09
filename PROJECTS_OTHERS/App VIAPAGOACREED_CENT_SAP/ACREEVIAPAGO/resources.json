@@ -1,0 +1,139 @@
+{
+    "resources": [
+        {
+            "name": "model/ViaPago.json"
+        },
+        {
+            "name": "i18n/i18n_es_ES.properties",
+            "raw": "i18n/i18n.properties",
+            "locale": "_es_ES"
+        },
+        {
+            "name": "i18n/i18n_en.properties",
+            "raw": "i18n/i18n.properties",
+            "locale": "_en"
+        },
+        {
+            "name": "i18n/i18n.properties",
+            "raw": "i18n/i18n.properties"
+        },
+        {
+            "name": "i18n/i18n_es.properties",
+            "raw": "i18n/i18n.properties",
+            "locale": "_es"
+        },
+        {
+            "name": "model/ColsSociedad.json"
+        },
+        {
+            "name": "model/ColsAcreedores.json"
+        },
+        {
+            "name": "manifest.json"
+        },
+        {
+            "name": "model/variante.json"
+        },
+        {
+            "name": "services/Xsjs.js"
+        },
+        {
+            "name": "model/models.js"
+        },
+        {
+            "name": "model/Formatter.js"
+        },
+        {
+            "name": "controller/View1.controller.js"
+        },
+        {
+            "name": "controller/ErrorHandler.js"
+        },
+        {
+            "name": "serviceBinding.js"
+        },
+        {
+            "name": "Component.js"
+        },
+        {
+            "name": "manifest-bundle.zip"
+        },
+        {
+            "name": "Component-preload.js",
+            "merged": true
+        },
+        {
+            "name": "services/Xsjs-dbg.js",
+            "isDebug": true
+        },
+        {
+            "name": "model/models-dbg.js",
+            "isDebug": true
+        },
+        {
+            "name": "model/Formatter-dbg.js",
+            "isDebug": true
+        },
+        {
+            "name": "controller/View1-dbg.controller.js",
+            "isDebug": true
+        },
+        {
+            "name": "controller/ErrorHandler-dbg.js",
+            "isDebug": true
+        },
+        {
+            "name": "serviceBinding-dbg.js",
+            "isDebug": true
+        },
+        {
+            "name": "Component-dbg.js",
+            "isDebug": true
+        },
+        {
+            "name": "../../../sap-ui-version.json"
+        },
+        {
+            "name": "neo-app.json"
+        },
+        {
+            "name": "di.code-validation.core_issues.json"
+        },
+        {
+            "name": "view/fragments/TablaResultado.fragment.xml"
+        },
+        {
+            "name": "view/fragments/Proveedores.fragment.xml"
+        },
+        {
+            "name": "view/fragments/Facturas.fragment.xml"
+        },
+        {
+            "name": "css/fonts/icomoon.woff"
+        },
+        {
+            "name": "css/fonts/icomoon.ttf"
+        },
+        {
+            "name": "css/fonts/icomoon.svg"
+        },
+        {
+            "name": "css/fonts/icomoon.eot"
+        },
+        {
+            "name": "view/View1.view.xml"
+        },
+        {
+            "name": "localService/metadata.xml"
+        },
+        {
+            "name": "css/style.css"
+        },
+        {
+            "name": "annotation/annotation.xml"
+        },
+        {
+            "name": "index.html"
+        }
+    ]
+}

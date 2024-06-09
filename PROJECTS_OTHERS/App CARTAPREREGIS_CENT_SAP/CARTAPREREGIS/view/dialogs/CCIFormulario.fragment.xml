@@ -1,0 +1,45 @@
+<core:FragmentDefinition xmlns:mvc="sap.ui.core.mvc" xmlns="sap.m" xmlns:core="sap.ui.core" height="100%" xmlns:l="sap.ui.layout"
+    xmlns:app="http://schemas.sap.com/sapui5/extension/sap.ui.core.CustomData/1"
+	xmlns:f="sap.ui.layout.form" controllerName="com.centria.CartaPreregistro.controller.View1">
+	<Dialog id="dialogCCI" title="CCI" class="sapUiSizeCompact" draggable="true" contentWidth="30%">
+		<f:Form id="fmCCI" editable="false">
+			<f:layout>
+				<f:ResponsiveGridLayout labelSpanXL="3" labelSpanL="3" labelSpanM="3" labelSpanS="12" adjustLabelSpan="false" emptySpanXL="4" emptySpanL="4"
+					emptySpanM="0" emptySpanS="0" columnsXL="2" columnsL="2" columnsM="2" singleContainerFullSize="false"/>
+			</f:layout>
+			<f:formContainers>
+				<f:FormContainer>
+					<f:formElements>
+						<f:FormElement>
+							<f:label>
+								<Label text="{Bukrs/#@sap:label}" required="true"></Label>
+							</f:label>
+							<f:fields>
+								<Input value="{Bukrs}" maxLength="4" liveChange="onLiveChangeInput" editable="{oModelEditForm>/editable}"></Input>
+							</f:fields>
+						</f:FormElement>
+						<f:FormElement >
+							<f:label>
+								<Label text="{Hbkid/#@sap:label}" required="true"></Label>
+							</f:label>
+							<f:fields>
+								<Input value="{Hbkid}" maxLength="5" liveChange="onLiveChangeInput" editable="{oModelEditForm>/editable}"></Input>
+							</f:fields>
+						</f:FormElement>
+						<f:FormElement label="{Bankni/#@sap:label}">
+							<f:fields>
+								<Input value="{Bankni}" maxLength="30" liveChange="onLiveChangeInput"></Input>
+							</f:fields>
+						</f:FormElement>
+					</f:formElements>
+				</f:FormContainer>
+			</f:formContainers>
+		</f:Form>
+		<beginButton>
+			<Button text="Grabar" type="Accept" icon="sap-icon://save" press="onSaveEntidad" app:tabla="stCCI"/>
+		</beginButton>
+		<endButton>
+			<Button text="Cancelar" icon="sap-icon://cancel" press="closeFormMant" app:form="fmCCI"/>
+		</endButton>
+	</Dialog>
+</core:FragmentDefinition>

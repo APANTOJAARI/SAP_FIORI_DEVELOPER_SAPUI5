@@ -1,0 +1,137 @@
+<mvc:View xmlns:control="sap.gantt.control" controllerName="centria.net.fisbactivos.controller.Main"
+    xmlns="sap.m"
+    xmlns:core="sap.ui.core"
+    xmlns:mvc="sap.ui.core.mvc" displayBlock="true"
+    xmlns:smartFilterBar="sap.ui.comp.smartfilterbar"
+    xmlns:smartTable="sap.ui.comp.smarttable"
+    xmlns:html="http://www.w3.org/1999/xhtml"
+    xmlns:app="http://schemas.sap.com/sapui5/extension/sap.ui.core.CustomData/1">
+
+    <Page id="PageMain">
+        <content>
+            <VBox fitContainer="true" id="VboxMain">
+                <smartFilterBar:SmartFilterBar id="smartFilterBar" entitySet="HeaderSolBajaSet" persistencyKey="SmartFilter_Explored" basicSearchFieldName="IdSolic" enableBasicSearch="false" useDateRangeType="true" >
+
+                    <smartFilterBar:controlConfiguration>
+                        <smartFilterBar:ControlConfiguration id="SmfbCC_00" key="Bukrs" visibleInAdvancedArea="true" preventInitialDataFetchInValueHelpDialog="true" index="1"/>
+                        <smartFilterBar:ControlConfiguration id="SmfbCC_01" key="IdSolic" visibleInAdvancedArea="true" preventInitialDataFetchInValueHelpDialog="true" index="2"/>
+                        <smartFilterBar:ControlConfiguration id="SmfbCC_02" key="FecSolic" visibleInAdvancedArea="true" index="2"/>
+                        <smartFilterBar:ControlConfiguration id="SmfbCC_03" key="RespBaja" visibleInAdvancedArea="true" preventInitialDataFetchInValueHelpDialog="true" index="3"/>
+                        <smartFilterBar:ControlConfiguration id="SmfbCC_04" key="UsuSolic" visibleInAdvancedArea="true" preventInitialDataFetchInValueHelpDialog="true" index="4"/>
+                        <smartFilterBar:ControlConfiguration id="SmfbCC_05" key="IdEstatus" visibleInAdvancedArea="true" preventInitialDataFetchInValueHelpDialog="true" index="5"/>
+                    </smartFilterBar:controlConfiguration>
+
+                    <smartFilterBar:layoutData>
+                        <FlexItemData id="FlId01" shrinkFactor="0"/>
+                    </smartFilterBar:layoutData>
+                </smartFilterBar:SmartFilterBar>
+<!--============================================================================================================-->                
+<!-- Smart Table-->
+                <smartTable:SmartTable id="LineItemsSmartTable" entitySet="HeaderSolBajaSet" smartFilterId="smartFilterBar" tableType="ResponsiveTable" useExportToExcel="true" beforeExport="onBeforeExport" useVariantManagement="true" useTablePersonalisation="true" showRowCount="true" persistencyKey="SmartTableAnalytical_Explored" enableAutoBinding="true" class="sapUiResponsiveContentPadding" enableAutoColumnWidth="true" demandPopin="true" beforeRebindTable=".onBeforeRebindTableExtension">
+
+                    <smartTable:layoutData>
+                        <FlexItemData growFactor="1" baseSize="0%"/>
+                    </smartTable:layoutData>
+
+<!-- Configurar los botones -->
+                    <smartTable:customToolbar>
+                        <OverflowToolbar design="Transparent">
+                            <ToolbarSpacer/>
+                            <OverflowToolbarButton icon="sap-icon://synchronize" tooltip="{i18n>BtnRefresh}" text="{i18n>BtnRefresh}" press="onRefresh"/>
+                            <Button icon="sap-icon://create-form" text="{i18n>BtnCreatSB}"
+						            type="Emphasized" press=".onCreateSolBaja" enabled="{=${authSolBaj>/AuthorizationSet/FlgUsolCreate} === true }" />    
+                        </OverflowToolbar>
+                    </smartTable:customToolbar>
+                    <Table>
+                        <columns>
+                            <!-- Sociedad -->
+							<Column id="Bukrs" vAlign="Middle" hAlign="Center" width="100px">
+								<customData>
+									<core:CustomData key="p13nData" value='\{"columnKey": "Bukrs", "columnIndex": 0, "leadingProperty": "Bukrs"}'/>
+								</customData>
+								<Text text="{/#HeaderSolBaja/Bukrs/@sap:label}"/>
+							</Column>
+                            <!-- ID de la Solicitud -->
+							<Column id="IdSolic" vAlign="Middle" hAlign="Center">
+								<customData>
+									<core:CustomData key="p13nData" value='\{"columnKey": "IdSolic", "columnIndex": 1, "leadingProperty": "IdSolic", "sortProperty": "IdSolic"}'/>
+								</customData>
+								<Text text="{/#HeaderSolBaja/IdSolic/@sap:label}"/>
+							</Column>
+                             <!-- Responsable de Baja -->
+							<Column id="RespBaja2" vAlign="Middle" hAlign="Center">
+								<customData>
+									<core:CustomData key="p13nData" value='\{"columnKey": "RespBaja2", "columnIndex": 3, "leadingProperty": "RespBaja2", "sortProperty": "RespBaja2"}'/>
+								</customData>
+								<Text text="{/#HeaderSolBaja/RespBaja2/@sap:label}"/>
+							</Column>
+                            <!-- Fecha de Solicitud -->
+							<Column id="FecSolic" vAlign="Middle" hAlign="Center">
+								<customData>
+									<core:CustomData key="p13nData" value='\{"columnKey": "FecSolic", "columnIndex": 4, "leadingProperty": "FecSolic", "sortProperty": "FecSolic"}'/>
+								</customData>
+								<Text text="{/#HeaderSolBaja/FecSolic/@sap:label}"/>
+							</Column>
+                            <!-- Hora de Creación -->
+                            <Column id="HorCre" vAlign="Middle" hAlign="Center">
+								<customData>
+									<core:CustomData key="p13nData" value='\{"columnKey": "HorCre", "columnIndex": 5, "leadingProperty": "HorCre", "sortProperty": "HorCre"}'/>
+								</customData>
+                                <Text text="{/#HeaderSolBaja/HorCre/@sap:label}"/>
+							</Column>
+                            <!-- Usuario Solic -->
+							<Column id="UsuSolic" vAlign="Middle" hAlign="Center">
+								<customData>
+									<core:CustomData key="p13nData" value='\{"columnKey": "UsuSolic", "columnIndex": 6, "leadingProperty": "UsuSolic", "sortProperty": "UsuSolic"}'/>
+								</customData>
+								<Text text="{/#HeaderSolBaja/UsrCre/@sap:label}"/>
+							</Column>
+                            <!-- Usuario Solic -->
+							<Column id="StaSolic" vAlign="Middle" hAlign="Center">
+								<customData>
+									<core:CustomData key="p13nData" value='\{"columnKey": "StaSolic", "columnIndex": 7, "leadingProperty": "StaSolic", "sortProperty": "StaSolic"}'/>
+								</customData>
+								<Text text="{/#HeaderSolBaja/StaSolic/@sap:label}"/>
+							</Column>
+                        </columns>
+
+                        <ColumnListItem type="Navigation" press=".onItemPress">
+                            <cells>
+								<Text text="{Bukrs}"></Text> <!-- ID de la Solicitud -->
+							</cells>
+                            <cells>
+								<Text text="{IdSolic}"></Text> <!-- Id.Solicitud -->
+							</cells>
+                            <cells>
+								<Text text="{RespBaja2}"></Text> <!-- Responsable de Baja -->
+							</cells>
+                            <cells>
+                                <!-- Fecha Solicitud -->
+                             <Text text="{ path: 'FecSolic', type: 'sap.ui.model.type.Date',formatOptions: { pattern: 'dd/MM/yyyy', strictParsing: true , UTC: true }}"></Text>
+							</cells>
+                            <cells>
+                                <Text text="{ path: 'HorCre', type: 'sap.ui.model.odata.type.Time', formatOptions: {  pattern : 'HH:mm:ss'} }"></Text>
+                            </cells>
+                            <cells>
+								<Text text="{UsuSolic}"></Text> <!-- Usuario solicitante -->
+							</cells>
+                            <!--Estado de la Solicitud-->
+                            <cells>
+								<ObjectStatus xmlns="sap.m" state="{=${StaSolic} === 'Created' || ${StaSolic} === 'Creado'  ? 'None' : 
+																	  ${StaSolic} === 'Approved' || ${StaSolic} === 'Aprobado' ? 'Success' :
+																	  ${StaSolic} === 'Approved Partially' || ${StaSolic} === 'Aprobado Parcial' ? 'Warning' :
+                                                                      ${StaSolic} === 'Rejected' || ${StaSolic} === 'Rechazado' ? 'Error' : undefined}"
+
+									text="{StaSolic}" inverted="true" icon="{=${StaSolic} === 'Created' || ${StaSolic} === 'Creado'  ? 'sap-icon://create' : 
+																	  ${StaSolic} === 'Approved' || ${StaSolic} === 'Aprobado' ? 'sap-icon://flag' :
+																	  ${StaSolic} === 'Approved Partially' || ${StaSolic} === 'Aprobado Parcial' ? 'sap-icon://activity-items' :
+                                                                      ${StaSolic} === 'Rejected' || ${StaSolic} === 'Rechazado' ? 'sap-icon://decline' : undefined}"/>
+							</cells>
+                        </ColumnListItem>
+                    </Table>
+
+                </smartTable:SmartTable>
+            </VBox>
+        </content>
+    </Page>
+</mvc:View>

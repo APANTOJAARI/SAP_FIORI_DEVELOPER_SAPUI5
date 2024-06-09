@@ -1,0 +1,21 @@
+<mvc:View controllerName="h2h.centria.h2hmonitorpagosrpa.controller.PaymentProposalDetail" xmlns="sap.m" xmlns:s="sap.f.semantic"
+	xmlns:mvc="sap.ui.core.mvc" xmlns:st="sap.ui.comp.smarttable" displayBlock="true">
+	<s:SemanticPage id="detailPage" busy="{detailView>/busy}" busyIndicatorDelay="{detailView>/delay}" class="sapUiSizeCompact">
+		<s:titleHeading>
+			<Title id="proposalCodeId" text="Detalle de Propuesta de Pago: {SelectedPaymentProposalInfo>/proposalCode}" level="H2"/>
+		</s:titleHeading>
+		<s:content>
+			<st:SmartTable id="stDetallePropPagosRPA" entitySet="DetalleProPagoRPASet" tableType="AnalyticalTable" useExportToExcel="true"
+				useVariantManagement="true" class="sapUiResponsiveContentPadding" useTablePersonalisation="true" header="Asientos de Pago"
+				showRowCount="true" enableAutoBinding="true" beforeRebindTable="onBeforeRebindPymntPropDetailsTable"
+				initiallyVisibleFields="Bukrs,Laufi,Laufd,Belnr,Gjahr,Hbkid,Zlsch,Wrbtr,Waers">
+				<st:layoutData>
+					<FlexItemData growFactor="1" baseSize="0%"/>
+				</st:layoutData>
+			</st:SmartTable>
+		</s:content>
+		<s:closeAction>
+			<s:CloseAction id="closeColumn" press="onPaymentPropDetailClose"/>
+		</s:closeAction>
+	</s:SemanticPage>
+</mvc:View>

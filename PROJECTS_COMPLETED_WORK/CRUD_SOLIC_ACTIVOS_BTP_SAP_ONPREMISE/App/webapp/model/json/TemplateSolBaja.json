@@ -1,0 +1,26 @@
+{
+    "SolicBaja": {
+        "Bukrs": "",
+        "IdSolic": "",
+        "FecSolic": "",
+        "RespBaja": "",
+        "RespBaja2":"",
+        "UsuSolic": "",
+        "IdEstatus": "",
+        "StaSolic": "",
+        "FecCre": null,
+        "HorCre": null,
+        "UsrCre": "",
+        "FlgNiv1Aprob": null,
+        "FlgNiv2Aprob": null,
+        "FlgNiv3Aprob": null,
+        "FlgActiveAnexo": null,
+        "FlgAnexoUpd": null,
+        "FlgActionApr": "",
+        "FlgApro": "",
+        "FlgRech": "",
+        "DetailSolBajaSet": [],
+        "AdjuntoSolBajaSet": [],
+        "MessageSolBajaSet": []
+    }
+}

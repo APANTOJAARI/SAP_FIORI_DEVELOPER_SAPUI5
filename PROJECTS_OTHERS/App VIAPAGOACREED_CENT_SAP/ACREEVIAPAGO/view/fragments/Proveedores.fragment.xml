@@ -1,0 +1,82 @@
+<core:FragmentDefinition xmlns:f="sap.ui.layout.form" xmlns:mvc="sap.ui.core.mvc" xmlns:u="sap.ui.unified" xmlns="sap.m"
+	xmlns:core="sap.ui.core" height="100%" xmlns:t="sap.ui.table" xmlns:l="sap.ui.layout"
+	controllerName="com.centria.ReclasificacionViasPagoAcreedores.controller.View1" xmlns:smartTable="sap.ui.comp.smarttable">
+	<Dialog contentHeight="35em" title="{i18n>btnProveedores}" contentWidth="70%" draggable="false" class="sapUiSizeCompact">
+		<smartTable:SmartTable id="smtProveedor" entitySet="dataDetalleProveedores" tableBindingPath="TablaResultadosModel>/dataDetalleProveedores"
+			header="{i18n>titleProveedores}" showRowCount="false" tableType="ResponsiveTable" showFullScreenButton="false" useVariantManagement="true"
+			enableAutoBinding="false" useExportToExcel="false" demandPopin="false" useTablePersonalisation="true" persistencyKey="ztr072_proveedor"
+			class="sapUiResponsiveMargin" initialise="onInitialiseProveedor">
+			<smartTable:customToolbar>
+				<OverflowToolbar design="Transparent">
+					<ToolbarSpacer/>
+					<Button text="{i18n>btnExcel}" icon="sap-icon://excel-attachment" press="onExportarExcel"/>
+				</OverflowToolbar>
+			</smartTable:customToolbar>
+			<Table sticky="ColumnHeaders" updateFinished="onUpdateFinishProveedor" busy="true">
+				<columns>
+					<Column width="12em">
+						<customData>
+							<core:CustomData key="p13nData"
+								value='\{"columnKey": "Bukrs", "columnIndex":"1", "leadingProperty": "Bukrs","sortProperty": "Bukrs","filterProperty":"Bukrs"}'/>
+						</customData>
+						<Label text="{i18n>columnSoc}"/>
+					</Column>
+					<Column width="12em">
+						<customData>
+							<core:CustomData key="p13nData"
+								value='\{"columnKey": "Lifnr", "columnIndex":"2", "leadingProperty": "Lifnr","sortProperty": "Lifnr","filterProperty":"Lifnr"}'/>
+						</customData>
+						<Label text="{i18n>columnAccre}"/>
+					</Column>
+					<Column width="12em">
+						<customData>
+							<core:CustomData key="p13nData"
+								value='\{"columnKey": "Zname", "columnIndex":"3", "leadingProperty": "Zname","sortProperty": "Zname","filterProperty":"Zname"}'/>
+						</customData>
+						<Label text="{i18n>columnNombProv}"/>
+					</Column>
+					<Column width="12em">
+						<customData>
+							<core:CustomData key="p13nData" value='\{"columnKey": "Dmbtr", "columnIndex":"4", "leadingProperty": "Dmbtr","sortProperty": "Dmbtr"}'/>
+						</customData>
+						<Label text="{i18n>columnMonPEN}"/>
+						<footer>
+							<Label design="Bold"
+								text="{parts: [{path: 'ModeloTotales>/MontoProveedorPEN'}, {path: 'ModeloTotales>/sPEN'}], type: 'sap.ui.model.type.Currency', formatOptions: {maxFractionDigits: 2,showMeasure: false , decimalSeparator:'.' ,groupingSeparator :','}}">
+								<customData>
+									<core:CustomData key="resaltar" value="true" writeToDom="true"/>
+								</customData>
+							</Label>
+						</footer>
+					</Column>
+					<Column width="12em">
+						<customData>
+							<core:CustomData key="p13nData" value='\{"columnKey": "Wrbtr", "columnIndex":"5", "leadingProperty": "Wrbtr","sortProperty": "Wrbtr"}'/>
+						</customData>
+						<Label text="{i18n>columnMonUSD}"/>
+						<footer>
+							<Label design="Bold"
+								text="{parts: [{path: 'ModeloTotales>/MontoProveedorUSD'}, {path: 'ModeloTotales>/sUSD'}], type: 'sap.ui.model.type.Currency', formatOptions: {maxFractionDigits: 2,showMeasure: false , decimalSeparator:'.' ,groupingSeparator :','}}">
+								<customData>
+									<core:CustomData key="resaltar" value="true" writeToDom="true"/>
+								</customData>
+							</Label>
+						</footer>
+					</Column>
+				</columns>
+				<items>
+					<ColumnListItem id="templateProveedor">
+						<Text text="{TablaResultadosModel>Bukrs}"/>
+						<Text text="{TablaResultadosModel>Lifnr}"/>
+						<Text text="{TablaResultadosModel>Zname}"/>
+						<Text text="{TablaResultadosModel>Dmbtr}"/>
+						<Text text="{TablaResultadosModel>Wrbtr}"/>
+					</ColumnListItem>
+				</items>
+			</Table>
+		</smartTable:SmartTable>
+		<endButton>
+			<Button type="Emphasized" icon="sap-icon://undo" text="{i18n>btnVolver}" press="closeDialog"/>
+		</endButton>
+	</Dialog>
+</core:FragmentDefinition>

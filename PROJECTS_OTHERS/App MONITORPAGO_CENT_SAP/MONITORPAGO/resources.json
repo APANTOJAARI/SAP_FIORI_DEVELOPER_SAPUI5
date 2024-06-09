@@ -1,0 +1,156 @@
+{
+    "resources": [
+        {
+            "name": "Component.js"
+        },
+        {
+            "name": "i18n/i18n_es.properties",
+            "raw": "i18n/i18n.properties",
+            "locale": "_es"
+        },
+        {
+            "name": "controller/Main.controller.js"
+        },
+        {
+            "name": "localService/mockdata/ListaProPagoRPASet.json"
+        },
+        {
+            "name": "localService/mockdata/ListaPagosRPASet.json"
+        },
+        {
+            "name": "localService/mockdata/ClaveBancoSet.json"
+        },
+        {
+            "name": "model/appModel.json"
+        },
+        {
+            "name": "manifest.json"
+        },
+        {
+            "name": "service/Xsjs.js"
+        },
+        {
+            "name": "service/MonitorRPA.service.js"
+        },
+        {
+            "name": "model/models.js"
+        },
+        {
+            "name": "model/formatter.js"
+        },
+        {
+            "name": "localService/mockserver.js"
+        },
+        {
+            "name": "controller/PaymentProposalDetail.controller.js"
+        },
+        {
+            "name": "controller/Master.controller.js"
+        },
+        {
+            "name": "localService/mockdata/SociedadSet.json"
+        },
+        {
+            "name": "controller/BaseController.js"
+        },
+        {
+            "name": "i18n/i18n.properties",
+            "raw": "i18n/i18n.properties"
+        },
+        {
+            "name": "manifest-bundle.zip"
+        },
+        {
+            "name": "Component-preload.js",
+            "merged": true
+        },
+        {
+            "name": "controller/Master-dbg.controller.js",
+            "isDebug": true
+        },
+        {
+            "name": "service/Xsjs-dbg.js",
+            "isDebug": true
+        },
+        {
+            "name": "service/MonitorRPA.service-dbg.js",
+            "isDebug": true
+        },
+        {
+            "name": "model/models-dbg.js",
+            "isDebug": true
+        },
+        {
+            "name": "model/formatter-dbg.js",
+            "isDebug": true
+        },
+        {
+            "name": "localService/mockserver-dbg.js",
+            "isDebug": true
+        },
+        {
+            "name": "controller/PaymentProposalDetail-dbg.controller.js",
+            "isDebug": true
+        },
+        {
+            "name": "controller/Main-dbg.controller.js",
+            "isDebug": true
+        },
+        {
+            "name": "controller/BaseController-dbg.js",
+            "isDebug": true
+        },
+        {
+            "name": "Component-dbg.js",
+            "isDebug": true
+        },
+        {
+            "name": "../../../sap-ui-version.json"
+        },
+        {
+            "name": "neo-app.json"
+        },
+        {
+            "name": "di.code-validation.core_issues.json"
+        },
+        {
+            "name": "view/fragment/PropuestasDePagoRPA.fragment.xml"
+        },
+        {
+            "name": "view/fragment/PagosRPA.fragment.xml"
+        },
+        {
+            "name": "css/fonts/icomoon.woff"
+        },
+        {
+            "name": "css/fonts/icomoon.ttf"
+        },
+        {
+            "name": "css/fonts/icomoon.svg"
+        },
+        {
+            "name": "css/fonts/icomoon.eot"
+        },
+        {
+            "name": "view/PaymentProposalDetail.view.xml"
+        },
+        {
+            "name": "view/Master.view.xml"
+        },
+        {
+            "name": "view/Main.view.xml"
+        },
+        {
+            "name": "localService/metadata.xml"
+        },
+        {
+            "name": "css/style.css"
+        },
+        {
+            "name": "annotations/annotation.xml"
+        },
+        {
+            "name": "index.html"
+        }
+    ]
+}

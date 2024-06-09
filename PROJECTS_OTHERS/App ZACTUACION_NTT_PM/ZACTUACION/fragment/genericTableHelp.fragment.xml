@@ -1,0 +1,1 @@
+<core:FragmentDefinition xmlns="sap.m" xmlns:core="sap.ui.core" ><Dialog title="{i18n>seleccioneUno}"><Panel></Panel><Table mode="SingleSelectMaster" noDataText="{i18n>sinDatos}" class="sapUiSizeCompact" ></Table><buttons><Button text="{i18n>aceptar}" press="selectedRow"></Button><Button text="{i18n>cancelar}" press="hide" ></Button></buttons></Dialog></core:FragmentDefinition>

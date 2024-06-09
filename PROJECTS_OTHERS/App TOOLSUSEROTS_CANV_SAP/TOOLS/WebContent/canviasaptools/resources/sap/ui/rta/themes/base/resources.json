@@ -1,0 +1,106 @@
+{
+	"_version": "1.1.0",
+	"resources": [
+		{
+			"name": ".theming",
+			"size": 64,
+			"theme": "base"
+		},
+		{
+			"name": "FieldRepository.less",
+			"size": 2209,
+			"designtime": true,
+			"theme": "base"
+		},
+		{
+			"name": "MessageBox.less",
+			"size": 254,
+			"designtime": true,
+			"theme": "base"
+		},
+		{
+			"name": "Overlay.less",
+			"size": 6204,
+			"designtime": true,
+			"theme": "base"
+		},
+		{
+			"name": "Toolbar.adaptation.less",
+			"size": 2238,
+			"designtime": true,
+			"theme": "base"
+		},
+		{
+			"name": "Toolbar.base.less",
+			"size": 5843,
+			"designtime": true,
+			"theme": "base"
+		},
+		{
+			"name": "Toolbar.fiori.less",
+			"size": 741,
+			"designtime": true,
+			"theme": "base"
+		},
+		{
+			"name": "Toolbar.personalization.less",
+			"size": 1139,
+			"designtime": true,
+			"theme": "base"
+		},
+		{
+			"name": "Toolbar.standalone.less",
+			"size": 711,
+			"designtime": true,
+			"theme": "base"
+		},
+		{
+			"name": "css-variables.css",
+			"size": 3276,
+			"theme": "base"
+		},
+		{
+			"name": "css-variables.source.less",
+			"size": 78214,
+			"designtime": true,
+			"theme": "base"
+		},
+		{
+			"name": "library-RTL.css",
+			"size": 16872,
+			"theme": "base"
+		},
+		{
+			"name": "library-parameters.json",
+			"size": 1249,
+			"theme": "base"
+		},
+		{
+			"name": "library-skeleton-RTL.css",
+			"size": 17112,
+			"theme": "base"
+		},
+		{
+			"name": "library-skeleton.css",
+			"size": 17113,
+			"theme": "base"
+		},
+		{
+			"name": "library.css",
+			"size": 16873,
+			"theme": "base"
+		},
+		{
+			"name": "library.less",
+			"size": 20357,
+			"designtime": true,
+			"theme": "base"
+		},
+		{
+			"name": "library.source.less",
+			"size": 526,
+			"designtime": true,
+			"theme": "base"
+		}
+	]
+}

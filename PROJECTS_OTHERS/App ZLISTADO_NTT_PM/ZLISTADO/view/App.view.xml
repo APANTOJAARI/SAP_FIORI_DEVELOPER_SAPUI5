@@ -1,0 +1,8 @@
+<mvc:View xmlns:mvc="sap.ui.core.mvc"
+          xmlns="sap.m"
+          xmlns:core="sap.ui.core"
+          controllerName="efolder.sap.ZBSP_LISTADOEXP.controller.App"
+          displayBlock="true"
+          busyIndicatorDelay="0"
+          busy="{= ${EFOLDER_BUSY>/ZBSP_LISTADOEXP} !== 0}"
+          class="ZBSP_LISTADOEXP"><App id="ZBSP_LISTADOEXP_APP" /></mvc:View>

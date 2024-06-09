@@ -1,0 +1,44 @@
+/* Enter your custom styles here */
+tr[data-resaltar="true"] {
+    background-color: #FEFDA8;
+}
+
+span[data-resaltar="true"] {
+    background-color: #FEFDA8;
+}
+
+.size3 {
+	font-size : 3.5rem;
+	cursor: pointer;
+}
+
+@font-face {
+  font-family: 'icomoon';
+  src:  url('fonts/icomoon.eot?mj307p');
+  src:  url('fonts/icomoon.eot?mj307p#iefix') format('embedded-opentype'),
+    url('fonts/icomoon.ttf?mj307p') format('truetype'),
+    url('fonts/icomoon.woff?mj307p') format('woff'),
+    url('fonts/icomoon.svg?mj307p#icomoon') format('svg');
+  font-weight: normal;
+  font-style: normal;
+  font-display: block;
+}
+
+[class^="icon-"], [class*=" icon-"] {
+  /* use !important to prevent issues with browser extensions that change fonts */
+  font-family: 'icomoon' !important;
+  speak: never;
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1;
+
+  /* Better Font Rendering =========== */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.icon-sap:before {
+  content: "\e900";
+}

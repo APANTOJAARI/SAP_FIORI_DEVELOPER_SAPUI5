@@ -1,0 +1,147 @@
+<core:View controllerName="canviasaptools.controllers.rptDashChart"
+		   xmlns:lab="it.designfuture.chartjs"
+		   xmlns:core="sap.ui.core" 
+		   xmlns:mvc="sap.ui.core.mvc" 
+		   xmlns="sap.m"
+		   xmlns:f="sap.ui.layout.form"
+		   xmlns:t="sap.ui.table"
+		   xmlns:html="http://www.w3.org/1999/xhtml">
+	<Page title="CANVIA SAP Tools: Totales"
+          showNavButton = "true"
+          navButtonPress="onNavBackRptDash">
+		<content>
+			<VBox class="sapUiSmallMargin">
+				<f:SimpleForm id="sfUser"
+								editable="true"
+								layout="ResponsiveGridLayout"
+								labelSpanXL="2"
+								labelSpanL="2"
+								labelSpanM="2"
+								labelSpanS="6"
+								adjustLabelSpan="true"
+								emptySpanXL="4"
+								emptySpanL="4"
+								emptySpanM="4"
+								emptySpanS="4"
+								columnsXL="1"
+								columnsL="1"
+								columnsM="1"  >
+					<f:content>
+						<Label text="Compañia " />
+						<ComboBox
+							id="cmbCompany"
+							width="250px"
+							placeholder="Sel.Compañia..."
+							showSecondaryValues= "false"
+							change="onChangeCompany"
+							items="{/}">
+							<core:ListItem key="{comp_id}" text="{comp_descr_cmb}" additionalText = "{comp_id}"/>
+						</ComboBox>
+						<CheckBox id="chkGrpComp" textAlign="Left" text="Agrupar por compañia" width="200px" />
+						<Label text="Ambientes SAP " />
+						<MultiComboBox
+							id="cmbConnection"
+							width="45%"
+							placeholder="Sel.Ambiente SAP..."
+							required="true"
+							items="{/}" >
+							<core:Item key="{conn_source}" text="{conn_source}"/>
+						</MultiComboBox>
+						<Label text="Periodo " labelFor="dpReqPerFrom" />
+						<DatePicker
+							id="dpReqPerFrom"
+							required="true"
+							placeholder="Desde"
+							displayFormat="MM-yyyy" />
+						<DatePicker
+							id="dpReqPerTo"
+							required="true"
+							placeholder="Hasta"
+							displayFormat="MM-yyyy" />
+						<Button id="btnSearchRptReq" icon="sap-icon://search" text="Buscar solicitudes" press="onPressSearchRptReq" />
+					</f:content>
+				</f:SimpleForm>
+			</VBox>
+			<HBox height="2%"></HBox>
+			<HBox width="100%">
+				<VBox width="20%"></VBox>
+				<VBox width="60%" alignContent="End">
+							<lab:LineChartJS
+								id="line_chart"
+								datasets="{lineGraph>/datasets}"
+								labels="{lineGraph>/labels}"
+								titleDisplay="true"
+								titleText="Solicitudes de transporte"
+								onLegendItemClick="onLegendItemClick"
+								onLegendItemHover="onLegendItemHover"
+								onClick="onClick"
+								onHover="onHover"
+								tooltipEnabled="true"
+								onAnimationProgress="onAnimationProgress"
+								onAnimationComplete="onAnimationComplete"
+								showLines="true"
+								spanGaps="true">
+							</lab:LineChartJS>
+				</VBox>
+				<VBox width="20%">
+					<HBox height="60px"></HBox>
+						<Button id="btnDetailRptDsb" width="200px" icon="sap-icon://detail-view"  text="Ver detalle" press="onPressDetailRptDsb" />
+						<Button id="btnExportRptDsb" width="200px" icon="sap-icon://excel-attachment"  text="Exportar datos" press="onPressExportRptDsb" />
+				</VBox>
+			</HBox>
+			<HBox height="2%"></HBox>
+			<HBox width="100%">
+				<VBox width="20%"></VBox>
+				<VBox width="60%" alignContent="End">
+					<lab:LineChartJS
+						id="line_tr_chart"
+						datasets="{lineTrGraph>/datasets}"
+						labels="{lineTrGraph>/labels}"
+						titleDisplay="true"
+						titleText="Ordenes de transportes"
+						onLegendItemClick="onLegendItemClick"
+						onLegendItemHover="onLegendItemHover"
+						onClick="onClick"
+						onHover="onHover"
+						tooltipEnabled="true"
+						onAnimationProgress="onAnimationProgress"
+						onAnimationComplete="onAnimationComplete"
+						showLines="true"
+						spanGaps="true">
+					</lab:LineChartJS>
+				</VBox>
+				<VBox width="20%">
+					<HBox height="60px"></HBox>
+					<Button id="btnDetailTrRptDsb" width="200px" icon="sap-icon://detail-view"  text="Ver detalle" press="onPressDetailTrRptDsb" />
+					<Button id="btnExportTrRptDsb" width="200px" icon="sap-icon://excel-attachment"  text="Exportar datos" press="onPressExportTrRptDsb" />
+				</VBox>
+			</HBox>
+			<HBox height="2%"></HBox>
+			<HBox width="100%">
+				<VBox width="20%"></VBox>
+				<VBox width="60%" height="100%" alignContent="End">
+					<lab:BarChartJS
+						id="bar_chart"
+						datasets="{barGraph>/datasets}"
+						labels="{barGraph>/labels}"
+						titleDisplay="true"
+						titleText="Desbloqueo y cambio de contraseñas"
+						onLegendItemClick="onLegendItemClick"
+						onLegendItemHover="onLegendItemHover"
+						onClick="onClick"
+						onHover="onHover"
+						tooltipEnabled="true"
+						onAnimationProgress="onAnimationProgress"
+						onAnimationComplete="onAnimationComplete"
+						isHorizontal="false">
+					</lab:BarChartJS>
+				</VBox>
+				<VBox width="20%">
+					<HBox height="60px"></HBox>
+					<Button id="btnDetailRptDsbUser" width="200px" icon="sap-icon://detail-view"  text="Ver detalle" press="onPressDetailRptDsbUser" />
+					<Button id="btnExportRptDsbUser" width="200px" icon="sap-icon://excel-attachment"  text="Exportar datos" press="onPressExportRptDsbUser" />
+				</VBox>
+			</HBox>
+		</content>
+	</Page>
+</core:View>

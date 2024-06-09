@@ -1,0 +1,91 @@
+<mvc:View xmlns:uxap="sap.uxap" controllerName="centria.net.fisbactivos.controller.SBDetails"
+    xmlns:core="sap.ui.core"
+    xmlns:mvc="sap.ui.core.mvc" displayBlock="true"
+    xmlns="sap.m"
+    xmlns:l="sap.ui.layout"
+    xmlns:f="sap.ui.layout.form">
+    
+     <!-- <Page xmlns="sap.m"  title="{i18n>TitleCreate}"> -->
+     <Page xmlns="sap.m" title="" visible="true"> 
+        <content>
+        <ObjectHeader title="{i18n>TitleId} {solicBajaMain>/SolicBaja/IdSolic}"
+				      backgroundDesign="Solid">
+        	<attributes>
+					<ObjectAttribute title="Fecha de creación" text="{ path: 'solicBajaMain>/SolicBaja/FecCre', type: 'sap.ui.model.type.Date',formatOptions: { style: 'long',strictParsing: true , UTC: true }} { path: 'solicBajaMain>/SolicBaja/HorCre', type: 'sap.ui.model.odata.type.Time', formatOptions: {  pattern : 'HH:mm:ss'}}"/>
+			</attributes>
+            	<statuses>
+					<ObjectStatus title="Status" text="{solicBajaMain>/SolicBaja/StaSolic}" state="{=${solicBajaMain>/SolicBaja/IdEstatus} === '2' ? 'Success' : 
+																	                                 ${solicBajaMain>/SolicBaja/IdEstatus} === '4' ? 'Error' :
+																	                                 ${solicBajaMain>/SolicBaja/IdEstatus} === '3' ? 'Warning' : None}" inverted="true"
+
+                                                                                                     icon="{=${solicBajaMain>/SolicBaja/IdEstatus} === '2' ? 'sap-icon://flag'   :
+                                                                                                             ${solicBajaMain>/SolicBaja/IdEstatus} === '3' ? 'sap-icon://activity-items' :
+                                                                                                             ${solicBajaMain>/SolicBaja/IdEstatus} === '4' ? 'sap-icon://decline' : 
+                                                                                                             ${solicBajaMain>/SolicBaja/IdEstatus} === '1' ? 'sap-icon://create' : undefined }" />
+				</statuses>
+        </ObjectHeader>
+
+            <!--Excel-->
+            <HBox alignContent="Start" justifyContent="End">
+                <Button text="{i18n>btnExcel}" press=".onExcelDownload" icon="sap-icon://excel-attachment" class="sapUiSmallMarginEnd"/>
+            </HBox>
+            
+            <!-- Panel para la cabecera -->
+            <Panel expandable="true" headerText="{i18n>SectionHeader}" width="auto" class="sapUiResponsiveMargin" expanded="true">
+                <content>
+                    <IconTabBar id="idTabBarHeader" expanded="{device>/isNoPhone}" class="sapUiResponsiveContentPadding" select=".onTabBar">
+                        <items>
+                            <IconTabFilter text="{i18n>TabHeader}" key="tabHeader">
+                                <core:Fragment fragmentName="centria.net.fisbactivos.view.fragment.HeaderSolBaja" type = "XML" />
+                            </IconTabFilter>
+                            <IconTabFilter text="{i18n>TabAnexos}" key="tabAnexo">
+                                <core:Fragment fragmentName="centria.net.fisbactivos.view.fragment.AdjuntosSolBaja" type = "XML" />
+                            </IconTabFilter>
+                            <IconTabFilter text="{i18n>TabPdf}" key="TabPdf">
+                                 <core:Fragment fragmentName="centria.net.fisbactivos.view.fragment.ViewPDF" type = "XML" />
+                            </IconTabFilter>
+                            <IconTabFilter text="{i18n>TabStatus}" key="TabStatus" visible="{=${solicBajaMain>/SolicBaja/FlgNiv1Aprob} === true ? true : false}">
+                                <core:Fragment fragmentName="centria.net.fisbactivos.view.fragment.StatusAprob" type = "XML" />
+                            </IconTabFilter>
+                        </items>
+                    </IconTabBar>
+                </content>
+            </Panel>
+            <!-- Panel para el Detalle -->
+            <Panel expandable="true" headerText="{i18n>SectionDetail}" width="auto" class="sapUiResponsiveMargin" expanded="true">
+                <content>
+                    <core:Fragment fragmentName="centria.net.fisbactivos.view.fragment.DetailSolBaja" type = "XML" />
+                </content>
+            </Panel>
+        </content>
+        <footer>
+            <Toolbar>
+                <ToolbarSpacer/>
+                <!-- <Button id="btnEdit" type="Emphasized" text="{i18n>Editar}" press=".onEditSolBaja" icon="sap-icon://request" visible="{=${authSolBaj>/AuthorizationSet/FlgUsolCreate} === true ||  ${authSolBaj>/AuthorizationSet/FlgUsolEdit} === true}"/> -->
+                <Button id="btnEdit" type="Emphasized" text="{i18n>Editar}" press=".onEditSolBaja" icon="sap-icon://request"  visible="{=${solicBajaMain>/SolicBaja/IdEstatus} === '4' ? false :
+                                                                                                                                         ${solicBajaMain>/SolicBaja/IdEstatus} === '2' ?  false :
+                                                                                                                                         ${solicBajaMain>/SolicBaja/IdEstatus} === '3' ?  false : 
+																	                                                                     ${authSolBaj>/AuthorizationSet/FlgUsolCreate} === true ? true :
+																	                                                                     ${authSolBaj>/AuthorizationSet/FlgUsolEdit} === true ? true : false }"/>
+
+                <Button id="btnSave" type="Emphasized" text="{i18n>Grabar}" press=".onSaveSolBaja" icon="sap-icon://save"    visible="{statusForm>/Status/BtnCrearEnable}"/>
+
+                <!--<Button id="btnAprob" type="Accept" text="{i18n>Aprobar}" press="onAprobSolBaja" icon="sap-icon://accept" visible="{=${authSolBaj>/AuthorizationSet/FlgAprResponbaja} === true ||  ${authSolBaj>/AuthorizationSet/FlgAprN2} === true || ${authSolBaj>/AuthorizationSet/FlgAprN3} === true }" />-->
+                <Button id="btnAprob" type="Accept" text="{i18n>Aprobar}" press="onAprobSolBaja" icon="sap-icon://accept"  visible="{=${solicBajaMain>/SolicBaja/IdEstatus} === '4' ?  false :
+                                                                                                                                      ${solicBajaMain>/SolicBaja/IdEstatus} === '2' ?  false :   
+																	                                                                  ${authSolBaj>/AuthorizationSet/FlgAprResponbaja} === true &amp;&amp; ${solicBajaMain>/SolicBaja/IdEstatus} === '1' ? true :
+                                                                                                                                      ${authSolBaj>/AuthorizationSet/FlgAprN2} === true  &amp;&amp;  ${solicBajaMain>/SolicBaja/IdEstatus} === '3' ? true :
+																	                                                                  ${authSolBaj>/AuthorizationSet/FlgAprN3} === true  &amp;&amp;  ${solicBajaMain>/SolicBaja/IdEstatus} === '3' ? true : false }" enabled="true"/>
+
+                <Button id="btnReject" type="Reject" text="{i18n>Rechazar}" press="onRechaSolBaja" icon="sap-icon://manager-insight" visible="{=${solicBajaMain>/SolicBaja/IdEstatus} === '4' ?  false :
+                                                                                                                                      ${solicBajaMain>/SolicBaja/IdEstatus} === '2' ?  false :   
+																	                                                                  ${authSolBaj>/AuthorizationSet/FlgAprResponbaja} === true &amp;&amp; ${solicBajaMain>/SolicBaja/IdEstatus} === '1' ? true :
+                                                                                                                                      ${authSolBaj>/AuthorizationSet/FlgAprN2} === true  &amp;&amp;  ${solicBajaMain>/SolicBaja/IdEstatus} === '3' ? true :
+																	                                                                  ${authSolBaj>/AuthorizationSet/FlgAprN3} === true  &amp;&amp;  ${solicBajaMain>/SolicBaja/IdEstatus} === '3' ? true : false }" enabled="true"/>
+                
+                <Button id="btnSaveAnexo" type="Emphasized" text="{i18n>GrabarAnx}" press=".onSaveSolBajaAnex" icon="sap-icon://save"  visible="{=${authSolBaj>/AuthorizationSet/FlgUsolEdit} === true &amp;&amp; ${solicBajaMain>/SolicBaja/FlgActiveAnexo} === true ? true : false }" />
+                <Button icon="sap-icon://action" press="onPressExitBack" text="{i18n>Back}" />
+            </Toolbar>
+        </footer>
+    </Page>
+</mvc:View>

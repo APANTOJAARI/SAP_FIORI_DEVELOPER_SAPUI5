@@ -1,0 +1,112 @@
+<core:FragmentDefinition xmlns:mvc="sap.ui.core.mvc" xmlns="sap.m" xmlns:core="sap.ui.core" height="100%" xmlns:l="sap.ui.layout"
+    xmlns:app="http://schemas.sap.com/sapui5/extension/sap.ui.core.CustomData/1"
+	xmlns:f="sap.ui.layout.form" controllerName="com.centria.CartaPreregistro.controller.View1">
+	<Dialog id="dialogProveedor" title="Proveedor" class="sapUiSizeCompact" draggable="true" contentWidth="50%">
+		<f:Form id="fmProveedor" editable="false">
+			<f:layout>
+				<f:ResponsiveGridLayout labelSpanXL="3" labelSpanL="3" labelSpanM="3" labelSpanS="12" adjustLabelSpan="false" emptySpanXL="4" emptySpanL="4"
+					emptySpanM="0" emptySpanS="0" columnsXL="2" columnsL="2" columnsM="2" singleContainerFullSize="false"/>
+			</f:layout>
+			<f:formContainers>
+				<f:FormContainer>
+					<f:formElements>
+						<f:FormElement>
+							<f:label>
+								<Label text="{Lifnr/#@sap:label}" required="true"></Label>
+							</f:label>
+							<f:fields>
+								<Input value="{Lifnr}" maxLength="10" liveChange="onLiveChangeInput" editable="{oModelEditForm>/editable}"></Input>
+							</f:fields>
+						</f:FormElement>
+						<f:FormElement >
+							<f:label>
+								<Label text="{Land1/#@sap:label}" required="true"></Label>
+							</f:label>
+							<f:fields>
+								<Input value="{Land1}" maxLength="3" liveChange="onLiveChangeInput" editable="{oModelEditForm>/editable}"></Input>
+							</f:fields>
+						</f:FormElement>
+						<f:FormElement >
+							<f:label>
+								<Label text="{Name1/#@sap:label}" required="true"></Label>
+							</f:label>
+							<f:fields>
+								<Input value="{Name1}" maxLength="70" liveChange="onLiveChangeInput" editable="{oModelEditForm>/editable}"></Input>
+							</f:fields>
+						</f:FormElement>
+						<f:FormElement label="{Rbancinter/#@sap:label}">
+							<f:fields>
+								<Input value="{Rbancinter}" maxLength="1" liveChange="onLiveChangeInput"></Input>
+							</f:fields>
+						</f:FormElement>
+						<f:FormElement label="{Bancinter/#@sap:label}">
+							<f:fields>
+								<Input value="{Bancinter}" maxLength="50" liveChange="onLiveChangeInput"></Input>
+							</f:fields>
+						</f:FormElement>
+						<f:FormElement label="{Swiftinter/#@sap:label}">
+							<f:fields>
+								<Input value="{Swiftinter}" maxLength="30" liveChange="onLiveChangeInput"></Input>
+							</f:fields>
+						</f:FormElement>
+						<f:FormElement label="{Ctainter/#@sap:label}">
+							<f:fields>
+								<Input value="{Ctainter}" maxLength="30" liveChange="onLiveChangeInput"></Input>
+							</f:fields>
+						</f:FormElement>
+						<f:FormElement label="{Dirbaninter/#@sap:label}">
+							<f:fields>
+								<Input value="{Dirbaninter}" maxLength="35" liveChange="onLiveChangeInput"></Input>
+							</f:fields>
+						</f:FormElement>
+					</f:formElements>
+				</f:FormContainer>
+				<f:FormContainer>
+					<f:formElements>
+						<f:FormElement label="{Bcofinal/#@sap:label}">
+							<f:fields>
+								<Input value="{Bcofinal}" maxLength="50" liveChange="onLiveChangeInput"></Input>
+							</f:fields>
+						</f:FormElement>
+						<f:FormElement label="{Ctafinal/#@sap:label}">
+							<f:fields>
+								<Input value="{Ctafinal}" maxLength="30" liveChange="onLiveChangeInput"></Input>
+							</f:fields>
+						</f:FormElement>
+						<f:FormElement label="{Swiftbic/#@sap:label}">
+							<f:fields>
+								<Input value="{Swiftbic}" maxLength="20" liveChange="onLiveChangeInput"></Input>
+							</f:fields>
+						</f:FormElement>
+						<f:FormElement label="{Aba/#@sap:label}">
+							<f:fields>
+								<Input value="{Aba}" maxLength="20" liveChange="onLiveChangeInput"></Input>
+							</f:fields>
+						</f:FormElement>
+						<f:FormElement label="{Iban/#@sap:label}">
+							<f:fields>
+								<Input value="{Iban}" maxLength="50" liveChange="onLiveChangeInput"></Input>
+							</f:fields>
+						</f:FormElement>
+						<f:FormElement label="{Cif/#@sap:label}">
+							<f:fields>
+								<Input value="{Cif}" maxLength="20" liveChange="onLiveChangeInput"></Input>
+							</f:fields>
+						</f:FormElement>
+						<f:FormElement label="{Dirban/#@sap:label}">
+							<f:fields>
+								<Input value="{Dirban}" maxLength="35" liveChange="onLiveChangeInput"></Input>
+							</f:fields>
+						</f:FormElement>
+					</f:formElements>
+				</f:FormContainer>
+			</f:formContainers>
+		</f:Form>
+		<beginButton>
+			<Button text="Grabar" type="Accept" icon="sap-icon://save" press="onSaveEntidad" app:tabla="stProveedores"/>
+		</beginButton>
+		<endButton>
+			<Button text="Cancelar" icon="sap-icon://cancel" press="closeFormMant" app:form="fmProveedor"/>
+		</endButton>
+	</Dialog>
+</core:FragmentDefinition>

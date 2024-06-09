@@ -1,0 +1,44 @@
+{
+	"list": [
+		{
+			"CdFilt": "BBVAP",
+			"CdText": "BBVA Pago Prov H2H"
+		},
+		{
+			"CdFilt": "BBVAF",
+			"CdText": "BBVA Factoring H2H"
+		},
+		{
+			"CdFilt": "BCPP",
+			"CdText": "BCP Pago Prov H2H"
+		},
+		{
+			"CdFilt": "BCPF",
+			"CdText": "BCP Factoring H2H"
+		},
+		{
+			"CdFilt": "SCOTP",
+			"CdText": "SCOT Pago Prov H2H"
+		},
+		{
+			"CdFilt": "SCOTF",
+			"CdText": "SCOT Factoring H2H"
+		},
+		{
+			"CdFilt": "BBVACN",
+			"CdText": "BBVA Cartas Nac."
+		},
+		{
+			"CdFilt": "BBVACE",
+			"CdText": "BBVA Cartas Ext."
+		},
+		{
+			"CdFilt": "BBVA",
+			"CdText": "BBVA"
+		},
+		{
+			"CdFilt": "BCP",
+			"CdText": "BCP"
+		}
+	]
+}

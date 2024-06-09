@@ -1,0 +1,1 @@
+sap.ui.define(["efolder/efol/BSP_SAPMUTILS/BaseComponent","sap/ui/core/ComponentSupport"],(function(e){"use strict";return e.extend("efolder.sap.ZBSP_LISTADOEXP.Component",{metadata:{manifest:"json"}})}));

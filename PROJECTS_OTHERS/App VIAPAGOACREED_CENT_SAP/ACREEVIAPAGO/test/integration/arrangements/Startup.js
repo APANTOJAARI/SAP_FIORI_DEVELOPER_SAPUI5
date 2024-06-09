@@ -1,0 +1,1 @@
+sap.ui.define(["sap/ui/test/Opa5"],function(a){"use strict";return a.extend("com.centria.ReclasificacionViasPagoAcreedores.test.integration.arrangements.Startup",{iStartMyApp:function(a){var t=a||{};t.delay=t.delay||50;this.iStartMyUIComponent({componentConfig:{name:"com.centria.ReclasificacionViasPagoAcreedores",async:true},hash:t.hash,autoWait:t.autoWait})}})});

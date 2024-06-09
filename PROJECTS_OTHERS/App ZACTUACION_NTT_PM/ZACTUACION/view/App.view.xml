@@ -1,0 +1,8 @@
+<mvc:View xmlns:mvc="sap.ui.core.mvc"
+          xmlns="sap.m"
+          xmlns:core="sap.ui.core"
+          controllerName="efolder.sap.ZACTUACION.controller.App"
+          displayBlock="true"
+          busyIndicatorDelay="0"
+          busy="{= ${EFOLDER_BUSY>/ZACTUACION} !== 0}"
+          class="ZACTUACION"><App id="ZACTUACION_APP" /></mvc:View>

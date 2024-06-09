@@ -1,0 +1,78 @@
+[{
+	"Check": "X",
+	"Bukrs": "TA10",
+	"Belnr": "0049000249",
+	"Gjahr": 2021,
+	"Blart": "KZ",
+	"Budat": "/Date(967839587000)/",
+	"Hbkid": "SCTD",
+	"Hkont": "Hkont 1",
+	"Wrbtr": 9.85,
+	"Waers": "PEN"
+}, {
+	"Check": " ",
+	"Bukrs": "0011",
+	"Belnr": "0049000248",
+	"Gjahr": 2021,
+	"Blart": "KZ",
+	"Budat": "/Date(1114287587000)/",
+	"Hbkid": "SCTD",
+	"Hkont": "Hkont 2",
+	"Wrbtr": 416.31,
+	"Waers": "PEN"
+}, {
+	"Check": "X",
+	"Bukrs": "TA10",
+	"Belnr": "0049000247",
+	"Gjahr": 2021,
+	"Blart": "KZ",
+	"Budat": "/Date(1264191587000)/",
+	"Hbkid": "SCTD",
+	"Hkont": "Hkont 3",
+	"Wrbtr": 6671.92,
+	"Waers": "PEN"
+}, {
+	"Check": " ",
+	"Bukrs": "0018",
+	"Belnr": "0049000246",
+	"Gjahr": 2021,
+	"Blart": "KZ",
+	"Budat": "/Date(1509221987000)/",
+	"Hbkid": "SCTD",
+	"Hkont": "Hkont 4",
+	"Wrbtr": 2613.6,
+	"Waers": "PEN"
+}, {
+	"Check": "X",
+	"Bukrs": "0011",
+	"Belnr": "0049000245",
+	"Gjahr": 2021,
+	"Blart": "KZ",
+	"Budat": "/Date(1149193187000)/",
+	"Hbkid": "SCTD",
+	"Hkont": "Hkont 5",
+	"Wrbtr": 7960.43,
+	"Waers": "PEN"
+}, {
+	"Check": "X",
+	"Bukrs": "TA10",
+	"Belnr": "0049000244",
+	"Gjahr": 2021,
+	"Blart": "KZ",
+	"Budat": "/Date(1224706787000)/",
+	"Hbkid": "SCTD",
+	"Hkont": "Hkont 6",
+	"Wrbtr": 2584.86,
+	"Waers": "PEN"
+}, {
+	"Check": "X",
+	"Bukrs": "TA10",
+	"Belnr": "0049000243",
+	"Gjahr": 2020,
+	"Blart": "KZ",
+	"Budat": "/Date(1190146787000)/",
+	"Hbkid": "SCTD",
+	"Hkont": "Hkont 7",
+	"Wrbtr": 5101.49,
+	"Waers": "PEN"
+}]

@@ -1,0 +1,106 @@
+{
+	"_version": "1.1.0",
+	"resources": [
+		{
+			"name": ".theming",
+			"size": 95,
+			"theme": "sap_fiori_3_dark"
+		},
+		{
+			"name": "ContextMenu.less",
+			"size": 2667,
+			"designtime": true,
+			"theme": "sap_fiori_3_dark"
+		},
+		{
+			"name": "Dialogs.less",
+			"size": 586,
+			"designtime": true,
+			"theme": "sap_fiori_3_dark"
+		},
+		{
+			"name": "FieldRepository.less",
+			"size": 1949,
+			"designtime": true,
+			"theme": "sap_fiori_3_dark"
+		},
+		{
+			"name": "Overlay.less",
+			"size": 536,
+			"designtime": true,
+			"theme": "sap_fiori_3_dark"
+		},
+		{
+			"name": "Toolbar.adaptation.less",
+			"size": 347,
+			"designtime": true,
+			"theme": "sap_fiori_3_dark"
+		},
+		{
+			"name": "Toolbar.base.less",
+			"size": 983,
+			"designtime": true,
+			"theme": "sap_fiori_3_dark"
+		},
+		{
+			"name": "Toolbar.personalization.less",
+			"size": 295,
+			"designtime": true,
+			"theme": "sap_fiori_3_dark"
+		},
+		{
+			"name": "Toolbar.standalone.less",
+			"size": 267,
+			"designtime": true,
+			"theme": "sap_fiori_3_dark"
+		},
+		{
+			"name": "css-variables.css",
+			"size": 5381,
+			"theme": "sap_fiori_3_dark"
+		},
+		{
+			"name": "css-variables.source.less",
+			"size": 83537,
+			"designtime": true,
+			"theme": "sap_fiori_3_dark"
+		},
+		{
+			"name": "library-RTL.css",
+			"size": 22019,
+			"theme": "sap_fiori_3_dark"
+		},
+		{
+			"name": "library-parameters.json",
+			"size": 2053,
+			"theme": "sap_fiori_3_dark"
+		},
+		{
+			"name": "library-skeleton-RTL.css",
+			"size": 22015,
+			"theme": "sap_fiori_3_dark"
+		},
+		{
+			"name": "library-skeleton.css",
+			"size": 22014,
+			"theme": "sap_fiori_3_dark"
+		},
+		{
+			"name": "library.css",
+			"size": 22018,
+			"theme": "sap_fiori_3_dark"
+		},
+		{
+			"name": "library.less",
+			"size": 8700,
+			"designtime": true,
+			"theme": "sap_fiori_3_dark"
+		},
+		{
+			"name": "library.source.less",
+			"size": 583,
+			"designtime": true,
+			"theme": "sap_fiori_3_dark"
+		}
+	]
+}

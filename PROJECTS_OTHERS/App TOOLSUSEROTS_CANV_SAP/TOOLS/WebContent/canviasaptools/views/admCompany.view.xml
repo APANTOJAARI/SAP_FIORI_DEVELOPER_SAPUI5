@@ -1,0 +1,100 @@
+<core:View controllerName="canviasaptools.controllers.admCompany"
+		   xmlns:core="sap.ui.core" 
+		   xmlns:mvc="sap.ui.core.mvc" 
+		   xmlns="sap.m"
+		   xmlns:f="sap.ui.layout.form"
+		   xmlns:t="sap.ui.table"
+		   xmlns:html="http://www.w3.org/1999/xhtml">
+	<Page title="CANVIA SAP Tools: Administración de compañías"
+          showNavButton = "true"
+          navButtonPress="onNavBackAdmComp">
+		<content>
+			<VBox class="sapUiSmallMargin">
+				<f:SimpleForm id="sfUser"
+								editable="true"
+								layout="ResponsiveGridLayout"
+								labelSpanXL="1"
+								labelSpanL="1"
+								labelSpanM="1"
+								labelSpanS="12"
+								adjustLabelSpan="true"
+								emptySpanXL="4"
+								emptySpanL="4"
+								emptySpanM="4"
+								emptySpanS="0"
+								columnsXL="1"
+								columnsL="1"
+								columnsM="1" >
+					<f:content>
+						<Label text="Código " />
+						<Input id="txtCodigoCompFind" maxLength="3" width="30%" placeholder="Compañía" />
+						<Label text="Descripción " />
+						<Input id="txtNombreCompFind" maxLength="25" width="70%" placeholder="Descripción" />
+					</f:content>
+				</f:SimpleForm>
+			</VBox>
+			
+				<t:Table id="tbCompany"
+					   class="sapUiSmallMargin"
+					   rows="{/}"
+					   rowActionCount="1" 
+					   selectionMode="None"
+					   visibleRowCount="9"
+					   alternateRowColors="true"
+					   ariaLabelledBy="title">
+					<t:extension>
+						<OverflowToolbar>
+							<Title id="title" text="Lista de compañias"/>
+							<ToolbarSpacer/>
+							<Button id="btnSearchFind" icon="sap-icon://search" text="Buscar" press="onPressFindPopUp" />
+							<Button id="btnAddCompFind" icon="sap-icon://create" text="Crear" press="onPressAddPopUp" />
+							<Button id="btnClearCompFind" icon="sap-icon://sys-find" text="Nueva búsqueda" press="onPressCancel" />
+						</OverflowToolbar>
+					</t:extension>
+					<t:columns>
+						<t:Column sortProperty="comp_id" filterProperty="comp_id">
+							<Label text="Código"/>
+							<t:template>
+								<Text text="{comp_id}" wrapping="false"/>
+							</t:template>
+						</t:Column>
+						<t:Column sortProperty="comp_descr" filterProperty="comp_descr">
+							<Label text="Descripción"/>
+							<t:template>
+								<Text text="{comp_descr}" wrapping="false"/>
+							</t:template>
+						</t:Column>
+						<t:Column >
+							<Label text="Prefijo" />
+							<t:template>
+								<Text text="{comp_prex}" wrapping="false"/>
+							</t:template>
+						</t:Column>
+						<t:Column >
+							<Label text="Canvia" width="6rem" />
+							<t:template>
+								<Text text="{text_canvia}" wrapping="false"/>
+							</t:template>
+						</t:Column>
+						<t:Column >
+							<Label text="Estado" />
+							<t:template>
+								<Text text="{comp_status}" wrapping="false"/>
+							</t:template>
+						</t:Column>
+					</t:columns>
+				    <t:rowActionTemplate>
+				        <t:RowAction >
+				            <t:items>
+								<t:RowActionItem icon="sap-icon://edit" text="Modificar" press="onPressEdit"></t:RowActionItem>
+								<t:RowActionItem icon="sap-icon://delete" text="Eliminar" press="onPressDel"></t:RowActionItem>
+								<t:RowActionItem icon="sap-icon://activate" text="Activar" press="onPressAct"></t:RowActionItem>
+								<t:RowActionItem icon="sap-icon://decline" text="Desactivar" press="onPressDeAct"></t:RowActionItem>
+					    	</t:items>
+						</t:RowAction>
+				    </t:rowActionTemplate>
+				</t:Table>
+
+		</content>
+	</Page>
+</core:View>

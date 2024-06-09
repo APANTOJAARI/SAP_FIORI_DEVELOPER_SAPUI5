@@ -1,0 +1,43 @@
+<mvc:View xmlns="sap.m"
+          xmlns:core="sap.ui.core"
+          xmlns:mvc="sap.ui.core.mvc"
+          xmlns:smartVariantManagement="sap.ui.comp.smartvariants"
+          xmlns:smartFilterBar="sap.ui.comp.smartfilterbar"
+          xmlns:smartTable="sap.ui.comp.smarttable" controllerName="efolder.sap.ZBSP_LISTADOEXP.controller.main" displayBlock="true" height="100%"><Page showHeader="false"><HBox backgroundDesign="Solid"><smartVariantManagement:SmartVariantManagement class="sapUiSmallMarginBegin" id="pageVariantId"	persistencyKey="PageVariantPKey"/></HBox><smartFilterBar:SmartFilterBar id="smartFilterBar"
+                                   entityType="CabeceraZ"
+                                   smartVariant="pageVariantId"
+		                               persistencyKey="SmartFilterPKey"><smartFilterBar:controlConfiguration><smartFilterBar:ControlConfiguration key="Tipex"
+                                             preventInitialDataFetchInValueHelpDialog="false" /><smartFilterBar:ControlConfiguration key="Orges"
+                                             preventInitialDataFetchInValueHelpDialog="false" /></smartFilterBar:controlConfiguration></smartFilterBar:SmartFilterBar><smartTable:SmartTable id="ListadoExp"
+                           entitySet="CabeceraZSet"
+                           smartVariant="pageVariantId"
+                           smartFilterId="smartFilterBar"
+                           useVariantManagement="true"
+		                       useTablePersonalisation="true"
+                           persistencyKey="SmartTablePKey"
+                           tableType="ResponsiveTable"
+                           header="{i18n>Expedientes}"
+                           showRowCount="true"
+                           enableAutoBinding="true"
+                           demandPopin="true"
+                           requestAtLeastFields="Tipex,Gjahr,Numex,Paso"
+                                ignoreFromPersonalisation="Moneda,
+                                                      DescriptErnam,
+                                                      DescriptGestor,
+                                                      DescrTipoInstalacion,
+                                                      DescripGrupoPlanificador,
+                                                      DescripZona,
+                                                      DescripcionTipoActu,
+                                                      DescrNivelTension,
+                                                      DescripInitEjec,
+                                                      DescripClaseActividad,
+                                                      DescripItemEjec,
+                                                      DescripCodMunicipio,
+                                                      DescripEstad,
+                                                      DescripInitDis,
+                                                      DescripItemInitDis,
+                                                      DescrPrioridad,
+                                                      DescResponsableDisenyo,
+                                                      DescripGastoinv"
+                           class="sapUiResponsiveContentPadding"><Table growing="true" growingThreshold="150"><items><ColumnListItem type="Active"
+                          press="onPress"></ColumnListItem></items></Table></smartTable:SmartTable></Page></mvc:View>

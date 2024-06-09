@@ -1,0 +1,21 @@
+[{
+	"BUKRS": "0001",
+	"BUTXT": "SAP PERU",
+	"ORT01": "Lima",
+	"WAERS": "PEN"
+}, {
+	"BUKRS": "0011",
+	"BUTXT": "Centria",
+	"ORT01": "Lima",
+	"WAERS": "PEN"
+}, {
+	"BUKRS": "0018",
+	"BUTXT": "Urbanova",
+	"ORT01": "Lima",
+	"WAERS": "PEN"
+}, {
+	"BUKRS": "TA10",
+	"BUTXT": "Tecnológica de Alimentos",
+	"ORT01": "Lima",
+	"WAERS": "PEN"
+}]

@@ -1,0 +1,1 @@
+sap.ui.define(["efolder/efol/BSP_SAPMUTILS/model/CoreOData","efolder/efol/BSP_SAPMUTILS/model/CoreModel"],(function(e,o){"use strict";return{updateCabecera:function(e,o){}}}));

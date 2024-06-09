@@ -1,0 +1,235 @@
+<core:View controllerName="canviasaptools.controllers.Menu"
+		   xmlns:lab="it.designfuture.chartjs"
+		   xmlns:core="sap.ui.core" 
+		   xmlns:mvc="sap.ui.core.mvc" 
+		   xmlns="sap.m"
+		   xmlns:l="sap.ui.layout"
+		   xmlns:html="http://www.w3.org/1999/xhtml">
+	<Page title="CANVIA SAP Tools" 
+          showNavButton = "true"
+          navButtonPress="onNavBackMenu">
+		<content>
+ 			<Panel id="pGraphics" visible="false" width="100%" backgroundDesign="Transparent">
+				<HBox height="200px" >
+					<VBox id="lineVB" width="32%">
+						<lab:LineChartJS
+							id="line_chart"
+							datasets="{lineGraph>/datasets}"
+							labels="{lineGraph>/labels}"
+							titleDisplay="true"
+							titleText="Solicitudes de transporte"
+							onLegendItemClick="onLegendItemClick"
+							onLegendItemHover="onLegendItemHover"
+							onClick="onClick"
+							onHover="onHover"
+							tooltipEnabled="true"
+							onAnimationProgress="onAnimationProgress"
+							onAnimationComplete="onAnimationComplete"
+							showLines="true"
+							spanGaps="true">
+						</lab:LineChartJS>
+					</VBox>
+					<VBox width="2%"></VBox>
+					<VBox id="lineTRVB" width="32%">
+						<lab:LineChartJS
+							id="line_tr_chart"
+							datasets="{lineTrGraph>/datasets}"
+							labels="{lineTrGraph>/labels}"
+							titleDisplay="true"
+							titleText="Ordenes de transportes"
+							onLegendItemClick="onLegendItemClick"
+							onLegendItemHover="onLegendItemHover"
+							onClick="onClick"
+							onHover="onHover"
+							tooltipEnabled="true"
+							onAnimationProgress="onAnimationProgress"
+							onAnimationComplete="onAnimationComplete"
+							showLines="true"
+							spanGaps="true">
+						</lab:LineChartJS>
+					</VBox>
+					<VBox width="2%"></VBox>
+					<VBox id="barVB" width="32%">
+						<lab:BarChartJS
+							id="bar_chart"
+							datasets="{barGraph>/datasets}"
+							labels="{barGraph>/labels}"
+							titleDisplay="true"
+							titleText="Desbloqueo y cambio de contraseñas"
+							onLegendItemClick="onLegendItemClick"
+							onLegendItemHover="onLegendItemHover"
+							onClick="onClick"
+							onHover="onHover"
+							tooltipEnabled="true"
+							onAnimationProgress="onAnimationProgress"
+							onAnimationComplete="onAnimationComplete"
+							isHorizontal="false">
+						</lab:BarChartJS>
+					</VBox>
+				</HBox>
+ 			</Panel>
+ 			<HBox height="10%"></HBox>
+ 			<Panel id="pAdmData" width="100%" backgroundDesign="Transparent">
+				<headerToolbar>
+					<OverflowToolbar height="3rem">
+						<Title text="Administración del sistema"/>
+					</OverflowToolbar>
+				</headerToolbar>
+				<l:Grid containerQuery="true" defaultSpan="XL12 L12 M12 S12" width="100%">
+					<l:VerticalLayout width="100%" class="gridWrapper">
+			        	<FlexBox id="tcContainer" alignItems="Center" alignContent="Center" 
+			          		   direction="Row" renderType="Bare" wrap="Wrap" width="100%" 
+			          		   displayInline="true" fitContainer="true" items="{/}">
+				            <items>
+								<StandardTile
+									icon="{opt_icon}"
+									title="{opt_name}"
+									number="{info_reg}"
+									infoState="Success" 
+									press="onPressTiles"/>
+			                </items>
+			           </FlexBox>
+					</l:VerticalLayout>
+				</l:Grid>
+ 			</Panel>
+			<Panel id="pAmbSAP" width="100%" backgroundDesign="Transparent">
+				<headerToolbar>
+					<OverflowToolbar height="3rem">
+						<Title text="Ambientes SAP"/>
+					</OverflowToolbar>
+				</headerToolbar>
+				<l:Grid containerQuery="true" defaultSpan="XL12 L12 M12 S12" width="100%">
+					<l:VerticalLayout width="100%" class="gridWrapper">
+				          <FlexBox id="tcContainerConn" alignItems="Center" alignContent="Center" 
+				          		   direction="Row" renderType="Bare" wrap="Wrap" width="100%" 
+				          		   displayInline="true" fitContainer="true" items="{/}">
+				            <items>
+								<StandardTile
+									icon="{opt_icon}"
+									title="{opt_name}"
+									number="{info_reg}"
+									infoState="Success"
+									press="onPressTilesConn"/>
+				            </items>
+				          </FlexBox>
+					</l:VerticalLayout>
+				</l:Grid>
+			</Panel>
+			<Panel id="pReq" width="100%" backgroundDesign="Transparent">
+				<headerToolbar>
+					<OverflowToolbar height="3rem">
+						<Title text="Solicitudes de transporte"/>
+					</OverflowToolbar>
+				</headerToolbar>
+				<l:Grid containerQuery="true" defaultSpan="XL12 L12 M12 S12" width="100%">
+					<l:VerticalLayout width="100%" class="gridWrapper">
+				          <FlexBox id="tcContainerReq" alignItems="Center" alignContent="Center" 
+				          		   direction="Row" renderType="Bare" wrap="Wrap" width="100%" 
+				          		   displayInline="true" fitContainer="true" items="{/}">
+				            <items>
+								<StandardTile
+									icon="{opt_icon}"
+									title="{opt_name}"
+									number="{info_reg}"
+									infoState="Success" 
+									press="onPressTilesReq"/>
+				            </items>
+				          </FlexBox>
+					</l:VerticalLayout>
+				</l:Grid>
+			</Panel>
+ 			<Panel id="pGsnUser" width="100%" backgroundDesign="Transparent">
+				<headerToolbar>
+					<OverflowToolbar height="3rem">
+						<Title text="Gestión de usuario SAP"/>
+					</OverflowToolbar>
+				</headerToolbar>
+				<l:Grid containerQuery="true" defaultSpan="XL12 L12 M12 S12" width="100%">
+					<l:VerticalLayout width="100%" class="gridWrapper">
+			        	<FlexBox id="tcContainerGsnUser" alignItems="Center" alignContent="Center" 
+			          		   direction="Row" renderType="Bare" wrap="Wrap" width="100%" 
+			          		   displayInline="true" fitContainer="true" items="{/}">
+				            <items>
+								<StandardTile
+									icon="{opt_icon}"
+									title="{opt_name}"
+									number="{info_reg}"
+									infoState="Success" 
+									press="onPressTilesGsnUser"/>
+			                </items>
+			           </FlexBox>
+					</l:VerticalLayout>
+				</l:Grid>
+ 			</Panel>
+ 			<Panel id="pInformes" width="100%" backgroundDesign="Transparent">
+				<headerToolbar>
+					<OverflowToolbar height="3rem">
+						<Title text="Informes"/>
+					</OverflowToolbar>
+				</headerToolbar>
+				<l:Grid containerQuery="true" defaultSpan="XL12 L12 M12 S12" width="100%">
+					<l:VerticalLayout width="100%" class="gridWrapper">
+			        	<FlexBox id="tcContainerInforme" alignItems="Center" alignContent="Center" 
+			          		   direction="Row" renderType="Bare" wrap="Wrap" width="100%" 
+			          		   displayInline="true" fitContainer="true" items="{/}">
+				            <items>
+								<StandardTile
+									icon="{opt_icon}"
+									title="{opt_name}"
+									number="{info_reg}"
+									infoState="Success" 
+									press="onPressTilesInformes"/>
+			                </items>
+			           </FlexBox>
+					</l:VerticalLayout>
+				</l:Grid>
+ 			</Panel>
+ 			<Panel id="pAlerts" width="100%" backgroundDesign="Transparent">
+				<headerToolbar>
+					<OverflowToolbar height="3rem">
+						<Title text="Configuración de alertas"/>
+					</OverflowToolbar>
+				</headerToolbar>
+				<l:Grid containerQuery="true" defaultSpan="XL12 L12 M12 S12" width="100%">
+					<l:VerticalLayout width="100%" class="gridWrapper">
+			        	<FlexBox id="tcContainerAlerts" alignItems="Center" alignContent="Center" 
+			          		   direction="Row" renderType="Bare" wrap="Wrap" width="100%" 
+			          		   displayInline="true" fitContainer="true" items="{/}">
+				            <items>
+								<StandardTile
+									icon="{opt_icon}"
+									title="{opt_name}"
+									number="{info_reg}"
+									infoState="Success" 
+									press="onPressTilesAlerts"/>
+			                </items>
+			           </FlexBox>
+					</l:VerticalLayout>
+				</l:Grid>
+ 			</Panel>
+ 			<Panel id="pDashboard" width="100%" backgroundDesign="Transparent">
+				<headerToolbar>
+					<OverflowToolbar height="3rem">
+						<Title text="Indicadores"/>
+					</OverflowToolbar>
+				</headerToolbar>
+				<l:Grid containerQuery="true" defaultSpan="XL12 L12 M12 S12" width="100%">
+					<l:VerticalLayout width="100%" class="gridWrapper">
+			        	<FlexBox id="tcContainerDashboard" alignItems="Center" alignContent="Center" 
+			          		   direction="Row" renderType="Bare" wrap="Wrap" width="100%" 
+			          		   displayInline="true" fitContainer="true" items="{/}">
+				            <items>
+								<StandardTile
+									icon="{opt_icon}"
+									title="{opt_name}"
+									number="{info_reg}"
+									infoState="Success" 
+									press="onPressTilesDashboard"/>
+			                </items>
+			           </FlexBox>
+					</l:VerticalLayout>
+				</l:Grid>
+ 			</Panel>
+		</content>
+	</Page>
+</core:View>

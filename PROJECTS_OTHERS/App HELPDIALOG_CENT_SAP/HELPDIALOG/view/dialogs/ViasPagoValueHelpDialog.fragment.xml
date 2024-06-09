@@ -1,0 +1,21 @@
+<core:FragmentDefinition xmlns="sap.ui.comp.valuehelpdialog" xmlns:core="sap.ui.core" xmlns:fb="sap.ui.comp.filterbar" xmlns:m="sap.m">
+	<ValueHelpDialog title="{i18n>txtViasPago}" ok=".onViasPagoValueHelpOkPress" cancel=".onValueHelpCancelPress" class="sapUiSizeCompact"
+		afterClose=".onValueHelpAfterClose" supportMultiselect="true" key="key" descriptionKey="Zlsch" supportRanges="true">
+		<filterBar>
+			<fb:FilterBar search=".onViasPagoFilterBarSearch">
+				<fb:filterGroupItems>
+					<fb:FilterGroupItem groupName="__$INTERNAL$" name="Zlsch" label="Código de la vía de pago" visibleInFilterBar="true">
+						<fb:control>
+							<m:Input name="Zlsch"/>
+						</fb:control>
+					</fb:FilterGroupItem>
+					<fb:FilterGroupItem groupName="__$INTERNAL$" name="Text1" label="Nombre de la vía de pago" visibleInFilterBar="true">
+						<fb:control>
+							<m:Input name="Text1"/>
+						</fb:control>
+					</fb:FilterGroupItem>
+				</fb:filterGroupItems>
+			</fb:FilterBar>
+		</filterBar>
+	</ValueHelpDialog>
+</core:FragmentDefinition>

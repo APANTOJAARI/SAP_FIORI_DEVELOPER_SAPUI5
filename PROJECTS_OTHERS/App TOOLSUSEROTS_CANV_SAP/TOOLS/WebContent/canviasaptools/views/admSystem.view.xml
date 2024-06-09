@@ -1,0 +1,99 @@
+<core:View controllerName="canviasaptools.controllers.admSystem"
+		   xmlns:core="sap.ui.core" 
+		   xmlns:mvc="sap.ui.core.mvc" 
+		   xmlns="sap.m"
+		   xmlns:f="sap.ui.layout.form"
+		   xmlns:t="sap.ui.table"
+		   xmlns:html="http://www.w3.org/1999/xhtml">
+	<Page title="CANVIA SAP Tools: Parámetros por compañia"
+          showNavButton = "true"
+          navButtonPress="onNavBackAdmSyst">
+		<content>
+				<f:SimpleForm id="sfSystem"
+								class="sapUiSmallMargin"
+								editable="true"
+								layout="ResponsiveGridLayout"
+								labelSpanXL="1"
+								labelSpanL="1"
+								labelSpanM="1"
+								labelSpanS="12"
+								adjustLabelSpan="true"
+								emptySpanXL="4"
+								emptySpanL="4"
+								emptySpanM="4"
+								emptySpanS="0"
+								columnsXL="1"
+								columnsL="1"
+								columnsM="1">
+					<f:content>
+						<Label text="Compañia " />
+						<ComboBox
+							id="cmbCompanyFind"
+							placeholder="Sel.Compañia..."
+							showSecondaryValues= "false"
+							width="40%"
+							items="{/}">
+							<core:ListItem key="{comp_id}" text="{comp_descr_cmb}" additionalText = "{comp_id}"/>
+						</ComboBox>
+						<Label text="Parámetro " />
+						<ComboBox
+							id="cmbTypeProcessFind"
+							placeholder="Sel.Parámetro..."
+							showSecondaryValues= "false"
+							width="40%"
+							items="{/}">
+							<core:ListItem key="{param_id}" text="{param_cmb}" additionalText = "{param_id}"/>
+						</ComboBox>
+						<Label text="Valor " />
+						<Input id="txtEmailFind" maxLength="80" width="40%" placeholder="Valor" />
+					</f:content>
+				</f:SimpleForm>
+			<t:Table id="tbTypeProcess"
+				   rows="{/}"
+				   rowActionCount="1" 
+				   selectionMode="None"
+				   visibleRowCount="7"
+				   alternateRowColors="true"
+				   class="sapUiSmallMargin"
+				   ariaLabelledBy="title">
+				<t:extension>
+					<OverflowToolbar>
+						<Title id="title" text="Parámetros por compañia"/>
+						<ToolbarSpacer/>
+						<Button id="btnSearchFind" icon="sap-icon://search" text="Buscar" press="onPressFindPopUp" />
+						<Button id="btnAddParamFind" icon="sap-icon://create" text="Crear" press="onPressAddPopUp" />
+						<Button id="btnClearParamFind" icon="sap-icon://sys-find" text="Nueva búsqueda" press="onPressCancel" />
+					</OverflowToolbar>
+				</t:extension>
+				<t:columns>
+					<t:Column sortProperty="comp_descr" filterProperty="comp_descr">
+						<Label text="Compañía"/>
+						<t:template>
+							<Text text="{comp_descr}" wrapping="false"/>
+						</t:template>
+					</t:Column>
+					<t:Column sortProperty="param_text" filterProperty="param_text">
+						<Label text="Parámetro"/>
+						<t:template>
+							<Text text="{param_text}" wrapping="false"/>
+						</t:template>
+					</t:Column>
+					<t:Column sortProperty="param_value_dsp" filterProperty="param_value_dsp">
+						<Label text="Valor"/>
+						<t:template>
+							<Text text="{param_value_dsp}" wrapping="false"/>
+						</t:template>
+					</t:Column>
+				</t:columns>
+			    <t:rowActionTemplate>
+			        <t:RowAction>
+			            <t:items>
+			            	<t:RowActionItem icon="sap-icon://edit" text="Modificar" press="onPressEdit"></t:RowActionItem>
+							<t:RowActionItem icon="sap-icon://delete" text="Eliminar" press="onPressDel"></t:RowActionItem>
+				    	</t:items>
+					</t:RowAction>
+			    </t:rowActionTemplate>
+			</t:Table>
+		</content>
+	</Page>
+</core:View>

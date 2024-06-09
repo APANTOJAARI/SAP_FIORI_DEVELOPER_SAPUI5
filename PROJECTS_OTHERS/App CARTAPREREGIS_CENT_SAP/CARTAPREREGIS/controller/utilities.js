@@ -1,0 +1,1 @@
+sap.ui.define(["./utilities","sap/ui/core/format/DateFormat"],function(){"use strict";return{formatDate:function(t){var e=""+(t.getMonth()+1);var r=""+t.getDate();var a=t.getFullYear();if(e.length<2)e="0"+e;if(r.length<2)r="0"+r;return[r,e,a].join(".")}}});
