@@ -1,0 +1,66 @@
+{
+  "welcomeFile": "/webapp/index.html",
+  "routes": [
+    {
+      "path": "/resources",
+      "target": {
+        "type": "service",
+        "name": "sapui5",
+        "entryPath": "/resources"
+      },
+      "description": "SAPUI5 Resources"
+    },
+    {
+      "path": "/test-resources",
+      "target": {
+        "type": "service",
+        "name": "sapui5",
+        "entryPath": "/test-resources"
+      },
+      "description": "SAPUI5 Resources"
+    },
+    {
+      "path": "/webapp/resources",
+      "target": {
+        "type": "service",
+        "name": "sapui5",
+        "entryPath": "/resources"
+      },
+      "description": "SAPUI5 Resources"
+    },
+    {
+      "path": "/webapp/test-resources",
+      "target": {
+        "type": "service",
+        "name": "sapui5",
+        "entryPath": "/test-resources"
+      },
+      "description": "SAPUI5 Test Resources"
+    },
+    {
+      "path": "/GSE_DEV_200",
+      "target": {
+        "type": "destination",
+        "name": "GSE_DEV_200"
+      },
+      "description": "GSE DEV DESTINATION"
+    },
+    {
+      "path": "/GSE_QAS",
+      "target": {
+        "type": "destination",
+        "name": "GSE_QAS"
+      },
+      "description": "GSE QAS"
+    },
+    {
+      "path": "/GSE_QAS_GRE",
+      "target": {
+        "type": "destination",
+        "name": "GSE_QAS_GRE"
+      },
+      "description": "GSE QAS"
+    }
+  ],
+  "sendWelcomeFileRedirect": true
+}
