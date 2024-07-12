@@ -1,0 +1,16 @@
+<mvc:View controllerName="ns.cosapi.contabilizarfacturas.controller.Home"
+    xmlns:mvc="sap.ui.core.mvc" displayBlock="true"
+    xmlns:c="sap.ui.core"
+    xmlns="sap.m">
+    <Page id="page" title="{i18n>title}">
+         <c:Fragment fragmentName="ns.cosapi.contabilizarfacturas.fragment.FiltrosListaFactura" type="XML" />
+		<c:Fragment fragmentName="ns.cosapi.contabilizarfacturas.fragment.TablaListaFactura" type="XML" />
+		<footer >
+				<OverflowToolbar>
+					<ToolbarSpacer/>
+					<Button visible="false" type="Accept" text="Contabilizar" press="onContabilizar"/>
+					<Button type="Reject" text="Rechazar" press="onPreRechazo"/>
+				</OverflowToolbar>
+		</footer>
+    </Page>
+</mvc:View>

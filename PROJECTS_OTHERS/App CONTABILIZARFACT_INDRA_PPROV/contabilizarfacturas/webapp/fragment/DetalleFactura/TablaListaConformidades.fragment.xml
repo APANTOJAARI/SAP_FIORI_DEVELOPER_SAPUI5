@@ -1,0 +1,82 @@
+<c:FragmentDefinition
+	xmlns:m="sap.m"
+	xmlns:c="sap.ui.core"
+    xmlns="sap.ui.table"
+>
+
+    <Table
+            id="idTableConformidadesDet"
+            rows="{/ListaConformidadesDet}"
+            selectionMode="None"
+            setEnableGrouping="true"
+            ariaLabelledBy="title">
+        <rowSettingsTemplate>
+            <RowSettings highlight="{Status}" highlightText="{StatusText}"/>
+        </rowSettingsTemplate>
+        <columns>
+            <Column width="10rem" sortProperty="Conformidad" filterProperty="Conformidad">
+                <m:Label text="{i18n>hojaEntradaMercancia}"  wrapping="true"/>
+                <template>
+                    <m:Text text="{Docmercancia}" wrapping="false"/>
+                </template>
+            </Column>
+            <Column width="10rem" >
+                <m:Label text="{i18n>hojaAcepctacion}"  wrapping="true"/>
+                <template>
+                    <m:Text text="{Hojadeingreso}" wrapping="false"/>
+                </template>
+            </Column>
+            <Column width="10rem" >
+                <m:Label text="{i18n>notaEntrega}"  wrapping="true"/>
+                <template>
+                    <m:Text text="{Guiareferencia}" wrapping="false"/>
+                </template>
+            </Column>
+            <Column hAlign="End" width="7rem" >
+                <m:Label text="{i18n>fechaRecepcion}"  wrapping="true"/>
+                <template>
+                    <m:Text text="{Feentrega}" wrapping="false"/>
+                </template>
+            </Column>
+            <Column width="15rem">
+                <m:Label text="{i18n>descripcion}"  wrapping="true"/>
+                <template>
+                    <m:Text text="{Descripcionartservicio}" wrapping="true"/>
+                </template>
+            </Column>
+            <Column width="7rem" >
+                <m:Label text="{i18n>cantEntrega}"  wrapping="true"/>
+                <template>
+                    <m:Text text="{Cantentregada}" wrapping="false"/>
+                </template>
+            </Column>
+            <Column width="6rem" >
+                <m:Label text="{i18n>importe}"/>
+                <template>
+                    <m:Text text="{Importe}" wrapping="false"/>
+                </template>
+            </Column>
+            <Column width="10rem"  sortProperty="OrdenCompra" filterProperty="OrdenCompra">
+                <m:Label text="{i18n>Ordendecompra}"/>
+            </Column>
+            <Column width="8rem">
+                <m:Label text="{i18n>posicion}"/>
+                <template>
+                    <m:Text text="{Posiciondocreferencia}" wrapping="false"/>
+                </template>
+            </Column>
+            <!-- <Column width="12rem">
+                <m:Label text="{i18n>comprobante}"/>
+                <template>
+                    <m:Text text="{Comprobante}" wrapping="false"/>
+                </template>
+            </Column> -->
+            <!-- <Column width="6rem" >
+                <m:Label text="{i18n>ejercicio}"/>
+                <template>
+                    <m:Text text="{Ejercicio}" wrapping="false"/>
+                </template>
+            </Column>             -->
+        </columns>
+    </Table>
+</c:FragmentDefinition>

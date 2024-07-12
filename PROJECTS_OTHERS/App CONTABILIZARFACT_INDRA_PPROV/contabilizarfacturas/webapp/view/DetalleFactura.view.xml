@@ -1,0 +1,43 @@
+<mvc:View controllerName="ns.cosapi.contabilizarfacturas.controller.DetalleFactura"
+    xmlns:mvc="sap.ui.core.mvc" displayBlock="true"
+	xmlns:core="sap.ui.core"
+	xmlns:f="sap.f"
+    xmlns="sap.m">
+    <Page id="idPageDetalleFactura" title="Detalle Factura" titleAlignment="Center" showNavButton="true" navButtonPress="onBack">
+        <content>
+         <core:Fragment fragmentName="ns.cosapi.contabilizarfacturas.fragment.DetalleFactura.FormRegistroFactura" type="XML" />
+        <IconTabBar
+            id="idIconTabBarSeparatorNoIcon"
+            expanded="true"
+            class="sapUiResponsiveContentPadding">
+            <items>
+                <IconTabFilter
+                    key="info"
+                    showAll="true"
+                    text="Conformidades"
+                    icon="sap-icon://hint"
+                    iconColor="Positive">
+                    <core:Fragment fragmentName="ns.cosapi.contabilizarfacturas.fragment.DetalleFactura.TablaListaConformidades" type="XML" />
+                </IconTabFilter>
+                <IconTabSeparator icon=""/>
+                <IconTabFilter
+                    key="attachments"
+                    icon="sap-icon://attachment"
+                    iconColor="Contrast">
+                    <core:Fragment fragmentName="ns.cosapi.contabilizarfacturas.fragment.DetalleFactura.Documentos" type="XML" />                
+                </IconTabFilter>              
+            </items>
+	    </IconTabBar>
+         
+        </content>
+        <footer>
+				<OverflowToolbar  id ="idEstado">
+					<ToolbarSpacer/>
+					<Button  visible="false" type="Accept" text="Contabilizar" press="onContabilizar"/>
+                    <Button type="Accept" text="Actualizar" press="onActualizar"/>
+					<Button type="Reject" text="Rechazar" press="onPreRechazo"/>
+                    <Button type="Reject" text="Observar" press="onObservar"/>
+				</OverflowToolbar>
+		</footer>
+    </Page>
+</mvc:View>

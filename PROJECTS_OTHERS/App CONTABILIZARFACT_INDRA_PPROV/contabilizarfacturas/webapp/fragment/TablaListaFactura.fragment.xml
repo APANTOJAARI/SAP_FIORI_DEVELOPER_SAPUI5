@@ -1,0 +1,132 @@
+<c:FragmentDefinition
+	xmlns="sap.m"
+	xmlns:c="sap.ui.core"   
+	xmlns:plugins="sap.m.plugins"
+    xmlns:columnmenu="sap.m.table.columnmenu"
+    xmlns:vm="sap.ui.fl.variants"
+    xmlns:dnd="sap.ui.core.dnd"
+>
+<!-- **************************************************************** -->
+	<!-- Tabla con las configuraciones sort, filter, order, columns, etc. -->
+	<!-- **************************************************************** -->
+	<Table id="persoTable" items="{path: '/aSolPreregistro'}" ariaLabelledBy="title" fixedLayout="Strict"
+		    autoPopinMode="true" mode="SingleSelectLeft" growing="true" sticky="ColumnHeaders,HeaderToolbar" popinLayout="GridSmall">
+
+		<headerToolbar>
+			<OverflowToolbar >
+				<Title id="title" text="Solicitudes"/>
+				<ToolbarSeparator/>
+				<vm:VariantManagement id="p13nVm" for="persoTable"/>
+				<ToolbarSpacer/>
+				<Button icon="sap-icon://action-settings" press="openPersoDialog" tooltip="Settings"/>
+			</OverflowToolbar>
+		</headerToolbar>
+
+		<infoToolbar>
+			<OverflowToolbar id="filterInfo" visible="false" design="Info" active="true" press="onFilterInfoPress" >
+				<Text id="filterInfoText" wrapping="false" text="Table filter active" />
+				<ToolbarSpacer />
+				<Button tooltip="Remove All Filters" icon="sap-icon://decline" type="Transparent" press="onClearFilterPress" />
+			</OverflowToolbar>
+		</infoToolbar>
+
+		<dependents>
+			<plugins:ColumnResizer columnResize="onColumnResize"/>
+			<columnmenu:Menu id="menu" beforeOpen="beforeOpenColumnMenu">
+				<columnmenu:QuickSort change="onSort">
+					<columnmenu:items>
+						<columnmenu:QuickSortItem></columnmenu:QuickSortItem>
+					</columnmenu:items>
+				</columnmenu:QuickSort>
+				<columnmenu:QuickGroup change="onGroup">
+					<columnmenu:items>
+						<columnmenu:QuickGroupItem></columnmenu:QuickGroupItem>
+					</columnmenu:items>
+				</columnmenu:QuickGroup>
+				<columnmenu:items>
+					<columnmenu:ActionItem icon="sap-icon://sort" label="Sort" press="onColumnHeaderItemPress"/>
+					<columnmenu:ActionItem icon="sap-icon://group-2" label="Group" press="onColumnHeaderItemPress"/>
+					<columnmenu:ActionItem icon="sap-icon://filter" label="Filter" press="onColumnHeaderItemPress"/>
+					<columnmenu:ActionItem icon="sap-icon://table-column" label="Columns" press="onColumnHeaderItemPress"/>
+				</columnmenu:items>
+			</columnmenu:Menu>
+		</dependents>
+
+		<dragDropConfig>
+			<dnd:DragDropInfo sourceAggregation="columns" targetAggregation="columns" dropPosition="Between" drop="onColumnMove"/>
+		</dragDropConfig>
+
+		<noData>
+			<IllustratedMessage/>
+		</noData>
+
+		<columns>
+			<Column id="numCorrelativo_col" headerMenu="menu">
+				<Text text="Número Correlativo"/>
+			</Column>
+			<Column id="invoiceNumber_col" headerMenu="menu">
+				<Text text="Secuencia de Pre-Registro"/>
+			</Column>
+			<Column id="serie_col" headerMenu="menu">
+				<Text text="Sociedad"/>
+			</Column>			
+			<Column id="fechaCon_col" headerMenu="menu">
+				<Text text="Fecha Contabilización"/>
+			</Column>
+			<Column id="fechaEmi_col" headerMenu="menu">
+				<Text text="Fecha Emisión"/>
+			</Column>
+			<Column id="importeigv_col" headerMenu="menu">
+				<Text text="Importe + IGV"/>
+			</Column>
+			<Column id="impuestos_col" headerMenu="menu"  >
+				<Text text="Impuestos"/>
+			</Column>
+			<Column id="claseDocumento_col" headerMenu="menu" >
+				<Text text="Clase Documento"/>
+			</Column>
+			<Column id="condicionesPago_col" headerMenu="menu" >
+				<Text text="Condiciones Pago"/>
+			</Column>
+			<Column id="indicadorImpuestos_col" headerMenu="menu">
+				<Text text="Indicador Impuesto"/>
+			</Column>
+			<Column id="detraccion_col" headerMenu="menu">
+				<Text text="Detracción"/>
+			</Column>
+			<Column id="estado_col" headerMenu="menu">
+				<Text text="Estado"/>
+			</Column>
+		</columns>
+
+		<items>
+			<ColumnListItem
+				type="Navigation"
+                    highlight="{
+                        path:'Codigoestado',
+                        formatter:'.formatEstados'
+                    }"
+                    press="onIrDetailListaFacturas" >
+				<Text text="{Seriecorrelativo}"/>
+				<Text text="{Invoicedocnumber}"/>
+				<Text text="{Sociedad}"/>				
+				<Text text="{Fecontabilidadfac}"/>
+				<Text text="{Feemision}"/>
+				<Text text="{Precioincluigv}"/>
+				<Text text="{Impuesto}"/>
+				<Text text="{Clasedocumento}"/>
+				<Text text="{Condpagodescrip}"/>
+				<Text text="{Descripindimpuesto}"/>
+				<Text text="{Detraccion}"/>
+				<ObjectStatus
+					text="{Descripcioncodigoestado}"
+					state="{
+                        path:'Codigoestado',
+                        formatter:'.formatEstados'
+                    }" />
+			</ColumnListItem>
+		</items>
+		
+	</Table>
+
+</c:FragmentDefinition>

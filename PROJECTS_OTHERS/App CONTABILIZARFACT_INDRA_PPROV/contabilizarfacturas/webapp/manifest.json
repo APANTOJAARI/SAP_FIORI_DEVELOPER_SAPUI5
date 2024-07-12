@@ -1,0 +1,172 @@
+{
+    "_version": "1.59.0",
+    "sap.app": {
+        "id": "ns.cosapi.contabilizarfacturas",
+        "type": "application",
+        "i18n": "i18n/i18n.properties",
+        "applicationVersion": {
+            "version": "0.0.1"
+        },
+        "title": "{{appTitle}}",
+        "description": "{{appDescription}}",
+        "resources": "resources.json",
+        "sourceTemplate": {
+            "id": "@sap/generator-fiori:basic",
+            "version": "1.13.2",
+            "toolsId": "faa17468-da6f-4792-8454-c7a0c9914b1e"
+        },
+        "dataSources": {
+            "ZMMGS_PRE_REG_FACT_SRV": {
+                "uri": "/sap/opu/odata/sap/ZMMGS_PRE_REG_FACT_SRV",
+                "type": "OData",
+                "settings": {
+                    "odataVersion": "2.0",
+                    "localUri": "localService/metadata.xml"
+                }
+            },
+            "ZMMGS_REGPROVEEPP_CRUD_SRV": {
+                "uri": "/sap/opu/odata/sap/ZMMGS_REGPROVEEPP_CRUD_SRV",
+                "type": "OData",
+                "settings": {
+                    "odataVersion": "2.0",
+                    "localUri": "localService/metadata.xml"
+                }
+            }
+        },
+        "crossNavigation": {
+            "inbounds": {
+                "intent1": {
+                    "signature": {
+                        "parameters": {},
+                        "additionalParameters": "allowed"
+                    },
+                    "semanticObject": "contabilizarfacturas",
+                    "action": "display",
+                    "title": "Contabilizar Facturas",
+                    "icon": "sap-icon://my-sales-order"
+                }
+            }
+        }
+    },
+    "sap.ui": {
+        "technology": "UI5",
+        "icons": {
+            "icon": "",
+            "favIcon": "",
+            "phone": "",
+            "phone@2": "",
+            "tablet": "",
+            "tablet@2": ""
+        },
+        "deviceTypes": {
+            "desktop": true,
+            "tablet": true,
+            "phone": true
+        }
+    },
+    "sap.ui5": {
+        "flexEnabled": true,
+        "dependencies": {
+            "minUI5Version": "1.121.2",
+            "libs": {
+                "sap.m": {},
+                "sap.ui.core": {},
+                "sap.f": {},
+                "sap.suite.ui.generic.template": {},
+                "sap.ui.comp": {},
+                "sap.ui.generic.app": {},
+                "sap.ui.table": {},
+                "sap.ushell": {}
+            }
+        },
+        "contentDensities": {
+            "compact": true,
+            "cozy": true
+        },
+        "models": {
+            "i18n": {
+                "type": "sap.ui.model.resource.ResourceModel",
+                "settings": {
+                    "bundleName": "ns.cosapi.contabilizarfacturas.i18n.i18n"
+                }
+            },
+            "": {
+                "type": "sap.ui.model.json.JSONModel",
+                "preload": true
+            },
+            "ZMMGS_PRE_REG_FACT_SRV": {
+                "dataSource": "ZMMGS_PRE_REG_FACT_SRV",
+                "preload": true,
+                "settings": {}
+            },
+            "ZMMGS_REGPROVEEPP_CRUD_SRV": {
+                "dataSource": "ZMMGS_REGPROVEEPP_CRUD_SRV",
+                "preload": true,
+                "settings": {}
+            }
+        },
+        "resources": {
+            "css": [
+                {
+                    "uri": "css/style.css"
+                }
+            ]
+        },
+        "routing": {
+            "config": {
+                "routerClass": "sap.m.routing.Router",
+                "viewType": "XML",
+                "async": true,
+                "viewPath": "ns.cosapi.contabilizarfacturas.view",
+                "controlAggregation": "pages",
+                "controlId": "app",
+                "clearControlAggregation": false
+            },
+            "routes": [
+                {
+                    "name": "RouteHome",
+                    "pattern": ":?query:",
+                    "target": [
+                        "TargetHome"
+                    ]
+                },
+                {
+                    "name": "ViewDetalleFactura",
+                    "pattern": "ViewDetalleFactura/{preliminar}",
+                    "target": [
+                        "TargetDetalleFactura"
+                    ]
+                }
+            ],
+            "targets": {
+                "TargetHome": {
+                    "viewType": "XML",
+                    "transition": "slide",
+                    "clearControlAggregation": false,
+                    "viewId": "Home",
+                    "viewName": "Home"
+                },
+                "TargetDetalleFactura": {
+                    "viewType": "XML",
+                    "transition": "slide",
+                    "clearControlAggregation": false,
+                    "viewId": "DetalleFactura",
+                    "viewName": "DetalleFactura"
+                }
+            }
+        },
+        "rootView": {
+            "viewName": "ns.cosapi.contabilizarfacturas.view.App",
+            "type": "XML",
+            "async": true,
+            "id": "App"
+        }
+    },
+    "sap.cloud": {
+        "public": true,
+        "service": "nscosapicontabilizarfacturas"
+    },    
+    "sap.platform.cf": {
+        "ui5VersionNumber": "1.122.0"
+    }
+}
