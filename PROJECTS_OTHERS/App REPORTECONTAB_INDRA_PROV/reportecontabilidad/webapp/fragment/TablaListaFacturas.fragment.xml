@@ -1,0 +1,177 @@
+<c:FragmentDefinition
+	xmlns:m="sap.m"
+    xmlns="sap.ui.table"
+	xmlns:c="sap.ui.core"
+>
+<m:Button text="Descargar Excel" press="onExportar" />
+<m:ScrollContainer
+		height="100%"
+		width="100%"
+		vertical="true"
+		focusable="true">
+    <Table
+            id="idTableFacturas"
+            rows="{/ListaFacturas}"
+            selectionMode="None"
+            setEnableGrouping="true"
+            ariaLabelledBy="title">
+        <rowSettingsTemplate>
+                <RowSettings highlight="{
+                        path:'Estado',
+                        formatter:'.formatEstados'
+                    }"/>
+        </rowSettingsTemplate>
+        <columns>
+            <Column width="10rem"  sortProperty="Ebeln" filterProperty="Ebeln">
+                <m:Label wrapping="true" text="{i18n>oc}"/>
+                <template>
+                    <m:Text text="{Ebeln}" wrapping="false"/>
+                </template>
+            </Column>
+            <Column width="7rem">
+                <m:Label text="{i18n>posicion}"  wrapping="true"/>
+                <template>
+                    <m:Text text="{Buzei}" wrapping="false"/>
+                </template>
+            </Column>
+            <Column width="7rem">
+                <m:Label text="{i18n>ruc}"  wrapping="true"/>
+                <template>
+                    <m:Text text="{Stcd1}" wrapping="false"/>
+                </template>
+            </Column>
+            <Column width="10rem">
+                <m:Label wrapping="true" text="{i18n>proveedor}"/>
+                <template>
+                    <m:Text text="{Lifnr}" wrapping="true"/>
+                </template>
+            </Column>
+            <Column width="15rem">
+                <m:Label text="{i18n>razonSocial}"  wrapping="true"/>
+                <template>
+                    <m:Text text="{Name1}" wrapping="true"/>
+                </template>
+            </Column>
+            <Column width="8rem">
+                <m:Label text="{i18n>sociedad}"/>
+                <template>
+                    <m:Text text="{Bukrs} {Butxt}" wrapping="true"/>
+                </template>
+            </Column>
+             <Column width="10rem">
+                <m:Label text="{i18n>factura}"  wrapping="true"/>
+                <template>
+                    <m:Text text="{Xblnr}" wrapping="false"/>
+                </template>
+            </Column>        
+             <Column width="8rem">
+                <m:Label text="{i18n>fechaRecepcion}"  wrapping="true"/>
+                <template>
+                    <m:Text text="{Fecharecep}" wrapping="false"/>
+                </template>
+            </Column>
+             <Column width="8rem">
+                <m:Label text="{i18n>fechaEmision}"  wrapping="true"/>
+                <template>
+                    <m:Text text="{Fechaemision}" wrapping="false"/>
+                </template>
+            </Column>
+             <Column width="5rem">
+                <m:Label text="{i18n>moneda}"  wrapping="true"/>
+                <template>
+                    <m:Text text="{Waers}" wrapping="false"/>
+                </template>
+            </Column>
+             <Column width="8rem">
+                <m:Label text="{i18n>importeTotal}"  wrapping="true"/>
+                <template>
+                    <m:Text text="{ImporteTot}" wrapping="false"/>
+                </template>
+            </Column>
+             <Column width="8rem">
+                <m:Label text="{i18n>importePagadoFechas}"  wrapping="true"/>
+                <template>
+                    <m:Text text="{Maktx}" wrapping="false"/>
+                </template>
+            </Column>
+            <Column width="8rem">
+                <m:Label text="{i18n>importePendientePago}"  wrapping="true"/>
+                <template>
+                    <m:Text text="{ImportePend}" wrapping="false"/>
+                </template>
+            </Column>
+            <Column width="8rem">
+                <m:Label text="{i18n>centroCostos}"  wrapping="true"/>
+                <template>
+                    <m:Text text="{Kostl}" wrapping="false"/>
+                </template>
+            </Column>
+            <Column width="8rem">
+                <m:Label text="{i18n>tipoOrdenCompra}"  wrapping="true"/>
+                <template>
+                    <m:Text text="{Bsart} - {Batxt}" wrapping="false"/>
+                </template>
+            </Column>
+            <Column width="8rem">
+                <m:Label text="{i18n>pagoRetenido}"  wrapping="true"/>
+                <template>
+                    <m:Text text="{Zahls}" wrapping="false"/>
+                </template>
+            </Column>
+            <Column width="8rem">
+                <m:Label text="{i18n>condicionPago}"  wrapping="true"/>
+                <template>
+                    <m:Text text="{Text1}" wrapping="false"/>
+                </template>
+            </Column>
+            <Column width="8rem">
+                <m:Label text="{i18n>recepciones}"  wrapping="true"/>
+                <template>
+                    <m:Text text="{Lfbnr}" wrapping="false"/>
+                </template>
+            </Column>
+            <Column width="10rem">
+                <m:Label text="{i18n>secuenciaPreRegistro}"  wrapping="true"/>
+                <template>
+                    <m:Text text="{Belnr}" wrapping="false"/>
+                </template>
+            </Column>
+             <Column width="8rem">
+                <m:Label text="{i18n>fechaVencimiento}"  wrapping="true"/>
+                <template>
+                    <m:Text text="{Zbd1t}" wrapping="false"/>
+                </template>
+            </Column>
+             <Column hAlign="Center" width="7rem">
+                <m:Label text="Adjuntos"  wrapping="true"/>
+                <template>
+                    <m:Button text="" press="onObtenerMostrarDocumentos" icon="sap-icon://show"/>
+                </template>
+            </Column>
+             <Column width="10rem">
+                <m:Label text="Comentario"  wrapping="true"/>
+                <template>
+                    <m:Text text="{Comentario}"  wrapping="true"/>
+                </template>
+            </Column>
+             <Column width="10rem">
+                <m:Label text="{i18n>conformeSunat}"  wrapping="true"/>
+                <template>
+                    <m:CheckBox select="onVerificarSunat" selected="{ path: 'ConformeSunat', formatter: '.formatoVerificarSunat' }"  wrapping="true"/>
+                </template>
+            </Column>
+             <Column width="10rem">
+                <m:Label text="{i18n>estado}"  wrapping="true"/>
+                <template>
+                    <m:ObjectStatus
+					text="{Desestado}"
+					state="{
+                        path:'Estado',
+                        formatter:'.formatEstados'
+                    }" />
+                </template>
+            </Column>
+        </columns>
+    </Table>
+    </m:ScrollContainer>
+</c:FragmentDefinition>

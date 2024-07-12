@@ -1,0 +1,9 @@
+<mvc:View controllerName="ns.cosapi.reportecontabilidad.controller.Home"
+    xmlns:mvc="sap.ui.core.mvc" displayBlock="true"
+    xmlns:c="sap.ui.core"
+    xmlns="sap.m">
+    <Page id="page" title="{i18n>title}">
+        <c:Fragment fragmentName="ns.cosapi.reportecontabilidad.fragment.FiltrosListaFactura" type="XML" />
+		<c:Fragment fragmentName="ns.cosapi.reportecontabilidad.fragment.TablaListaFacturas" type="XML" />	
+    </Page>
+</mvc:View>

@@ -1,0 +1,151 @@
+<core:FragmentDefinition
+	xmlns="sap.m"
+	xmlns:core="sap.ui.core"
+    xmlns:l="sap.ui.layout"
+	xmlns:f="sap.ui.layout.form"
+>
+	<VBox class="sapUiSmallMargin">
+		<f:Form id="FormChange354wideDual"
+			editable="true">
+			<!-- <f:title>
+				<core:Title text="Address" />
+			</f:title> -->
+			<f:layout>
+				<f:ResponsiveGridLayout
+					labelSpanXL="4"
+					labelSpanL="3"
+					labelSpanM="4"
+					labelSpanS="12"
+					adjustLabelSpan="false"
+					emptySpanXL="0"
+					emptySpanL="4"
+					emptySpanM="0"
+					emptySpanS="0"
+					columnsXL="4"
+					columnsL="4"
+					columnsM="4"
+					singleContainerFullSize="false" />
+			</f:layout>
+			<f:formContainers>
+				<f:FormContainer title="">
+					<f:formElements>
+						<!-- <f:FormElement label="{i18n>solicitud}" >
+							<f:fields>
+                                <Input value="{ZIPCode}">									
+								</Input>
+							</f:fields>
+						</f:FormElement> -->
+						<f:FormElement label="{i18n>factura}">
+							<f:fields>
+								<Input id="idSerieCorrelativo" value="">									
+								</Input>
+							</f:fields>
+						</f:FormElement>
+						<f:FormElement label="{i18n>ruc}">
+							<f:fields>
+								<Input id="idRuc" value="">									
+								</Input>
+							</f:fields>
+						</f:FormElement>
+						<f:FormElement label="{i18n>secuenciaPreRegistro}">
+							<f:fields>
+								<Input id="idSecuenciaPreRegistro" value="">									
+								</Input>
+							</f:fields>
+						</f:FormElement>
+					</f:formElements>
+				</f:FormContainer>
+				<f:FormContainer title="">
+					<f:formElements>
+                    <f:FormElement label="{i18n>fechaEmision}">
+							<f:fields>
+								<DateRangeSelection
+                                    id="idFechaEmision"
+                                    class="DRS0"
+                                    value= "{
+                                        'type': 'sap.ui.model.type.DateInterval',
+                                        'formatOptions': {
+                                            'pattern': 'yyyy.MM.dd'
+                                        },
+                                        'parts': [
+                                            {
+                                                'type': 'sap.ui.model.type.Date',
+                                                'path': '/start1'
+                                            },
+                                            {
+                                                'type': 'sap.ui.model.type.Date',
+                                                'path': '/end1'
+                                            }
+                                        ]
+                                    }"
+                                    change="handleChange"/>
+							</f:fields>
+						</f:FormElement>
+						<f:FormElement label="{i18n>fechaConta}">
+							<f:fields>
+								<DateRangeSelection
+                                    id="idFechaContabilizacion"
+                                    class="DRS1"
+                                    value= "{
+                                        'type': 'sap.ui.model.type.DateInterval',
+                                        'formatOptions': {
+                                            'pattern': 'yyyy.MM.dd'
+                                        },
+                                        'parts': [
+                                            {
+                                                'type': 'sap.ui.model.type.Date',
+                                                'path': '/start'
+                                            },
+                                            {
+                                                'type': 'sap.ui.model.type.Date',
+                                                'path': '/end'
+                                            }
+                                        ]
+                                    }"
+                                    change="handleChange"/>
+							</f:fields>
+						</f:FormElement>
+						<f:FormElement label="{i18n>sociedad}" >
+							<f:fields>
+								<ComboBox
+									items="{
+										path: '/Sociedades'
+									}"
+                                    id="IdSociedadesFiltros"
+                                    showSecondaryValues= "true"
+									>
+											<core:ListItem key="{Bukrs}" text="{Butxt}" additionalText = "{Bukrs}"></core:ListItem>
+								</ComboBox>
+							</f:fields>
+						</f:FormElement>                      
+					</f:formElements>
+				</f:FormContainer>
+				<f:FormContainer title="">
+					<f:formElements>			
+                        <f:FormElement label="{i18n>estado}">
+							<f:fields>
+								<MultiComboBox
+									selectionChange="handleSelectionChange"
+									selectionFinish="handleSelectionFinish"
+									id="idEstadosFiltro"
+									width="350px"
+									items="{
+										path: '/EstadosSolicitudes',
+										sorter: { path: 'Codigo' }
+									}">
+									<core:Item key="{Codigo}" text="{Descripcion}"/>
+								</MultiComboBox>
+							</f:fields>
+						</f:FormElement>
+						<f:FormElement label="" >
+							<f:fields>
+                               <Button type="Accept" text="{i18n>buscar}" press="_onListaFacturas"/>
+								<Button type="Emphasized" text="{i18n>limpiar}" press="onLimpiarFiltros"/>
+							</f:fields>
+						</f:FormElement>
+					</f:formElements>
+				</f:FormContainer>
+			</f:formContainers>
+		</f:Form>
+	</VBox>
+</core:FragmentDefinition>

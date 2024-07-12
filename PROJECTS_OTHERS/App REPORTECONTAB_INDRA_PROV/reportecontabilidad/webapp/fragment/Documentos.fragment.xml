@@ -1,0 +1,67 @@
+<c:FragmentDefinition
+	xmlns="sap.m"
+	xmlns:c="sap.ui.core"
+    xmlns:l="sap.ui.layout"
+	xmlns:upload="sap.m.upload"
+>
+	<Dialog
+		id="mainDialog"
+		title="Hello {/recipient/name}">
+		<content>
+ <upload:UploadSet
+
+          id="UploadSet"
+          fileSizeExceeded="onFileSizeExceed"
+          uploadButtonInvisible="true"
+          instantUpload="true"
+          uploadButtonText="Explorar"
+          showIcons="true"
+		  uploadEnabled="false"          
+          class="customUploadSet"
+          noDataDescription="."
+          terminationEnabled="false"
+          fileTypes="txt,doc,png,pdf,jpg,jpeg"
+          maxFileNameLength="50"
+          fileTypeButtonTitle="Explorar"
+          maxFileSize="10"
+          uploadCompleted="onUploadCompleted"
+          afterItemRemoved="onEliminarDocumento"
+          mediaTypes="text/plain,application/msword,image/jpeg,image/png,application/pdf"          
+          items="{path:'/', templateShareable: false}"
+          mode="MultiSelect">
+		  	<upload:toolbar>
+				<OverflowToolbar>
+					<ToolbarSpacer/>					
+					<Button
+							id="downloadSelectedButton"
+							text="Descargar Seleccionados"
+							press="onDownloadSelectedButton"/>					
+				</OverflowToolbar>
+			</upload:toolbar>
+          <upload:items>
+              <upload:UploadSetItem                      
+                      fileName="{FileName}"
+                      mediaType="{Type}"
+                      url="{Ruta}"
+                      thumbnailUrl="{Ruta}"
+                      enabledEdit="false"
+					  visibleRemove="false"
+                      visibleEdit="false"
+                      >
+              </upload:UploadSetItem>
+          </upload:items>
+  </upload:UploadSet>
+  		</content>
+		<footer>
+			<Toolbar>
+				<content>
+					<Button id="Reject"
+						text="Cerrar"
+						type="Reject"
+						press="._closeDialog"
+						ariaHasPopup="Dialog" />
+				</content>
+			</Toolbar>
+		</footer>
+	</Dialog>
+</c:FragmentDefinition>
