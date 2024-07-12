@@ -1,0 +1,16 @@
+.fileUploaderMarginEnd {
+    margin-left: 23px; /* Ajusta el valor según sea necesario */
+}
+
+.sapMListInsetBG {
+    padding: 1rem;
+}
+
+.sapMObjStatus:not(.sapMObjStatusInverted) .sapMObjStatusText, .sapMObjStatus:not(.sapMObjStatusInverted) .sapMObjStatusIcon, .sapMObjStatusInverted .sapMObjStatusLink:active .sapMObjStatusText, .sapMObjStatusInverted .sapMObjStatusLink:active .sapMObjStatusIcon {
+    font-size: small;
+}
+
+.labelRed
+{
+  color: red;    
+}

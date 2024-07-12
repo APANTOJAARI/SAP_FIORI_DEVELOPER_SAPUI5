@@ -1,0 +1,145 @@
+<core:FragmentDefinition
+	xmlns="sap.m"
+	xmlns:l="sap.ui.layout"
+	xmlns:f="sap.ui.layout.form"
+	xmlns:core="sap.ui.core">
+	<VBox class="sapUiSmallMargin">
+		<Panel width="auto" class="sapUiResponsiveMargin">
+			<f:Form id="FormInformacionContable" binding="{/InformacionContable}">
+				<f:layout>
+					<f:ResponsiveGridLayout
+                    labelSpanXL="4"
+                    labelSpanL="4"
+                    labelSpanM="4"
+                    labelSpanS="12"
+                    adjustLabelSpan="false"
+                    emptySpanXL="3"
+                    emptySpanL="3"
+                    emptySpanM="3"
+                    emptySpanS="0"
+                    columnsXL="1"
+                    columnsL="1"
+                    columnsM="1"
+                    singleContainerFullSize="false" />
+				</f:layout>
+				<f:title>
+					<core:Title text="{i18n>infoCont2}" />
+				</f:title>
+				<f:formContainers>
+					<f:FormContainer>
+						<f:formElements>
+							<f:FormElement label="{i18n>importeactivo}">
+								<f:fields>
+									<Input id="txtImporteActivo" value="{oProveedor>/InformacionContable/Importactcorr}" type="Text" maxLength="21" liveChange="changeValueNumber" description="USD" required="{= ${oPreRegistro>/Land1} !== 'PE' ? true : ${oPreRegistro>/TipoNif} !== 'PE2' ? true : false}" change="changeValueState" editable="{statusEdit>/edit}"/>
+								</f:fields>
+							</f:FormElement>
+							<f:FormElement label="{i18n>importepasivo}">
+								<f:fields>
+									<Input id="txtImportePasivo" value="{oProveedor>/InformacionContable/Importpascorr}" type="Text" maxLength="21" liveChange="changeValueNumber" description="USD" required="{= ${oPreRegistro>/Land1} !== 'PE' ? true : ${oPreRegistro>/TipoNif} !== 'PE2' ? true : false}" change="changeValueState" editable="{statusEdit>/edit}"/>
+								</f:fields>
+							</f:FormElement>
+							<f:FormElement label="{i18n>importepasivototal}">
+								<f:fields>
+									<Input id="txtImportePasivoTotal" value="{oProveedor>/InformacionContable/Importpastotal}" type="Text" maxLength="21" liveChange="changeValueNumber" description="USD" required="{= ${oPreRegistro>/Land1} !== 'PE' ? true : ${oPreRegistro>/TipoNif} !== 'PE2' ? true : false}" change="changeValueState" editable="{statusEdit>/edit}"/>
+								</f:fields>
+							</f:FormElement>
+							<f:FormElement label="{i18n>patrimonioneto}">
+								<f:fields>
+									<Input id="txtPatrimonioNeto" value="{oProveedor>/InformacionContable/Patrimonioneto}" type="Text" maxLength="21" liveChange="changeValueNumber" description="USD" required="{= ${oPreRegistro>/Land1} !== 'PE' ? true : ${oPreRegistro>/TipoNif} !== 'PE2' ? true : false}" change="changeValueState" editable="{statusEdit>/edit}"/>
+								</f:fields>
+							</f:FormElement>
+						</f:formElements>
+					</f:FormContainer>
+				</f:formContainers>
+			</f:Form>
+
+			<f:Form id="FormInformacionContable2" editable="true" class="sapUiSmallMargiTop">
+				<f:title>
+					<core:Title text="{i18n>infoCont}" />
+				</f:title>
+				<f:layout>
+                    <f:ResponsiveGridLayout
+                        labelSpanXL="3"
+                        labelSpanL="3"
+                        labelSpanM="3"
+                        labelSpanS="12"
+                        adjustLabelSpan="false"
+                        emptySpanXL="3"
+                        emptySpanL="3"
+                        emptySpanM="3"
+                        emptySpanS="0"
+                        columnsXL="2"
+                        columnsL="2"
+                        columnsM="2"
+                        singleContainerFullSize="false" />
+                </f:layout>
+				<f:formContainers>
+					<f:FormContainer>
+						<f:formElements>
+							<f:FormElement label="{i18n>year1}">
+								<f:fields>
+									<DatePicker
+										id="txtYear1"
+										value="{oProveedor>/InformacionContable/InformacionContableDetSet/0/Anio}"
+										displayFormat="yyyy"
+										valueFormat="yyyyMMdd"
+										required="true"
+										change="changeValueState" editable="{statusEdit>/edit}"/>
+								</f:fields>
+							</f:FormElement>
+							<f:FormElement label="{i18n>year2}">
+								<f:fields>
+									<DatePicker
+										id="txtYear2"
+										value="{oProveedor>/InformacionContable/InformacionContableDetSet/1/Anio}"
+										displayFormat="yyyy"
+										valueFormat="yyyyMMdd"
+										change="changeValueState" editable="{statusEdit>/edit}"/>
+								</f:fields>
+							</f:FormElement>
+							<f:FormElement label="{i18n>year3}">
+								<f:fields>
+									<DatePicker
+										id="txtYear3"
+										value="{oProveedor>/InformacionContable/InformacionContableDetSet/2/Anio}"
+										displayFormat="yyyy"
+										valueFormat="yyyyMMdd"
+										change="changeValueState" editable="{statusEdit>/edit}"/>
+								</f:fields>
+							</f:FormElement>
+						</f:formElements>
+					</f:FormContainer>
+
+					<f:FormContainer title="">
+						<f:formElements>
+							<f:FormElement label="{i18n>monto}">
+								<f:fields>
+									<Input id="textMontoUno" value="{oProveedor>/InformacionContable/InformacionContableDetSet/0/Montousd}" required="true" type="Text" maxLength="21" liveChange="changeValueNumber" change="changeValueState" editable="{statusEdit>/edit}"/>
+								</f:fields>
+							</f:FormElement>
+							<f:FormElement label="{i18n>montous}">
+								<f:fields>
+									<Input id="textMontoDos" value="{oProveedor>/InformacionContable/InformacionContableDetSet/1/Montousd}" type="Text" maxLength="21" liveChange="changeValueNumber" change="changeValueState" editable="{statusEdit>/edit}"/>
+								</f:fields>
+							</f:FormElement>
+							<f:FormElement label="{i18n>montousd}">
+								<f:fields>
+									<Input id="textMontoTres" value="{oProveedor>/InformacionContable/InformacionContableDetSet/2/Montousd}" type="Text" maxLength="21" liveChange="changeValueNumber" change="changeValueState" editable="{statusEdit>/edit}"/>
+								</f:fields>
+							</f:FormElement>
+						</f:formElements>
+					</f:FormContainer>
+				</f:formContainers>
+			</f:Form>
+
+			<FlexBox justifyContent="End">
+				<Button type="Accept"
+                        text="{i18n>grabaryseguir}"
+                        width="20em"
+                        press="onSaveInfoContable"
+						visible="{userData>/editable}"
+                        ariaDescribedBy="acceptButtonDescription genericButtonDescription"></Button>
+			</FlexBox>
+		</Panel>
+	</VBox>
+</core:FragmentDefinition>

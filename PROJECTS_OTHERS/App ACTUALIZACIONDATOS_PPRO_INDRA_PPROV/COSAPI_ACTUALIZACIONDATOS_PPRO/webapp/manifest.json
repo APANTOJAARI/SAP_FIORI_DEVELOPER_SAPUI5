@@ -1,0 +1,163 @@
+{
+    "_version": "1.59.0",
+    "sap.app": {
+        "id": "ns.cosapi.actualizacionproveedor",
+        "type": "application",
+        "i18n": "i18n/i18n.properties",
+        "applicationVersion": {
+            "version": "0.0.1"
+        },
+        "title": "{{appTitle}}",
+        "description": "{{appDescription}}",
+        "resources": "resources.json",
+        "sourceTemplate": {
+            "id": "@sap/generator-fiori:basic",
+            "version": "1.13.1",
+            "toolsId": "59f6fc27-e6e1-4979-bbbb-8536bcaf4130"
+        },
+        "crossNavigation": {
+            "inbounds": {
+                "ns-cosapi-actualizarprov-inbound": {
+                    "signature": {
+                        "parameters": {},
+                        "additionalParameters": "allowed"
+                    },
+                    "semanticObject": "ActualizarProv",
+                    "action": "Display",
+                    "title": "{{flpTitle}}",
+                    "subTitle": "{{flpSubtitle}}",
+                    "icon": "sap-icon://user-edit"
+                }
+            }
+        },   
+        "dataSources": {
+            "ZMMGS_PRE_REG_PROV_SRV": {
+                "uri": "/sap/opu/odata/sap/ZMMGS_PRE_REG_PROV_SRV",
+                "type": "OData",
+                "settings": {
+                    "odataVersion": "2.0",
+                    "localUri": "localService/metadata.xml"
+                }
+            },
+            "ZMMGS_REGPROVEEPP_CRUD_SRV": {
+                "uri": "/sap/opu/odata/sap/ZMMGS_REGPROVEEPP_CRUD_SRV",
+                "type": "OData",
+                "settings": {
+                    "odataVersion": "2.0",
+                    "localUri": "localService/metadata.xml"
+                }
+            }
+        }
+    },
+    "sap.ui": {
+        "technology": "UI5",
+        "icons": {
+            "icon": "",
+            "favIcon": "",
+            "phone": "",
+            "phone@2": "",
+            "tablet": "",
+            "tablet@2": ""
+        },
+        "deviceTypes": {
+            "desktop": true,
+            "tablet": true,
+            "phone": true
+        }
+    },
+    "sap.ui5": {
+        "flexEnabled": false,
+        "dependencies": {
+            "minUI5Version": "1.122.1",
+            "libs": {
+                "sap.m": {},
+                "sap.ui.core": {},
+                "sap.f": {},
+                "sap.suite.ui.generic.template": {},
+                "sap.ui.comp": {},
+                "sap.ui.generic.app": {},
+                "sap.ui.table": {},
+                "sap.ushell": {}
+            }
+        },
+        "contentDensities": {
+            "compact": true,
+            "cozy": true
+        },
+        "models": {
+            "i18n": {
+                "type": "sap.ui.model.resource.ResourceModel",
+                "settings": {
+                    "bundleName": "ns.cosapi.actualizacionproveedor.i18n.i18n",
+                    "supportedLocales": ["", "en", "es"],
+                    "fallbackLocale": "en"
+                }
+            },
+            "ZMMGS_PRE_REG_PROV_SRV":{
+                "dataSource": "ZMMGS_PRE_REG_PROV_SRV",
+                "preload": true,
+                "settings": {}
+            },
+            "ZMMGS_REGPROVEEPP_CRUD_SRV":{
+                "dataSource": "ZMMGS_REGPROVEEPP_CRUD_SRV",
+                "preload": true,
+                "settings": {}
+            },
+            "": {
+                "type": "sap.ui.model.json.JSONModel",
+                "preload": true
+            }
+        },
+        "resources": {
+            "css": [
+                {
+                    "uri": "css/style.css"
+                }
+            ],
+            "js": [
+                {
+                    "uri": "model/jszip.js"
+                }
+            ]
+        },
+        "routing": {
+            "config": {
+                "routerClass": "sap.m.routing.Router",
+                "viewType": "XML",
+                "async": true,
+                "viewPath": "ns.cosapi.actualizacionproveedor.view",
+                "controlAggregation": "pages",
+                "controlId": "app",
+                "clearControlAggregation": false
+            },
+            "routes": [
+                {
+                    "name": "RouteHome",
+                    "pattern": ":?query:",
+                    "target": [
+                        "TargetHome"
+                    ]
+                }
+            ],
+            "targets": {
+                "TargetHome": {
+                    "viewType": "XML",
+                    "transition": "slide",
+                    "clearControlAggregation": false,
+                    "viewId": "Home",
+                    "viewName": "Home"
+                }
+            }
+        },
+        "rootView": {
+            "viewName": "ns.cosapi.actualizacionproveedor.view.App",
+            "type": "XML",
+            "async": true,
+            "id": "App"
+        }
+    },
+    "sap.cloud": {
+        "public": true,
+        "service": "nscosapiactualizacionproveedor"
+    }
+}

@@ -1,0 +1,279 @@
+<core:FragmentDefinition
+	xmlns="sap.m"
+	xmlns:l="sap.ui.layout"
+	xmlns:f="sap.ui.layout.form"
+	xmlns:core="sap.ui.core">
+	<VBox >
+		<Panel width="auto" class="sapUiResponsiveMargin">
+			<f:Form id="FormCuentasBancarias" editable="false">
+				<f:title>
+				<core:Title text="{i18n>banco1}"/>
+				</f:title>
+				<f:layout>
+					<f:ResponsiveGridLayout
+                    labelSpanXL="3"
+                    labelSpanL="3"
+                    labelSpanM="3"
+                    labelSpanS="12"
+                    adjustLabelSpan="false"
+                    emptySpanXL="4"
+                    emptySpanL="4"
+                    emptySpanM="4"
+                    emptySpanS="0"
+                    columnsXL="1"
+                    columnsL="1"
+                    columnsM="1"
+                    singleContainerFullSize="false" />
+				</f:layout>
+				<f:formContainers>
+					<f:FormContainer>
+						<f:formElements>
+							<f:FormElement label="{i18n>nombrebanco}">
+								<f:fields>
+									<ComboBox id="cboNombreBanco" items="{
+										path: '/NombreBancos'
+									}"
+                                    selectedKey="{oProveedor>/CuentaBancaria/CuentasBancariasDetSet/0/Nombrebanco}"
+									required="true"
+									change="changeNombreBanco($event, 'cboMainMoneda')">
+										<core:Item key="{Banka}" text="{Banka}" />
+                                    </ComboBox>
+								</f:fields>
+							</f:FormElement>
+							<f:FormElement label="{i18n>moneda}">
+								<f:fields>
+									<ComboBox id="cboMainMoneda" items="{
+										path: '/Moneda'
+									}"
+                                    selectedKey="{oProveedor>/CuentaBancaria/CuentasBancariasDetSet/0/Moneda}"
+									required="true"
+									change="changeValueState">
+										<core:Item key="{Waers}" text="{Ltext}" />
+                                    </ComboBox>
+								</f:fields>
+							</f:FormElement>
+							<f:FormElement label="{i18n>titular}">
+								<f:fields>
+									<Input id="txtTitular" value="{oProveedor>/CuentaBancaria/CuentasBancariasDetSet/0/Titularnombre}" required="true" maxLength="50" change="changeValueState"/>
+								</f:fields>
+							</f:FormElement>
+							<f:FormElement label="{i18n>ruc}">
+								<f:fields>
+									<Input id="txtRuc" value="{oProveedor>/CuentaBancaria/CuentasBancariasDetSet/0/Rutnitruc}" required="true" maxLength="11" change="changeValueState"/>
+								</f:fields>
+							</f:FormElement>
+							<f:FormElement label="{i18n>tipocuenta}">
+								<f:fields>
+									<ComboBox id="cboMainTipoCuenta" items="{
+										path: '/TipoCuenta'
+									}"
+                                    selectedKey="{oProveedor>/CuentaBancaria/CuentasBancariasDetSet/0/Tipocuenta}"
+									required="true"
+									change="changeValueState">
+										<core:Item key="{Codigocuenta}" text="{Tipodecuenta}" />
+                                    </ComboBox>
+								</f:fields>
+							</f:FormElement>
+							<f:FormElement label="{i18n>numcuenta}">
+								<f:fields>
+									<Input id="txtNumCuenta" value="{oProveedor>/CuentaBancaria/CuentasBancariasDetSet/0/Numcuenta}" type="Text" required="true" maxLength="11" liveChange="changeOnlyNumber" change="changeValueState"/>
+								</f:fields>
+							</f:FormElement>
+							<f:FormElement label="{i18n>cci}">
+								<f:fields>
+									<Input id="txtCci" value="{oProveedor>/CuentaBancaria/CuentasBancariasDetSet/0/Cuentainterbancaria}" type="Text" required="true" maxLength="20" liveChange="changeOnlyNumber" change="changeValueState"/>
+								</f:fields>
+							</f:FormElement>
+							<f:FormElement label="{i18n>correopagos}">
+								<f:fields>
+									<Input id="txtCorreoPagos" value="{oProveedor>/CuentaBancaria/CuentasBancariasDetSet/0/Correopagos}" required="true" maxLength="40" change="onValidarFormatoCorreo"/>
+								</f:fields>
+							</f:FormElement>
+						</f:formElements>
+					</f:FormContainer>
+				</f:formContainers>
+			</f:Form>
+
+			<f:Form id="FormCuentasBancarias2" editable="false">
+				<f:title>
+				<core:Title text="{i18n>banco2}"/>
+				</f:title>
+				<f:layout>
+					<f:ResponsiveGridLayout
+                    labelSpanXL="3"
+                    labelSpanL="3"
+                    labelSpanM="3"
+                    labelSpanS="12"
+                    adjustLabelSpan="false"
+                    emptySpanXL="4"
+                    emptySpanL="4"
+                    emptySpanM="4"
+                    emptySpanS="0"
+                    columnsXL="1"
+                    columnsL="1"
+                    columnsM="1"
+                    singleContainerFullSize="false" />
+				</f:layout>
+				<f:formContainers>
+					<f:FormContainer>
+						<f:formElements>
+							<f:FormElement label="{i18n>nombrebanco}">
+								<f:fields>
+									<ComboBox id="cboNombreBanco2" items="{
+										path: '/NombreBancos'
+									}"
+                                    selectedKey="{oProveedor>/CuentaBancaria/CuentasBancariasDetSet/1/Nombrebanco}"
+									change="changeNombreBanco($event, 'cboMainMoneda2')">
+										<core:Item key="{Banka}" text="{Banka}" />
+                                    </ComboBox>
+								</f:fields>
+							</f:FormElement>
+							<f:FormElement label="{i18n>moneda}">
+								<f:fields>
+									<ComboBox id="cboMainMoneda2" items="{
+										path: '/Moneda'
+									}"
+                                    selectedKey="{oProveedor>/CuentaBancaria/CuentasBancariasDetSet/1/Moneda}"
+									change="changeValueState">
+										<core:Item key="{Waers}" text="{Ltext}" />
+                                    </ComboBox>
+								</f:fields>
+							</f:FormElement>
+							<f:FormElement label="{i18n>titular}">
+								<f:fields>
+									<Input id="txtTitular2" value="{oProveedor>/CuentaBancaria/CuentasBancariasDetSet/1/Titularnombre}" maxLength="50" change="changeValueState"/>
+								</f:fields>
+							</f:FormElement>
+							<f:FormElement label="{i18n>ruc}">
+								<f:fields>
+									<Input id="txtRuc2" value="{oProveedor>/CuentaBancaria/CuentasBancariasDetSet/1/Rutnitruc}" maxLength="11" change="changeValueState"/>
+								</f:fields>
+							</f:FormElement>
+							<f:FormElement label="{i18n>tipocuenta}">
+								<f:fields>
+									<ComboBox id="cboMainTipoCuenta2" items="{
+										path: '/TipoCuenta'
+									}"
+                                    selectedKey="{oProveedor>/CuentaBancaria/CuentasBancariasDetSet/1/Tipocuenta}"
+									change="changeValueState">
+										<core:Item key="{Codigocuenta}" text="{Tipodecuenta}" />
+                                    </ComboBox>
+								</f:fields>
+							</f:FormElement>
+							<f:FormElement label="{i18n>numcuenta}">
+								<f:fields>
+									<Input id="txtNumCuenta2" value="{oProveedor>/CuentaBancaria/CuentasBancariasDetSet/1/Numcuenta}" type="Text" maxLength="11" liveChange="changeOnlyNumber" change="changeValueState"/>
+								</f:fields>
+							</f:FormElement>
+							<f:FormElement label="{i18n>cci}">
+								<f:fields>
+									<Input id="txtCci2" value="{oProveedor>/CuentaBancaria/CuentasBancariasDetSet/1/Cuentainterbancaria}" type="Text" maxLength="20" liveChange="changeOnlyNumber" change="changeValueState"/>
+								</f:fields>
+							</f:FormElement>
+							<f:FormElement label="{i18n>correopagos}">
+								<f:fields>
+									<Input id="txtCorreoPagos2" value="{oProveedor>/CuentaBancaria/CuentasBancariasDetSet/1/Correopagos}" maxLength="40" change="onValidarFormatoCorreo"/>
+								</f:fields>
+							</f:FormElement>
+						</f:formElements>
+					</f:FormContainer>
+				</f:formContainers>
+			</f:Form>
+
+			<f:Form id="FormCuentasBancarias3" editable="false">
+				<f:title>
+				<core:Title text="{i18n>banco3}"/>
+				</f:title>
+				<f:layout>
+					<f:ResponsiveGridLayout
+                    labelSpanXL="3"
+                    labelSpanL="3"
+                    labelSpanM="3"
+                    labelSpanS="12"
+                    adjustLabelSpan="false"
+                    emptySpanXL="4"
+                    emptySpanL="4"
+                    emptySpanM="4"
+                    emptySpanS="0"
+                    columnsXL="1"
+                    columnsL="1"
+                    columnsM="1"
+                    singleContainerFullSize="false" />
+				</f:layout>
+				<f:formContainers>
+					<f:FormContainer>
+						<f:formElements>
+							<f:FormElement label="{i18n>nombrebanco}">
+								<f:fields>
+									<ComboBox id="cboNombreBanco3" items="{
+										path: '/NombreBancos'
+									}"
+                                    selectedKey="{oProveedor>/CuentaBancaria/CuentasBancariasDetSet/2/Nombrebanco}"
+									change="changeNombreBanco($event, 'cboMainMoneda3')">
+										<core:Item key="{Banka}" text="{Banka}" />
+                                    </ComboBox>
+								</f:fields>
+							</f:FormElement>
+							<f:FormElement label="{i18n>moneda}">
+								<f:fields>
+									<ComboBox id="cboMainMoneda3" items="{
+										path: '/Moneda'
+									}"
+                                    selectedKey="{oProveedor>/CuentaBancaria/CuentasBancariasDetSet/2/Moneda}"
+									change="changeValueState">
+										<core:Item key="{Waers}" text="{Ltext}" />
+                                    </ComboBox>
+								</f:fields>
+							</f:FormElement>
+							<f:FormElement label="{i18n>titular}">
+								<f:fields>
+									<Input id="txtTitular3" value="{oProveedor>/CuentaBancaria/CuentasBancariasDetSet/2/Titularnombre}" maxLength="50" change="changeValueState"/>
+								</f:fields>
+							</f:FormElement>
+							<f:FormElement label="{i18n>ruc}">
+								<f:fields>
+									<Input id="txtRuc3" value="{oProveedor>/CuentaBancaria/CuentasBancariasDetSet/2/Rutnitruc}" maxLength="11" change="changeValueState"/>
+								</f:fields>
+							</f:FormElement>
+							<f:FormElement label="{i18n>tipocuenta}">
+								<f:fields>
+									<ComboBox id="cboMainTipoCuenta3" items="{
+										path: '/TipoCuenta'
+									}"
+                                    selectedKey="{oProveedor>/CuentaBancaria/CuentasBancariasDetSet/2/Tipocuenta}"
+									change="changeValueState">
+										<core:Item key="{Codigocuenta}" text="{Tipodecuenta}" />
+                                    </ComboBox>
+								</f:fields>
+							</f:FormElement>
+							<f:FormElement label="{i18n>numcuenta}">
+								<f:fields>
+									<Input id="txtNumCuenta3" value="{oProveedor>/CuentaBancaria/CuentasBancariasDetSet/2/Numcuenta}" type="Text" maxLength="11" liveChange="changeOnlyNumber" change="changeValueState"/>
+								</f:fields>
+							</f:FormElement>
+							<f:FormElement label="{i18n>cci}">
+								<f:fields>
+									<Input id="txtCci3" value="{oProveedor>/CuentaBancaria/CuentasBancariasDetSet/2/Cuentainterbancaria}" type="Text" maxLength="20" liveChange="changeOnlyNumber" change="changeValueState"/>
+								</f:fields>
+							</f:FormElement>
+							<f:FormElement label="{i18n>correopagos}">
+								<f:fields>
+									<Input id="txtCorreoPagos3" value="{oProveedor>/CuentaBancaria/CuentasBancariasDetSet/2/Correopagos}" maxLength="40" change="onValidarFormatoCorreo"/>
+								</f:fields>
+							</f:FormElement>
+						</f:formElements>
+					</f:FormContainer>
+				</f:formContainers>
+			</f:Form>
+			
+			<FlexBox justifyContent="End">
+				<Button type="Accept"
+                        text="{i18n>grabaryseguir}"
+                        width="20em"
+                        press="onSaveCuentBancaria"
+						visible="{statusEdit>/btnBancariaEdit}"
+                        ariaDescribedBy="acceptButtonDescription genericButtonDescription"></Button>
+			</FlexBox>
+		</Panel>
+	</VBox>
+</core:FragmentDefinition>

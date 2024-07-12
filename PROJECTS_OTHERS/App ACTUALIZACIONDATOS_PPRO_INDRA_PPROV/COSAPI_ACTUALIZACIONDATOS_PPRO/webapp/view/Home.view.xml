@@ -1,0 +1,70 @@
+<mvc:View controllerName="ns.cosapi.actualizacionproveedor.controller.Home"
+xmlns:mvc="sap.ui.core.mvc" displayBlock="true"
+xmlns="sap.m" xmlns:core="sap.ui.core"
+xmlns:l="sap.ui.layout">
+<Page id="FormHome">
+ 	<content>
+    	<IconTabBar	
+		id="iconTabCabecera"
+		expanded="{device>/isNoPhone}"
+		class="sapUiResponsiveContentPadding"
+	    select="onSelectTabHome">
+		<items>
+		<!-- visible="{/oPaisProveedor}" -->
+			<IconTabFilter text="{i18n>datosgenerales}" key="DatoGeneral">
+				<core:Fragment fragmentName="ns.cosapi.actualizacionproveedor.fragment.DatosGenerales" type="XML" />
+			</IconTabFilter>
+
+			<IconTabFilter text="{i18n>contactocomercial}" key="ContactoComercial">
+				<core:Fragment fragmentName="ns.cosapi.actualizacionproveedor.fragment.ContactoComercial" type="XML" />
+			</IconTabFilter>
+
+			<IconTabFilter text="{i18n>ejecutivoempresa}" key="Ejecutivos">
+				<core:Fragment fragmentName="ns.cosapi.actualizacionproveedor.fragment.EjecutivoEmpresa" type="XML" />
+			</IconTabFilter>
+
+			<IconTabFilter text="{i18n>lineasnegocio}" key="LineaNegocio">
+				<core:Fragment fragmentName="ns.cosapi.actualizacionproveedor.fragment.LineasDeNegocio" type="XML" />
+			</IconTabFilter>
+
+			<IconTabFilter text="{i18n>lineaproductos}" key="LineaProducto">
+				<core:Fragment fragmentName="ns.cosapi.actualizacionproveedor.fragment.LineaDeProductos" type="XML" />
+			</IconTabFilter>
+
+			<IconTabFilter text="{i18n>informacioncontable}" key="InfoContable">
+				<core:Fragment fragmentName="ns.cosapi.actualizacionproveedor.fragment.InformacionContable" type="XML" />
+			</IconTabFilter>
+
+			<IconTabFilter text="{i18n>referenciafinanciera}" key="ReferenciaFinanciera">
+				<core:Fragment fragmentName="ns.cosapi.actualizacionproveedor.fragment.ReferenciasFinancieras" type="XML" />
+			</IconTabFilter>
+
+			<IconTabFilter text="{i18n>bancaria}" key="CuentaBancaria">
+			<!--<core:Fragment fragmentName="ns.cosapi.actualizacionproveedor.fragment.CuentasBancarias" type="XML" /> -->
+			<core:Fragment fragmentName="ns.cosapi.actualizacionproveedor.fragment.CuentasBancariasV2" type="XML" />  <!--+@INSERT - Nuevo Modelo -->
+			</IconTabFilter>
+			
+			<IconTabFilter text="{i18n>gestioncalidad}" key="SistemaCalidad" >
+				<core:Fragment fragmentName="ns.cosapi.actualizacionproveedor.fragment.GestionDeCalidad" type="XML" />
+			</IconTabFilter>
+			
+			<IconTabFilter text="{i18n>gestion}" key="SistemaGestion" >
+				<core:Fragment fragmentName="ns.cosapi.actualizacionproveedor.fragment.SistemaDeGestion" type="XML" />
+			</IconTabFilter>
+
+			<IconTabFilter text="{i18n>experiencia}" key="PrincipalCliente">
+				<core:Fragment fragmentName="ns.cosapi.actualizacionproveedor.fragment.PrincipalesClientes" type="XML" />
+			</IconTabFilter>
+
+			<IconTabFilter text="{i18n>documentacion}" key="Documentacion" >
+				<core:Fragment fragmentName="ns.cosapi.actualizacionproveedor.fragment.Documentos" type="XML" />
+			</IconTabFilter>
+			
+			<IconTabFilter text="{i18n>terminos}" key="Terminos">
+				<core:Fragment fragmentName="ns.cosapi.actualizacionproveedor.fragment.TerminosCondiciones" type="XML" />
+			</IconTabFilter>
+		</items>
+	</IconTabBar>
+	</content>
+ </Page>
+</mvc:View>

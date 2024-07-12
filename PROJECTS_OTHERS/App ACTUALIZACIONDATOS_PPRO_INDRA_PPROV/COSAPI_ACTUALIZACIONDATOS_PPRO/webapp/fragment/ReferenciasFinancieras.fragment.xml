@@ -1,0 +1,162 @@
+<core:FragmentDefinition
+	xmlns="sap.m"
+    xmlns:l="sap.ui.layout"
+    xmlns:f="sap.ui.layout.form"
+    xmlns:core="sap.ui.core">
+      <VBox>
+      <Panel width="auto" class="sapUiResponsiveMargin">
+    <HBox justifyContent="SpaceBetween" alignItems="Center">
+        <VBox>
+            <ObjectStatus text="{i18n>messageDocument7}" state="Error" />
+        </VBox>
+    </HBox>
+
+        <f:Form id="FormReferenciasFinancieras" editable="true" class="sapUiSmallMargiTop">
+
+            <f:layout>
+                <f:ResponsiveGridLayout
+                    labelSpanXL="3"
+                    labelSpanL="3"
+                    labelSpanM="3"
+                    labelSpanS="12"
+                    adjustLabelSpan="false"
+                    emptySpanXL="4"
+                    emptySpanL="4"
+                    emptySpanM="4"
+                    emptySpanS="0"
+                    columnsXL="1"
+                    columnsL="1"
+                    columnsM="1"
+                    singleContainerFullSize="false" />
+            </f:layout>
+            <f:formContainers>
+                    <f:FormContainer>
+                        <f:formElements>
+                            <f:FormElement label="{i18n>finanza}" visible="{= ${oPreRegistro>/Flagactivereferfinan} === 'X' ? true : false}">
+                                <f:fields>
+                                    <ComboBox id="cboMainFinanza" items="{
+                                            path: '/RefFinanciera'
+                                        }"
+                                        selectedKey="{oProveedor>/RefFinanciera/IdEnt}"
+                                        required="true"
+                                        editable="{userData>/editable}">
+										<core:Item key="{IdEnt}" text="{NombreEnt}" />
+                                    </ComboBox>
+                                </f:fields>
+                            </f:FormElement>
+                            <f:FormElement label="{i18n>finanza}" visible="{= ${oPreRegistro>/Flagactivereferfinan} === '' ? true : false}">
+                                <f:fields>
+                                    <Input id="txtNombreEntid" value="{oProveedor>/RefFinanciera/NombreEntLibre}" required="true" change="changeValueState" editable="{statusEdit>/edit}"/>
+                                </f:fields>
+                            </f:FormElement>
+                            <f:FormElement label="{i18n>nombresec}">
+                                <f:fields>
+                                    <Input id="txtNombresec" value="{oProveedor>/RefFinanciera/NombreSect}" required="true" change="changeValueState" editable="{statusEdit>/edit}"/>
+                                </f:fields>
+                            </f:FormElement>
+                             <f:FormElement label="{i18n>email1}">
+                                <f:fields>
+                                    <Input id="txtEmail1" value="{oProveedor>/RefFinanciera/EmailSec}" change="onValidarFormatoCorreo" editable="{statusEdit>/edit}"/>
+                                </f:fields>
+                            </f:FormElement>
+                            <f:FormElement label="{i18n>telefono10}">
+                                <f:fields>
+                                    <Input id="txtTelefono10" value="{oProveedor>/RefFinanciera/TelSec}" type="Number" change="changeValueState" editable="{statusEdit>/edit}"/>
+                                </f:fields>
+                            </f:FormElement>
+                            <f:FormElement label="{i18n>lineacredi}">
+                                <f:fields>
+                                    <RadioButtonGroup id="rbgLineacredi" columns="2" editable="{statusEdit>/edit}">
+                                        <RadioButton text="S/" selected="true"/>
+                                        <RadioButton text="USD" />
+                                    </RadioButtonGroup>
+                                </f:fields>                         
+                            </f:FormElement>
+                            <f:FormElement label="{i18n>monto1}">
+                                <f:fields>
+                                    <Input id="txtMonto1" value="{oProveedor>/RefFinanciera/Monto}" type="Text" maxLength="21" liveChange="changeValueNumber" change="changeValueState" editable="{statusEdit>/edit}" />
+                                </f:fields>
+                            </f:FormElement>
+                            <f:FormElement label="No Aplica">
+                                <f:fields>
+                                    <CheckBox id="NoAplicaCheckBox" text="{i18n>noaplica}" select="onNoAplica" editable="{statusEdit>/edit}"/> 
+                                </f:fields>
+                            </f:FormElement>
+                            
+                        </f:formElements>
+                    </f:FormContainer>                    
+                </f:formContainers>  
+            </f:Form>
+            <FlexBox justifyContent="End"
+                     class="sapUiTinyMarginBeginEnd">
+                <Button 
+                    id="btnAgregarRF"
+                    type="Accept"
+                    text="{i18n>agregar}"
+                    width="10em"
+                    press="onAddRefFinanciera"
+                    ariaDescribedBy="acceptButtonDescription genericButtonDescription" enabled="{statusEdit>/edit}">
+                </Button>
+            </FlexBox>
+
+            <Table id="tbListaRef" items="{ListaReferencias>/data}" mode="SingleSelectMaster">
+                <columns>
+                    <Column width="15rem" visible="{= ${oPreRegistro>/Flagactivereferfinan} === 'X' ? true : false}">
+                        <Text text="{i18n>finanza}"/>
+                    </Column>
+                    
+                    <Column width="15rem" visible="{= ${oPreRegistro>/Flagactivereferfinan} === '' ? true : false}">
+                        <Text text="{i18n>finanza}"/>
+                    </Column>
+
+                    <Column width="15rem">
+                        <Text text="{i18n>nombresec}"/>
+                    </Column>
+                    <Column width="15rem">
+                        <Text text="{i18n>email1}"/>
+                    </Column>
+                    <Column width="auto">
+                        <Text text="{i18n>telefono10}"/>
+                    </Column>
+                    <Column width="auto">
+                        <Text text="{i18n>lineacredi}"/>
+                    </Column>
+                    <Column width="auto">
+                        <Text text="{i18n>monto1}"/>
+                    </Column>
+                    <!-- <Column width="auto">
+                        <Text text="No Aplica"/>
+                    </Column> -->
+                    <Column width="4rem">
+                        <Text text=""/>
+                    </Column>
+                </columns>
+                <items>
+                    <ColumnListItem>
+                        <cells>
+                            <Text text="{ListaReferencias>NombreEnt}" visible="{= ${oPreRegistro>/Flagactivereferfinan} === 'X' ? true : false}"/>
+                            <Text text="{ListaReferencias>NombreEntLibre}" visible="{= ${oPreRegistro>/Flagactivereferfinan} === '' ? true : false}"/>
+
+                            <Text text="{ListaReferencias>NombreSect}"/>
+                            <Text text="{ListaReferencias>EmailSec}"/>
+                            <Text text="{ListaReferencias>TelSec}"/>
+                            <Text text="{ListaReferencias>LineaCredito}"/>
+                            <Text text="{ListaReferencias>Monto}"/>
+                            <!-- <Text text="{ListaReferencias>NoAplica}"/> -->
+                            <Button icon="sap-icon://delete" press="onDeleteRefFinanciera" enabled="{statusEdit>/edit}" />
+                        </cells>
+                    </ColumnListItem>
+                </items>
+            </Table>
+            
+            <FlexBox justifyContent="End">
+                <Button type="Accept"
+                text="{i18n>grabaryseguir}"
+                width="20em"
+                press="onSaveReferenciasFinancieras"
+                visible="{userData>/editable}"
+                ariaDescribedBy="acceptButtonDescription genericButtonDescription"></Button>
+                </FlexBox>
+            </Panel>       
+        </VBox>
+</core:FragmentDefinition>

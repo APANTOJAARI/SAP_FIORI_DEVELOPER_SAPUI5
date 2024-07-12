@@ -1,0 +1,382 @@
+<core:FragmentDefinition
+  xmlns="sap.m"
+  xmlns:l="sap.ui.layout"
+  xmlns:f="sap.ui.layout.form"
+  xmlns:core="sap.ui.core">
+  <!-- visible="{= ${oPreRegistro>/Land1} !== 'PE' }" -->
+  <VBox visible="false">
+    <Panel width="auto" class="sapUiResponsiveMargin">
+      <f:Form id="FormPrincipalesClientes" binding="{/PrincipalesClientes}"
+            editable="false">
+        <f:title>
+          <core:Title text="{i18n>cliente1}"/>
+        </f:title>
+        <f:layout>
+          <f:ResponsiveGridLayout
+                    labelSpanXL="3"
+                    labelSpanL="3"
+                    labelSpanM="3"
+                    labelSpanS="12"
+                    adjustLabelSpan="false"
+                    emptySpanXL="4"
+                    emptySpanL="4"
+                    emptySpanM="4"
+                    emptySpanS="0"
+                    columnsXL="1"
+                    columnsL="1"
+                    columnsM="1"
+                    singleContainerFullSize="false" />
+        </f:layout>
+        <f:formContainers>
+          <f:FormContainer>
+            <f:formElements>
+              <f:FormElement label="{i18n>n}">
+                <f:fields>
+                  <Input id="txtNifUno" value="{oProveedor>/Experiencia/ExpPrincClientesDetSet/0/Nif}" maxLength="60" required="true" change="changeValueState" editable="{statusEdit>/edit}"/>
+                </f:fields>
+              </f:FormElement>
+              <f:FormElement label="{i18n>rs}">
+                <f:fields>
+                  <Input id="txtRsUno" value="{oProveedor>/Experiencia/ExpPrincClientesDetSet/0/Razonsocial}" maxLength="50" required="true" change="changeValueState" editable="{statusEdit>/edit}"/>
+                </f:fields>
+              </f:FormElement>
+            </f:formElements>
+          </f:FormContainer>
+        </f:formContainers>
+      </f:Form>
+      <f:Form id="FormPrincipalesClientes2" editable="true" class="sapUiSmallMargiTop">
+        <f:title>
+          <core:Title text="{i18n>cliente2}"/>
+        </f:title>
+        <f:layout>
+          <f:ResponsiveGridLayout
+                    labelSpanXL="3"
+                    labelSpanL="3"
+                    labelSpanM="3"
+                    labelSpanS="12"
+                    adjustLabelSpan="false"
+                    emptySpanXL="4"
+                    emptySpanL="4"
+                    emptySpanM="4"
+                    emptySpanS="0"
+                    columnsXL="1"
+                    columnsL="1"
+                    columnsM="1"
+                    singleContainerFullSize="false" />
+        </f:layout>
+        <f:formContainers>
+          <f:FormContainer>
+            <f:formElements>
+              <f:FormElement label="{i18n>ni}">
+                <f:fields>
+                  <Input id="txtNi" value="{oProveedor>/Experiencia/ExpPrincClientesDetSet/1/Nif}" maxLength="60" editable="{statusEdit>/edit}"/>
+                </f:fields>
+              </f:FormElement>
+              <f:FormElement label="{i18n>razon}">
+                <f:fields>
+                  <Input id="txtRazon" value="{oProveedor>/Experiencia/ExpPrincClientesDetSet/1/Razonsocial}" maxLength="50" editable="{statusEdit>/edit}"/>
+                </f:fields>
+              </f:FormElement>
+            </f:formElements>
+          </f:FormContainer>
+        </f:formContainers>
+      </f:Form>
+      <f:Form id="FormPrincipalesClientes3" editable="true" class="sapUiSmallMargiTop">
+        <f:title>
+          <core:Title text="{i18n>cliente3}"/>
+        </f:title>
+        <f:layout>
+          <f:ResponsiveGridLayout
+                    labelSpanXL="3"
+                    labelSpanL="3"
+                    labelSpanM="3"
+                    labelSpanS="12"
+                    adjustLabelSpan="false"
+                    emptySpanXL="4"
+                    emptySpanL="4"
+                    emptySpanM="4"
+                    emptySpanS="0"
+                    columnsXL="1"
+                    columnsL="1"
+                    columnsM="1"
+                    singleContainerFullSize="false" />
+        </f:layout>
+        <f:formContainers>
+          <f:FormContainer>
+            <f:formElements>
+              <f:FormElement label="{i18n>nif1}">
+                <f:fields>
+                  <Input id="txtNif1" value="{oProveedor>/Experiencia/ExpPrincClientesDetSet/2/Nif}" maxLength="60"  editable="{statusEdit>/edit}"/>
+                </f:fields>
+              </f:FormElement>
+              <f:FormElement label="{i18n>razonsoc}">
+                <f:fields>
+                  <Input id="txtRazonsoc" value="{oProveedor>/Experiencia/ExpPrincClientesDetSet/2/Razonsocial}" maxLength="50"  editable="{statusEdit>/edit}"/>
+                </f:fields>
+              </f:FormElement>
+            </f:formElements>
+          </f:FormContainer>
+        </f:formContainers>
+      </f:Form>
+      <FlexBox justifyContent="End">
+        <Button type="Accept"
+                        text="{i18n>grabaryseguir}"
+                        width="20em"
+                        press="onSavePrinciCliente"
+						            visible="{userData>/editable}"
+                        ariaDescribedBy="acceptButtonDescription genericButtonDescription" enabled="{statusEdit>/edit}"></Button>
+      </FlexBox>
+    </Panel>
+  </VBox>
+
+  <VBox>
+    <Panel width="auto" class="sapUiResponsiveMargin">
+      <f:Form id="FormPrincipalClientePeru" editable="true">
+        <f:layout>
+          <f:ResponsiveGridLayout
+              labelSpanXL="4"
+              labelSpanL="4"
+              labelSpanM="4"
+              labelSpanS="12"
+              adjustLabelSpan="false"
+              emptySpanXL="2"
+              emptySpanL="2"
+              emptySpanM="2"
+              emptySpanS="0"
+              columnsXL="2"
+              columnsL="2"
+              columnsM="2"
+              singleContainerFullSize="false" />
+        </f:layout>
+        <f:formContainers>
+          <f:FormContainer>
+              <f:formElements>
+
+                  <f:FormElement label="{i18n>cliente}">
+                      <f:fields>
+                        <Input id="txtClientePCP" value="{oProveedor>/ExpClienteCab/Cliente}" required="true" change="changeValueState" editable="{statusEdit>/edit}"/>
+                      </f:fields>
+                  </f:FormElement>
+
+                  <f:FormElement label="{i18n>nombreproyecto}">
+                      <f:fields>
+                        <Input id="txtNombreProyectoPC" value="{oProveedor>/ExpClienteCab/Nombreproyecto}" required="true" change="changeValueState" editable="{statusEdit>/edit}"/>
+                      </f:fields>
+                  </f:FormElement>
+
+                  <f:FormElement label="{i18n>moneda}">
+                      <f:fields>
+                        <RadioButtonGroup id="rbgMonedaPeru" columns="2" editable="{statusEdit>/edit}">
+                            <RadioButton text="S/"/>
+                            <RadioButton text="USD" />
+                        </RadioButtonGroup>
+                      </f:fields>
+                  </f:FormElement>
+                  
+              </f:formElements>
+          </f:FormContainer>
+          <f:FormContainer>
+              <f:formElements>
+
+                  <f:FormElement label="{i18n>fechacontrato}" >
+                      <f:fields>
+                      <DatePicker
+                        value="{oProveedor>/ExpClienteCab/Fechacontrato}"
+                        displayFormat="dd.MM.yyyy"
+                        valueFormat="yyyyMMdd"
+                        change="changeValueState"
+                        required="true"
+                        editable="{statusEdit>/edit}"
+                        id="TxtFechaCont"/>
+                      </f:fields>
+                  </f:FormElement>
+
+                  <f:FormElement label="{i18n>numerocontrato}">
+                      <f:fields>
+                        <Input value="{oProveedor>/ExpClienteCab/Ncontratooc}" change="changeValueState" editable="{statusEdit>/edit}"/>
+                      </f:fields>
+                  </f:FormElement>
+
+                  <f:FormElement label="{i18n>montoventa}">
+                      <f:fields>
+                        <Input value="{oProveedor>/ExpClienteCab/Montoventa}" type="Text" maxLength="21" liveChange="changeValueNumber" change="changeValueState" editable="{statusEdit>/edit}"/>
+                      </f:fields>
+                  </f:FormElement>
+                  
+              </f:formElements>
+          </f:FormContainer>
+        </f:formContainers>  
+      </f:Form>
+
+      <f:Form id="FormPrincipalClientePeru2" editable="true">
+        <f:layout>
+          <f:ResponsiveGridLayout
+              labelSpanXL="2"
+              labelSpanL="2"
+              labelSpanM="2"
+              labelSpanS="12"
+              adjustLabelSpan="false"
+              emptySpanXL="1"
+              emptySpanL="1"
+              emptySpanM="1"
+              emptySpanS="0"
+              columnsXL="1"
+              columnsL="1"
+              columnsM="1"
+              singleContainerFullSize="false" />
+        </f:layout>
+        <f:formContainers>
+          <f:FormContainer>
+              <f:formElements>
+
+                  <f:FormElement label="{i18n>serviciovendido}">
+                      <f:fields>
+                        <Input id="txtServicioPC" value="{oProveedor>/ExpClienteCab/Prodservvendidos}" required="true" change="changeValueState" editable="{statusEdit>/edit}"/>
+                      </f:fields>
+                  </f:FormElement>
+
+              </f:formElements>
+          </f:FormContainer>
+        </f:formContainers>  
+      </f:Form>
+
+      <f:Form id="FormPrincipalClientePeru3" editable="true">
+        <f:layout>
+          <f:ResponsiveGridLayout
+              labelSpanXL="4"
+              labelSpanL="4"
+              labelSpanM="4"
+              labelSpanS="12"
+              adjustLabelSpan="false"
+              emptySpanXL="2"
+              emptySpanL="2"
+              emptySpanM="2"
+              emptySpanS="0"
+              columnsXL="2"
+              columnsL="2"
+              columnsM="2"
+              singleContainerFullSize="false" />
+        </f:layout>
+        <f:formContainers>
+          <f:FormContainer>
+              <f:formElements>
+
+                  <f:FormElement label="{i18n>contactocliente}">
+                      <f:fields>
+                        <Input id="txtContactoPC" value="{oProveedor>/ExpClienteCab/Contactocliente}" required="true" change="changeValueState" editable="{statusEdit>/edit}"/>
+                      </f:fields>
+                  </f:FormElement>
+
+                  <f:FormElement label="{i18n>email2}">
+                      <f:fields>
+                        <Input id="txtEmailPC" value="{oProveedor>/ExpClienteCab/Email}" required="true" change="onValidarFormatoCorreo" editable="{statusEdit>/edit}"/>
+                      </f:fields>
+                  </f:FormElement>
+                  
+              </f:formElements>
+          </f:FormContainer>
+          <f:FormContainer>
+              <f:formElements>
+
+                  <f:FormElement label="{i18n>cargo1}">
+                      <f:fields>
+                        <Input id="txtCargoPC" value="{oProveedor>/ExpClienteCab/Cargo}" required="true" change="changeValueState" editable="{statusEdit>/edit}"/>
+                      </f:fields>
+                  </f:FormElement>
+
+                  <f:FormElement label="{i18n>telefono}">
+                      <f:fields>
+                        <Input value="{oProveedor>/ExpClienteCab/Telefonoexp}" change="changeValueState" editable="{statusEdit>/edit}"/>
+                      </f:fields>
+                  </f:FormElement>
+                  
+              </f:formElements>
+          </f:FormContainer>
+        </f:formContainers>  
+      </f:Form>
+
+      <FlexBox justifyContent="End"
+                class="sapUiTinyMarginBeginEnd">
+          <Button 
+              id="btnAgregarPC"
+              type="Accept"
+              text="{i18n>agregar}"
+              width="10em"
+              press="onAddPrinClientePeru"
+              ariaDescribedBy="acceptButtonDescription genericButtonDescription" enabled="{statusEdit>/edit}">
+          </Button>
+      </FlexBox>
+
+      <Table id="tbListaPC" items="{ListaPrincClientes>/data}" mode="SingleSelectMaster">
+          <columns>
+              <Column>
+            <Text text="{i18n>pccliente}"/>
+          </Column>
+          <Column>
+            <Text text="{i18n>pcfechs}"/>
+          </Column>
+          <Column>
+            <Text text="{i18n>pcproyecto}"/>
+          </Column>
+          <Column>
+            <Text text="{i18n>pccontrato}"/>
+          </Column>
+          <Column>
+            <Text text="{i18n>pcmonto}"/>
+          </Column>
+          <Column>
+            <Text text="{i18n>pcmontoventa}"/>
+          </Column>
+          <Column>
+            <Text text="{i18n>pcproducto}"/>
+          </Column>
+          <Column>
+            <Text text="{i18n>pccontactocli}"/>
+          </Column>
+          <Column>
+            <Text text="{i18n>pccargo}"/>
+          </Column>
+          <Column>
+            <Text text="{i18n>pcemail}"/>
+          </Column>
+          <Column>
+            <Text text="{i18n>pcetelefono}"/>
+          </Column>
+          <Column>
+            <Text text="{i18n>pcaccion}"/>
+          </Column>
+          </columns>
+          <items>
+              <ColumnListItem>
+                  <cells>
+                      <Text text="{ListaPrincClientes>Cliente}"/>
+                      <Text text="{ListaPrincClientes>Fechacontrato}"/>
+                      <Text text="{ListaPrincClientes>Nombreproyecto}"/>
+                      <Text text="{ListaPrincClientes>Ncontratooc}"/>
+                      <Text text="{ 
+                          parts: [{path: 'ListaPrincClientes>Monedaso'}, {path: 'ListaPrincClientes>Monedado'}],
+                          formatter: '.formatoMoneda'
+                      }" />
+                      <Text text="{ListaPrincClientes>Montoventa}"/>
+                      <Text text="{ListaPrincClientes>Prodservvendidos}"/>
+                      <Text text="{ListaPrincClientes>Contactocliente}"/>
+                      <Text text="{ListaPrincClientes>Cargo}"/>
+                      <Text text="{ListaPrincClientes>Email}"/>
+                      <Text text="{ListaPrincClientes>Telefonoexp}"/>
+                      <Button icon="sap-icon://delete" press="onDeleteItemPrinCliente" enabled="{statusEdit>/edit}" />
+                  </cells>
+              </ColumnListItem>
+          </items>
+      </Table>
+          
+      <FlexBox justifyContent="End">
+          <Button type="Accept"
+          text="{i18n>grabaryseguir}"
+          width="20em"
+          press="onSavePrinClientePeru"
+          visible="{userData>/editable}"
+          ariaDescribedBy="acceptButtonDescription genericButtonDescription"></Button>
+          </FlexBox>
+    </Panel>       
+  </VBox>
+</core:FragmentDefinition>  

@@ -1,0 +1,109 @@
+<core:FragmentDefinition
+	xmlns="sap.m"
+	xmlns:l="sap.ui.layout"
+	xmlns:f="sap.ui.layout.form"
+	xmlns:core="sap.ui.core">
+	<VBox >
+		<Panel width="auto" class="sapUiResponsiveMargin">
+			<f:Form id="FormLineasDeNegocio" binding="{/LineasDeNegocio}"
+            editable="false">
+				<f:title>
+					<core:Title text="{i18n>lineas}"/>
+				</f:title>
+				<f:layout>
+					<f:ResponsiveGridLayout
+                    labelSpanXL="3"
+                    labelSpanL="3"
+                    labelSpanM="3"
+                    labelSpanS="12"
+                    adjustLabelSpan="false"
+                    emptySpanXL="4"
+                    emptySpanL="4"
+                    emptySpanM="4"
+                    emptySpanS="0"
+                    columnsXL="1"
+                    columnsL="1"
+                    columnsM="1"
+                    singleContainerFullSize="false" />
+				</f:layout>
+				<f:formContainers>
+					<f:FormContainer>
+						<f:formElements>
+							<f:FormElement label="{i18n>grupos}">
+								<f:fields>
+									<ComboBox id="cboMainGrupos" items="{
+										path: '/Grupos'
+									}"
+                                    selectedKey="{oProveedor>/LineaNegocio/Matkl}"
+									required="true"
+                                    editable="{statusEdit>/edit}"
+									change="changeValueGrupo">
+										<core:Item key="{Matkl}" text="{Wgbez60}" />
+                                    </ComboBox>
+								</f:fields>
+							</f:FormElement>
+							<f:FormElement label="{i18n>categorias}">
+								<f:fields>
+									<ComboBox id="cboMainCategorias" items="{
+										path: '/Categorias'
+									}"
+                                    selectedKey="{oProveedor>/LineaNegocio/Bklas}"
+									required="true"
+                                    editable="{statusEdit>/edit}"
+									change="changeValueState">
+										<core:Item key="{Bklas}" text="{Bkbez}" />
+                                    </ComboBox>
+								</f:fields>
+							</f:FormElement>
+						</f:formElements>
+					</f:FormContainer>
+				</f:formContainers>
+			</f:Form>
+
+			<FlexBox justifyContent="End"
+                     class="sapUiTinyMarginBeginEnd">
+                <Button 
+                    type="Accept"
+                    text="{i18n>agregar}"
+                    width="10em"
+                    press="onAddLineaNegocio"
+                    ariaDescribedBy="acceptButtonDescription genericButtonDescription"
+                    id="BtnAddLineNegocio" enabled="{statusEdit>/edit}">
+                </Button>
+            </FlexBox>
+
+			<Table id="tbListaLinNeg" items="{ListaLinNegocio>/data}" mode="SingleSelectMaster">
+                <columns>
+                    <Column width="auto">
+                        <Text text="{i18n>grupos}"/>
+                    </Column>
+                    <Column width="auto">
+                        <Text text="{i18n>categorias}"/>
+                    </Column>
+					<Column hAlign="Center" width="10rem">
+                        <Text text=""/>
+                    </Column>
+                </columns>
+                <items>
+                    <ColumnListItem>
+                        <cells>
+                            <Text text="{ListaLinNegocio>Wgbez60}"/>
+                            <Text text="{ListaLinNegocio>Bkbez}"/>
+                            <Button icon="sap-icon://delete" press="onDeleteLineaNegocio" enabled="{statusEdit>/edit}"/>
+                        </cells>
+                    </ColumnListItem>
+                </items>
+            </Table>
+
+			<FlexBox justifyContent="End">
+				<Button type="Accept"
+                        text="{i18n>grabaryseguir}"
+                        width="20em"
+                        press="onSaveLineasNegocio"
+						visible="{userData>/editable}"
+                        ariaDescribedBy="acceptButtonDescription genericButtonDescription"
+                        id="BtnSaveLineNegocio"></Button>
+			</FlexBox>
+		</Panel>
+	</VBox>
+</core:FragmentDefinition>

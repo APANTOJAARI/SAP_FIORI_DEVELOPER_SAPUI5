@@ -1,0 +1,57 @@
+<core:FragmentDefinition
+    xmlns:mvc="sap.ui.core.mvc"
+    xmlns="sap.m"
+    xmlns:core="sap.ui.core">
+    <HBox justifyContent="SpaceBetween" alignItems="Center">
+        <VBox>
+            <ObjectStatus text="{i18n>messageDocument1}" state="Error" />
+            <ObjectStatus text="• {i18n>messageDocument2}" state="Error" />
+            <ObjectStatus text="• {i18n>messageDocument3}" state="Error" />
+            <ObjectStatus text="  {i18n>messageDocument3_1}" state="Error" />
+            <ObjectStatus text="• {i18n>messageDocument4}" state="Error" />
+        </VBox>
+        <Button text="{i18n>continuar}" press="onContinueDocument" type="Accept" width="200px" enabled="{statusEdit>/edit}"/>
+    </HBox>
+    <VBox>
+        <Panel expandable="true" headerText="{i18n>document1}" width="auto">
+            <content>
+                <core:Fragment fragmentName="ns.cosapi.actualizacionproveedor.fragment.Documentos.Brochure" type="XML" />
+            </content>
+        </Panel>
+        <Panel expandable="true" headerText="{i18n>document2}" width="auto">
+            <content>
+                <core:Fragment fragmentName="ns.cosapi.actualizacionproveedor.fragment.Documentos.BalanceGeneral" type="XML" />
+            </content>
+        </Panel>
+        <Panel expandable="true" headerText="{i18n>document3}" width="auto">
+            <content>
+                <core:Fragment fragmentName="ns.cosapi.actualizacionproveedor.fragment.Documentos.EstadoPerGanan" type="XML" />
+            </content>
+        </Panel>
+        <Panel expandable="true" headerText="{i18n>document4}" width="auto">
+            <content>
+                <core:Fragment fragmentName="ns.cosapi.actualizacionproveedor.fragment.Documentos.CertifCarpetTributaria" type="XML" />
+            </content>
+        </Panel>
+        <Panel expandable="true" headerText="{i18n>document5}" width="auto">
+            <content>
+                <core:Fragment fragmentName="ns.cosapi.actualizacionproveedor.fragment.Documentos.CopCelIdentRepLeg" type="XML" />
+            </content>
+        </Panel>
+        <Panel expandable="true" headerText="{i18n>document6}" width="auto">
+            <content>
+                <core:Fragment fragmentName="ns.cosapi.actualizacionproveedor.fragment.Documentos.CertifCuentCorrentBanco" type="XML" />
+            </content>
+        </Panel>
+        <Panel expandable="true" headerText="{i18n>document7}" width="auto">
+            <content>
+                <core:Fragment fragmentName="ns.cosapi.actualizacionproveedor.fragment.Documentos.CertifISO" type="XML" />
+            </content>
+        </Panel>
+    </VBox>
+        <HBox justifyContent="SpaceBetween" alignItems="Center">
+        <VBox>
+            <ObjectStatus text="{i18n>messageDocument5}" state="Error" />
+        </VBox>
+    </HBox>
+</core:FragmentDefinition>

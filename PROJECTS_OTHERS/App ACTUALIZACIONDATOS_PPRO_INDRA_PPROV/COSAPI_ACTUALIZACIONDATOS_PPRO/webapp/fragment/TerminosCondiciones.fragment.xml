@@ -1,0 +1,107 @@
+<core:FragmentDefinition
+    xmlns="sap.m"
+    xmlns:l="sap.ui.layout"
+    xmlns:f="sap.ui.layout.form"
+    xmlns:core="sap.ui.core"
+    xmlns:u="sap.ui.unified">
+    <FlexBox direction="Column" renderType="Div" class="sapUiSmallMargin">
+
+        <FlexBox alignItems="Center" justifyContent="{= ${device>/system/phone} ? 'SpaceBetween' : 'Start'}" direction="{= ${device>/system/phone} ? 'Column' : 'Row'}">
+            <Label text="{i18n>pregunta8}" textAlign="Center" design="Bold" wrapping="true" class="sapUiTinyMarginTop sapUiSmallMarginEnd"/>
+            <Select id="slSucursal" items="{
+                path: '/Sucursal'}" width="250px" editable="false"
+                selectedKey="{oPreRegistro>/Ejecutarsucursalcosapi}">
+                <core:Item key="{Sucursalescosapi}" text="{Descripcionsucursal}" />
+            </Select>
+        </FlexBox>
+        <!-- <FlexBox alignItems="Center" justifyContent="{= ${device>/system/phone} ? 'SpaceBetween' : 'Start'}" direction="{= ${device>/system/phone} ? 'Column' : 'Row'}">
+            <Label text="{i18n>tipopersona}" textAlign="Center" design="Bold" wrapping="true" class="sapUiTinyMarginTop sapUiSmallMarginEnd"/>
+            <Select id="slTipoPresona">
+                <core:Item key="1" text="{i18n>natural}" />
+                <core:Item key="2" text="{i18n>juridica}" />
+            </Select>
+        </FlexBox> -->
+        
+            
+
+        <PDFViewer source="{DMS>/SourceData/0/url}" isTrustedSource="true" title="{DMS>/Title}" height="{DMS>/Height}"
+                   errorPlaceholderMessage="{i18n>messageErrorPdf}">
+            <layoutData>
+                <FlexItemData growFactor="1" />
+            </layoutData>
+        </PDFViewer>
+
+        <FlexBox alignItems="Center">
+            <RadioButton id="rbAcceptTerminos" valueState="Information" editable="{statusEdit>/modifTabSgyTc}"/>
+            <!-- <Label design="Bold" wrapping="true" textAlign="Center"
+                text="Acepto términos y condiciones de registro así como todas las políticas y lineamientos de Cosapi S.A., sus empresas vinculadas subsidiarias, sucursales y/o aquellas que formen parte del grupo económico."/> -->
+
+            <Title
+                wrapping="true"
+                textAlign="Center"
+                class="sapUiSmallMarginTop"
+                text="{i18n>pregunta9}" />
+        </FlexBox>
+
+        <FlexBox alignItems="Center" justifyContent="SpaceBetween" direction="{= ${device>/system/phone} ? 'Column' : 'Row'}">
+            <VBox >
+                <ObjectStatus
+                    class="sapUiSmallMarginBottom"
+                    text="Seleccionar si es Persona Natural o Persona Jurídica"
+                    state="Error"
+                    wrapping="true" />
+                <Select id="slTipoPresona" width="250px" editable="{statusEdit>/modifTabSgyTc}">
+                    <core:Item key="0" text="{i18n>selectPersona}" />
+                    <core:Item key="1" text="{i18n>natural}" />
+                    <core:Item key="2" text="{i18n>juridica}" />
+                </Select>
+            </VBox>
+            
+
+            <u:FileUploader
+                id="fuSubirArchivo"
+                name="myFileUpload"
+                uploadUrl="upload/"
+                tooltip="{i18n>subirdoc}"
+                uploadComplete="handleUploadComplete"
+                change="onSubirDocumento($event, '/termino', 'X')"
+                typeMissmatch="handleTypeMissmatch"
+                style="Emphasized"
+                buttonOnly="true"
+                icon="sap-icon://upload-to-cloud"
+                fileType="pdf,docx,xlsx,zip"
+                width="250px"
+                buttonText="{i18n>subirdoc}"
+                placeholder=""
+                enabled="{statusEdit>/modifTabSgyTc}">
+                <u:parameters>
+                    <u:FileUploaderParameter
+                        name="param1"
+                        value="Foo"/>
+                    <u:FileUploaderParameter
+                        name="param2"
+                        value="bar"/>
+                </u:parameters>
+                <u:headerParameters>
+                    <u:FileUploaderParameter
+                        name="headerParam1"
+                        value="Foo"/>
+                    <u:FileUploaderParameter
+                        name="headerParam2"
+                        value="bar"/>
+                </u:headerParameters>
+            </u:FileUploader>
+            
+            <HBox  width="22.5%"></HBox>
+		</FlexBox>
+
+        <FlexBox alignItems="Center" justifyContent="SpaceBetween" direction="{= ${device>/system/phone} ? 'Column' : 'Row'}">
+            <Button text="{i18n>descargar}" type="Default" press="onDescargarDocAcept" width="250px" icon="sap-icon://download" enabled="{statusEdit>/modifTabSgyTc}"/>
+
+			<Button text="{i18n>verarchivos}" type="Default" press="onDescargaFileUser" width="250px" icon="sap-icon://download" enabled="{statusEdit>/modifTabSgyTc}"/>
+
+            <Button id="btnEnviar" text="{i18n>finalizar}" press="onSaveDocumentTerminos" width="250px" icon="sap-icon://save" type="Success" enabled="{statusEdit>/modifTabSgyTc}"/>
+		</FlexBox>
+
+    </FlexBox>
+</core:FragmentDefinition>

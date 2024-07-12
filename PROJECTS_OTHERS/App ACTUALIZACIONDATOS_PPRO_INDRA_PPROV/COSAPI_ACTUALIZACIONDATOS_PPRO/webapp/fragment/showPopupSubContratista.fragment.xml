@@ -1,0 +1,72 @@
+<core:FragmentDefinition 
+	xmlns:layout="sap.ui.layout"
+	xmlns="sap.m"
+	xmlns:f="sap.ui.layout.form"
+	xmlns:mvc="sap.ui.core.mvc"
+	xmlns:core="sap.ui.core">
+	
+	<Dialog
+		type="Message"
+		state="Information"
+		id="mainDialog"
+		title="{i18n>tituloSub}"
+		contentWidth="600px">
+	<content>
+
+	<VBox class="sapUiSmallMargin">
+		<f:SimpleForm id="SimpleFormSubcont"
+			editable="true"
+			layout="ColumnLayout"
+			labelSpanXL="4"
+			labelSpanL="3"
+			labelSpanM="4"
+			labelSpanS="12"
+			adjustLabelSpan="false"
+			emptySpanXL="0"
+			emptySpanL="4"
+			emptySpanM="0"
+			emptySpanS="0"
+			columnsXL="2"
+			columnsL="1"
+			columnsM="1"
+			singleContainerFullSize="false">
+			<f:content>
+				<Label text="{i18n>Subcon}" />
+				<Input id="FragPaisSub" required="true" value="{oPreRegistro>/Land1des}" width="450px" editable="false"/>
+
+				<Label text="{i18n>Subcon2}" />
+				<Input id="FragMontoSubs" required="true" description="{i18n>Subcon3}" value="{oPreRegistro>/MontoPasarelaPago}" width="450px"
+					   maxLength="21" liveChange="changeValueNumber"/>
+			</f:content>
+		</f:SimpleForm>
+	</VBox>
+
+
+	<layout:VerticalLayout>
+		<Text text="{i18n>bodyMessageSub}"/>
+		<Text text="{i18n>bodyMessageSub2}"/>
+		<Text text=""/>
+		<Text text="{i18n>bodyMessageSub3}"/>
+		<Text text=""/>
+		<FlexBox alignItems="Start" justifyContent="Center" >
+			<Link text="{i18n>bodyMessageSub4}" target="_blank" press=".onPressLink"/>
+		</FlexBox>
+		<Text text="{i18n>bodyMessageSub5}"/>
+		<Text text="{oPreRegistro>/NombreContacSpt}"/>
+		<Text text="{oPreRegistro>/CelularContacSpt}"/>
+		<Link text="{oPreRegistro>/CorreoContacSpt}"/>
+
+	</layout:VerticalLayout>
+	</content>
+		<footer>
+			<OverflowToolbar>
+				<ToolbarSpacer/>
+				<Button text="{i18n>AceptarSubs}" type="Emphasized" press="onCloseAceptSubcont"/>
+				<!--
+				<Button text="{i18n>AceptarSubs}" type="Accept" press="onCloseAceptSubcont" icon="sap-icon://accept" />
+				<Button type="Reject" text="{i18n>CancelSubs}" press="onCloseDialogSubcont" icon="sap-icon://decline"/>
+				-->
+			</OverflowToolbar>
+		</footer>
+	</Dialog>
+</core:FragmentDefinition>

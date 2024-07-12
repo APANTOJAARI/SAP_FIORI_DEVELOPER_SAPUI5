@@ -1,0 +1,709 @@
+<core:FragmentDefinition
+    xmlns="sap.m"
+    xmlns:l="sap.ui.layout"
+    xmlns:f="sap.ui.layout.form"
+    xmlns:core="sap.ui.core"
+    xmlns:u="sap.ui.unified"
+>
+    <VBox class="sapUiSmallMargin">
+        <Panel
+            width="auto"
+            headerText="{i18n>titleSistemaSeg}"
+        >
+        <Text text="{i18n>indicSiCta}"/>
+            <!-- <FlexBox
+				class="sapUiTinyMarginBeginEnd"
+				alignItems="Center"
+				justifyContent="Start">
+				<Text                        
+					renderWhitespace="true"
+					text="{i18n>registroseguridad}"/>
+				<RadioButtonGroup id="SiCheckBox" valueState="Information" selectedIndex="-1"
+					class="sapUiSmallMarginEnd">
+					<RadioButton text="{i18n>si}" />
+					<RadioButton text="{i18n>no}" />
+				</RadioButtonGroup>
+			</FlexBox> -->
+
+            <f:Form
+                id="FormSistemaSeguridad"
+                editable="false"
+            >
+                <f:layout>
+                    <f:ResponsiveGridLayout
+                        labelSpanXL="4"
+                        labelSpanL="4"
+                        labelSpanM="4"
+                        labelSpanS="12"
+                        adjustLabelSpan="false"
+                        emptySpanXL="4"
+                        emptySpanL="4"
+                        emptySpanM="4"
+                        emptySpanS="0"
+                        columnsXL="1"
+                        columnsL="1"
+                        columnsM="1"
+                        singleContainerFullSize="false"
+                    />
+                </f:layout>
+                <f:formContainers>
+                    <f:FormContainer>
+                        <f:formElements>
+                            <f:FormElement >
+                                <f:fields>
+                                    <RadioButtonGroup
+                                        id="rbgPregunta1SS"
+                                        columns="2"
+                                        selectedIndex="-1" editable="{statusEdit>/edit}" >
+                                        <RadioButton text="{i18n>si}" />
+                                        <RadioButton text="{i18n>no}" />
+                                    </RadioButtonGroup>
+                                </f:fields>
+                                <f:label>
+                                    <Label
+                                        text="{i18n>pregunt1SS}"
+                                        id="lblPregunta1SS"
+                                    />
+                                </f:label>
+                            </f:FormElement>
+
+                            <f:FormElement>
+                                <f:fields>
+                                    <RadioButtonGroup
+                                        id="rbgPregunta2SS"
+                                        columns="2"
+                                        selectedIndex="-1" editable="{statusEdit>/edit}"
+                                    >
+                                        <RadioButton text="{i18n>si}" />
+                                        <RadioButton text="{i18n>no}" />
+                                    </RadioButtonGroup>
+                                </f:fields>
+                                <f:label>
+                                    <Label
+                                        text="{i18n>pregunt2SS}"
+                                        id="lblPregunta2SS"
+                                    />
+                                </f:label>
+                            </f:FormElement>
+
+                            <f:FormElement>
+                                <f:fields>
+                                    <RadioButtonGroup
+                                        id="rbgPregunta3SS"
+                                        columns="2"
+                                        selectedIndex="-1"
+                                        editable="{statusEdit>/edit}"
+                                        select="onSelectSS($event, 'hbAdjunto')"
+                                    >
+                                        <RadioButton text="{i18n>si}" />
+                                        <RadioButton text="{i18n>no}" />
+                                    </RadioButtonGroup>
+                                    <HBox
+                                        width="100%"
+                                        id="hbAdjunto"
+                                    >
+                                        <u:FileUploader
+                                            id="fuSubirArchivoSS3"
+                                            name="myFileUpload"
+                                            uploadUrl="upload/"
+                                            tooltip="{i18n>upload}"
+                                            uploadComplete="handleUploadComplete"
+                                            change="onSubirDocumento($event, '/sistema', 'X')"
+                                            typeMissmatch="handleTypeMissmatch"
+                                            style="Emphasized"
+                                            buttonOnly="true"
+                                            icon="sap-icon://upload-to-cloud"
+                                            fileType="pdf,docx,xlsx,zip"
+                                            buttonText="{i18n>upload}"
+                                            placeholder=""
+                                            enabled="{statusEdit>/edit}"
+                                        >
+                                            <u:parameters>
+                                                <u:FileUploaderParameter
+                                                    name="param1"
+                                                    value="Foo"
+                                                />
+                                                <u:FileUploaderParameter
+                                                    name="param2"
+                                                    value="bar"
+                                                />
+                                            </u:parameters>
+                                            <u:headerParameters>
+                                                <u:FileUploaderParameter
+                                                    name="headerParam1"
+                                                    value="Foo"
+                                                />
+                                                <u:FileUploaderParameter
+                                                    name="headerParam2"
+                                                    value="bar"
+                                                />
+                                            </u:headerParameters>
+                                        </u:FileUploader>
+                                        <Button
+                                            text="{i18n>download}"
+                                            press="onVerSisSeguridadFile"
+                                            class="sapUiTinyMarginBegin"
+                                            enabled="{statusEdit>/edit}"
+                                        />
+
+                                        <layoutData>
+                                            <l:GridData span="XL1 L3 M3 S4" />
+                                        </layoutData>
+                                    </HBox>
+                                </f:fields>
+                                <f:label>
+                                    <Label
+                                        text="{i18n>pregunt3SS}"
+                                        id="lblPregunta3SS"
+                                    />
+                                </f:label>
+                            </f:FormElement>
+
+                            <!-- <f:FormElement>
+								<f:fields>
+									<RadioButtonGroup id="rbgPregunta4SS" columns="2" selectedIndex="-1">
+										<RadioButton text="{i18n>si}"/>
+										<RadioButton text="{i18n>no}" />
+									</RadioButtonGroup>
+								</f:fields>
+                                <f:label>
+                                    <Label text="{i18n>pregunt4SS}" id="lblPregunta4SS"/>
+                                </f:label>
+							</f:FormElement> -->
+
+                            <!-- <f:FormElement label="{i18n>pregunt4SSS}" visible="false" id="txtPregunta4SS">
+								<f:fields>
+                                    <Input id="txtPregunta4SS1" value="{oProveedor>/SistemaSeguridad/IndiceAnio1}" type="Text" change="changeValueState">
+										<layoutData>
+											<l:GridData span="XL1 L2 M2 S4" />
+										</layoutData>
+									</Input>
+									<Input id="txtPregunta4SS2" value="{oProveedor>/SistemaSeguridad/IndiceAnio2}" type="Text" change="changeValueState">
+										<layoutData>
+											<l:GridData span="XL1 L2 M2 S4" />
+										</layoutData>
+									</Input>
+									<Input id="txtPregunta4SS3" value="{oProveedor>/SistemaSeguridad/IndiceAnio3}" type="Text" change="changeValueState">
+										<layoutData>
+											<l:GridData span="XL1 L2 M2 S4" />
+										</layoutData>
+									</Input>
+								</f:fields>
+                                <f:label>
+                                    <Label text="{i18n>pregunt4SSS}" id="lblPregunta4SSS"/>
+                                </f:label>
+							</f:FormElement> -->
+
+                            <f:FormElement label="{i18n>pregunt5SS}" visible="false">
+                                <f:fields>
+                                    <RadioButtonGroup
+                                        id="rbgPregunta5SS"
+                                        columns="2"
+                                        selectedIndex="-1" editable="false"
+                                    >
+                                        <RadioButton text="{i18n>si}" />
+                                        <RadioButton text="{i18n>no}" />
+                                    </RadioButtonGroup>
+                                </f:fields>
+                                <f:label>
+                                    <Label
+                                        text="{i18n>pregunt5SS}"
+                                        id="lblPregunta5SSS"
+                                    />
+                                </f:label>
+                            </f:FormElement>
+
+                            <f:FormElement label="{i18n>pregunt6SS}" visible="false">
+                                <f:fields>
+                                    <RadioButtonGroup
+                                        id="rbgPregunta6SS"
+                                        columns="2"
+                                        selectedIndex="-1" editable="false"
+                                    >
+                                        <RadioButton text="{i18n>si}" />
+                                        <RadioButton text="{i18n>no}" />
+                                    </RadioButtonGroup>
+                                </f:fields>
+                                <f:label>
+                                    <Label
+                                        text="{i18n>pregunt6SS}"
+                                        id="lblPregunta6SSS"
+                                    />
+                                </f:label>
+                            </f:FormElement>
+
+                            <!-- <f:FormElement>
+								<f:fields>
+									<RadioButtonGroup id="rbgPregunta7SS" columns="2" selectedIndex="-1" select="onSelectSS($event, 'hbAdjunto7SS')">
+										<RadioButton text="{i18n>si}" />
+										<RadioButton text="{i18n>no}" />
+									</RadioButtonGroup>
+									<HBox width="100%" id="hbAdjunto7SS">
+										<u:FileUploader
+											id="fuSubirArchivoSS7"
+											name="myFileUpload"
+											uploadUrl="upload/"
+											tooltip="{i18n>upload}"
+											uploadComplete="handleUploadComplete"
+											change="onSubirDocumento($event, '/sistema', 'X')"
+											typeMissmatch="handleTypeMissmatch"
+											style="Emphasized"
+											buttonOnly="true"
+											icon="sap-icon://upload-to-cloud"
+											fileType="pdf,docx,xlsx,zip"
+											buttonText="{i18n>upload}"
+											placeholder="">
+											<u:parameters>
+												<u:FileUploaderParameter
+													name="param1"
+													value="Foo"/>
+												<u:FileUploaderParameter
+													name="param2"
+													value="bar"/>
+											</u:parameters>
+											<u:headerParameters>
+												<u:FileUploaderParameter
+													name="headerParam1"
+													value="Foo"/>
+												<u:FileUploaderParameter
+													name="headerParam2"
+													value="bar"/>
+											</u:headerParameters>
+										</u:FileUploader>
+										<Button text="{i18n>download}" press="onVerSisSeguridadFile" class="sapUiTinyMarginBegin"/>
+
+										<layoutData>
+											<l:GridData span="XL1 L3 M3 S4" />
+										</layoutData>
+									</HBox>
+                                    
+								</f:fields>
+                                <f:label>
+                                    <Label id="lblCuentaPlan" text="{i18n>cuentaplanes}" class="sapUiSmallMarginEnd"/>
+                                </f:label>
+							</f:FormElement> -->
+                        </f:formElements>
+                    </f:FormContainer>
+                </f:formContainers>
+            </f:Form>
+
+            <f:Form
+                id="FormChange354"
+                editable="true"
+            >
+                <f:title>
+                    <core:Title text="{i18n>cuentaplanes}" />
+                </f:title>
+                <f:layout>
+                    <f:ResponsiveGridLayout
+                        labelSpanXL="4"
+                        labelSpanL="4"
+                        labelSpanM="4"
+                        labelSpanS="12"
+                        adjustLabelSpan="false"
+                        emptySpanXL="4"
+                        emptySpanL="4"
+                        emptySpanM="4"
+                        emptySpanS="0"
+                        columnsXL="1"
+                        columnsL="1"
+                        columnsM="1"
+                        singleContainerFullSize="false"
+                    />
+                </f:layout>
+                <f:formContainers>
+                    <f:FormContainer>
+                        <f:formElements>
+                            <f:FormElement label="{i18n>ccplanes1}">
+                                <f:fields>
+                                    <RadioButtonGroup
+                                        id="rbgPregunta1CC"
+                                        columns="2"
+                                        selectedIndex="-1"
+                                        select="onSelectRBAlgunPlanes" editable="{statusEdit>/edit}"
+                                    >
+                                        <RadioButton text="{i18n>si}" />
+                                        <RadioButton text="{i18n>no}" />
+                                    </RadioButtonGroup>
+                                </f:fields>
+                            </f:FormElement>
+
+                            <f:FormElement label="{i18n>ccplanes2}">
+                                <f:fields>
+                                    <RadioButtonGroup
+                                        id="rbgPregunta2CC"
+                                        columns="2"
+                                        selectedIndex="-1"
+                                         select="onSelectRBAlgunPlanes" editable="{statusEdit>/edit}"
+                                    >
+                                        <RadioButton text="{i18n>si}" />
+                                        <RadioButton text="{i18n>no}" />
+                                    </RadioButtonGroup>
+                                </f:fields>
+                            </f:FormElement>
+
+                            <f:FormElement label="{i18n>ccplanes3}" visible="false">
+                                <f:fields>
+                                    <RadioButtonGroup
+                                        id="rbgPregunta3CC"
+                                        columns="2"
+                                        selectedIndex="-1"
+                                         select="onSelectRBAlgunPlanes" editable="false"
+                                    >
+                                        <RadioButton text="{i18n>si}" />
+                                        <RadioButton text="{i18n>no}" />
+                                    </RadioButtonGroup>
+                                </f:fields>
+                            </f:FormElement>
+
+                            <f:FormElement label="{i18n>ccplanes4}">
+                                <f:fields>
+                                    <RadioButtonGroup
+                                        id="rbgPregunta4CC"
+                                        columns="2"
+                                        selectedIndex="-1"
+                                         select="onSelectRBAlgunPlanes" editable="{statusEdit>/edit}"
+                                    >
+                                        <RadioButton text="{i18n>si}" />
+                                        <RadioButton text="{i18n>no}" />
+                                    </RadioButtonGroup>
+                                </f:fields>
+                            </f:FormElement>
+
+                            <f:FormElement label="{i18n>ccplanes5}">
+                                <f:fields>
+                                    <RadioButtonGroup
+                                        id="rbgPregunta5CC"
+                                        columns="2"
+                                        selectedIndex="-1"
+                                        select="onSelectRBAlgunPlanes" editable="{statusEdit>/edit}"
+                                    >
+                                        <RadioButton text="{i18n>si}" />
+                                        <RadioButton text="{i18n>no}" />
+                                    </RadioButtonGroup>
+                                </f:fields>
+                            </f:FormElement>
+                             <f:FormElement>
+                                 <f:fields>
+                                    <Text text=" "></Text>
+                                 </f:fields>
+                            </f:FormElement>
+                            <!--Agregar  nuevo campo +@INSERT-->
+                                <f:FormElement label="{i18n>ccplanes5_1}">
+                                <f:fields>
+                                    <RadioButtonGroup
+                                        id="rbgPregunta5_1CC"
+                                        columns="2"
+                                        selectedIndex="-1"
+                                        select="onSelectRBAlgunPlanes" editable="{statusEdit>/edit}">
+                                        <RadioButton text="{i18n>si}" />
+                                        <RadioButton text="{i18n>no}" />
+                                    </RadioButtonGroup>
+                                </f:fields>
+                                <f:label>
+                                  <Label text="{i18n>ccplanes5_1}" id="lblccplanes5_1" required="true" />
+                                </f:label>
+
+                            </f:FormElement>
+                                <!--Agregar  nuevo campo +@INSERT-->
+                                <f:FormElement>
+                                <f:fields>
+                                    <RadioButtonGroup
+                                        id="rbgPregunta5_2CC"
+                                        columns="2"
+                                        selectedIndex="-1"
+                                        select="onSelectRBAlgunPlanes" editable="{statusEdit>/edit}"
+                                    >
+                                        <RadioButton text="{i18n>si}" />
+                                        <RadioButton text="{i18n>no}" />
+                                    </RadioButtonGroup>
+                                </f:fields>
+                                <f:label>
+                                  <Label text="{i18n>ccplanes5_2}" id="lblccplanes5_2" required="true" />
+                                </f:label>
+                            </f:FormElement>
+                                 <!--Agregar  nuevo campo +@INSERT-->
+                                <f:FormElement>
+                                <f:fields>
+                                    <RadioButtonGroup
+                                        id="rbgPregunta5_3CC"
+                                        columns="2"
+                                        selectedIndex="-1"
+                                        select="onSelectRBAlgunPlanes" editable="{statusEdit>/edit}"
+                                    >
+                                        <RadioButton text="{i18n>si}" />
+                                        <RadioButton text="{i18n>no}" />
+                                    </RadioButtonGroup>
+                                </f:fields>
+                                <f:label>
+                                  <Label text="{i18n>ccplanes5_3}" id="lblccplanes5_3" required="true"/>
+                                </f:label>
+                            </f:FormElement>
+
+                            <f:FormElement id="FrmElemUploadPlnes">
+                                <f:fields>
+                                    <HBox
+                                        width="100%"
+                                        id="hbAdjunto2"
+                                        alignItems="Start"
+                                        justifyContent="Center">
+
+                                        <u:FileUploader
+                                            id="fuSubirArchivoSS4"
+                                            name="myFileUpload"
+                                            uploadUrl="upload/"
+                                            tooltip="{i18n>upload}"
+                                            uploadComplete="handleUploadComplete"
+                                            change="onSubirDocumento($event, '/planes', 'X')"
+                                            typeMissmatch="handleTypeMissmatch"
+                                            style="Emphasized"
+                                            buttonOnly="true"
+                                            icon="sap-icon://upload-to-cloud"
+                                            fileType="pdf,docx,xlsx,zip"
+                                            buttonText="{i18n>upload}"
+                                            placeholder=""
+                                            enabled="{statusEdit>/edit}"
+                                        >
+                                            <u:parameters>
+                                                <u:FileUploaderParameter
+                                                    name="param1"
+                                                    value="Foo"
+                                                />
+                                                <u:FileUploaderParameter
+                                                    name="param2"
+                                                    value="bar"
+                                                />
+                                            </u:parameters>
+                                            <u:headerParameters>
+                                                <u:FileUploaderParameter
+                                                    name="headerParam1"
+                                                    value="Foo"
+                                                />
+                                                <u:FileUploaderParameter
+                                                    name="headerParam2"
+                                                    value="bar"
+                                                />
+                                            </u:headerParameters>
+                                        </u:FileUploader>
+                                        <Button
+                                            text="{i18n>download}"
+                                            press="onDownloadAdjuntos('/planes')"
+                                            class="sapUiTinyMarginBegin"
+                                            enabled="{statusEdit>/edit}"
+                                        />
+                                    </HBox>
+                                </f:fields>
+                                <f:label>
+                                   <Label text="{i18n>ccplanes6_u}" class="labelRed"/>
+                                </f:label>
+                            </f:FormElement>
+                        </f:formElements>
+                    </f:FormContainer>
+                </f:formContainers>
+            </f:Form>
+
+            <FlexBox
+                alignItems="Center"
+                justifyContent="{= ${device>/system/phone} ? 'SpaceBetween' : 'Start'}"
+                direction="{= ${device>/system/phone} ? 'Column' : 'Row'}"
+                class="sapUiSmallMarginTop"
+                visible="false"
+            >
+                <!-- <Label text="{i18n>pregunta8}" textAlign="Center" design="Bold" wrapping="true" class="sapUiTinyMarginTop sapUiSmallMarginEnd"/> -->
+                <Title
+                    level="H3"
+                    id="lblPregunta4SS"
+                    text="{i18n>pregunt4SS}"
+                />
+                <RadioButtonGroup
+                    id="rbgPregunta4SS"
+                    columns="2"
+                    selectedIndex="-1"
+                    select="onSelectRbResultEstadis" editable="false"
+                >
+                    <RadioButton text="{i18n>si}" />
+                    <RadioButton text="{i18n>no}" />
+                </RadioButtonGroup>
+            </FlexBox>
+            
+            <f:Form
+                id=""
+                editable="false"
+                visible="false"
+            >
+                <f:layout>
+                    <f:ColumnLayout
+                        columnsM="2"
+                        columnsL="3"
+                        columnsXL="3"
+                    />
+                </f:layout>
+                <f:formContainers>
+                    <f:FormContainer title="">
+                        <f:formElements>
+                            <f:FormElement label="{i18n>year01}">
+                                <f:fields>
+                                    <DatePicker
+                                        id="txtYear01"
+                                        value="{oProveedor>/SistemaGestion/SistemaGestionDetSet/0/Anio}"
+                                        displayFormat="yyyy"
+                                        valueFormat="yyyy"
+                                        change="changeValueState"
+                                        
+                                    />
+                                </f:fields>
+                            </f:FormElement>
+                            <f:FormElement label="{i18n>if}">
+                                <f:fields>
+                                        <Input
+                                        id="txtIf"
+                                        value="{oProveedor>/SistemaGestion/SistemaGestionDetSet/0/Indicefrecuencia}" 
+                                        type="Text"
+                                        maxLength="21"
+                                        change="changeValueStateNumberInputs"
+                                        
+                                    />  
+                                </f:fields>
+                            </f:FormElement>
+                            <f:FormElement label="{i18n>is}">
+                                <f:fields>
+                                    <Input
+                                        id="txtIs"
+                                        value="{oProveedor>/SistemaGestion/SistemaGestionDetSet/0/Indiceseveridad}"
+                                        type="Text"
+                                        maxLength="21"
+                                        change="changeValueStateNumberInputs"
+                                        
+                                    />
+                                </f:fields>
+                            </f:FormElement>
+                            <f:FormElement label="{i18n>ia}">
+                                <f:fields>
+                                    <Input
+                                        id="txtIa"
+                                        value="{oProveedor>/SistemaGestion/SistemaGestionDetSet/0/Indiceaccidentabilidad}"
+                                        type="Text"
+                                        maxLength="21"
+                                        change="changeValueStateNumberInputs"
+                                    />
+                                </f:fields>
+                            </f:FormElement>
+                        </f:formElements>
+                    </f:FormContainer>
+                    <f:FormContainer title="">
+                        <f:formElements>
+                            <f:FormElement label="{i18n>year02}">
+                                <f:fields>
+                                    <DatePicker
+                                        id="txtYear02"
+                                        value="{oProveedor>/SistemaGestion/SistemaGestionDetSet/1/Anio}"                                    
+                                        displayFormat="yyyy"
+                                        valueFormat="yyyy"
+                                        change="changeValueState"
+                                        
+                                    />
+                                </f:fields>
+                            </f:FormElement>
+                            <f:FormElement label="{i18n>if2}">
+                                <f:fields>
+                                     <Input
+                                        id="txtIf2"
+                                        value="{oProveedor>/SistemaGestion/SistemaGestionDetSet/1/Indicefrecuencia}" 
+                                        type="Text"
+                                        maxLength="21"
+                                        change="changeValueStateNumberInputs"
+                                        />
+                                </f:fields>
+
+                            </f:FormElement>
+                            <f:FormElement label="{i18n>is2}">
+                                <f:fields>
+                                    <Input
+                                        id="txtIs2"
+                                        value="{oProveedor>/SistemaGestion/SistemaGestionDetSet/1/Indiceseveridad}" 
+                                        type="Text"
+                                        maxLength="21"
+                                        change="changeValueStateNumberInputs"
+                                    />
+                                </f:fields>
+                            </f:FormElement>
+                            <f:FormElement label="{i18n>ia2}">
+                                <f:fields>
+                                    <Input
+                                        id="txtIa2"
+                                        value="{oProveedor>/SistemaGestion/SistemaGestionDetSet/1/Indiceaccidentabilidad}"
+                                        type="Text"
+                                        maxLength="21"
+                                        change="changeValueStateNumberInputs"
+                                    />
+                                </f:fields>
+                            </f:FormElement>
+                        </f:formElements>
+                    </f:FormContainer>
+                    <f:FormContainer title="">
+                        <f:formElements>
+                            <f:FormElement label="{i18n>year03}">
+                                <f:fields>
+                                    <DatePicker
+                                        id="textYear03"
+                                        value="{oProveedor>/SistemaGestion/SistemaGestionDetSet/2/Anio}"
+                                        displayFormat="yyyy"
+                                        valueFormat="yyyy"
+                                        change="changeValueState"
+                                      
+                                    />
+                                </f:fields>
+                            </f:FormElement>
+                            <f:FormElement label="{i18n>if3}">
+                                <f:fields>
+                                    <Input
+                                        id="textIf3"
+                                        value="{oProveedor>/SistemaGestion/SistemaGestionDetSet/2/Indicefrecuencia}"
+                                        type="Text"
+                                        maxLength="21"
+                                        change="changeValueStateNumberInputs"
+                                      
+                                    />
+                                </f:fields>
+                            </f:FormElement>
+                            <f:FormElement label="{i18n>is2}">
+                                <f:fields>
+                                    <Input
+                                        id="textIs3"
+                                        value="{oProveedor>/SistemaGestion/SistemaGestionDetSet/2/Indiceseveridad}"
+                                        type="Text"
+                                        maxLength="21"
+                                        change="changeValueStateNumberInputs"
+                                      
+                                    />
+                                </f:fields>
+                            </f:FormElement>
+                            <f:FormElement label="{i18n>ia3}">
+                                <f:fields>
+                                    <Input
+                                        id="textIa3"
+                                        value="{oProveedor>/SistemaGestion/SistemaGestionDetSet/2/Indiceaccidentabilidad}"
+                                        type="Text"
+                                        maxLength="21"
+                                        change="changeValueStateNumberInputs"
+                                    />
+                                </f:fields>
+                            </f:FormElement>
+                        </f:formElements>
+                    </f:FormContainer>
+                </f:formContainers>
+            </f:Form>
+
+            <FlexBox justifyContent="End">
+                <Button
+                    type="Accept"
+                    text="{i18n>grabaryseguir}"
+                    width="20em"
+                    press="onSaveSistemGestion"
+                    visible="{userData>/editable}"
+                    ariaDescribedBy="acceptButtonDescription genericButtonDescription"
+                />
+            </FlexBox>
+        </Panel>
+    </VBox>
+</core:FragmentDefinition>

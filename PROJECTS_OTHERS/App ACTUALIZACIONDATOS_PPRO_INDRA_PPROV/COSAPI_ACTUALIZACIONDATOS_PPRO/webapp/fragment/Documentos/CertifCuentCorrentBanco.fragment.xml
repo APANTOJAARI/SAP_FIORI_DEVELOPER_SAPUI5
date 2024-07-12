@@ -1,0 +1,66 @@
+<core:FragmentDefinition
+    xmlns:mvc="sap.ui.core.mvc"
+    xmlns="sap.m"
+    xmlns:core="sap.ui.core"
+    xmlns:u="sap.ui.unified">
+        <HBox justifyContent="SpaceBetween" alignItems="Center">
+        <VBox>
+            <ObjectStatus text="{i18n>messageDocument6}" state="Error" />
+        </VBox>
+    </HBox>
+    
+    <VBox>
+        <Table
+            id="tbCertcuenta"
+            inset="false"
+            items="{
+                path: 'aDocumentos>/certificado_cuenta'
+            }">
+            <headerToolbar>
+			<OverflowToolbar>
+				<content>
+					<Title text="{i18n>listadoc}" level="H2"/>
+					<ToolbarSpacer />
+                    <u:FileUploader
+                        name="myFileUpload"
+                        uploadUrl="upload/"
+                        tooltip="{i18n>subirdoc}"
+                        uploadComplete="handleUploadComplete"
+                        change="onSubirDocumento($event, '/certificado_cuenta')"
+                        typeMissmatch="handleTypeMissmatch"
+                        style="Default"
+                        buttonOnly="false"
+                        icon="sap-icon://upload-to-cloud"
+                        fileType="pdf,docx,xlsx,zip"
+                        buttonText="{i18n>subirdoc}"
+                        placeholder=""
+                        class="fileUploaderMarginEnd"
+                        enabled="{statusEdit>/edit}">
+                    </u:FileUploader>
+                    <Button text="{i18n>guardardocs}" type="Accept" press="onSaveFilesDocumentos('/certificado_cuenta', 'CERTIFICADO_CUENTA')" class="buttonMarginStart" enabled="{statusEdit>/edit}"/>
+				</content>
+			</OverflowToolbar>
+		</headerToolbar>
+            <columns>
+                <Column width="auto">
+                    <Text text="{i18n>nombredocumento}" />
+                </Column>
+                <Column width="auto">
+                    <Text text="{i18n>fechacredocument}" />
+                </Column>
+                <Column width="auto" hAlign="End">
+                    <Text text="" />
+                </Column>
+            </columns>
+            <items>
+                <ColumnListItem vAlign="Middle">
+                    <cells>
+                        <Link text="{aDocumentos>name}" press="onDownloadFile" class="sapUiTinyMarginBottom" />
+                        <Text text="{aDocumentos>fecha_creacion}" />
+                        <Button icon="sap-icon://delete" press="onEliminarDoc($event, 'CERTIFICADO_CUENTA', 'certificado_cuenta', 'tbCertcuenta')" type="Reject" enabled="{statusEdit>/edit}"/>
+                    </cells>
+                </ColumnListItem>
+            </items>
+	    </Table>
+    </VBox>
+</core:FragmentDefinition>

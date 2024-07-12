@@ -1,0 +1,184 @@
+<core:FragmentDefinition
+	xmlns="sap.m"
+	xmlns:l="sap.ui.layout"
+	xmlns:f="sap.ui.layout.form"
+	xmlns:core="sap.ui.core">
+	<VBox>
+		<Panel width="auto" class="sapUiResponsiveMargin">
+			<f:Form id="FormDatosGenerales" editable="false">
+				<f:layout>
+					<f:ResponsiveGridLayout
+                    labelSpanXL="3"
+                    labelSpanL="3"
+                    labelSpanM="3"
+                    labelSpanS="12"
+                    adjustLabelSpan="false"
+                    emptySpanXL="4"
+                    emptySpanL="4"
+                    emptySpanM="4"
+                    emptySpanS="0"
+                    columnsXL="1"
+                    columnsL="1"
+                    columnsM="1"
+                    singleContainerFullSize="false" />
+				</f:layout>
+				<f:formContainers>
+					<f:FormContainer>
+						<f:formElements>
+							<f:FormElement label="{i18n>nif}">
+								<f:fields>
+									<Input id="txtNif" value="{oProveedor>/DatosGeneral/Taxnumxl}" editable="false"/>
+								</f:fields>
+							</f:FormElement>
+							<f:FormElement label="{i18n>razonsocial}">
+								<f:fields>
+									<Input id="txtRazonSocial" value="{oPreRegistro>/RazonSocial}" editable="false"/>
+								</f:fields>
+							</f:FormElement>
+							<f:FormElement label="{i18n>fecha}">
+								<f:fields>
+									<DatePicker
+										id="txtFecha"
+										value="{oProveedor>/DatosGeneral/Fechaconstitucion}"
+										displayFormat="dd.MM.yyyy"
+										valueFormat="yyyyMMdd"
+										required="true"
+										change="changeValueState"
+										editable="true"/>
+								</f:fields> 
+							</f:FormElement>
+							<f:FormElement label="{i18n>nombrecomercial}">
+								<f:fields>
+									<Input id="txtNombreComercial" value="{oProveedor>/DatosGeneral/Nombrecomercial}" maxLength="50" editable="false" required="true" change="changeValueState"/>
+								</f:fields>
+							</f:FormElement>
+							<f:FormElement label="{i18n>direccion}">
+								<f:fields>
+									<Input id="txtDireccion" value="{oPreRegistro>/Direccion}" maxLength="35" required="true" change="changeValueState"/>
+								</f:fields>
+							</f:FormElement>
+							<f:FormElement label="{i18n>pais}">
+                                <f:fields>
+                                    <ComboBox id="cboMainPais" items="{
+										path: '/Paises'
+									}"
+                                    selectedKey="{oProveedor>/DatosGeneral/Pais}"
+									required="true"
+									change="onChangePais"
+									editable="{userData>/editable}">
+										<core:Item key="{Land1}" text="{Landx50}" />
+                                    </ComboBox>
+                                </f:fields>
+                            </f:FormElement>
+							<f:FormElement label="{i18n>regiondpto}">
+								<f:fields>
+									<ComboBox id="cboMainRegionDpto" items="{
+										path: '/RegionDptp'
+									}"
+                                    selectedKey="{oProveedor>/DatosGeneral/Ort01}"
+									required="true"
+									change="onChangeRegion"
+									editable="{userData>/editable}">
+										<core:ListItem key="{Bland}" text="{Bezei}" additionalText="{Bland}"></core:ListItem>
+                                    </ComboBox>
+								</f:fields>
+							</f:FormElement>
+							<f:FormElement label="{i18n>ciudad}" visible="{= ${oPreRegistro>/Land1} === 'PE'}">
+								<f:fields>
+									<ComboBox id="cboMainCiudad" items="{
+										path: '/Ciudad'
+									}"
+                                    selectedKey="{oProveedor>/DatosGeneral/Ort02}"
+									required="true"
+									editable="{userData>/editable}"
+									change="onChangeCiudProv">
+										<core:ListItem key="{Provincia}" text="{Descripcion}" additionalText="{Provincia}"></core:ListItem>
+                                    </ComboBox>
+								</f:fields>
+							</f:FormElement>
+								<f:FormElement label="{i18n>ciudad}" visible="{= ${oPreRegistro>/Land1} !== 'PE'}">
+								<f:fields>
+									<Input id="txtProvExtran" value="{oProveedor>/DatosGeneral/Ort02Text}" maxLength="40" editable="{userData>/editable}" required="true"/>
+								</f:fields>
+							</f:FormElement>
+
+							<f:FormElement label="{i18n>comuna}" visible="{= ${oPreRegistro>/Land1} !== 'PE'}">
+								<f:fields>
+									<Input id="txtComuna" value="{oProveedor>/DatosGeneral/Pfach}" maxLength="40" editable="{userData>/editable}" required="true"/>
+								</f:fields>
+							</f:FormElement>
+							<!--Agregar Desplegable para los proveedores de Perú +@INSERT-->
+							<f:FormElement visible="{= ${oPreRegistro>/Land1} === 'PE'}" label="{i18n>distrito}" >
+								<f:fields>
+								<ComboBox id="cboMainDistrito" items="{
+										path: '/Distrito'
+									}"
+                                    selectedKey="{oProveedor>/DatosGeneral/Pfach}"
+									required="true"
+									editable="{userData>/editable}"
+									change="changeValueState">
+										<core:ListItem key="{Distrito}" text="{Descripcion}" additionalText=""></core:ListItem>
+                                    </ComboBox>
+								</f:fields>
+							</f:FormElement>
+
+							<f:FormElement label="{i18n>representantelegal}">
+								<f:fields>
+									<Input id="txtRepresentanteLegal" value="{oPreRegistro>/Representante}" maxLength="40" editable="{userData>/editable}"/>
+								</f:fields>
+							</f:FormElement>
+							<f:FormElement label="{i18n>id}">
+								<f:fields>
+									<Input id="txtId" value="{oPreRegistro>/Identificacion}" editable="{userData>/editable}" maxLength="15"/>
+								</f:fields>
+							</f:FormElement>
+							<f:FormElement label="{i18n>web}">
+								<f:fields>
+									<Input id="txtWeb" value="{oProveedor>/DatosGeneral/Paginaweb}" maxLength="50" editable="{userData>/editable}" change="changeValueState"/>
+								</f:fields>
+							</f:FormElement>
+							<f:FormElement label="{i18n>email}">
+								<f:fields>
+									<Input id="txtEmail" value="{oPreRegistro>/Correo}" editable="{userData>/editable}" maxLength="40" />
+								</f:fields>
+							</f:FormElement>
+						</f:formElements>
+					</f:FormContainer>
+				</f:formContainers>
+			</f:Form>
+			<FlexBox
+					class="sapUiTinyMarginBeginEnd"
+					alignItems="Center"
+					justifyContent="Center">
+				<Label
+                        required="true"
+						text="{i18n>tipoprovedor} "/>
+				<CheckBox
+						id="BienesCheckBox"
+						editable="{statusEdit>/edit}"
+						text="{i18n>bienes}"
+						selected="{oProveedor>/DatosGeneral/Tprovbienes}"/>
+				<CheckBox
+						id="ServiciosCheckBox"
+						text="{i18n>servicios}"
+						editable="{statusEdit>/edit}"
+						selected="{oProveedor>/DatosGeneral/Tprovservicios}"/>
+				<CheckBox
+						id="SubcontratistaCheckBox"
+						text="{i18n>subcontratista}"
+						editable="{statusEdit>/edit}"
+						selected="{oProveedor>/DatosGeneral/Tprovsubcontratista}"
+						select="onSelectSubContratista($event, 'X')"/>
+			</FlexBox>
+			<FlexBox justifyContent="End">
+				<Button type="Accept"
+                        text="{i18n>grabaryseguir}"
+                        width="20em"
+                        press="onSaveDatosGeneral"
+						visible="{userData>/editable}"
+                        ariaDescribedBy="acceptButtonDescription genericButtonDescription"
+						id="btnDatosGenerales" ></Button>
+			</FlexBox>
+		</Panel>
+	</VBox>
+</core:FragmentDefinition>

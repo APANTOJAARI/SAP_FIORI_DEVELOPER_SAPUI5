@@ -1,0 +1,207 @@
+<core:FragmentDefinition
+	xmlns="sap.m"
+	xmlns:l="sap.ui.layout"
+	xmlns:f="sap.ui.layout.form"
+	xmlns:core="sap.ui.core">
+
+    <VBox>
+    <Panel width="auto" class="sapUiResponsiveMargin">
+<!--Cabecera-->
+			<f:Form id="FormCuentasBancarias" editable="false">
+				<f:title>
+				<core:Title text="{i18n>bancoMain}"/>
+				</f:title>
+				<f:layout>
+					<f:ResponsiveGridLayout
+                    labelSpanXL="3"
+                    labelSpanL="3"
+                    labelSpanM="3"
+                    labelSpanS="12"
+                    adjustLabelSpan="false"
+                    emptySpanXL="4"
+                    emptySpanL="4"
+                    emptySpanM="4"
+                    emptySpanS="0"
+                    columnsXL="1"
+                    columnsL="1"
+                    columnsM="1"
+                    singleContainerFullSize="false" />
+				</f:layout>
+				<f:formContainers>
+					<f:FormContainer>
+						<f:formElements>
+                        <f:FormElement label="{i18n>selecTipoCta}">       <!--Seleccionar Tipo-->
+                            <f:fields>
+                                <ComboBox id="cboSelecTipoCta" items="{
+                                        path: '/TipCtaSoDoDet'
+                                    }"
+                                    selectedKey=""
+                                    required="true"
+                                    change="onChangeSelecTipoCta">
+                                    
+                                    <core:Item key="{Selectcuentasodode}" text="{Descripcion}" />
+                                </ComboBox>
+                            </f:fields>
+                        </f:FormElement>
+							<f:FormElement label="{i18n>nombrebanco}">      <!--Nombre Banco-->
+								<f:fields>
+									<ComboBox id="cboNombreBanco" items="{
+										path: '/NombreBancos'
+									}"
+                                    
+									required="true"
+									change="changeValueNomBanco">
+										<core:Item key="{Bankl}" text="{Banka}" />
+                                    </ComboBox>
+								</f:fields>
+							</f:FormElement>
+							<f:FormElement label="{i18n>moneda}" visible="false">          <!--Moneda-->
+								<f:fields>
+									<ComboBox id="cboMainMoneda" items="{
+										path: '/Moneda'
+									}"
+                                    selectedKey=""
+									required="true"
+									change="changeValueMonedaCta">
+										<core:Item key="{Waers}" text="{Ltext}" />
+                                    </ComboBox>
+								</f:fields>
+							</f:FormElement>
+							<f:FormElement label="{i18n>tipocuenta}">           <!--Tipo de Cuenta-->
+								<f:fields>
+									<ComboBox id="cboMainTipoCuenta" items="{path: '/TipoCuenta'}"
+                                    selectedKey=""
+									required="true"
+									change="changeValueTipoCta">
+										<core:Item key="{Codigocuenta}" text="{Tipodecuenta}" />
+                                    </ComboBox>
+								</f:fields>
+							</f:FormElement>
+							<f:FormElement label="{i18n>numcuenta}">            <!--N° de Cuenta-->
+								<f:fields>
+									<Input id="txtNumCuenta" value="" type="Number" maxLength="20" required="true"  change="changeValueNumCta"/>
+								</f:fields>
+							</f:FormElement>
+							<f:FormElement label="{i18n>cci}" visible="{= ${oPreRegistro>/Land1} === 'PE'}">                   <!-- CCI -->
+								<f:fields>
+									<Input id="txtCci" value="" type="Text" required="true" maxLength="20" liveChange="changeOnlyNumber" change="changeValueState"/>
+								</f:fields>
+							</f:FormElement>
+							<f:FormElement label="{i18n>correopagos}" visible="{= ${oPreRegistro>/Land1} === 'PE'}">
+								<f:fields>
+									<Input id="txtCorreoPagos" value="" required="true" maxLength="50" change="onValidarFormatoCorreo" />
+								</f:fields>
+							</f:FormElement>
+<!-- ======================================================== -->                            
+<!--Agregar Campos para Opción de Proveedores diferente a Perú-->
+                            <f:FormElement label="{i18n>iban}" visible="{= ${oPreRegistro>/Land1} !== 'CL'}">
+								<f:fields>
+                                    <Input id="txtCtaIban" value="" type="Number" required="{= ${oPreRegistro>/Land1} !== 'PE' ? true : false }" maxLength="34"  change="changeValueIban" placeholder="{= ${oPreRegistro>/Land1} === 'PE' ? ${i18n>textInfoBak} : '' }"/>
+								</f:fields>
+							</f:FormElement>
+                            <f:FormElement label="{i18n>swift}" >
+								<f:fields>
+									<Input id="txtCtaSwift" value="" type="Number" required="{= ${oPreRegistro>/Land1} !== 'PE' &amp;&amp; ${oPreRegistro>/Land1} !== 'CL' ? true : false }" maxLength="11"  change="changeValueSwift" placeholder="{= ${oPreRegistro>/Land1} === 'PE' ? ${i18n>textInfoBak} : '' }"/>
+								</f:fields>
+							</f:FormElement>
+                            <f:FormElement label="{i18n>bankInterm}" >
+								<f:fields>
+									<Input id="txtCtaBankInterm" value="" type="Text" required="false" maxLength="30" change="changeValueState" placeholder="{= ${oPreRegistro>/Land1} === 'PE' ? ${i18n>textInfoBak} : '' }"/>
+								</f:fields>
+							</f:FormElement>
+                            <f:FormElement label="{i18n>CtabankInterm}">
+								<f:fields>
+									<Input id="txtNCtabankInterm" value="" type="Number" required="false" maxLength="30" liveChange="changeOnlyNumber" change="changeValueState" placeholder="{= ${oPreRegistro>/Land1} === 'PE' ? ${i18n>textInfoBak} : '' }"/>
+								</f:fields>
+							</f:FormElement>
+						</f:formElements>
+					</f:FormContainer>
+				</f:formContainers>
+			</f:Form>
+
+<!--Detalle de Bancos-->
+        <Table
+            id="tbCtasBancarias"
+            inset="false"
+            items="{
+                path: 'oProveedor>/CuentaBancaria/CuentasBancariasDetSet'}">
+            <headerToolbar>
+			<OverflowToolbar>
+				<content>
+					<!--<Title text="{i18n>listadoc}" level="H2"/> -->
+					<ToolbarSpacer />
+                    <Button text="{i18n>agregar}" width="20em" type="Accept" press="onAddCtaBancaria" class="buttonMarginStart" enabled="{statusEdit>/btnBancariaEdit}" icon="sap-icon://add"/>
+				</content>
+			</OverflowToolbar>
+		</headerToolbar>
+            <columns>
+                <Column width="auto">
+                    <Text text="{i18n>nombrebanco}" />
+                </Column>
+				<!-- 
+                <Column width="auto">
+                    <Text text="{i18n>moneda}" />
+                </Column> -@DELETE -->
+                   <Column width="auto">
+                    <Text text="{i18n>tipocuenta}" />
+                </Column>
+                   <Column width="auto">
+                    <Text text="{i18n>numcuenta}" />
+                </Column>
+                   <Column width="auto" visible="{= ${oPreRegistro>/Land1} === 'PE'}">
+                    <Text text="{i18n>cci}" />
+                </Column>
+                     <Column width="auto" visible="{= ${oPreRegistro>/Land1} === 'PE'}">
+                    <Text text="{i18n>correopagos}" />
+                </Column>
+				<!--Columnas de Proveedor Extranjero -->
+				<Column width="auto" visible="{= ${oPreRegistro>/Land1} !== 'CL'}">
+                    <Text text="{i18n>iban}"  />
+                </Column>
+					<Column width="auto" >
+                    <Text text="{i18n>swift}" />
+                </Column>
+						<Column width="auto" >
+                    <Text text="{i18n>bankInterm}" />
+                </Column>
+					<Column width="auto" >
+                    <Text text="{i18n>CtabankInterm}" />
+                </Column>
+				
+
+                <Column width="auto" hAlign="End">
+                    <Text text="" />
+                </Column>
+            </columns>
+            <items>
+                <ColumnListItem vAlign="Middle">
+                    <cells> 
+                        <Text text="{oProveedor>Nombrebanco}" />
+                        <!-- <Text text="{oProveedor>Moneda}" /> -@DELETE -->
+                        <Text text="{oProveedor>Tipocuenta}" />
+                        <Text text="{oProveedor>Numcuenta}" />
+                        <Text text="{oProveedor>Cuentainterbancaria}" visible="{= ${oPreRegistro>/Land1} === 'PE'}"/>
+                        <Text text="{oProveedor>Correopagos}" visible="{= ${oPreRegistro>/Land1} === 'PE'}" />
+						<!--Columnas de Proveedor Extranjero -->
+						<Text text="{oProveedor>Iban}" visible="{= ${oPreRegistro>/Land1} !== 'CL'}" />
+						<Text text="{oProveedor>Swift}" />
+						<Text text="{oProveedor>Nombrebancointermediario}" />
+						<Text text="{oProveedor>Numcuentabancointermediario}" />
+
+                        <Button icon="sap-icon://delete" press="onEliminarItemBank($event)" type="Reject" enabled="{statusEdit>/btnBancariaEdit}"/>
+                    </cells>
+                </ColumnListItem>
+            </items>
+	    </Table>
+        		<FlexBox justifyContent="End">
+				<Button type="Accept"
+                        text="{i18n>grabaryseguir}"
+                        width="20em"
+                        press="onSaveCuentBancariaV2" 
+						visible="{statusEdit>/btnBancariaEdit}"
+                        ariaDescribedBy="acceptButtonDescription genericButtonDescription"></Button>
+			</FlexBox>
+
+        </Panel>
+    </VBox>
+</core:FragmentDefinition>

@@ -1,0 +1,296 @@
+<core:FragmentDefinition
+    xmlns:l="sap.ui.layout"
+    xmlns:mvc="sap.ui.core.mvc"
+    xmlns:u="sap.ui.unified"
+    xmlns="sap.m"
+    xmlns:core="sap.ui.core">
+    <VBox >
+        <Panel class="sapUiSmallMarginTop">
+
+            <List headerText="Documentación y certificados" >
+                    
+                <InputListItem label="{i18n>document1}">
+                    <HBox class="fileUploaderContainer" justifyContent="End">
+                        <u:FileUploader
+                            id="fuSubirArchivo1"
+                            name="myFileUpload"
+                            uploadUrl="upload/"
+                            tooltip="Subir documento"
+                            uploadComplete="handleUploadComplete"
+                            change="uploadFileOne"
+                            typeMissmatch="handleTypeMissmatch"
+                            style="Default"
+                            buttonOnly="false"
+                            icon="sap-icon://upload-to-cloud"
+                            fileType="pdf,docx,xlsx,zip"
+                            width="90%"
+                            buttonText="Subir documento"
+                            placeholder=""
+                            class="fileUploaderMarginEnd"
+                            enabled="{statusEdit>/modifTabSgyTc}">
+                        </u:FileUploader>
+                        <Button text="{i18n>verarchivo}" type="Emphasized" width="100%" press="onVerDocumento" ariaLabelledBy="editButtonLabel" class="buttonMarginStart"/>
+                    </HBox>
+                </InputListItem>
+                    
+                <InputListItem label="{i18n>document2}">
+                    <HBox class="fileUploaderContainer" justifyContent="End">
+                        <u:FileUploader
+                            id="fuSubirArchivo2"
+                            name="myFileUpload"
+                            uploadUrl="upload/"
+                            tooltip="Subir documento"
+                            uploadComplete="handleUploadComplete"
+                            change="uploadFileTwo"
+                            typeMissmatch="handleTypeMissmatch"
+                            style="Default"
+                            buttonOnly="false"
+                            icon="sap-icon://upload-to-cloud"
+                            fileType="pdf,docx,xlsx,zip"
+                            width="90%"
+                            buttonText="Subir documento"
+                            placeholder=""
+                            class="fileUploaderMarginEnd"
+                            enabled="{statusEdit>/modifTabSgyTc}">
+                            <u:parameters>
+                            <u:FileUploaderParameter
+                                    name="param1"
+                                    value="Foo"/>
+                            <u:FileUploaderParameter
+                                    name="param2"
+                                    value="bar"/>
+                            </u:parameters>
+                            <u:headerParameters>
+                            <u:FileUploaderParameter
+                                    name="headerParam1"
+                                    value="Foo"/>
+                            <u:FileUploaderParameter
+                                    name="headerParam2"
+                                    value="bar"/>
+                            </u:headerParameters>
+                        </u:FileUploader>
+                        <Button text="{i18n>verarchivo}" type="Emphasized" width="100%" press="onVerDocumento" ariaLabelledBy="editButtonLabel" class="buttonMarginStart"/>
+                    </HBox>
+                </InputListItem>
+
+                <InputListItem label="{i18n>document3}">
+                    <HBox class="fileUploaderContainer" justifyContent="End">
+                        <u:FileUploader
+                            id="fuSubirArchivo3"
+                            name="myFileUpload"
+                            uploadUrl="upload/"
+                            tooltip="Subir documento"
+                            uploadComplete="handleUploadComplete"
+                            change="uploadFileTree"
+                            typeMissmatch="handleTypeMissmatch"
+                            style="Default"
+                            buttonOnly="false"
+                            icon="sap-icon://upload-to-cloud"
+                            fileType="pdf,docx,xlsx,zip"
+                            width="90%"
+                            buttonText="Subir documento"
+                            placeholder=""
+                            class="fileUploaderMarginEnd"
+                            enabled="{statusEdit>/modifTabSgyTc}">
+                            <u:parameters>
+                            <u:FileUploaderParameter
+                                    name="param1"
+                                    value="Foo"/>
+                            <u:FileUploaderParameter
+                                    name="param2"
+                                    value="bar"/>
+                            </u:parameters>
+                            <u:headerParameters>
+                            <u:FileUploaderParameter
+                                    name="headerParam1"
+                                    value="Foo"/>
+                            <u:FileUploaderParameter
+                                    name="headerParam2"
+                                    value="bar"/>
+                            </u:headerParameters>
+                        </u:FileUploader>
+                        <Button text="{i18n>verarchivo}" type="Emphasized" width="100%" press="onVerDocumento" ariaLabelledBy="editButtonLabel" class="buttonMarginStart"/>
+                    </HBox>
+                </InputListItem>
+
+                <InputListItem label="{i18n>document4}">
+                    <HBox class="fileUploaderContainer" justifyContent="End">
+                        <u:FileUploader
+                            id="fuSubirArchivo4"
+                            name="myFileUpload"
+                            uploadUrl="upload/"
+                            tooltip="Subir documento"
+                            uploadComplete="handleUploadComplete"
+                            change="uploadFileFour"
+                            typeMissmatch="handleTypeMissmatch"
+                            style="Default"
+                            buttonOnly="false"
+                            icon="sap-icon://upload-to-cloud"
+                            fileType="pdf,docx,xlsx,zip"
+                            width="90%"
+                            buttonText="Subir documento"
+                            placeholder=""
+                            class="fileUploaderMarginEnd"
+                            enabled="{statusEdit>/modifTabSgyTc}">
+                            <u:parameters>
+                            <u:FileUploaderParameter
+                                    name="param1"
+                                    value="Foo"/>
+                            <u:FileUploaderParameter
+                                    name="param2"
+                                    value="bar"/>
+                            </u:parameters>
+                            <u:headerParameters>
+                            <u:FileUploaderParameter
+                                    name="headerParam1"
+                                    value="Foo"/>
+                            <u:FileUploaderParameter
+                                    name="headerParam2"
+                                    value="bar"/>
+                            </u:headerParameters>
+                        </u:FileUploader>
+                        <Button text="{i18n>verarchivo}" type="Emphasized" width="100%" press="onVerDocumento" ariaLabelledBy="editButtonLabel" class="buttonMarginStart"/>
+                    </HBox>
+                </InputListItem>
+
+                <InputListItem label="{i18n>document5}">
+                    <HBox class="fileUploaderContainer" justifyContent="End">
+                        <u:FileUploader
+                            id="fuSubirArchivo55"
+                            name="myFileUpload"
+                            uploadUrl="upload/"
+                            tooltip="Subir documento"
+                            uploadComplete="handleUploadComplete"
+                            change="uploadFileFive"
+                            typeMissmatch="handleTypeMissmatch"
+                            style="Default"
+                            buttonOnly="false"
+                            icon="sap-icon://upload-to-cloud"
+                            fileType="pdf,docx,xlsx,zip"
+                            width="90%"
+                            buttonText="Subir documento"
+                            placeholder=""
+                            class="fileUploaderMarginEnd"
+                            enabled="{statusEdit>/modifTabSgyTc}">
+                            <u:parameters>
+                            <u:FileUploaderParameter
+                                    name="param1"
+                                    value="Foo"/>
+                            <u:FileUploaderParameter
+                                    name="param2"
+                                    value="bar"/>
+                            </u:parameters>
+                            <u:headerParameters>
+                            <u:FileUploaderParameter
+                                    name="headerParam1"
+                                    value="Foo"/>
+                            <u:FileUploaderParameter
+                                    name="headerParam2"
+                                    value="bar"/>
+                            </u:headerParameters>
+                        </u:FileUploader>
+                        <Button text="{i18n>verarchivo}" type="Emphasized" width="100%" press="onVerDocumento" ariaLabelledBy="editButtonLabel" class="buttonMarginStart"/>
+                    </HBox>
+                </InputListItem>
+
+                <InputListItem label="{i18n>document6}">
+                    <HBox class="fileUploaderContainer" justifyContent="End">
+                        <u:FileUploader
+                            id="fuSubirArchivo6"
+                            name="myFileUpload"
+                            uploadUrl="upload/"
+                            tooltip="Subir documento"
+                            uploadComplete="handleUploadComplete"
+                            change="uploadFileSix"
+                            typeMissmatch="handleTypeMissmatch"
+                            style="Default"
+                            buttonOnly="false"
+                            icon="sap-icon://upload-to-cloud"
+                            fileType="pdf,docx,xlsx,zip"
+                            width="90%"
+                            buttonText="Subir documento"
+                            placeholder=""
+                            class="fileUploaderMarginEnd">
+                            <u:parameters>
+                            <u:FileUploaderParameter
+                                    name="param1"
+                                    value="Foo"/>
+                            <u:FileUploaderParameter
+                                    name="param2"
+                                    value="bar"/>
+                            </u:parameters>
+                            <u:headerParameters>
+                            <u:FileUploaderParameter
+                                    name="headerParam1"
+                                    value="Foo"/>
+                            <u:FileUploaderParameter
+                                    name="headerParam2"
+                                    value="bar"/>
+                            </u:headerParameters>
+                        </u:FileUploader>
+                        <Button text="{i18n>verarchivo}" type="Emphasized" width="100%" press="onVerDocumento" ariaLabelledBy="editButtonLabel" class="buttonMarginStart"/>
+                    </HBox>
+                </InputListItem>
+
+                <InputListItem label="{i18n>document7}">
+                    <HBox class="fileUploaderContainer" justifyContent="End">
+                        <u:FileUploader
+                            id="fuSubirArchivo7"
+                            name="myFileUpload"
+                            uploadUrl="upload/"
+                            tooltip="Subir documento"
+                            uploadComplete="handleUploadComplete"
+                            change="uploadFileSeven"
+                            typeMissmatch="handleTypeMissmatch"
+                            style="Default"
+                            buttonOnly="false"
+                            icon="sap-icon://upload-to-cloud"
+                            fileType="pdf,docx,xlsx,zip"
+                            width="90%"
+                            buttonText="Subir documento"
+                            placeholder=""
+                            class="fileUploaderMarginEnd"
+                            enabled="{statusEdit>/modifTabSgyTc}">
+                            <u:parameters>
+                            <u:FileUploaderParameter
+                                    name="param1"
+                                    value="Foo"/>
+                            <u:FileUploaderParameter
+                                    name="param2"
+                                    value="bar"/>
+                            </u:parameters>
+                            <u:headerParameters>
+                            <u:FileUploaderParameter
+                                    name="headerParam1"
+                                    value="Foo"/>
+                            <u:FileUploaderParameter
+                                    name="headerParam2"
+                                    value="bar"/>
+                            </u:headerParameters>
+                        </u:FileUploader>
+                        <Button text="{i18n>verarchivo}" type="Emphasized" width="100%" press="onVerDocumento" ariaLabelledBy="editButtonLabel" class="buttonMarginStart"/>
+                    </HBox>
+                </InputListItem>
+
+            </List>
+    
+            <FlexBox justifyContent="End" class="sapUiTinyMarginBeginEnd">
+                <Button 
+                    type="Reject"
+                    text="{i18n>limpiar}"
+                    width="20em"
+                    press="onPress"
+                    ariaDescribedBy="acceptButtonDescription genericButtonDescription"
+                    class="sapUiSmallMarginEnd">
+                </Button>                     
+                <Button 
+                    type="Accept"
+                    text="{i18n>grabaryseguir}"
+                    width="20em"
+                    press="onSaveDocumentos"
+                    ariaDescribedBy="acceptButtonDescription genericButtonDescription">
+                </Button>               
+            </FlexBox>
+        </Panel>
+    </VBox>
+</core:FragmentDefinition>

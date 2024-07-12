@@ -1,0 +1,197 @@
+<core:FragmentDefinition
+	xmlns="sap.m"
+    xmlns:l="sap.ui.layout"
+    xmlns:f="sap.ui.layout.form"
+    xmlns:core="sap.ui.core">
+      <VBox>
+      <Panel width="auto" class="sapUiResponsiveMargin">
+        <f:Form id="FormLineaDeProductos" binding="{/LineaDeProductos}"
+            editable="false">
+            <f:layout>
+                <f:ResponsiveGridLayout
+                    labelSpanXL="3"
+                    labelSpanL="3"
+                    labelSpanM="3"
+                    labelSpanS="12"
+                    adjustLabelSpan="false"
+                    emptySpanXL="4"
+                    emptySpanL="4"
+                    emptySpanM="4"
+                    emptySpanS="0"
+                    columnsXL="1"
+                    columnsL="1"
+                    columnsM="1"
+                    singleContainerFullSize="false" />
+            </f:layout>
+            <f:formContainers>
+                <f:FormContainer>
+                    <f:formElements>
+                        <f:FormElement label="{i18n>especialidad}">
+                            <f:fields>
+                                <ComboBox id="cboMainEspecialidad" items="{
+                                        path: '/Especialidad'
+                                    }"
+                                    selectedKey="{oProveedor>/LineaProducto/IdEsp}"
+                                    required="true"
+                                    change="onChangeEspecialidad"
+                                    editable="{userData>/editable}">
+                                    <core:Item key="{Matkl}" text="{Wgbez60}" />
+                                </ComboBox>
+                            </f:fields>
+                        </f:FormElement>
+
+                            <f:FormElement label="{i18n>marca}">
+                            <f:fields>
+                                <Input id="txtMarca" value="{oProveedor>/LineaProducto/Marca}" maxLength="20" change="changeValueState" editable="{statusEdit>/edit}"/>
+                            </f:fields>                                
+                        </f:FormElement>
+
+                        <f:FormElement label="{i18n>servicio}">
+                            <f:fields>
+                                <Input id="txtServicio" value="{oProveedor>/LineaProducto/LinProdS}" maxLength="25" required="true" change="changeValueState" editable="{statusEdit>/edit}"/>
+                            </f:fields>                                
+                        </f:FormElement>
+
+                        <f:FormElement label="{i18n>promedio_mensual}">
+                            <f:fields>
+                                <RadioButtonGroup id="rbgPromedioMensual" columns="2" editable="{statusEdit>/edit}">
+                                    <RadioButton text="S/"/>
+                                    <RadioButton text="USD" />
+                                </RadioButtonGroup>
+                                <Input id="txtPromedioMensual" value="{oProveedor>/LineaProducto/PromMen}" type="Text" maxLength="21" liveChange="changeValueNumber" required="true" change="changeValueState" placeholder="Ingresar Monto" editable="{statusEdit>/edit}"/>
+                            </f:fields>                                
+                        </f:FormElement>
+
+                    </f:formElements>
+                </f:FormContainer>
+            </f:formContainers>
+        </f:Form>
+
+        <f:Form id="FormContactoComercial4" editable="true" class="sapUiSmallMargiTop">
+            <f:title>
+                <core:Title text="{i18n>contactocomercial4}"/>
+            </f:title> 
+            <f:layout>
+                <f:ColumnLayout
+                    columnsL="2"
+                    columnsM="2"
+                    columnsXL="4"
+                    emptyCellsLarge="1"
+                    labelCellsLarge="3"/>
+            </f:layout>
+            <f:formContainers>
+                <f:FormContainer>
+                    <f:formElements>
+                        <f:FormElement label="{i18n>nombreap}">
+                            <f:fields>
+                                <Input id="txtNombreapLP1" value="{oProveedor>/LineaProducto/NomApe}" maxLength="40" change="changeValueState" required="true" editable="{statusEdit>/edit}"/>
+                            </f:fields>
+                        </f:FormElement>
+                            <f:FormElement label="{i18n>cargo1}">
+                            <f:fields>
+                                <Input id="txtCargoLP1" value="{oProveedor>/LineaProducto/Cargo}" maxLength="40" change="changeValueState" required="true" editable="{statusEdit>/edit}"/>
+                            </f:fields>
+                        </f:FormElement>
+                        <f:FormElement label="{i18n>correo4}">
+                            <f:fields>
+                                <Input id="txtCorreoLP1" value="{oProveedor>/LineaProducto/Email}" maxLength="40" change="onValidarFormatoCorreo" required="true" editable="{statusEdit>/edit}"/>
+                            </f:fields>                                
+                        </f:FormElement>
+                        <f:FormElement label="{i18n>telefono4}">
+                            <f:fields>
+                                <Input id="txtTelefonoLP1" value="{oProveedor>/LineaProducto/TelFij}" maxLength="9" liveChange="changeOnlyNumber" change="changeValueState" required="true" editable="{statusEdit>/edit}"/>
+                            </f:fields>
+                        </f:FormElement>
+                        <f:FormElement label="{i18n>telefono5}">
+                            <f:fields>
+                                <Input id="txtCelularLP1" value="{oProveedor>/LineaProducto/Celular}" maxLength="11" liveChange="changeOnlyNumber" change="changeValueState" required="true" editable="{statusEdit>/edit}"/>
+                            </f:fields>
+                        </f:FormElement>
+                        <f:FormElement visible="false">
+                            <f:fields>
+                                <Text id="txtServicioCod" text="" visible="false" />
+                            </f:fields>
+                        </f:FormElement>
+
+                    </f:formElements>                        
+                </f:FormContainer>                    
+            </f:formContainers>  
+        </f:Form>
+            
+            <FlexBox justifyContent="End"
+                     class="sapUiTinyMarginBeginEnd">
+                <Button type="Accept"
+                        text="{i18n>agregar}"
+                        width="10em"
+                        press="onAddLineaProducto"
+                        ariaDescribedBy="acceptButtonDescription genericButtonDescription" enabled="{statusEdit>/edit}">
+                </Button>
+            </FlexBox>
+
+            <Table id="tbListaContactoC" items="{ListaLineaProducto>/data}" mode="SingleSelectMaster">
+                <columns>
+                    <Column>
+                        <Text text="{i18n>especialidad}"/>
+                    </Column>
+                    <Column>
+                        <Text text="{i18n>marca}"/>
+                    </Column>
+                    <Column>
+                        <Text text="{i18n>servicio}"/>
+                    </Column>
+                    <Column>
+                        <Text text="{i18n>promedio_mensual}"/>
+                    </Column>
+                    <Column>
+                        <Text text="{i18n>nombreapel}"/>
+                    </Column>
+                    <Column>
+                        <Text text="{i18n>cargo3}"/>
+                    </Column>
+                    <Column>
+                        <Text text="{i18n>correo6}"/>
+                    </Column>
+                    <Column>
+                        <Text text="{i18n>telefono8}"/>
+                    </Column>
+                    <Column>
+                        <Text text="{i18n>telefono9}"/>
+                    </Column>
+                    <Column>
+                        <Text text=""/>
+                    </Column>
+                </columns>
+                <items>
+                    <ColumnListItem>
+                        <cells>
+                            <Text text="{ListaLineaProducto>Especialidaddes}"/>
+                            <Text text="{ListaLineaProducto>Marca}"/>
+                            <Text text="{ListaLineaProducto>Lineaprodservdes}"/>
+                            <Text text="{ 
+                                parts: [{path: 'ListaLineaProducto>PromdmenventSo'}, {path: 'ListaLineaProducto>PromdmenventDo'}, {path: 'ListaLineaProducto>PromdmenventMonto'}],
+                                formatter: '.formatoMonedaLP'
+                            }" />
+                            <Text text="{ListaLineaProducto>NomApe}"/>
+                            <Text text="{ListaLineaProducto>Cargo}"/>
+                            <Text text="{ListaLineaProducto>Email}"/>
+                            <Text text="{ListaLineaProducto>TelFij}"/>
+                            <Text text="{ListaLineaProducto>Celular}"/>
+                            <Button icon="sap-icon://delete" press="onDeleteLineaProducto" enabled="{statusEdit>/edit}"/>
+                        </cells>
+                    </ColumnListItem>
+                </items>
+            </Table>
+
+            <FlexBox justifyContent="End">
+                <Button 
+                    type="Accept"
+                    text="{i18n>grabaryseguir}"
+                    width="20em"
+                    press="onSaveLineaProducto"
+                    visible="{userData>/editable}"
+                    ariaDescribedBy="acceptButtonDescription genericButtonDescription"></Button>
+            </FlexBox>
+
+            </Panel>       
+        </VBox>
+</core:FragmentDefinition>
