@@ -1,0 +1,127 @@
+<core:FragmentDefinition 
+	xmlns:l="sap.ui.layout"
+	xmlns:f="sap.ui.layout.form"
+	xmlns:core="sap.ui.core"
+	xmlns="sap.m"
+>
+    <VBox class="sapUiSmallMargin">
+    <Panel id="idPanelProveedor" headerText="{i18n>proveedor}" expandable="true" expanded="true">
+        <f:Form id="FormDisplay480_Trial" binding="{/oProveedor}"
+            editable="false">
+            <!-- <f:title>
+                <core:Title text="{i18n>proveedor}" />
+            </f:title> -->
+                <f:layout>
+                    <f:ResponsiveGridLayout
+                        labelSpanXL="4"
+                        labelSpanL="4"
+                        labelSpanM="4"
+                        labelSpanS="12"
+                        adjustLabelSpan="false"
+                        emptySpanXL="0"
+                        emptySpanL="0"
+                        emptySpanM="0"
+                        emptySpanS="0"
+                        columnsXL="3"
+                        columnsL="3"
+                        columnsM="2"
+                        singleContainerFullSize="false" />
+                </f:layout>
+                <f:formContainers>
+                    <f:FormContainer title="{i18n>informacionPersonal}">
+                        <f:formElements>
+                            <f:FormElement label="{i18n>documento}">
+                                <f:fields>
+                                    <Text text="{Taxnumxl}" id="nameText"  />
+                                </f:fields>
+                            </f:FormElement>
+                            <f:FormElement label="{i18n>razonSocial}">
+                                <f:fields>
+                                    <Text text="{Fullname}" />
+                                </f:fields>
+                            </f:FormElement>
+                            <f:FormElement label="{i18n>representate}">
+                                <f:fields>
+                                    <Text text="{Representante}" />
+                                </f:fields>
+                            </f:FormElement>
+                            <f:FormElement label="{i18n>correo}">
+                                <f:fields>
+                                    <Text text="{Correo}" id="countryText" />
+                                </f:fields>
+                            </f:FormElement>
+                        </f:formElements>
+                    </f:FormContainer>
+                    <f:FormContainer title="{i18n>direccion}">
+                        <f:formElements>
+                            <f:FormElement label="{i18n>direccion}">
+                                <f:fields>
+                                    <Text text="{Stras}" />
+                                </f:fields>
+                            </f:FormElement>
+                            <f:FormElement label="{i18n>pais}">
+                                <f:fields>
+                                    <Text text="{Land1des}" />
+                                </f:fields>
+                            </f:FormElement>
+                            <f:FormElement label="{i18n>region}">
+                                <f:fields>
+                                    <Text text="{Ort01}" />
+                                </f:fields>
+                            </f:FormElement>
+                            <f:FormElement label="{i18n>ciudad}">
+                                <f:fields>
+                                    <Text text="{Ort02}" />
+                                </f:fields>
+                            </f:FormElement>
+                            <f:FormElement label="{i18n>comuna}">
+                                <f:fields>
+                                    <Text text="{Pfach}" />
+                                </f:fields>
+                            </f:FormElement>
+                        </f:formElements>
+                    </f:FormContainer>
+                    <!-- <f:FormContainer title="{i18n>cuentasBancarias}">
+                    <f:formElements>
+                            <f:FormElement label="{i18n>nombreBanco}">
+                                <f:fields>
+                                    <Text text="{Twitter}" />
+                                </f:fields>
+                            </f:FormElement>
+                            <f:FormElement label="{i18n>moneda}">
+                                <f:fields>
+                                    <Text text="{Twitter}" />
+                                </f:fields>
+                            </f:FormElement>
+                            <f:FormElement label="{i18n>titular}">
+                                <f:fields>
+                                    <Text text="{Email}" />
+                                </f:fields>
+                            </f:FormElement>
+                            <f:FormElement label="{i18n>documentoBanco}">
+                                <f:fields>
+                                    <Text text="{Tel}" />
+                                </f:fields>
+                            </f:FormElement>
+                            <f:FormElement label="{i18n>tipoCuenta}">
+                                <f:fields>
+                                    <Text text="{Sms}" />
+                                </f:fields>
+                            </f:FormElement>
+                            <f:FormElement label="{i18n>numCuenta}">
+                                <f:fields>
+                                    <Text text="{Sms}" />
+                                </f:fields>
+                            </f:FormElement>
+                            <f:FormElement label="{i18n>cuentaInterbancaria}">
+                                <f:fields>
+                                    <Text text="{Sms}" />
+                                </f:fields>
+                            </f:FormElement>
+                        </f:formElements>
+                    </f:FormContainer> -->
+                </f:formContainers>
+            </f:Form>
+        </Panel>
+    </VBox>
+</core:FragmentDefinition>

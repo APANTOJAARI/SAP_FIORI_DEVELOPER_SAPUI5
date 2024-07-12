@@ -1,0 +1,111 @@
+<c:FragmentDefinition
+	xmlns="sap.m"
+	xmlns:c="sap.ui.core"
+    xmlns:l="sap.ui.layout"
+	xmlns:u="sap.ui.unified"
+>
+<l:VerticalLayout>
+	<l:HorizontalLayout class="sapUiContentPadding" visible="false">
+     <Label
+			text="*"			
+			class="colorRequired"
+			design="Bold" />
+        <Label
+			text="PDF"			
+			labelFor="myFileUpload"
+			design="Bold" />
+		<u:FileUploader		
+			id="idFileUploaderPDF"
+			name="myFileUpload"
+			uploadUrl="upload/"
+            icon= "sap-icon://browse-folder"
+            iconOnly="true"
+			tooltip="Selecciona un documento"
+			uploadComplete="handleUploadComplete"
+			change="onGuardarPDF"
+			typeMissmatch="handleTypeMissmatch"
+			style="Emphasized"
+			fileType="pdf"
+			placeholder="Selecciona un documento">			
+			</u:FileUploader>
+
+		<!-- <Button text="chinin" press="onTest"></Button> -->
+    </l:HorizontalLayout>
+    <!-- <l:HorizontalLayout class="sapUiContentPadding" >
+    <Label
+			text="*"
+			class="colorRequired"
+			design="Bold" />
+        <Label
+			text="XML"
+			labelFor="myFileUpload"
+			design="Bold" />
+		<u:FileUploader
+			id="idFileUploaderXML"
+			name="myFileUpload"
+			uploadUrl="upload/"
+			icon= "sap-icon://browse-folder"
+            iconOnly="true"
+			tooltip="Selecciona un documento"
+			uploadComplete="handleUploadComplete"
+			change="handleValueChange"
+			typeMissmatch="handleTypeMissmatch"
+			style="Emphasized"
+			fileType="xml"
+			placeholder="Selecciona un documento">		
+			</u:FileUploader>
+    </l:HorizontalLayout> -->
+    <l:HorizontalLayout class="sapUiContentPadding"  visible="false">
+	     <Label
+			text="*"
+			
+			class="colorRequired"
+			design="Bold" />
+        <Label
+			text="Guia Remision"
+			
+			labelFor="myFileUpload"
+			design="Bold" />
+		<u:FileUploader
+			id="idFileUploaderGuiaRemision"
+			name="myFileUpload"
+			
+			uploadUrl="upload/"
+			icon= "sap-icon://browse-folder"
+            iconOnly="true"
+			tooltip="Selecciona un documento"
+			uploadComplete="handleUploadComplete"
+			change="onGuardarGuiaRemision"
+			typeMissmatch="handleTypeMissmatch"
+			style="Emphasized"
+			fileType="pdf"
+			placeholder="Selecciona un documento">		
+			</u:FileUploader>
+    </l:HorizontalLayout>
+    <l:HorizontalLayout class="sapUiContentPadding" >
+	     <Label
+			text="*"
+			class="colorRequired"
+			design="Bold" />
+        <Label
+			text="Sustentos"
+			labelFor="myFileUpload"
+			design="Bold" />
+		<u:FileUploader
+			id="idFileUploaderCdr"
+			name="myFileUpload"
+			uploadUrl="upload/"
+			icon= "sap-icon://browse-folder"
+            iconOnly="true"
+			tooltip="Selecciona un documento"
+			uploadComplete="handleUploadComplete"
+			change="onGuardarCdr"
+			typeMissmatch="handleTypeMissmatch"
+			style="Emphasized"
+			fileType="pdf"
+			placeholder="Selecciona un documento">		
+			</u:FileUploader>
+			<FormattedText htmlText="{/HTML}"/>				
+    </l:HorizontalLayout>
+</l:VerticalLayout>
+</c:FragmentDefinition>

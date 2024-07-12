@@ -1,0 +1,276 @@
+<core:FragmentDefinition
+	xmlns="sap.m"
+	xmlns:core="sap.ui.core"
+    xmlns:l="sap.ui.layout"
+	xmlns:u="sap.ui.unified"
+	xmlns:f="sap.ui.layout.form"
+>
+	<VBox class="sapUiSmallMargin">
+		<f:Form id="FormChange354wideDual" binding="{/oFactura}"
+			editable="true">
+			<!-- <f:title>
+				<core:Title text="Address" />
+			</f:title> -->
+			<f:layout>
+				<f:ResponsiveGridLayout
+					labelSpanXL="4"
+					labelSpanL="3"
+					labelSpanM="4"
+					labelSpanS="12"
+					adjustLabelSpan="false"
+					emptySpanXL="0"
+					emptySpanL="4"
+					emptySpanM="0"
+					emptySpanS="0"
+					columnsXL="2"
+					columnsL="1"
+					columnsM="1"
+					singleContainerFullSize="false" />
+			</f:layout>
+			<f:formContainers>
+				<f:FormContainer title="">
+					<f:formElements>
+						<f:FormElement label="{i18n>claseDocumento}">
+								<f:fields>
+									<ComboBox
+										items="{
+											path: '/ClaseDocumento'
+										}"
+										change="onChangeClaseDocumento"
+										id="idClaseDocumento"
+										selectedKey="{claseDoc}"
+										>
+											<core:ListItem key="{Indicador}" text="{Descripcion}" ></core:ListItem>
+									</ComboBox>	
+								</f:fields>
+						</f:FormElement>
+						<f:FormElement label="{i18n>xml}" >
+							<f:fields>
+                               <u:FileUploader
+							   	visible="{/tipoDocFile}"
+								id="idFileUploaderXML"
+								name="myFileUpload"
+								uploadUrl="upload/"
+								change="onImportarArchivoXml"
+								icon= "sap-icon://browse-folder"
+								iconOnly="true"
+								tooltip="Selecciona un documento"
+								uploadComplete="handleUploadComplete"
+								typeMissmatch="handleTypeMissmatch"
+								style="Emphasized"
+								fileType="xml"
+								placeholder="Selecciona un documento">		
+								</u:FileUploader>
+							</f:fields>
+						</f:FormElement>
+						<f:FormElement label="{i18n>numSerieCorrelativo}" >
+							<f:fields>
+                                <Input value="{serieFactura}" enabled="false">
+									<layoutData>
+										<l:GridData span="XL4 L4 M4 S6" />
+									</layoutData>
+								</Input>
+								<Input value="{correlativo}" enabled="false">
+									<layoutData>
+										<l:GridData span="XL4 L4 M4 S6" />
+									</layoutData>
+								</Input>
+								
+							</f:fields>
+						</f:FormElement>
+						<f:FormElement label="{i18n>fechaContFactura}">
+							<f:fields>
+								<DatePicker
+									enabled="false"
+								 	required="true"
+                                    id="idDPFechaContFactura"
+                                    value="{
+                                        'path':'fechaConta',
+                                        'type':'sap.ui.model.type.Date',
+                                        'formatOptions': {
+                                            'pattern': 'yyyy-MM-dd'
+                                        }
+                                    }"
+                                    change="handleChange"
+                                    class="sapUiSmallMarginBottom"/>
+							</f:fields>
+						</f:FormElement>
+						<f:FormElement label="{i18n>fechaEmision}">
+							<f:fields>
+								<DatePicker
+									enabled="false"
+                                    id="idDPFechaEmision"
+                                    value="{
+                                        'path':'fechaEmision',
+                                        'type':'sap.ui.model.type.Date',
+                                        'formatOptions': {
+                                            'pattern': 'yyyy-MM-dd'
+                                        }
+                                    }"
+                                    change="handleChange"
+                                    class="sapUiSmallMarginBottom"/>
+							</f:fields>
+						</f:FormElement>
+						<f:FormElement label="{i18n>importIGV}">
+							<f:fields>
+                                <Input value="{importe}" enabled="{/tipoDoc}">
+									<layoutData>
+										<l:GridData span="XL2 L2 M2 S6" />
+									</layoutData>
+								</Input>
+								<ComboBox enabled="{/tipoDoc}"
+									items="{
+										path: '/Moneda'
+									}"
+									selectedKey="{monedaImporte}"
+                                    id="idMonedaImporte"
+									>
+										<core:ListItem key="{Key}" text="{Desc}" ></core:ListItem>
+										<layoutData>
+										<l:GridData span="XL2 L2 M2 S2" />
+									</layoutData>
+								</ComboBox>
+								<!-- <Input value="{moneda}" enabled="{/tipoDoc}">
+									
+								</Input> -->
+							</f:fields>
+						</f:FormElement>
+						<f:FormElement label="{i18n>impuestos}">
+							<f:fields>
+                                <Input value="{impuestos}" enabled="{/tipoDoc}">
+									<layoutData>
+										<l:GridData span="XL2 L2 M2 S6" />
+									</layoutData>
+								</Input>
+								<ComboBox enabled="{/tipoDoc}"
+									items="{
+										path: '/Moneda'
+									}"
+									selectedKey="{monedaImpuesto}"
+                                    id="idMonedaImpuestos"
+									>
+										<core:ListItem key="{Key}" text="{Desc}" ></core:ListItem>
+										<layoutData>
+										<l:GridData span="XL2 L2 M2 S2" />
+									</layoutData>
+								</ComboBox>
+								<!-- <Input value="{moneda}" enabled="{/tipoDoc}">
+									<layoutData>
+										<l:GridData span="XL1 L1 M1 S2" />
+									</layoutData>
+								</Input> -->
+							</f:fields>
+						</f:FormElement>
+						<f:FormElement label="{i18n>textoCabecera}">
+							<f:fields>
+                                <Input required="true" value="{Textopsdtsbasicos}">									
+								</Input>
+								
+							</f:fields>
+						</f:FormElement>
+					</f:formElements>
+				</f:FormContainer>
+				<f:FormContainer title="">
+					<f:formElements>
+						
+						<f:FormElement  visible="false"  label="{i18n>condicionesPago}">
+							<f:fields>
+								<Input id="idCondicionesPago" value="{condicionesPago}" />
+							</f:fields>
+						</f:FormElement>
+                        <f:FormElement visible="false"  label="{i18n>indicadorImpuesto}">
+							<f:fields>
+								<Input id="idIndicadorImpuestos" value="{indicadorImpuestos}" />
+							</f:fields>
+						</f:FormElement>
+                        <f:FormElement visible="{/VisibleFactura}" id="idDetraccionForm" label="{i18n>detraccion}">
+							<f:fields>
+								<ComboBox
+									items="{
+										path: '/Detraccion'
+									}"
+									selectedKey="{detraccion}"
+                                    id="idDetraccion"
+									>
+										<core:ListItem key="{Descripcion}" text="{Definicion}" ></core:ListItem>
+								</ComboBox>								
+							</f:fields>
+						</f:FormElement>
+						<f:FormElement visible="{/VisibleFactura}" id="idRetencionForm"  label="{i18n>retencion}">
+							<f:fields>
+								<ComboBox
+									items="{
+										path: '/Retención'
+									}"
+									selectedKey="{retencion}"
+                                    id="idRetencion"
+									>
+										<core:ListItem key="{Descripcion}" text="{Definicion}" ></core:ListItem>
+								</ComboBox>								
+							</f:fields>
+						</f:FormElement>
+						<f:FormElement visible="{/VisibleFactura}" label="{i18n>fielCumplimiento}">
+							<f:fields>
+								<ComboBox
+									items="{
+										path: '/FIelCumplimiento'
+									}"
+									selectedKey="{fielCumplimiento}"
+                                    id="idFiel"
+									>
+										<core:ListItem key="{Descripcion}" text="{Definicion}" ></core:ListItem>
+								</ComboBox>								
+							</f:fields>
+						</f:FormElement>
+						<f:FormElement visible="{/VisibleFactura}" label="{i18n>fondoGarantia}">
+							<f:fields>
+								<ComboBox
+									items="{
+										path: '/FondoGarantia'
+									}"
+									selectedKey="{fondoGarantia}"
+                                    id="idFondo"
+									>
+										<core:ListItem key="{Descripcion}" text="{Definicion}" ></core:ListItem>
+								</ComboBox>								
+							</f:fields>
+						</f:FormElement>
+						<f:FormElement visible="{/VisibleRxh}" label="{i18n>rxh}">
+							<f:fields>
+								<ComboBox
+									items="{
+										path: '/Rxh'
+									}"
+									selectedKey="{rxh}"
+                                    id="idRxH"
+									>
+										<core:ListItem key="{Descripcion}" text="{Definicion}" ></core:ListItem>
+								</ComboBox>								
+							</f:fields>
+						</f:FormElement>
+						<f:FormElement visible="{/VisibleFactura}" label="{i18n>montoFielCumplimiento}">
+							<f:fields>
+								<Input value="{Montobasefc}" />
+							</f:fields>
+						</f:FormElement>
+						<f:FormElement visible="{/VisibleRxh}" label="{i18n>montoporHonorarios}">
+							<f:fields>
+								<Input value="{montoporHonorarios}" />
+							</f:fields>
+						</f:FormElement>
+						<f:FormElement visible="{/VisibleFactura}" label="{i18n>montoFondoGarantia}">
+							<f:fields>
+								<Input value="{montoFondoGarantia}" />
+							</f:fields>
+						</f:FormElement>
+						<f:FormElement visible="{/VisibleFactura}" label="{i18n>montoBaseDE}">
+							<f:fields>
+								<Input value="{montoBaseDE}" />
+							</f:fields>
+						</f:FormElement>
+					</f:formElements>
+				</f:FormContainer>
+			</f:formContainers>
+		</f:Form>
+	</VBox>
+</core:FragmentDefinition>

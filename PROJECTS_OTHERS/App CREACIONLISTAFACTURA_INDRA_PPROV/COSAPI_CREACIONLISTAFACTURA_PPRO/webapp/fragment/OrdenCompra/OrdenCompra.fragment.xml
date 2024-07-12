@@ -1,0 +1,134 @@
+<c:FragmentDefinition
+	xmlns:m="sap.m"
+	xmlns:c="sap.ui.core"
+    xmlns="sap.uxap"
+	xmlns:f="sap.ui.layout.form"
+	xmlns:layout="sap.ui.layout"
+>
+<ObjectPageLayout id="ObjectPageLayout"
+		enableLazyLoading="true"
+		beforeNavigate="onBeforeNavigate"
+		useIconTabBar="true"
+		showTitleInHeaderContent="true"
+		upperCaseAnchorBar="false"
+		sectionChange="onSectionChange">
+		<headerTitle>
+			<ObjectPageDynamicHeaderTitle>
+				<expandedHeading>
+				<!-- 45000000001 -->
+					<m:Title text="" wrapping="true"/>
+				</expandedHeading>
+
+				<snappedHeading>
+					<m:FlexBox fitContainer="true" alignItems="Center">
+						<!-- <m:Avatar src="./test-resources/sap/uxap/images/imageID_275314.png" class="sapUiTinyMarginEnd"/> -->
+						<m:Title id="idTituloOC" text="" wrapping="true" />
+					</m:FlexBox>
+				</snappedHeading>
+
+				<expandedContent>
+					<m:Text text="Orden de Compra"/>
+				</expandedContent>
+
+				<snappedContent>
+					<m:Text text="Orden de Compra"/>
+				</snappedContent>
+
+				<snappedTitleOnMobile>
+					<m:Title text="Orden de Compra"/>
+				</snappedTitleOnMobile>
+
+				<actions>
+					<!-- <m:Button text="Edit" type="Emphasized" press="onEdit"/>
+					<m:Button type="Transparent" text="Delete"/>
+					<m:Button type="Transparent" text="Copy" press="onBack"/> -->
+					<m:OverflowToolbarButton icon="sap-icon://undo" type="Transparent" text="Share" tooltip="action" press="onBack"/>
+				</actions>
+			</ObjectPageDynamicHeaderTitle>
+		</headerTitle>
+
+		<headerContent>
+			<f:Form id="FormDisplay480_Trial" binding="{/oOrdenCompra}"  >        
+                <f:layout>
+                    <f:ResponsiveGridLayout
+                        labelSpanXL="4"
+                        labelSpanL="4"
+                        labelSpanM="4"
+                        labelSpanS="12"
+                        adjustLabelSpan="false"
+                        emptySpanXL="0"
+                        emptySpanL="0"
+                        emptySpanM="0"
+                        emptySpanS="0"
+                        columnsXL="3"
+                        columnsL="3"
+                        columnsM="2"
+                        singleContainerFullSize="false" />
+                </f:layout>
+                <f:formContainers>
+                    <f:FormContainer title="">
+                        <f:formElements>
+						<f:FormElement label="{i18n>importe}">
+                                <f:fields>
+                                    <m:Text text="{Importe}" />
+                                </f:fields>
+                            </f:FormElement>
+						<f:FormElement label="{i18n>descripcionOC}">
+                                <f:fields>
+                                    <m:Text text="{Ernam}" id="nameText"  />
+                                </f:fields>
+                            </f:FormElement>                            
+                                                
+                        </f:formElements>
+                    </f:FormContainer>
+					<f:FormContainer title="">
+                        <f:formElements>
+                            <f:FormElement label="{i18n>sociedad}">
+                                <f:fields>
+                                    <m:Text text="{Bukrs} - {Butxt}" />
+                                </f:fields>
+                            </f:FormElement>
+                           <f:FormElement label="{i18n>fecha}">
+                                <f:fields>
+                                <m:Text text="{
+											path: 'Aedat',
+											type: 'sap.ui.model.type.Date',
+											formatOptions: {
+												pattern: 'yyyy.MM.dd', UTC: 'true'
+											}
+										}" />
+                                </f:fields>
+                            </f:FormElement>
+                        </f:formElements>
+                    </f:FormContainer>
+					<f:FormContainer title="">
+                        <f:formElements>
+                             <f:FormElement label="{i18n>creadoPor}">
+                                <f:fields>
+                                    <m:Text text="{Ernam}" />
+                                </f:fields>
+                            </f:FormElement>
+                            <!-- <f:FormElement label="{i18n>solicitante}">
+                                <f:fields>
+                                    <m:Text text="{Solicitante}"/>
+                                </f:fields>
+                            </f:FormElement> -->
+                        </f:formElements>
+                    </f:FormContainer>
+                </f:formContainers>
+            </f:Form>
+		</headerContent>
+
+		<sections>
+			<ObjectPageSection titleUppercase="false" id="goals" title="Posiciones">
+			<subSections>
+				<ObjectPageSubSection id="goalsSS1" titleUppercase="false">
+					<blocks>
+						 <c:Fragment fragmentName="ns.cosapi.creacionlistadofactura.fragment.OrdenCompra.ListaOrdenCompra" type="XML" />
+					</blocks>
+				</ObjectPageSubSection>
+			</subSections>
+			</ObjectPageSection>
+		</sections>
+	</ObjectPageLayout>
+</c:FragmentDefinition>

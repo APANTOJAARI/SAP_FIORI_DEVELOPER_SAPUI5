@@ -1,0 +1,48 @@
+<mvc:View controllerName="ns.cosapi.creacionlistadofactura.controller.DetalleFactura"
+    xmlns:mvc="sap.ui.core.mvc" displayBlock="true"
+	xmlns:core="sap.ui.core"
+	xmlns:f="sap.f"
+    xmlns="sap.m">
+    <Page id="idPageDetalleFactura" title="Detalle Factura" titleAlignment="Center" showNavButton="true" navButtonPress="onBack">
+        <content>
+        <MessageStrip
+                visible="{/visibleObs}"
+				text="Su documento se encuentra en estado Observado, por favor vaya a la seccion de documentos adjuntos en la parte inferior y modifique su sustento"
+				design="Warning"
+				class="sapUiMediumMarginBottom"
+				close="handleClose">
+			</MessageStrip>
+         <core:Fragment fragmentName="ns.cosapi.creacionlistadofactura.fragment.DetalleFactura.FormRegistroFactura" type="XML" />
+        <IconTabBar
+            id="idIconTabBarSeparatorNoIcon"
+            expanded="true"
+            class="sapUiResponsiveContentPadding">
+            <items>
+                <IconTabFilter
+                    key="info"
+                    showAll="true"
+                    text="Conformidades"
+                    icon="sap-icon://hint"
+                    iconColor="Positive">
+                    <core:Fragment fragmentName="ns.cosapi.creacionlistadofactura.fragment.DetalleFactura.TablaListaConformidades" type="XML" />
+                </IconTabFilter>
+                <IconTabSeparator icon=""/>
+                <IconTabFilter
+                    key="attachments"
+                    icon="sap-icon://attachment"
+                    iconColor="Contrast">
+                    <core:Fragment fragmentName="ns.cosapi.creacionlistadofactura.fragment.DetalleFactura.Documentos" type="XML" />                
+                </IconTabFilter>              
+            </items>
+	    </IconTabBar>
+         
+        </content>
+        <footer>
+				<OverflowToolbar>
+					<ToolbarSpacer/>
+					<Button type="Accept" visible="false" text="Aprobar" press="onCrearFactura"/>
+                    <Button type="Reject" visible="false" text="Rechazar" press="onCrearFactura"/>
+				</OverflowToolbar>
+        </footer>
+    </Page>
+</mvc:View>

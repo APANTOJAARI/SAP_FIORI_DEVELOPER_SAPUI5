@@ -1,0 +1,211 @@
+{
+    "_version": "1.59.0",
+    "sap.app": {
+        "id": "ns.cosapi.creacionlistadofactura",
+        "type": "application",
+        "i18n": "i18n/i18n.properties",
+        "applicationVersion": {
+            "version": "0.0.1"
+        },
+        "title": "{{appTitle}}",
+        "description": "{{appDescription}}",
+        "resources": "resources.json",
+        "sourceTemplate": {
+            "id": "@sap/generator-fiori:basic",
+            "version": "1.12.5",
+            "toolsId": "143b5af2-024a-4aaf-9111-3532a1cfe1fc"
+        },      
+        "dataSources": {
+            "ZMMGS_PRE_REG_FACT_SRV": {
+                "uri": "/sap/opu/odata/sap/ZMMGS_PRE_REG_FACT_SRV",
+                "type": "OData",
+                "settings": {
+                    "odataVersion": "2.0",
+                    "localUri": "localService/metadata.xml"
+                }
+            },
+            "ZMMGS_REGPROVEEPP_CRUD_SRV": {
+                "uri": "/sap/opu/odata/sap/ZMMGS_REGPROVEEPP_CRUD_SRV",
+                "type": "OData",
+                "settings": {
+                    "odataVersion": "2.0",
+                    "localUri": "localService/metadata.xml"
+                }
+            }
+        },
+        "crossNavigation": {
+            "inbounds": {
+                "intent1": {
+                    "signature": {
+                        "parameters": {},
+                        "additionalParameters": "allowed"
+                    },
+                    "semanticObject": "creacionlistafactura",
+                    "action": "display",
+                    "title": "Facturas",
+                    "icon": "sap-icon://my-sales-order"
+                }
+            }
+        }
+    },
+    "sap.ui": {
+        "technology": "UI5",
+        "icons": {
+            "icon": "",
+            "favIcon": "",
+            "phone": "",
+            "phone@2": "",
+            "tablet": "",
+            "tablet@2": ""
+        },
+        "deviceTypes": {
+            "desktop": true,
+            "tablet": true,
+            "phone": true
+        }
+    },
+    "sap.ui5": {
+        "flexEnabled": true,
+        "dependencies": {
+            "minUI5Version": "1.121.1",
+            "libs": {
+                "sap.m": {},
+                "sap.ui.core": {},
+                "sap.f": {},
+                "sap.suite.ui.generic.template": {},
+                "sap.ui.comp": {},
+                "sap.ui.generic.app": {},
+                "sap.ui.table": {},
+                "sap.ushell": {}
+            }
+        },
+        "contentDensities": {
+            "compact": true,
+            "cozy": true
+        },
+        "models": {
+            "i18n": {
+                "type": "sap.ui.model.resource.ResourceModel",
+                "settings": {
+                    "bundleName": "ns.cosapi.creacionlistadofactura.i18n.i18n"
+                }
+            },
+            "": {
+                "type": "sap.ui.model.json.JSONModel",
+                "preload": true
+            },
+            "ZMMGS_PRE_REG_FACT_SRV":{
+                "dataSource": "ZMMGS_PRE_REG_FACT_SRV",
+                "preload": true,
+                "settings": {}
+            },
+            "ZMMGS_REGPROVEEPP_CRUD_SRV":{
+                "dataSource": "ZMMGS_REGPROVEEPP_CRUD_SRV",
+                "preload": true,
+                "settings": {}
+            }
+        },
+        "resources": {
+            "css": [
+                {
+                    "uri": "css/style.css"
+                }
+            ]
+        },
+        "routing": {
+            "config": {
+                "routerClass": "sap.m.routing.Router",
+                "viewType": "XML",
+                "async": true,
+                "viewPath": "ns.cosapi.creacionlistadofactura.view",
+                "controlAggregation": "pages",
+                "controlId": "app",
+                "clearControlAggregation": false
+            },
+            "routes": [
+                {
+                    "name": "RouteHome",
+                    "pattern": ":?query:",
+                    "target": [
+                        "TargetHome"
+                    ]
+                },
+                {
+                    "name": "ViewCrearFactura",
+                    "pattern": "ViewCrearFactura/{bussinesPartner}",
+                    "target": [
+                        "TargetCrearFactura"
+                    ]
+                },
+                {
+                    "name": "ViewOrdenCompra",
+                    "pattern": "ViewOrdenCompra/{ordenCompra}",
+                    "target": [
+                        "TargetOrdenCompra"
+                    ]
+                },
+                {
+                    "name": "ViewListaFactura",
+                    "pattern": "ViewListaFactura",
+                    "target": [
+                        "TargetListaSolicitudesFactura"
+                    ]
+                },                
+                {
+                    "name": "ViewDetalleFactura",
+                    "pattern": "ViewDetalleFactura/{preliminar}",
+                    "target": [
+                        "TargetDetalleFactura"
+                    ]
+                }
+            ],
+            "targets": {
+                "TargetHome": {
+                    "viewType": "XML",
+                    "transition": "slide",
+                    "clearControlAggregation": false,
+                    "viewId": "Home",
+                    "viewName": "Home"
+                },
+                "TargetCrearFactura": {
+                    "viewType": "XML",
+                    "transition": "slide",
+                    "clearControlAggregation": false,
+                    "viewId": "CrearFactura",
+                    "viewName": "CrearFactura"
+                },                
+                "TargetOrdenCompra": {
+                    "viewType": "XML",
+                    "transition": "slide",
+                    "clearControlAggregation": false,
+                    "viewId": "OrdenCompra",
+                    "viewName": "OrdenCompra"
+                },                
+                "TargetListaSolicitudesFactura": {
+                    "viewType": "XML",
+                    "transition": "slide",
+                    "clearControlAggregation": false,
+                    "viewId": "ListaFactura",
+                    "viewName": "ListaFactura"
+                },                
+                "TargetDetalleFactura": {
+                    "viewType": "XML",
+                    "transition": "slide",
+                    "clearControlAggregation": false,
+                    "viewId": "DetalleFactura",
+                    "viewName": "DetalleFactura"
+                }
+            }
+        },
+        "rootView": {
+            "viewName": "ns.cosapi.creacionlistadofactura.view.App",
+            "type": "XML",
+            "async": true,
+            "id": "App"
+        }
+    },
+    "sap.cloud": {
+        "public": true,
+        "service": "nscosapicreacionlistadofactura"
+    }
+}

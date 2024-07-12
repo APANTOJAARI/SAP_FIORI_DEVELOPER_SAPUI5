@@ -1,0 +1,57 @@
+<mvc:View controllerName="ns.cosapi.creacionlistadofactura.controller.Home"
+    xmlns:mvc="sap.ui.core.mvc" displayBlock="true"
+	xmlns:core="sap.ui.core"
+	xmlns:f="sap.f"
+	xmlns:l="sap.ui.layout"
+    xmlns="sap.m">
+    <Page id="page" title="{i18n>title}">
+		<MessageStrip
+                id="idMessageObsAdj"
+				text="Ingrese un RUC de un proveedor para poder continuar"
+                visible="{/adminVisible}"
+				design="Warning"
+				class="sapUiMediumMarginBottom"
+				close="handleClose">
+			</MessageStrip>
+		<l:HorizontalLayout class="sapUiContentPadding" visible="{/adminVisible}">
+			<Label
+			text="Ruc"
+			labelFor="idRuc"
+			design="Bold" />
+			<Input id="idRuc" />
+			<Button type="Success" text="Asignar" press="onAsignarRuc" />
+		 </l:HorizontalLayout>
+		 <l:HorizontalLayout class="sapUiContentPadding" visible="{/adminVisible}">
+			<Label
+			text="{i18n>razonSocial}"
+			labelFor="idRazonSocialHome"
+			design="Bold" />
+			<Input enabled="false" id="idRazonSocialHome" />
+			<Label
+			text="BP"
+			labelFor="idBP"
+			design="Bold" />
+			<Input id="idBP" enabled="false"/>
+		  </l:HorizontalLayout>
+		<core:Fragment fragmentName="ns.cosapi.creacionlistadofactura.fragment.DatosProveedor" type="XML" />    
+		<core:Fragment fragmentName="ns.cosapi.creacionlistadofactura.fragment.EstadosSolicitudes" type="XML" />
+			<f:GridContainer id="demoGrid" class="sapUiSmallMargin" inlineBlockLayout="true" columnsChange=".onGridColumnsChange">
+			<f:layout>
+				<f:GridContainerSettings rowSize="400px" columnSize="48%" gap="8px" />
+			</f:layout>
+			<f:layoutXS>
+				<f:GridContainerSettings rowSize="400px" columnSize="48%" gap="8px" />
+			</f:layoutXS>
+			<core:Fragment fragmentName="ns.cosapi.creacionlistadofactura.fragment.GraficoFacturas" type="XML" />
+			<core:Fragment fragmentName="ns.cosapi.creacionlistadofactura.fragment.TablaListaFacturasMini" type="XML" />
+			</f:GridContainer>
+			<footer>
+				<OverflowToolbar>
+					<ToolbarSpacer/>
+					<Button  type="Accept" text="Crear solicitud de Factura" press="onIrCrearFactura"/>
+					<Button id="idBtnCrearFactura" type="Emphasized" text="Ver Lista de Facturas" press="onIrListaFacturas"/>
+				</OverflowToolbar>
+			</footer>
+        
+    </Page>
+</mvc:View>

@@ -1,0 +1,57 @@
+<c:FragmentDefinition
+	xmlns:m="sap.m"
+    xmlns="sap.ui.table"
+	xmlns:c="sap.ui.core"
+>
+    <Table
+            id="idTableOrdenCompra"
+            rows="{/ListaOrdenCompra}"
+            selectionMode="None"
+            setEnableGrouping="true"
+            ariaLabelledBy="title">
+        <columns>
+            <Column sortProperty="Ebelp" filterProperty="Ebelp">
+                <m:Label text="{i18n>posicion}"/>
+                <template>
+                    <m:Text text="{Ebelp}" wrapping="false"/>
+                </template>
+            </Column>
+            <Column>
+                <m:Label text="{i18n>material}"  wrapping="true"/>
+                <template>
+                    <m:Text text="{Matnr}" wrapping="false"/>
+                </template>
+            </Column>
+            <Column>
+                <m:Label text="{i18n>descripcion}"  wrapping="true"/>
+                <template>
+                    <m:Text text="{Maktx}" wrapping="false"/>
+                </template>
+            </Column>
+            <Column hAlign="End">
+                <m:Label text="{i18n>cantidad}"  wrapping="true"/>
+                <template>
+                    <m:Text text="{Menge}" wrapping="false"/>
+                </template>
+            </Column>
+            <Column width="15rem">
+                <m:Label text="{i18n>unidad}"  wrapping="true"/>
+                <template>
+                    <m:Text text="{Meins}" wrapping="true"/>
+                </template>
+            </Column>
+            <Column>
+                <m:Label text="{i18n>precioUnitario}"  wrapping="true"/>
+                <template>
+                    <m:Text text="{Netpr} {Waers}" wrapping="false"/>
+                </template>
+            </Column>
+            <Column>
+                <m:Label text="{i18n>total}"/>
+                <template>
+                    <m:Text text="{Total} {Waers}" wrapping="false"/>
+                </template>
+            </Column>            
+        </columns>
+    </Table>
+</c:FragmentDefinition>

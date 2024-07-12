@@ -1,0 +1,11 @@
+<mvc:View
+ 	controllerName="ns.cosapi.creacionlistadofactura.controller.OrdenCompra"
+	xmlns:mvc="sap.ui.core.mvc"
+	xmlns="sap.m"
+	xmlns:c="sap.ui.core"
+	displayBlock="true"
+	height="100%"
+	busyIndicatorDelay="0"
+>
+ <c:Fragment fragmentName="ns.cosapi.creacionlistadofactura.fragment.OrdenCompra.OrdenCompra" type="XML" />
+</mvc:View>

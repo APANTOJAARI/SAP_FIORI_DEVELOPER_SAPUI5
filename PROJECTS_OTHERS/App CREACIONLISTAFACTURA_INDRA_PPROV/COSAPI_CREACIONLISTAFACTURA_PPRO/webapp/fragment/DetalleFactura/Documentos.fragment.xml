@@ -1,0 +1,87 @@
+<c:FragmentDefinition
+	xmlns="sap.m"
+	xmlns:c="sap.ui.core"
+    xmlns:l="sap.ui.layout"
+	xmlns:u="sap.ui.unified"
+	xmlns:upload="sap.m.upload"
+>   
+        <MessageStrip
+                id="idMessageObsAdj"
+				text=""
+                visible="{/visibleObs}"
+				design="Warning"
+				class="sapUiMediumMarginBottom"
+				close="handleClose">
+			</MessageStrip>
+        <l:HorizontalLayout class="sapUiContentPadding" >
+        <Label
+            visible="{/visibleObs}"
+			text="*"
+			class="colorRequired"
+			design="Bold" />
+        <Label
+            visible="{/visibleObs}"
+			text="Sustentos"
+			labelFor="myFileUpload"
+			design="Bold" />
+		<u:FileUploader
+            visible="{/visibleObs}"
+			id="idFileUploaderSUS"
+			name="myFileUpload"
+			uploadUrl="upload/"
+			icon= "sap-icon://browse-folder"
+            iconOnly="true"
+			tooltip="Selecciona un documento"
+			uploadComplete="handleUploadComplete"
+			change="onGuardarSustento"
+			typeMissmatch="handleTypeMissmatch"
+			style="Emphasized"
+			fileType="pdf"
+			placeholder="Selecciona un documento">		
+			</u:FileUploader>
+            <Button visible="{/visibleObs}" text="Actualizar documento" type="Success" press="onActualizarSustento"></Button>
+            </l:HorizontalLayout>
+ <upload:UploadSet
+
+          id="UploadSet"
+          fileSizeExceeded="onFileSizeExceed"
+          uploadButtonInvisible="true"
+          instantUpload="true"
+          uploadButtonText="Explorar"
+          showIcons="true"
+		  uploadEnabled="false"          
+          class="customUploadSet"
+          noDataDescription="."
+          terminationEnabled="false"
+          fileTypes="txt,doc,png,pdf,jpg,jpeg"
+          maxFileNameLength="50"
+          fileTypeButtonTitle="Explorar"
+          maxFileSize="10"
+          uploadCompleted="onUploadCompleted"
+          afterItemRemoved="onEliminarDocumento"
+          mediaTypes="text/plain,application/msword,image/jpeg,image/png,application/pdf"          
+          items="{path:'/', templateShareable: false}"
+          mode="MultiSelect">
+		  	<upload:toolbar>
+				<OverflowToolbar>
+					<ToolbarSpacer/>					
+					<Button
+							id="downloadSelectedButton"
+							text="Descargar Seleccionados"
+							press="onDownloadSelectedButton"/>					
+				</OverflowToolbar>
+			</upload:toolbar>
+          <upload:items>
+              <upload:UploadSetItem                      
+                      fileName="{FileName}"
+                      mediaType="{Type}"
+                      url="{Ruta}"
+                      thumbnailUrl="{Ruta}"
+                      enabledEdit="false"
+					  visibleRemove="false"
+                      visibleEdit="false"
+                      >
+              </upload:UploadSetItem>
+          </upload:items>
+  </upload:UploadSet>
+</c:FragmentDefinition>

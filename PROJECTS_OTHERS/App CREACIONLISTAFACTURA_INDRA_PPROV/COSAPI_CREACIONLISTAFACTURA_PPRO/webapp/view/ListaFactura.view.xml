@@ -1,0 +1,21 @@
+<mvc:View
+	controllerName="ns.cosapi.creacionlistadofactura.controller.ListaFactura"
+	xmlns:mvc="sap.ui.core.mvc"
+	xmlns="sap.m"
+	xmlns:c="sap.ui.core"
+	displayBlock="true"
+	height="100%"
+	busyIndicatorDelay="0"
+>
+    <Page id="page" title="{i18n>listaFacturas}" navButtonPress="onBack" showNavButton="true">
+        <c:Fragment fragmentName="ns.cosapi.creacionlistadofactura.fragment.ListaFacturas.FiltrosListaFactura" type="XML" />
+		<c:Fragment fragmentName="ns.cosapi.creacionlistadofactura.fragment.ListaFacturas.TablaListaFactura" type="XML" />
+		<footer>
+				<OverflowToolbar>
+					<ToolbarSpacer/>
+					<Button type="Accept" visible="false" text="Aprobar" press="onAprobar"/>
+					<Button type="Reject" visible="false" text="Rechazar" press="onRechazar"/>
+				</OverflowToolbar>
+			</footer>
+    </Page>
+</mvc:View>
