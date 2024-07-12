@@ -1,0 +1,298 @@
+{
+	"stackedColumn": {
+		"sap.app": {
+			"id": "sample.CardsLayout.model.Analytical",
+			"type": "card"
+		},
+		"sap.card": {
+			"type": "Analytical",
+			"header": {
+				"type": "Numeric",
+				"data": {
+					"json": {
+						"n": "38"
+					}
+				},
+				"title": "Total de Solicitudes",
+				"mainIndicator": {
+					"number": "{n}",
+					"unit": "{u}",
+					"trend": "{trend}",
+					"state": "{valueColor}"
+				}
+			},
+			"content": {
+				"chartType": "StackedColumn",
+				"legend": {
+					"visible": true,
+					"position": "Bottom",
+					"alignment": "Left"
+				},
+				"plotArea": {
+					"dataLabel": {
+						"visible": false,
+						"showTotal": false
+					},
+					"categoryAxisText": {
+						"visible": false
+					},
+					"valueAxisText": {
+						"visible": false
+					}
+				},
+				"title": {
+					"visible": false
+				},
+				"measureAxis": "valueAxis",
+				"dimensionAxis": "categoryAxis",
+				"data": {
+					"json": {
+						"list": [
+							{
+								"Category": "Pre Registro",
+								"Revenue": 431000.22,
+								"Cost": 230000.00,
+								"Target": 500000.00,
+								"Budget": 210000.00,
+								"Total": 15,
+								"color": "#bcbdff" 
+							},
+							{
+								"Category": "Actualización",
+								"Revenue": 494000.30,
+								"Cost": 238000.00,
+								"Target": 500000.00,
+								"Budget": 224000.00,
+								"Total": 5,
+								"color": "#00FF00"
+							},
+							{
+								"Category": "Aprobadas",
+								"Revenue": 491000.17,
+								"Cost": 221000.00,
+								"Target": 500000.00,
+								"Budget": 238000.00,
+								"Total": 11,
+								"color": "#0000FF"
+							},
+							{
+								"Category": "Rechazadas",
+								"Revenue": 491000.17,
+								"Cost": 221000.00,
+								"Target": 500000.00,
+								"Budget": 238000.00,
+								"Total": 7,
+								"color": "#FFFF00"
+							}
+						]
+					},
+					"path": "/list"
+				},
+				"dimensions": [
+					{
+						"label": "Categories",
+						"value": "{Category}"
+					}
+				],
+				"measures": [
+					{
+						"label": "Total Solicitudes",
+						"value": "{Total}"
+					}
+				]
+			}
+		}
+	},
+	"donut": {
+		"sap.app": {
+			"id": "sample.CardsLayout.model.donut",
+			"type": "card"
+		},
+		"sap.card": {
+			"type": "Analytical",
+			"header": {
+				"title": "Proveedores por Países"
+			},
+			"content": {
+				"chartType": "Donut",
+				"legend": {
+					"visible": true,
+					"position": "Bottom",
+					"alignment": "Left"
+				},
+				"plotArea": {
+					"dataLabel": {
+						"visible": true,
+						"showTotal": true
+					}
+				},
+				"title": {
+					"visible": false
+				},
+				"measureAxis": "size",
+				"dimensionAxis": "color",
+				"data": {
+					"json": {
+						"measures": [
+							{
+								"measureName": "Perú",
+								"value": 20
+							},
+							{
+								"measureName": "Chile",
+								"value": 5
+							},
+							{
+								"measureName": "Venezuela",
+								"value": 11
+							}
+						]
+					},
+					"path": "/measures"
+				},
+				"dimensions": [{
+					"label": "Measure Name",
+					"value": "{measureName}"
+				}],
+				"measures": [{
+					"label": "Value",
+					"value": "{value}"
+				}]
+			}
+		}
+	},
+	"list1": {
+		"sap.app": {
+			"id": "sample.CardsLayout.model.list",
+			"type": "card"
+		},
+		"sap.card": {
+			"type": "List",
+			"header": {
+				"title": "Lista de Proveedores"
+			},
+			"content": {
+				"data": {
+					"json": [
+						{
+							"name": "Empresa Peruana S.A.",
+							"icon": "sap-icon://supplier",
+							"description": "Av. Lima 123",
+							"info": "123456789",
+							"infoState": "Error"
+						},
+						{
+							"name": "Empresa Peruana 2 S.A.C.",
+							"icon": "sap-icon://supplier",
+							"description": "Calle Arequipa 456",
+							"info": "987654321",
+							"infoState": "Warning"
+						},
+						{
+							"name": "Empresa Chile S.A.",
+							"icon": "sap-icon://supplier",
+							"description": "Calle Valparaíso 123",
+							"info": "11111111-1",
+							"infoState": "None"
+						},
+						{
+							"name": "Empresa Chile 2 S.A.",
+							"icon": "sap-icon://supplier",
+							"description": "Calle Concepción 456",
+							"info": "22222222-2",
+							"infoState": "None"
+						}
+					]
+				},
+				"item": {
+					"icon": {
+						"src": "{icon}"
+					},
+					"title": {
+						"value": "{name}"
+					},
+					"description": {
+						"value": "{description}"
+					},
+					"info": {
+						"value": "{info}",
+						"state": "{infoState}"
+					},
+					"actions": [
+						{
+							"type": "Navigation",
+							"parameters": {
+								"name": "{info}"
+							}
+						}
+					]
+				}
+			}
+		}
+	},
+	"list2": {
+		"sap.app": {
+			"id": "sample.CardsLayout.model.list2",
+			"type": "card"
+		},
+		"sap.card": {
+			"type": "List",
+			"header": {
+				"title": "Solicitudes de Hoy",
+				"icon": {
+					"src": "sap-icon://insurance-life"
+				}
+			},
+			"content": {
+				"data": {
+					"json": [
+						{
+							"name": "123456789",
+							"icon": "sap-icon://activity-individual",
+							"description": "Empresa Peruana S.A.",
+							"info": "Actualizacion",
+							"infoState": "None"
+						},
+						{
+							"name": "987654321",
+							"icon": "sap-icon://activity-individual",
+							"description": "Empresa Peruana 2 S.A.C.",
+							"info": "Pre-Registro",
+							"infoState": "None"
+						},
+						{
+							"name": "11111111-1",
+							"icon": "sap-icon://activity-individual",
+							"description": "Empresa Chile S.A.",
+							"info": "Actualizacion",
+							"infoState": "None"
+						}
+					]
+				},
+				"item": {
+					"icon": {
+						"src": "{icon}"
+					},
+					"title": {
+						"value": "{name}"
+					},
+					"description": {
+						"value": "{description}"
+					},
+					"info": {
+						"value": "{info}",
+						"state": "{infoState}"
+					},
+					"actions": [
+						{
+							"type": "Navigation",
+							"parameters": {
+								"name": "{name}"
+							}
+						}
+					]
+				}
+			}
+		}
+	}
+}

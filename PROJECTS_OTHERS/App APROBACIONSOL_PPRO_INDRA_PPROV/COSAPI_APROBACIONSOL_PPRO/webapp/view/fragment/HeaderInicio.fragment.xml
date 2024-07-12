@@ -1,0 +1,45 @@
+<core:FragmentDefinition 
+	xmlns:core="sap.ui.core"
+	xmlns="sap.m"
+>
+<VBox class="sapUiSmallMargin">
+    <Panel headerText="{i18n>estado}">
+        <FlexBox alignItems="Start"
+        justifyContent="Center">
+            <HeaderContainer id="container2" scrollStep="200">
+                <TileContent footer="{i18n>preregis}" footerColor="Critical">
+                    <content>
+                        <NumericContent value="{oHeaderInicio>/cantEnRegistro}" valueColor="Critical" press="press" icon="sap-icon://create-entry-time" truncateValueTo="24"/>
+                    </content>
+                </TileContent>
+                <TileContent footer="{i18n>basedatos}" footerColor="Critical">
+                    <content>
+                        <NumericContent value="{oHeaderInicio>/cantBaseDatos}" valueColor="Critical" icon="sap-icon://user-edit"/>
+                    </content>
+                </TileContent>
+                <TileContent footer="{i18n>apto}" footerColor="Good">
+                    <content>
+                        <NumericContent value="{oHeaderInicio>/cantApto}" valueColor="Good" icon="sap-icon://accept"/>
+                    </content>
+                </TileContent>
+                <TileContent  footer="{i18n>rechazado}" footerColor="Error">
+                    <content>
+                        <NumericContent value="{oHeaderInicio>/cantRechazadas}" valueColor="Error" icon="sap-icon://decline"/>
+                    </content>
+                </TileContent>
+                <TileContent  footer="{i18n>proveedor}" footerColor="Good">
+                    <content>
+                        <NumericContent value="{oHeaderInicio>/cantProveedor}" valueColor="Good" icon="sap-icon://employee"/>
+                    </content>
+                </TileContent>
+                <TileContent  footer="{i18n>bloqueado}" footerColor="None">
+                    <content>
+                        <NumericContent value="{oHeaderInicio>/cantBloqueado}" valueColor="None" icon="sap-icon://private"/>
+                    </content>
+                </TileContent>
+            </HeaderContainer>
+        </FlexBox>
+    </Panel>
+</VBox>
+
+</core:FragmentDefinition>

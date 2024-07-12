@@ -1,0 +1,16 @@
+{
+    "milk": [
+      {
+        "Store Name": "Perú",
+        "Pais": 15,
+        "Cost": 94383.52,
+        "Consumption": 76855.15368
+      },
+      {
+        "Store Name": "Chile",
+        "Pais": 24,
+        "Cost": 274735.17,
+        "Consumption": 310292.22
+      }
+    ]
+  }

@@ -1,0 +1,68 @@
+<mvc:View xmlns:f="sap.f"
+	xmlns:l="sap.ui.layout"
+	xmlns:mvc="sap.ui.core.mvc"
+	xmlns="sap.m">
+    <VBox >
+    <Panel class="sapUiSmallMarginTop">
+    
+	<List
+		headerText="Documentación y certificados" >
+		<InputListItem label="{i18n>document1}">
+			<Button 
+                text="Upload File"
+                press="handleUploadPress"/>
+		</InputListItem>
+        <InputListItem label="{i18n>document2}">
+			<Button 
+                text="Upload File"
+                press="handleUploadPress"/>
+		</InputListItem>
+        <InputListItem label="{i18n>document3}">
+			<Button 
+                text="Upload File"
+                press="handleUploadPress"/>
+		</InputListItem>
+        <InputListItem label="{i18n>document4}">
+			<Button 
+                text="Upload File"
+                press="handleUploadPress"/>
+		</InputListItem>
+        <InputListItem label="{i18n>document5}">
+			<Button 
+                text="Upload File"
+                press="handleUploadPress"/>
+		</InputListItem>
+        <InputListItem label="{i18n>document6}">
+			<Button 
+                text="Upload File"
+                press="handleUploadPress"/>
+		</InputListItem>
+        <InputListItem label="{i18n>document7}">
+			<Button 
+                text="Upload File"
+                press="handleUploadPress"/>
+		</InputListItem>
+
+    </List>
+    
+         <FlexBox   justifyContent="End"
+                class="sapUiTinyMarginBeginEnd">
+
+                
+                 <Button type="Reject"
+                        text="Limpiar"
+                        width="15em"
+                        press="onPress"
+                        ariaDescribedBy="acceptButtonDescription genericButtonDescription"
+                        class="sapUiSmallMarginEnd">
+                </Button>                     
+                <Button type="Accept"
+                        text="Grabar"
+                        width="15em"
+                        press="onSaveDocumentos"
+                        ariaDescribedBy="acceptButtonDescription genericButtonDescription">
+                </Button>               
+            </FlexBox>
+    </Panel>
+    </VBox>
+</mvc:View>

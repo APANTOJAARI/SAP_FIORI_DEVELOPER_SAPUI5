@@ -1,0 +1,259 @@
+<core:FragmentDefinition
+	xmlns="sap.m"
+	xmlns:l="sap.ui.layout"
+	xmlns:f="sap.ui.layout.form"
+	xmlns:core="sap.ui.core">
+	<VBox >
+		<Panel width="auto" class="sapUiResponsiveMargin">
+			<Text text="{i18n>indicar}" />
+			<f:Form id="FormGestionDeCalidad"
+            editable="false">
+				<f:title>
+					<!-- <core:Title text="{i18n>indicar}"/> -->
+				</f:title>
+				<f:layout>
+					<f:ResponsiveGridLayout
+                    labelSpanXL="3"
+                    labelSpanL="3"
+                    labelSpanM="3"
+                    labelSpanS="12"
+                    adjustLabelSpan="false"
+                    emptySpanXL="4"
+                    emptySpanL="4"
+                    emptySpanM="4"
+                    emptySpanS="0"
+                    columnsXL="1"
+                    columnsL="1"
+                    columnsM="1"
+                    singleContainerFullSize="false" />
+				</f:layout>
+				<f:formContainers>
+					<f:FormContainer>
+						<f:formElements>
+							<f:FormElement label="{i18n>pregunt1}">
+								<f:fields>
+									<RadioButtonGroup id="rbgPregunta1" editable="false" columns="2">
+										<RadioButton text="SI" selected="true"/>
+										<RadioButton text="NO" />
+									</RadioButtonGroup>
+								</f:fields>
+							</f:FormElement>
+							<f:FormElement label="{i18n>pregunt2}" visible="false">
+								<f:fields>
+									<RadioButtonGroup id="rbgPregunta2" editable="false" columns="2">
+										<RadioButton text="SI" selected="true"/>
+										<RadioButton text="NO" />
+									</RadioButtonGroup>
+								</f:fields>
+							</f:FormElement>
+							<f:FormElement label="{i18n>pregunt3}" visible="false">
+								<f:fields>
+									<RadioButtonGroup id="rbgPregunta3" editable="false" columns="2">
+										<RadioButton text="SI" selected="true"/>
+										<RadioButton text="NO" />
+									</RadioButtonGroup>
+								</f:fields>
+							</f:FormElement>
+							<f:FormElement label="{i18n>pregunt4}">
+								<f:fields>
+									<RadioButtonGroup id="rbgPregunta4" editable="false" columns="2" select="onSelectOtros">
+										<RadioButton text="ISO 9001" selected="true"/>
+										<RadioButton text="OTROS" />
+									</RadioButtonGroup>
+                                    <Input id="txtOtrosD" value="{oProveedor>/GestionCalidad/RegistroGesCalDetSet/0/SisGesAlOt}" placeholder="Ingresar motivo" visible="false"/>
+								</f:fields>
+							</f:FormElement>
+							<f:FormElement label="{i18n>certificacion}" visible="false">
+								<f:fields>
+									<!-- <Input id="txtCertificacion" value="{Certificacion}" change="changeValueState"/> -->
+								</f:fields>
+							</f:FormElement>
+						</f:formElements>
+					</f:FormContainer>
+				</f:formContainers>
+			</f:Form>
+			<f:Form class="sapUiSmallMargiTop">
+				<f:layout>
+					<f:ColumnLayout
+                    columnsL="3"
+                    columnsM="2"
+                    columnsXL="4"
+                    emptyCellsLarge="1"
+                    labelCellsLarge="3"/>
+				</f:layout>
+				<f:formContainers>
+					<f:FormContainer>
+						<f:formElements>
+							<f:FormElement label="{i18n>iso}" visible="false">
+								<f:fields>
+									<RadioButtonGroup id="rbgISO" editable="false" columns="2">
+										<RadioButton text="SI" selected="true"/>
+										<RadioButton text="NO" />
+									</RadioButtonGroup>
+								</f:fields>
+							</f:FormElement>
+							<!--Agregar nuevo Campo Alcance del Sistema +@INSERT-->
+							<f:FormElement label="{i18n>AlcanceSist}">
+								<f:fields>
+									<Input id="txtAlcanceSist" value="{oProveedor>/GestionCalidad/RegistroGesCalDetSet/0/AlcanceSistema}" change="changeValueState" editable="false"/>
+								</f:fields>
+							</f:FormElement>
+
+							<f:FormElement label="{i18n>registro}">
+								<f:fields>
+									<Input id="txtRegistro" value="{oProveedor>/GestionCalidad/RegistroGesCalDetSet/0/CerIsoNr}" editable="false" change="changeValueState"/>
+								</f:fields>
+							</f:FormElement>
+							<f:FormElement label="{i18n>vencimiento}">
+								<f:fields>
+									<DatePicker id="dtvencimiento" placeholder="" editable="false" displayFormat="dd.MM.yyyy" valueFormat="dd.MM.yyyy" value="{oProveedor>/GestionCalidad/RegistroGesCalDetSet/0/CerIsoFec}" class="sapUiSmallMarginBottom"/>
+								</f:fields>
+							</f:FormElement>
+						</f:formElements>
+					</f:FormContainer>
+				</f:formContainers>
+			</f:Form>
+			<f:Form class="sapUiSmallMargiTop">
+				<f:layout>
+					<f:ColumnLayout
+                    columnsL="3"
+                    columnsM="2"
+                    columnsXL="4"
+                    emptyCellsLarge="1"
+                    labelCellsLarge="3"/>
+				</f:layout>
+				<f:formContainers>
+					<f:FormContainer>
+						<f:formElements>
+							<f:FormElement label="{i18n>otrosScal}">
+								<f:fields>
+									<Input id="txtOtros" value="{oProveedor>/GestionCalidad/RegistroGesCalDetSet/0/CerOtros}" editable="false" change="changeValueState"/>
+								</f:fields>
+							</f:FormElement>
+							<f:FormElement label="{i18n>registro1}">
+								<f:fields>
+									<Input id="txtRegistro1" value="{oProveedor>/GestionCalidad/RegistroGesCalDetSet/0/CerOtrosNr}" editable="false" change="changeValueState"/>
+								</f:fields>
+							</f:FormElement>
+							<f:FormElement label="{i18n>vencimiento1}">
+								<f:fields>
+									<DatePicker id="dtvencimiento1" placeholder="" displayFormat="dd.MM.yyyy" valueFormat="dd.MM.yyyy" editable="false" value="{oProveedor>/GestionCalidad/RegistroGesCalDetSet/0/CerOtrosFec}" class="sapUiSmallMarginBottom"/>
+								</f:fields>
+							</f:FormElement>
+						</f:formElements>
+					</f:FormContainer>
+				</f:formContainers>
+			</f:Form>
+			<f:Form class="sapUiSmallMargiTop">
+				<f:title>
+					<!-- <core:Title text="{i18n>pregunta5}"/> -->
+				</f:title>
+				<f:layout>
+					<f:ResponsiveGridLayout
+                    labelSpanXL="3"
+                    labelSpanL="3"
+                    labelSpanM="3"
+                    labelSpanS="12"
+                    adjustLabelSpan="false"
+                    emptySpanXL="4"
+                    emptySpanL="4"
+                    emptySpanM="4"
+                    emptySpanS="0"
+                    columnsXL="1"
+                    columnsL="1"
+                    columnsM="1"
+                    singleContainerFullSize="false" />
+				</f:layout>
+				<f:formContainers>
+					<f:FormContainer>
+						<f:formElements>
+							<f:FormElement label="{i18n>pregunta5}">
+								<f:fields>
+									<RadioButtonGroup id="rbgPregunta5" editable="false" columns="2">
+										<RadioButton text="SI" selected="true"/>
+										<RadioButton text="NO" />
+									</RadioButtonGroup>
+								</f:fields>
+							</f:FormElement>
+						</f:formElements>
+					</f:FormContainer>
+				</f:formContainers>
+			</f:Form>
+			<f:Form class="sapUiSmallMargiTop">
+				<f:title>
+					<!-- <core:Title text="{i18n>pregunta6}"/> -->
+				</f:title>
+				<f:layout>
+					<f:ResponsiveGridLayout
+                    labelSpanXL="3"
+                    labelSpanL="3"
+                    labelSpanM="3"
+                    labelSpanS="12"
+                    adjustLabelSpan="false"
+                    emptySpanXL="4"
+                    emptySpanL="4"
+                    emptySpanM="4"
+                    emptySpanS="0"
+                    columnsXL="1"
+                    columnsL="1"
+                    columnsM="1"
+                    singleContainerFullSize="false" />
+				</f:layout>
+				<f:formContainers>
+					<f:FormContainer>
+						<f:formElements>
+							<f:FormElement label="{i18n>pregunta6}">
+								<f:fields>
+									<RadioButtonGroup id="rbgPregunta6" editable="false" columns="2">
+										<RadioButton text="SI" selected="true"/>
+										<RadioButton text="NO" />
+									</RadioButtonGroup>
+								</f:fields>
+							</f:FormElement>
+						</f:formElements>
+					</f:FormContainer>
+				</f:formContainers>
+			</f:Form>
+			<f:Form class="sapUiSmallMargiTop">
+				<f:title>
+					<!-- <core:Title text="{i18n>pregunta7}"/> -->
+				</f:title>
+				<f:layout>
+					<f:ResponsiveGridLayout
+                    labelSpanXL="3"
+                    labelSpanL="3"
+                    labelSpanM="3"
+                    labelSpanS="12"
+                    adjustLabelSpan="false"
+                    emptySpanXL="4"
+                    emptySpanL="4"
+                    emptySpanM="4"
+                    emptySpanS="0"
+                    columnsXL="1"
+                    columnsL="1"
+                    columnsM="1"
+                    singleContainerFullSize="false" />
+				</f:layout>
+				<f:formContainers>
+					<f:FormContainer>
+						<f:formElements>
+							<f:FormElement label="{i18n>pregunta7}">
+								<f:fields>
+									<RadioButtonGroup id="rbgPregunta7" columns="2" editable="false">
+										<RadioButton text="SI" selected="true"/>
+										<RadioButton text="NO" />
+									</RadioButtonGroup>
+									<TextArea id="txtPregunta7Cal" enabled="false" value="{oProveedor>/GestionCalidad/RegistroGesCalDetSet/0/SubProcActText}" rows="4" maxLength="200" width="100%">
+										<layoutData>
+											<l:GridData span="XL1 L3 M3 S4" />
+										</layoutData>
+									</TextArea>
+								</f:fields>
+							</f:FormElement>
+						</f:formElements>
+					</f:FormContainer>
+				</f:formContainers>
+			</f:Form>
+		</Panel>
+	</VBox>
+</core:FragmentDefinition>

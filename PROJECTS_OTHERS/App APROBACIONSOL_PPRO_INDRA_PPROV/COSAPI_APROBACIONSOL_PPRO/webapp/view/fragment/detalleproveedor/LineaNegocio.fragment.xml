@@ -1,0 +1,30 @@
+<core:FragmentDefinition
+    xmlns="sap.m"
+    xmlns:l="sap.ui.layout"
+    xmlns:f="sap.ui.layout.form"
+    xmlns:core="sap.ui.core">
+    <VBox >
+        <Panel width="auto" class="sapUiResponsiveMargin">
+
+            <Table id="tbListaLinNeg" items="{ListaLinNegocio>/data}" mode="SingleSelectMaster">
+                <columns>
+                    <Column width="auto">
+                        <Text text="{i18n>grupos}"/>
+                    </Column>
+                    <Column width="auto">
+                        <Text text="{i18n>categorias}"/>
+                    </Column>
+                </columns>
+                <items>
+                    <ColumnListItem>
+                        <cells>
+                            <Text text="{ListaLinNegocio>Wgbez60}"/>
+                            <Text text="{ListaLinNegocio>Bkbez}"/>
+                        </cells>
+                    </ColumnListItem>
+                </items>
+            </Table>
+            
+        </Panel>
+    </VBox>
+</core:FragmentDefinition>

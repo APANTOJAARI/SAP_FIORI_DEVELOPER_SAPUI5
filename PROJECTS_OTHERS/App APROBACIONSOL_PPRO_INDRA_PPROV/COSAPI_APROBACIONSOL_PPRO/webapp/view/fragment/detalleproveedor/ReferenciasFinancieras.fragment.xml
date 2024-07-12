@@ -1,0 +1,87 @@
+<core:FragmentDefinition
+	xmlns="sap.m"
+    xmlns:l="sap.ui.layout"
+    xmlns:f="sap.ui.layout.form"
+    xmlns:core="sap.ui.core">
+    <VBox>
+        <Panel width="auto" class="sapUiResponsiveMargin">
+
+            <f:Form id="FormReferenciasFinancieras" editable="true" class="sapUiSmallMargiTop">
+                <f:layout>
+                    <f:ResponsiveGridLayout
+                        labelSpanXL="1"
+                        labelSpanL="1"
+                        labelSpanM="1"
+                        labelSpanS="12"
+                        adjustLabelSpan="false"
+                        emptySpanXL="4"
+                        emptySpanL="4"
+                        emptySpanM="4"
+                        emptySpanS="0"
+                        columnsXL="1"
+                        columnsL="1"
+                        columnsM="1"
+                        singleContainerFullSize="false" />
+                </f:layout>
+                <f:formContainers>
+                    <f:FormContainer>
+                        <f:formElements>
+
+                            <f:FormElement label="No Aplica">
+                                <f:fields>
+                                    <CheckBox id="NoAplicaCheckBox" selected="{oProveedor>/DatosGeneral/Noaplicarefefinanc}" text="" select="onNoAplica" editable="false"/> 
+                                </f:fields>
+                            </f:FormElement>
+                            
+                        </f:formElements>
+                    </f:FormContainer>                    
+                </f:formContainers>  
+            </f:Form>
+
+            <Table id="tbListaRef" items="{ListaReferencias>/data}" mode="SingleSelectMaster">
+                <columns>
+                    <Column width="auto" visible="{= ${oActualizacion>/Flagactivereferfinan} === 'X' ? true : false}">
+                        <Text text="{i18n>finanza}"/>
+                    </Column>
+                    <Column width="auto" visible="{= ${oActualizacion>/Flagactivereferfinan} === '' ? true : false}">
+                        <Text text="{i18n>finanza}"/>
+                    </Column>
+
+                    <Column width="auto">
+                        <Text text="{i18n>nombresec}"/>
+                    </Column>
+                    <Column width="auto">
+                        <Text text="{i18n>email1}"/>
+                    </Column>
+                    <Column width="auto">
+                        <Text text="{i18n>telefono10}"/>
+                    </Column>
+                    <Column width="auto">
+                        <Text text="{i18n>lineacredi}"/>
+                    </Column>
+                    <Column width="auto">
+                        <Text text="{i18n>monto1}"/>
+                    </Column>
+                </columns>
+                <items>
+                    <ColumnListItem>
+                        <cells>
+                            <Text text="{ListaReferencias>NombreEnt}" visible="{= ${oActualizacion>/Flagactivereferfinan} === 'X' ? true : false}"/>
+                            <Text text="{ListaReferencias>NombreEntLibre}" visible="{= ${oActualizacion>/Flagactivereferfinan} === '' ? true : false}"/>
+
+                            <Text text="{ListaReferencias>NombreSect}"/>
+                            <Text text="{ListaReferencias>EmailSec}"/>
+                            <Text text="{ListaReferencias>TelSec}"/>
+                            <Text text="{ 
+                                parts: [{path: 'ListaReferencias>LinAproS'}, {path: 'ListaReferencias>LinAproD'}],
+                                formatter: '.formatoMoneda'
+                            }" />
+                            <Text text="{ListaReferencias>Monto}"/>
+                        </cells>
+                    </ColumnListItem>
+                </items>
+            </Table>
+            
+        </Panel>       
+    </VBox>
+</core:FragmentDefinition>

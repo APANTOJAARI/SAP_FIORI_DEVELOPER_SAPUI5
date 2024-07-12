@@ -1,0 +1,52 @@
+[
+    {
+        "pais": "Perú",
+        "tipodocumento": "RUC",
+        "nif": "10728889991",
+        "razonsocial": "Empresa A SAC",
+        "representante": "Juan Pérez",
+        "identificacion": "RUC 987654321",
+        "correoelectronico": "juan.perez@example.com",
+        "telefono": "+51 999 456 789"
+    },
+    {
+        "pais": "Perú",
+        "tipodocumento": "RUC",
+        "nif": "10123456781",
+        "razonsocial": "Empresa B SRL",
+        "representante": "María González",
+        "identificacion": "RUC 123456789",
+        "correoelectronico": "maria.gonzalez@example.com",
+        "telefono": "+51 987 654 321"
+    },
+    {
+        "pais": "Perú",
+        "tipodocumento": "RUC",
+        "nif": "10345678911",
+        "razonsocial": "Empresa C EIRL",
+        "representante": "Luis Ramírez",
+        "identificacion": "RUC 456789123",
+        "correoelectronico": "luis.ramirez@example.com",
+        "telefono": "+51 956 321 789"
+    },
+    {
+        "pais": "Perú",
+        "tipodocumento": "RUC",
+        "nif": "10789012341",
+        "razonsocial": "Empresa D SAC",
+        "representante": "Ana García",
+        "identificacion": "RUC 789123456",
+        "correoelectronico": "ana.garcia@example.com",
+        "telefono": "+51 924 567 890"
+    },
+    {
+        "pais": "Perú",
+        "tipodocumento": "RUC",
+        "nif": "10890123451",
+        "razonsocial": "Empresa E SAA",
+        "representante": "Pedro López",
+        "identificacion": "RUC 901234567",
+        "correoelectronico": "pedro.lopez@example.com",
+        "telefono": "+51 933 444 555"
+    }
+]

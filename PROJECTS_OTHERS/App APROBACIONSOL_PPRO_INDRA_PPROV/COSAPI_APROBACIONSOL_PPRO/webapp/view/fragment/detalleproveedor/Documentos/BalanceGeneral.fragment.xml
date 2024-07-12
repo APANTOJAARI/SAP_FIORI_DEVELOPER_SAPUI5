@@ -1,0 +1,38 @@
+<core:FragmentDefinition
+    xmlns:mvc="sap.ui.core.mvc"
+    xmlns="sap.m"
+    xmlns:core="sap.ui.core"
+    xmlns:u="sap.ui.unified">
+    <VBox>
+        <Table
+            inset="false"
+            items="{
+                path: 'aDocumentos>/balance'
+            }">
+            <headerToolbar>
+                <OverflowToolbar>
+                    <content>
+                        <Title text="{i18n>listadocumento}" level="H2"/>
+                        <ToolbarSpacer />
+                    </content>
+                </OverflowToolbar>
+            </headerToolbar>
+            <columns>
+                <Column width="auto">
+                    <Text text="{i18n>nombreachivo}" />
+                </Column>
+                <Column width="auto">
+                    <Text text="{i18n>fechacreacion}" />
+                </Column>
+            </columns>
+            <items>
+                <ColumnListItem vAlign="Middle">
+                    <cells>
+                        <Link text="{aDocumentos>name}" press="onDownloadFile" class="sapUiTinyMarginBottom" />
+                        <Text text="{aDocumentos>fecha_creacion}" />
+                    </cells>
+                </ColumnListItem>
+            </items>
+	    </Table>
+    </VBox>
+</core:FragmentDefinition>

@@ -1,0 +1,133 @@
+<core:FragmentDefinition
+	xmlns="sap.m"
+	xmlns:core="sap.ui.core"
+	xmlns:f="sap.f"
+	xmlns:w="sap.ui.integration.widgets"
+	xmlns:card="sap.f.cards"
+	xmlns:cssgrid="sap.ui.layout.cssgrid"
+	xmlns:viz="sap.viz.ui5.controls"
+	xmlns:viz.feeds="sap.viz.ui5.controls.common.feeds"
+	xmlns:viz.data="sap.viz.ui5.data"
+	xmlns:l="sap.ui.layout"
+    xmlns:mvc="sap.ui.core.mvc">
+
+	<!-- <VBox class="sapUiResponsiveContentPadding sapUiSmallMargin">
+		<FlexBox class="customFlexBox" justifyContent="SpaceBetween" id="tuFlexBoxId">
+			<items>
+				<FlexBox class="cusBoxPre" alignItems="Start" wrap="NoWrap" width="{/widthFlex}">
+					<items>
+						<VBox class="sapUiSmallMargin sapUiLargeMarginEnd">
+							<Label text="Solicitudes Pre Registro" wrapping="true" class="sapUiLargeLabel"/>
+							<Label text="15" design="Bold" class="sapUiMediumLabel sapUiMediumMarginTop"/>
+						</VBox>
+						<VBox class="sapUiSmallMargin">
+							<core:Icon
+								src="sap-icon://create-entry-time"
+								class="size1"
+								color="#fff" >
+								<core:layoutData>
+									<FlexItemData growFactor="1" />
+								</core:layoutData>
+							</core:Icon>
+						</VBox>
+					</items>
+				</FlexBox>
+
+				<FlexBox class="cusBoxAct" alignItems="Start" wrap="NoWrap" width="{/widthFlex}">
+					<items>
+						<VBox class="sapUiSmallMargin sapUiLargeMarginEnd">
+							<Label text="Solicitud de Actualización de Datos" wrapping="true" class="sapUiLargeLabel"/>
+							<Label text="5" design="Bold" class="sapUiMediumLabel sapUiMediumMarginTop"/>
+						</VBox>
+						<VBox class="sapUiSmallMargin">
+							<core:Icon
+								src="sap-icon://user-edit"
+								class="size1"
+								color="#fff" >
+								<core:layoutData>
+									<FlexItemData growFactor="1" />
+								</core:layoutData>
+							</core:Icon>
+						</VBox>
+					</items>
+				</FlexBox>
+				
+				<FlexBox class="cusBoxApro" alignItems="Start" wrap="NoWrap" width="{/widthFlex}">
+					<items>
+						<VBox class="sapUiSmallMargin sapUiLargeMarginEnd">
+							<Label text="Solicitudes Aprobadas" wrapping="true" class="sapUiLargeLabel"/>
+							<Label text="11" design="Bold" class="sapUiMediumLabel sapUiMediumMarginTop"/>
+						</VBox>
+						<VBox class="sapUiSmallMargin">
+							<core:Icon
+								src="sap-icon://accept"
+								class="size1"
+								color="#fff" >
+								<core:layoutData>
+									<FlexItemData growFactor="1" />
+								</core:layoutData>
+							</core:Icon>
+						</VBox>
+					</items>
+				</FlexBox>
+				
+				<FlexBox class="cusBoxRec" alignItems="Start" wrap="NoWrap" width="{/widthFlex}">
+					<items>
+						<VBox class="sapUiSmallMargin sapUiLargeMarginEnd">
+							<Label text="Solicitudes Rechazadas" wrapping="true" class="sapUiLargeLabel"/>
+							<Label text="7" design="Bold" class="sapUiMediumLabel sapUiMediumMarginTop"/>
+						</VBox>
+						<VBox class="sapUiSmallMargin">
+							<core:Icon
+								src="sap-icon://decline"
+								class="size1"
+								color="#fff" >
+								<core:layoutData>
+									<FlexItemData growFactor="1" />
+								</core:layoutData>
+							</core:Icon>
+						</VBox>
+					</items>
+				</FlexBox>
+			</items>
+		</FlexBox>
+	</VBox> -->
+
+	<core:Fragment id="headerInicioFragment" fragmentName="ns.cosapi.aprobacionsolppro.view.fragment.HeaderInicio" type="XML"/>
+
+	<f:GridContainer class="sapUiResponsiveContentPadding sapUiSmallMargin">
+		<f:layout>
+			<f:GridContainerSettings rowSize="84px" columnSize="9%" gap="8px" />
+		</f:layout>
+		<f:layoutXS>
+			<f:GridContainerSettings rowSize="70px" columnSize="15%" gap="8px" />
+		</f:layoutXS>
+		<f:layoutS>
+			<f:GridContainerSettings rowSize="5rem" columnSize="4rem" gap="0.5rem" />
+		</f:layoutS>
+
+		<w:Card manifest="{manifests>/list1}" action="onActionProveedor" class="sapUiLargeMarginEnd">
+			<w:layoutData>
+				<f:GridContainerItemLayoutData rows="4" columns="4" />
+			</w:layoutData>
+		</w:Card>
+		<w:Card manifest="{manifests>/stackedColumn}">
+			<w:layoutData>
+				<f:GridContainerItemLayoutData rows="4" columns="6" />
+			</w:layoutData>
+		</w:Card>
+
+		<w:Card manifest="{manifests>/list2}" action="onActionSolicitud">
+			<w:layoutData>
+				<f:GridContainerItemLayoutData rows="4" columns="4"/>
+			</w:layoutData>
+		</w:Card>
+		<w:Card manifest="{manifests>/donut}">
+			<w:layoutData>
+				<f:GridContainerItemLayoutData rows="3" columns="6" />
+			</w:layoutData>
+		</w:Card>
+	</f:GridContainer>
+
+
+</core:FragmentDefinition>

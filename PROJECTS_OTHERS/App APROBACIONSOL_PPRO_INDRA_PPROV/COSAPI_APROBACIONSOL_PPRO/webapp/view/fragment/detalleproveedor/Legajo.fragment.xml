@@ -1,0 +1,106 @@
+<core:FragmentDefinition
+    xmlns:mvc="sap.ui.core.mvc"
+    xmlns="sap.m"
+    xmlns:core="sap.ui.core"
+    xmlns:u="sap.ui.unified">
+    <HBox alignItems="Center" justifyContent="End">
+        <TextArea id="txtComentario" value="{oActualizacion>/Comentariolegajo}" 
+        editable="{= ${userData>/rol} === 'GRP_PROV_VERIFICACION_SOLIC' &amp;&amp; ${userData>/Codigoestado} === '04' ? true : false }" 
+        rows="2" cols="30" placeholder="Comentarios de pre-calificación" class="sapUiTinyMarginEnd"></TextArea>
+        <Button text="Guardar archivos" type="Accept" press="onSaveFilesDocumentos('/legajo', 'LEGAJO')" class="buttonMarginStart"
+            visible="{= ${userData>/rol} === 'GRP_PROV_VERIFICACION_SOLIC' &amp;&amp; ${userData>/Codigoestado} === '04' ? true : false }"/>
+    </HBox>
+    
+    <VBox>
+        <Panel expandable="true" headerText="{i18n>legajo}" width="auto">
+            <content>
+                <Table
+                    id="tbLegajo"
+                    inset="false"
+                    items="{
+                        path: 'aDocumentos>/legajo'
+                    }">
+                    <headerToolbar>
+                        <OverflowToolbar>
+                            <content>
+                                <Title text="Lista de documentos" level="H2"/>
+                                <ToolbarSpacer />
+                                <u:FileUploader
+                                    name="myFileUpload"
+                                    uploadUrl="upload/"
+                                    tooltip="Subir documento"
+                                    uploadComplete="handleUploadComplete"
+                                    change="onSubirDocumento($event, '/legajo')"
+                                    typeMissmatch="handleTypeMissmatch"
+                                    style="Default"
+                                    buttonOnly="false"
+                                    icon="sap-icon://upload-to-cloud"
+                                    fileType="pdf,docx,xlsx,zip"
+                                    buttonText="Subir documento"
+                                    placeholder=""
+                                    class="fileUploaderMarginEnd"
+                                    visible="{= ${userData>/rol} === 'GRP_PROV_VERIFICACION_SOLIC' &amp;&amp; ${userData>/Codigoestado} === '04' ? true : false }">
+                                </u:FileUploader>
+                            </content>
+                        </OverflowToolbar>
+                    </headerToolbar>
+                    <columns>
+                        <Column width="auto">
+                            <Text text="Nombre Archivo" />
+                        </Column>
+                        <Column width="auto">
+                            <Text text="Fecha de Creación" />
+                        </Column>
+                        <Column width="auto" hAlign="End" visible="{= ${userData>/rol} === 'GRP_PROV_VERIFICACION_SOLIC' &amp;&amp; ${userData>/Validacion} === 'Pendiente' ? true : false }">
+                            <Text text="" />
+                        </Column>
+                    </columns>
+                    <items>
+                        <ColumnListItem vAlign="Middle">
+                            <cells>
+                                <Link text="{aDocumentos>name}" press="onDownloadFile" class="sapUiTinyMarginBottom" />
+                                <Text text="{aDocumentos>fecha_creacion}" />
+                                <Button icon="sap-icon://delete" press="onEliminarDoc($event, 'LEGAJO', 'legajo', 'tbLegajo')" type="Reject"/>
+                            </cells>
+                        </ColumnListItem>
+                    </items>
+                </Table>
+            </content>
+        </Panel>
+
+        <Panel expandable="true" headerText="{i18n>terminos}" width="auto" visible="{= ${userData>/rol} === 'GRP_PROV_VERIFICACION_SOLIC' ? true : false }">
+            <content>
+                <Table
+                    inset="false"
+                    items="{
+                        path: 'aDocumentos>/terminos'
+                    }">
+                    <headerToolbar>
+                        <OverflowToolbar>
+                            <content>
+                                <Title text="Lista de documentos" level="H2"/>
+                                <ToolbarSpacer />
+                            </content>
+                        </OverflowToolbar>
+                    </headerToolbar>
+                    <columns>
+                        <Column width="auto">
+                            <Text text="Nombre Archivo" />
+                        </Column>
+                        <Column width="auto">
+                            <Text text="Fecha de Creación" />
+                        </Column>
+                    </columns>
+                    <items>
+                        <ColumnListItem vAlign="Middle">
+                            <cells>
+                                <Link text="{aDocumentos>name}" press="onDownloadFile" class="sapUiTinyMarginBottom" />
+                                <Text text="{aDocumentos>fecha_creacion}" />
+                            </cells>
+                        </ColumnListItem>
+                    </items>
+                </Table>
+            </content>
+        </Panel>
+    </VBox>
+</core:FragmentDefinition>

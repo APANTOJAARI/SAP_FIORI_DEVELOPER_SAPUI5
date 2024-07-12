@@ -1,0 +1,42 @@
+<core:FragmentDefinition
+    xmlns:mvc="sap.ui.core.mvc"
+    xmlns="sap.m"
+    xmlns:core="sap.ui.core">
+    <VBox>
+        <Panel expandable="true" headerText="{i18n>document1}" width="auto">
+            <content>
+                <core:Fragment fragmentName="ns.cosapi.aprobacionsolppro.view.fragment.detalleproveedor.Documentos.Brochure" type="XML" />
+            </content>
+        </Panel>
+        <Panel expandable="true" headerText="{i18n>document2}" width="auto">
+            <content>
+                <core:Fragment fragmentName="ns.cosapi.aprobacionsolppro.view.fragment.detalleproveedor.Documentos.BalanceGeneral" type="XML" />
+            </content>
+        </Panel>
+        <Panel expandable="true" headerText="{i18n>document3}" width="auto">
+            <content>
+                <core:Fragment fragmentName="ns.cosapi.aprobacionsolppro.view.fragment.detalleproveedor.Documentos.EstadoPerGanan" type="XML" />
+            </content>
+        </Panel>
+        <Panel expandable="true" headerText="{i18n>document4}" width="auto">
+            <content>
+                <core:Fragment fragmentName="ns.cosapi.aprobacionsolppro.view.fragment.detalleproveedor.Documentos.CertifCarpetTributaria" type="XML" />
+            </content>
+        </Panel>
+        <Panel expandable="true" headerText="{i18n>document5}" width="auto">
+            <content>
+                <core:Fragment fragmentName="ns.cosapi.aprobacionsolppro.view.fragment.detalleproveedor.Documentos.CopCelIdentRepLeg" type="XML" />
+            </content>
+        </Panel>
+        <Panel expandable="true" headerText="{i18n>document6}" width="auto">
+            <content>
+                <core:Fragment fragmentName="ns.cosapi.aprobacionsolppro.view.fragment.detalleproveedor.Documentos.CertifCuentCorrentBanco" type="XML" />
+            </content>
+        </Panel>
+        <Panel expandable="true" headerText="{i18n>document7}" width="auto">
+            <content>
+                <core:Fragment fragmentName="ns.cosapi.aprobacionsolppro.view.fragment.detalleproveedor.Documentos.CertifISO" type="XML" />
+            </content>
+        </Panel>
+    </VBox>
+</core:FragmentDefinition>

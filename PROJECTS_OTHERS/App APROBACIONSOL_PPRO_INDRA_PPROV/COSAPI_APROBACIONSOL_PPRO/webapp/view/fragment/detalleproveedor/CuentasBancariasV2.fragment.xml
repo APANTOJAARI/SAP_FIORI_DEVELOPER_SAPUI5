@@ -1,0 +1,76 @@
+<core:FragmentDefinition
+	xmlns="sap.m"
+	xmlns:l="sap.ui.layout"
+	xmlns:f="sap.ui.layout.form"
+	xmlns:core="sap.ui.core">
+
+    <VBox>
+    <Panel width="auto" class="sapUiResponsiveMargin">
+<!--Detalle de Bancos-->
+        <Table
+            id="tbCtasBancarias"
+            inset="false"
+            items="{
+                path: 'oProveedor>/CuentaBancaria/CuentasBancariasDetSet'}">
+            <headerToolbar>
+			<OverflowToolbar>
+				<content>
+					<!--<Title text="{i18n>listadoc}" level="H2"/> -->
+					<ToolbarSpacer />
+				</content>
+			</OverflowToolbar>
+		</headerToolbar>
+            <columns>
+                <Column width="auto">
+                    <Text text="{i18n>nombrebanco}" />
+                </Column>
+                <Column width="auto">
+                    <Text text="{i18n>moneda}" />
+                </Column>
+                   <Column width="auto">
+                    <Text text="{i18n>tipocuenta}" />
+                </Column>
+                   <Column width="auto">
+                    <Text text="{i18n>numcuenta}" />
+                </Column>
+                   <Column width="auto" visible="{= ${oActualizacion>/Land1} === 'PE'}">
+                    <Text text="{i18n>cci}" />
+                </Column>
+                     <Column width="auto" visible="{= ${oActualizacion>/Land1} === 'PE'}">
+                    <Text text="{i18n>correopagos}" />
+                </Column>
+				<!--Columnas de Proveedor Extranjero -->
+				<Column width="auto" visible="{= ${oActualizacion>/Land1} !== 'PE'}">
+                    <Text text="{i18n>iban}" />
+                </Column>
+					<Column width="auto" visible="{= ${oActualizacion>/Land1} !== 'PE'}">
+                    <Text text="{i18n>swift}" />
+                </Column>
+						<Column width="auto" visible="{= ${oActualizacion>/Land1} !== 'PE'}">
+                    <Text text="{i18n>bankInterm}" />
+                </Column>
+					<Column width="auto" visible="{= ${oActualizacion>/Land1} !== 'PE'}">
+                    <Text text="{i18n>CtabankInterm}" />
+                </Column>
+            </columns>
+            <items>
+                <ColumnListItem vAlign="Middle">
+                    <cells> 
+                        <Text text="{oProveedor>Nombrebanco}" />
+                        <Text text="{oProveedor>Moneda}" />
+                        <Text text="{oProveedor>Tipocuenta}" />
+                        <Text text="{oProveedor>Numcuenta}" />
+                        <Text text="{oProveedor>Cuentainterbancaria}" visible="{= ${oActualizacion>/Land1} === 'PE'}"/>
+                        <Text text="{oProveedor>Correopagos}" visible="{= ${oActualizacion>/Land1} === 'PE'}" />
+						<!--Columnas de Proveedor Extranjero -->
+						<Text text="{oProveedor>Iban}" visible="{= ${oActualizacion>/Land1} !== 'PE'}" />
+						<Text text="{oProveedor>Swift}" visible="{= ${oActualizacion>/Land1} !== 'PE'}" />
+						<Text text="{oProveedor>Nombrebancointermediario}" visible="{= ${oActualizacion>/Land1} !== 'PE'}" />
+						<Text text="{oProveedor>Numcuentabancointermediario}" visible="{= ${oActualizacion>/Land1} !== 'PE'}" />
+                    </cells>
+                </ColumnListItem>
+            </items>
+	    </Table>
+        </Panel>
+    </VBox>
+</core:FragmentDefinition>        

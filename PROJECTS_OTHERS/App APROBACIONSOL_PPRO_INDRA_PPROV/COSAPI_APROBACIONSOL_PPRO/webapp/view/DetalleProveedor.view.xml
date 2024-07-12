@@ -1,0 +1,281 @@
+<mvc:View controllerName="ns.cosapi.aprobacionsolppro.controller.DetalleProveedor" xmlns="sap.m" xmlns:mvc="sap.ui.core.mvc" xmlns:core="sap.ui.core" xmlns:form="sap.ui.layout.form" xmlns:f="sap.f" xmlns:layout="sap.ui.layout">
+  <f:DynamicPage id="idNuevaSolicitudPage" showFooter="true" busy="{nuevaSolView&gt;/busy}" busyIndicatorDelay="{nuevaSolView&gt;/delay}">
+    <f:title>
+      <f:DynamicPageTitle backgroundDesign="Solid">
+        <f:heading>
+          <Title text="Nº Proveedor {oViewProveedor&gt;/Numerodebp}" level="H2" wrapping="true" />
+        </f:heading>
+        <f:navigationActions>
+          <Button icon="sap-icon://decline" type="Reject" text="" press=".onNavBack" />
+        </f:navigationActions>
+      </f:DynamicPageTitle>
+    </f:title>
+    <f:header>
+      <f:DynamicPageHeader backgroundDesign="Solid" busyIndicatorDelay="0" busy="{nuevaSolView&gt;busy}">
+        <f:content>
+          <FlexBox alignItems="Start" justifyContent="SpaceBetween">
+            <items>
+              <Panel backgroundDesign="Transparent" class="sapUiNoContentPadding">
+                <content>
+                  <form:Form>
+                    <form:formContainers>
+                      <form:FormContainer>
+                        <form:formElements>
+                          <form:FormElement>
+                            <form:fields>
+                              <Text text="{oViewProveedor&gt;/Nombrecomercial}" />
+                            </form:fields>
+                            <form:label>
+                              <Label text="{i18n&gt;nombrecomercial1}" design="Bold" />
+                            </form:label>
+                          </form:FormElement>
+
+                          <form:FormElement>
+                            <form:fields>
+                              <Text text="{oViewProveedor&gt;/Fullname}" />
+                            </form:fields>
+                            <form:label>
+                              <Label text="{i18n&gt;razonsocial1}" design="Bold" />
+                            </form:label>
+                          </form:FormElement>
+                          <form:FormElement>
+                            <form:fields>
+                              <Text text="{oViewProveedor&gt;/Fechaconstitucion}" />
+                            </form:fields>
+                            <form:label>
+                              <Label text="{i18n&gt;inicioacti}" design="Bold" />
+                            </form:label>
+                          </form:FormElement>
+                        </form:formElements>
+                      </form:FormContainer>
+                      
+                      <form:FormContainer>
+                        <form:formElements>
+                          <form:FormElement>
+                            <form:fields>
+                              <ComboBox id="cboMainRegionDpto" items="{ path: '/RegionDptp', length: 500 }" 
+                                selectedKey="{oViewProveedor&gt;/Ort01}" required="true" change="onChangeRegion" editable="false">
+                                <core:ListItem key="{Bland}" text="{Bezei}" additionalText="{Bland}">
+                                </core:ListItem>
+                              </ComboBox>
+                            </form:fields>
+                            <form:label>
+                              <Label text="{i18n&gt;regiondpto1}" design="Bold" />
+                            </form:label>
+                          </form:FormElement>
+
+                          <form:FormElement>
+                            <form:fields>
+                              <Text text="{oViewProveedor&gt;/Stras}" />
+                            </form:fields>
+                            <form:label>
+                              <Label text="{i18n&gt;direccion1}" design="Bold" />
+                            </form:label>
+                          </form:FormElement>
+                          <form:FormElement>
+                            <form:fields>
+                              <ComboBox id="cboMainPais" items="{ path: '/Paises', length: 500 }" 
+                                selectedKey="{oViewProveedor&gt;/Pais}" required="true" change="onChangePais" editable="false">
+                                <core:Item key="{Land1}" text="{Landx50}" />
+                              </ComboBox>
+                            </form:fields>
+                            <form:label>
+                              <Label text="{i18n&gt;pais1}" design="Bold" />
+                            </form:label>
+                          </form:FormElement>
+                        </form:formElements>
+                      </form:FormContainer>
+
+                      <form:FormContainer>
+                        <form:formElements>
+                          <form:FormElement>
+                            <form:fields>
+                              <Text text="{oViewProveedor&gt;/Representante}" />
+                            </form:fields>
+                            <form:label>
+                              <Label text="{i18n&gt;representantelegal1}" design="Bold" />
+                            </form:label>
+                          </form:FormElement>
+                          
+                          <form:FormElement>
+                            <form:fields>
+                              <ComboBox id="cboMainCiudad" items="{
+                                path: '/Ciudad'
+                                }" selectedKey="{oViewProveedor&gt;/Ort02}" required="true" editable="false" change="changeValueState">
+                                <core:ListItem key="{Provincia}" text="{Descripcion}" additionalText="{Provincia}">
+                                </core:ListItem>
+                              </ComboBox>
+                            </form:fields>
+                            <form:label>
+                              <Label text="{i18n&gt;ciudad1}" design="Bold" />
+                            </form:label>
+                          </form:FormElement>
+                          <form:FormElement>
+                            <form:fields>
+                              <Text text="{oViewProveedor&gt;/Pfach}" />
+                            </form:fields>
+                            <form:label>
+                              <Label text="{i18n&gt;comuna1}" design="Bold" />
+                            </form:label>
+                          </form:FormElement>
+                        </form:formElements>
+                      </form:FormContainer>
+
+                      <form:FormContainer>
+                        <form:formElements>
+                          <form:FormElement>
+                            <form:fields>
+                              <Text text="{oViewProveedor&gt;/Identificacion}" />
+                            </form:fields>
+                            <form:label>
+                              <Label text="{i18n&gt;id1}" design="Bold" />
+                            </form:label>
+                          </form:FormElement>
+
+                          <form:FormElement>
+                            <form:fields>
+                              <Text text="{oViewProveedor&gt;/Paginaweb}" />
+                            </form:fields>
+                            <form:label>
+                              <Label text="{i18n&gt;web1}" design="Bold" />
+                            </form:label>
+                          </form:FormElement>
+                          <form:FormElement>
+                            <form:fields>
+                              <Text text="{oViewProveedor&gt;/Correo}" />
+                            </form:fields>
+                            <form:label>
+                              <Label text="{i18n&gt;correo}" design="Bold" />
+                            </form:label>
+                          </form:FormElement>
+                        </form:formElements>
+                      </form:FormContainer>
+                    </form:formContainers>
+                    <form:layout>
+                      <form:ColumnLayout columnsM="3" columnsL="4" columnsXL="4" emptyCellsLarge="0" labelCellsLarge="4" />
+                    </form:layout>
+                  </form:Form>
+                </content>
+              </Panel>
+            </items>
+          </FlexBox>
+        </f:content>
+      </f:DynamicPageHeader>
+    </f:header>
+    <f:content>
+      <IconTabBar id="iconTabBar">
+				<items>
+
+					<IconTabFilter icon="sap-icon://contacts" iconColor="Critical" design="Horizontal" 
+						count="{i18n>cont}"
+						text="{i18n>comerc}"
+						key="Contacto">
+						<core:Fragment id="contaccomerFragment" fragmentName="ns.cosapi.aprobacionsolppro.view.fragment.detalleproveedor.ContactoComercial" type="XML"/>
+					</IconTabFilter>
+
+					<IconTabSeparator icon=""/>
+
+          <IconTabFilter icon="sap-icon://activity-individual" iconColor="Positive" design="Horizontal" 
+						count="{i18n>ejecutivo}"
+						text="{i18n>deempresa}"
+						key="Sistema">
+						<core:Fragment id="ejecutivoempreFragment" fragmentName="ns.cosapi.aprobacionsolppro.view.fragment.detalleproveedor.EjecutivoEmpresa" type="XML"/>
+					</IconTabFilter>
+
+					<IconTabSeparator icon=""/>
+
+					<IconTabFilter icon="sap-icon://business-objects-experience" iconColor="Negative" design="Horizontal" 
+						count="{i18n>lineade}"
+						text="{i18n>negoci}"
+						key="Linea">
+						<core:Fragment id="lineanegocioFragment" fragmentName="ns.cosapi.aprobacionsolppro.view.fragment.detalleproveedor.LineaNegocio" type="XML"/>
+					</IconTabFilter>
+
+					<IconTabSeparator icon=""/>
+          
+					<IconTabFilter icon="sap-icon://customer-order-entry" iconColor="Positive" design="Horizontal" 
+						count="{i18n>lin}"
+						text="{i18n>dproducto}"
+						key="Sistema">
+						<core:Fragment id="lineaproducFragment" fragmentName="ns.cosapi.aprobacionsolppro.view.fragment.detalleproveedor.LineaDeProductos" type="XML"/>
+					</IconTabFilter>
+
+					<IconTabSeparator icon=""/>
+
+					<IconTabFilter icon="sap-icon://accounting-document-verification" iconColor="Positive" design="Horizontal" 
+						count="{i18n>info}"
+						text="{i18n>contabl}"
+						key="Contable">
+						<core:Fragment id="infocontbleFragment" fragmentName="ns.cosapi.aprobacionsolppro.view.fragment.detalleproveedor.InformacionContable" type="XML"/>
+					</IconTabFilter>
+
+					<IconTabSeparator icon=""/>
+
+					<IconTabFilter icon="sap-icon://expense-report" iconColor="Positive" design="Horizontal" 
+						count="{i18n>referen}"
+						text="{i18n>finan}"
+						key="Sistema">
+						<core:Fragment id="reffinancieraFragment" fragmentName="ns.cosapi.aprobacionsolppro.view.fragment.detalleproveedor.ReferenciasFinancieras" type="XML"/>
+					</IconTabFilter>
+
+					<IconTabSeparator icon=""/>
+
+					<IconTabFilter icon="sap-icon://loan" iconColor="Negative" design="Horizontal" 
+						count="{i18n>cuent}"
+						text="{i18n>ban}"
+						key="Cuentas">
+						<core:Fragment id="cuentabancariaFragment" fragmentName="ns.cosapi.aprobacionsolppro.view.fragment.detalleproveedor.CuentasBancarias" type="XML"/>
+					</IconTabFilter>
+
+					<IconTabSeparator icon=""/>
+
+					<IconTabFilter icon="sap-icon://activity-items" iconColor="Positive" design="Horizontal" 
+						count="{i18n>gestion}"
+						text="{i18n>decalidad}"
+						key="Sistema">
+						<core:Fragment id="gestioncalidadFragment" fragmentName="ns.cosapi.aprobacionsolppro.view.fragment.detalleproveedor.GestionDeCalidad" type="XML"/>
+					</IconTabFilter>
+
+					<IconTabSeparator icon=""/>
+
+					<IconTabFilter icon="sap-icon://it-system" iconColor="Positive" design="Horizontal" 
+						count="{i18n>sistem}"
+						text="{i18n>dgestion}"
+						key="Sistema">
+						<core:Fragment id="sistemagestFragment" fragmentName="ns.cosapi.aprobacionsolppro.view.fragment.detalleproveedor.SistemaGestion" type="XML"/>
+					</IconTabFilter>
+					
+					<IconTabSeparator icon=""/>
+
+					<IconTabFilter icon="sap-icon://group" iconColor="Critical" design="Horizontal" 
+						count="{i18n>exprincipal}"
+						text="{i18n>client}"
+						key="Experiencia">
+						<core:Fragment id="experienciaFragment" fragmentName="ns.cosapi.aprobacionsolppro.view.fragment.detalleproveedor.Experiencia" type="XML"/>
+					</IconTabFilter>
+
+					<IconTabSeparator icon=""/>
+
+					<IconTabFilter icon="sap-icon://accounting-document-verification" iconColor="Positive" design="Horizontal" 
+						count="{i18n>doc}"
+						text=""
+						key="Sistema">
+						<core:Fragment id="documentacionFragment" fragmentName="ns.cosapi.aprobacionsolppro.view.fragment.detalleproveedor.Documentos" type="XML"/>
+					</IconTabFilter>
+
+					<IconTabSeparator icon=""/>
+
+					<IconTabFilter icon="sap-icon://document" iconColor="Critical" design="Horizontal" 
+						count="{i18n>legajo}"
+						text=""
+						key="Legajo">
+						<core:Fragment id="legajoFragment" fragmentName="ns.cosapi.aprobacionsolppro.view.fragment.detalleproveedor.Legajo" type="XML"/>
+					</IconTabFilter>
+
+				</items>
+			</IconTabBar>
+    </f:content>
+    <f:footer>
+    </f:footer>
+  </f:DynamicPage>
+</mvc:View>

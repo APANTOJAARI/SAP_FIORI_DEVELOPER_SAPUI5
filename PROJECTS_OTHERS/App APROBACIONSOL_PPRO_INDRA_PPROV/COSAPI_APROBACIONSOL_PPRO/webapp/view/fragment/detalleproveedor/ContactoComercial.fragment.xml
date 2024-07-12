@@ -1,0 +1,137 @@
+<core:FragmentDefinition
+	xmlns="sap.m"
+	xmlns:l="sap.ui.layout"
+	xmlns:f="sap.ui.layout.form"
+	xmlns:core="sap.ui.core">
+	<VBox >
+		<Panel width="auto" class="sapUiResponsiveMargin">
+			<f:Form id="FormContactoComercial" binding="{/DatosGenerales}"
+            editable="false">
+				<!-- <f:title><core:Title text="{i18n>title}"/></f:title>         -->
+				<f:layout>
+					<f:ResponsiveGridLayout
+                    labelSpanXL="3"
+                    labelSpanL="3"
+                    labelSpanM="3"
+                    labelSpanS="12"
+                    adjustLabelSpan="false"
+                    emptySpanXL="4"
+                    emptySpanL="4"
+                    emptySpanM="4"
+                    emptySpanS="0"
+                    columnsXL="1"
+                    columnsL="1"
+                    columnsM="1"
+                    singleContainerFullSize="false" />
+				</f:layout>
+				<f:formContainers>
+					<f:FormContainer>
+						<f:formElements>
+							<f:FormElement label="{i18n>nombre1}">
+								<f:fields>
+									<Input id="txtNombre1" value="{oProveedor>/ContactoGeneral/ContactoComercialDetSet/0/Nombre}" editable="false" maxLength="50"/>
+								</f:fields>
+							</f:FormElement>
+							<f:FormElement label="{i18n>telefono1}">
+								<f:fields>
+									<Input id="txtTelefono1" value="{oProveedor>/ContactoGeneral/ContactoComercialDetSet/0/Telefono}" editable="false" maxLength="10" type="Number"/>
+								</f:fields>
+							</f:FormElement>
+							<f:FormElement label="{i18n>correo1}">
+								<f:fields>
+									<Input id="txtCorreo1" value="{oProveedor>/ContactoGeneral/ContactoComercialDetSet/0/Correo}" editable="false" maxLength="40"/>
+								</f:fields>
+							</f:FormElement>
+						</f:formElements>
+					</f:FormContainer>
+				</f:formContainers>
+			</f:Form>
+			<f:Form id="FormContactoComercial2" editable="true" class="sapUiSmallMargiTop">
+				<f:layout>
+					<f:ResponsiveGridLayout
+                    labelSpanXL="3"
+                    labelSpanL="3"
+                    labelSpanM="3"
+                    labelSpanS="12"
+                    adjustLabelSpan="false"
+                    emptySpanXL="4"
+                    emptySpanL="4"
+                    emptySpanM="4"
+                    emptySpanS="0"
+                    columnsXL="1"
+                    columnsL="1"
+                    columnsM="1"
+                    singleContainerFullSize="false" />
+				</f:layout>
+				<f:formContainers>
+					<f:FormContainer>
+						<f:formElements>
+							<f:FormElement label="{i18n>nombre2}">
+								<f:fields>
+									<Input id="txtNombre2" value="{oProveedor>/ContactoGeneral/ContactoComercialDetSet/1/Nombre}" editable="false" maxLength="50"/>
+								</f:fields>
+							</f:FormElement>
+							<f:FormElement label="{i18n>telefono2}">
+								<f:fields>
+									<Input id="txtTelefono2" value="{oProveedor>/ContactoGeneral/ContactoComercialDetSet/1/Telefono}" editable="false" maxLength="10" type="Number"/>
+								</f:fields>
+							</f:FormElement>
+							<f:FormElement label="{i18n>correo2}">
+								<f:fields>
+									<Input id="txtCorreo2" value="{oProveedor>/ContactoGeneral/ContactoComercialDetSet/1/Correo}" editable="false" maxLength="40"/>
+								</f:fields>
+							</f:FormElement>
+						</f:formElements>
+					</f:FormContainer>
+				</f:formContainers>
+			</f:Form>
+			<f:Form id="FormContactoComercial3" editable="true" class="sapUiSmallMargiTop">
+				<f:layout>
+					<f:ResponsiveGridLayout
+                    labelSpanXL="3"
+                    labelSpanL="3"
+                    labelSpanM="3"
+                    labelSpanS="12"
+                    adjustLabelSpan="false"
+                    emptySpanXL="4"
+                    emptySpanL="4"
+                    emptySpanM="4"
+                    emptySpanS="0"
+                    columnsXL="1"
+                    columnsL="1"
+                    columnsM="1"
+                    singleContainerFullSize="false" />
+				</f:layout>
+				<f:formContainers>
+					<f:FormContainer>
+						<f:formElements>
+							<f:FormElement label="{i18n>nombre3}">
+								<f:fields>
+									<Input id="txtNombre3" value="{oProveedor>/ContactoGeneral/ContactoComercialDetSet/2/Nombre}" editable="false" maxLength="50"/>
+								</f:fields>
+							</f:FormElement>
+							<f:FormElement label="{i18n>telefono3}">
+								<f:fields>
+									<Input id="txtTelefono3" value="{oProveedor>/ContactoGeneral/ContactoComercialDetSet/2/Telefono}" editable="false" maxLength="10" type="Number" />
+								</f:fields>
+							</f:FormElement>
+							<f:FormElement label="{i18n>correo3}">
+								<f:fields>
+									<Input id="txtCorreo3" value="{oProveedor>/ContactoGeneral/ContactoComercialDetSet/2/Correo}" editable="false" maxLength="40"/>
+								</f:fields>
+							</f:FormElement>
+						</f:formElements>
+					</f:FormContainer>
+				</f:formContainers>
+			</f:Form>
+			<!-- <FlexBox justifyContent="End">
+				<Button type="Accept"
+                        text="Grabar y seguir"
+                        width="20em"
+                        press="onSaveContComercial"
+						visible="{userData>/editable}"
+                        ariaDescribedBy="acceptButtonDescription genericButtonDescription"></Button>
+			</FlexBox> -->
+		</Panel>
+	</VBox>
+</core:FragmentDefinition>

@@ -1,0 +1,111 @@
+[{
+    "pais": "Perú",
+    "tipodocumento": "DNI",
+    "nif": "12345678",
+    "razonsocial": "Empresa A SAC",
+    "representante": "Juan Pérez",
+    "identificacion": "RUC 987654321",
+    "correoelectronico": "juan.perez@example.com",
+    "telefono": "+51 123 456 789",
+    "estado": "Aprobado"
+},
+{
+    "pais": "Argentina",
+    "tipodocumento": "CUIT",
+    "nif": "87654321",
+    "razonsocial": "Empresa B SRL",
+    "representante": "María Gómez",
+    "identificacion": "CUIL 456789123",
+    "correoelectronico": "maria.gomez@example.com",
+    "telefono": "+54 9 11 2345 6789",
+    "estado": "Rechazado"
+},
+{
+    "pais": "México",
+    "tipodocumento": "RFC",
+    "nif": "98765432",
+    "razonsocial": "Empresa C SA de CV",
+    "representante": "Carlos López",
+    "identificacion": "RFC 654321987",
+    "correoelectronico": "carlos.lopez@example.com",
+    "telefono": "+52 55 1234 5678",
+    "estado": "Aprobado"
+},
+{
+    "pais": "España",
+    "tipodocumento": "NIF",
+    "nif": "23456789",
+    "razonsocial": "Empresa D SL",
+    "representante": "Ana Rodríguez",
+    "identificacion": "CIF A98765432",
+    "correoelectronico": "ana.rodriguez@example.com",
+    "telefono": "+34 91 234 5678",
+    "estado": "Aprobado"
+},
+{
+    "pais": "Estados Unidos",
+    "tipodocumento": "SSN",
+    "nif": "34567890",
+    "razonsocial": "Empresa E Inc.",
+    "representante": "John Smith",
+    "identificacion": "EIN 876543210",
+    "correoelectronico": "john.smith@example.com",
+    "telefono": "+1 123 456 7890",
+    "estado": "Pendiente"
+},
+{
+    "pais": "Brasil",
+    "tipodocumento": "CPF",
+    "nif": "45678901",
+    "razonsocial": "Empresa F Ltda.",
+    "representante": "Maria Silva",
+    "identificacion": "CNPJ 0987654321",
+    "correoelectronico": "maria.silva@example.com",
+    "telefono": "+55 11 1234 5678",
+    "estado": "Pendiente"
+},
+{
+    "pais": "Canadá",
+    "tipodocumento": "SIN",
+    "nif": "56789012",
+    "razonsocial": "Empresa G Corp.",
+    "representante": "David Johnson",
+    "identificacion": "BN 123456789",
+    "correoelectronico": "david.johnson@example.com",
+    "telefono": "+1 234 567 8901",
+    "estado": "Pendiente"
+},
+{
+    "pais": "Alemania",
+    "tipodocumento": "Steueridentifikationsnummer",
+    "nif": "67890123",
+    "razonsocial": "Empresa H GmbH",
+    "representante": "Anna Müller",
+    "identificacion": "USt-IdNr DE123456789",
+    "correoelectronico": "anna.mueller@example.com",
+    "telefono": "+49 1234 567890",
+    "estado": "Rechazado"
+},
+{
+    "pais": "Australia",
+    "tipodocumento": "TFN",
+    "nif": "78901234",
+    "razonsocial": "Empresa I Pty Ltd",
+    "representante": "James Brown",
+    "identificacion": "ABN 23456789012",
+    "correoelectronico": "james.brown@example.com",
+    "telefono": "+61 2 3456 7890",
+    "estado": "Rechazado"
+},
+{
+    "pais": "Francia",
+    "tipodocumento": "Numéro d'identification",
+    "nif": "89012345",
+    "razonsocial": "Empresa J SARL",
+    "representante": "Sophie Dubois",
+    "identificacion": "SIRET 34567890123456",
+    "correoelectronico": "sophie.dubois@example.com",
+    "telefono": "+33 1 23 45 67 89",
+    "estado": "Pendiente"
+}
+]

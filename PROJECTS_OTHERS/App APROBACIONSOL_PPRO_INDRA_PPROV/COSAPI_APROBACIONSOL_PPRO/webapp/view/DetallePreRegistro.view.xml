@@ -1,0 +1,141 @@
+<mvc:View
+	controllerName="ns.cosapi.aprobacionsolppro.controller.DetallePreRegistro"
+    xmlns="sap.m"
+    xmlns:mvc="sap.ui.core.mvc"
+    xmlns:core="sap.ui.core"
+    xmlns:form="sap.ui.layout.form"
+    xmlns:f="sap.f">
+
+    <f:DynamicPage 
+        id="idNuevaSolicitudPage"
+        showFooter="true"
+        busy="{nuevaSolView>/busy}"
+        busyIndicatorDelay="{nuevaSolView>/delay}">
+        <f:title>
+            <f:DynamicPageTitle
+                backgroundDesign="Solid"
+            >
+                <f:heading>
+                    <Title
+                        level="H2"
+                        text="Pre-registro Proveedor {oSolPreRegistro>/Taxnumxl}"
+                        wrapping="true"/>
+                </f:heading>
+                <f:navigationActions>
+                    <Button
+                        icon="sap-icon://decline"
+                        type="Reject"
+                        text=""
+                        press=".onNavBack" />
+                </f:navigationActions>
+            </f:DynamicPageTitle>
+        </f:title>
+        <f:header>
+            <f:DynamicPageHeader
+                backgroundDesign="Solid"
+                busyIndicatorDelay="0"
+                busy="{nuevaSolView>busy}">
+                <f:content>
+                </f:content>
+            </f:DynamicPageHeader>           
+        </f:header>
+        <f:content>
+            <form:Form editable="true" binding="{/Busqueda}">
+				<form:formContainers>
+					<form:FormContainer>
+						<form:formElements>
+							<form:FormElement>
+								<form:fields>
+									<Input value="{oSolPreRegistro>/Land1des}" editable="false"/>
+								</form:fields>
+								<form:label>
+									<Label text="{i18n>pais}" design="Bold" />
+								</form:label>
+							</form:FormElement>
+							<form:FormElement>
+								<form:fields>
+									<Input value="{oSolPreRegistro>/Stcdtdescrip}" editable="false"/>
+								</form:fields>
+								<form:label>
+									<Label text="{i18n>documentip}" design="Bold" />
+								</form:label>
+							</form:FormElement>
+							<form:FormElement>
+								<form:fields>
+									<Input value="{oSolPreRegistro>/Taxnumxl}" editable="false"/>
+								</form:fields>
+								<form:label>
+									<Label text="{i18n>nif}" design="Bold" />
+								</form:label>
+							</form:FormElement>
+						</form:formElements>
+					</form:FormContainer>
+					<form:FormContainer>
+						<form:formElements>
+							<form:FormElement>
+								<form:fields>
+									<Input value="{oSolPreRegistro>/Name1} {oSolPreRegistro>/Name2}" editable="false"/>
+								</form:fields>
+								<form:label>
+									<Label text="{i18n>razonsocial}" design="Bold" />
+								</form:label>
+							</form:FormElement>
+							<form:FormElement>
+								<form:fields>
+									<Input value="{oSolPreRegistro>/Representante}" editable="false"/>
+								</form:fields>
+								<form:label>
+									<Label text="{i18n>representantelegal}" design="Bold" />
+								</form:label>
+							</form:FormElement>
+							<form:FormElement>
+								<form:fields>
+									<Input value="{oSolPreRegistro>/Identificacion}" editable="false"/>
+								</form:fields>
+								<form:label>
+									<Label text="{i18n>id}" design="Bold" />
+								</form:label>
+							</form:FormElement>
+						</form:formElements>
+					</form:FormContainer>
+					<form:FormContainer>
+						<form:formElements>
+							<form:FormElement>
+								<form:fields>
+									<Input value="{oSolPreRegistro>/Correo}" editable="false"/>
+								</form:fields>
+								<form:label>
+									<Label text="{i18n>correocorp}" design="Bold" />
+								</form:label>
+							</form:FormElement>
+							<form:FormElement>
+								<form:fields>
+									<Input value="{oSolPreRegistro>/Telefono}" editable="false"/>
+								</form:fields>
+								<form:label>
+									<Label text="{i18n>telefono}" design="Bold" />
+								</form:label>
+							</form:FormElement>
+						</form:formElements>
+					</form:FormContainer>
+				</form:formContainers>
+				<form:layout>
+					<form:ColumnLayout
+						columnsM="3"
+						columnsL="3"
+						columnsXL="3"
+						emptyCellsLarge="1"
+						labelCellsLarge="3"/>
+				</form:layout>
+			</form:Form>
+        </f:content>
+        <f:footer>
+            <OverflowToolbar visible="{= ${oSolPreRegistro>/Validacion} === 'Pendiente'}">
+                <ToolbarSpacer/>
+                <Button icon="sap-icon://accept" text="Aprobar" type="Success" press="onAprobar"/>
+                <Button icon="sap-icon://decline" text="Rechazar" type="Reject" press="onRechazar"/>
+            </OverflowToolbar>
+        </f:footer>
+    </f:DynamicPage>
+
+</mvc:View>

@@ -1,0 +1,196 @@
+<core:FragmentDefinition
+  xmlns="sap.m"
+  xmlns:l="sap.ui.layout"
+  xmlns:f="sap.ui.layout.form"
+  xmlns:core="sap.ui.core">
+
+ <!--Se comenta esta parte ya que, se definio mostrarse solamente un diseño para todos los tipos de proveedores -->
+ <!-- 
+  <VBox visible="{= ${oProveedor>/DatosGeneral/Land1} !== 'PE' }">
+    <Panel width="auto" class="sapUiResponsiveMargin">
+      <f:Form id="FormPrincipalesClientes" binding="{/PrincipalesClientes}"
+            editable="false">
+        <f:title>
+          <core:Title text="{i18n>cliente1}"/>
+        </f:title>
+        <f:layout>
+          <f:ResponsiveGridLayout
+                    labelSpanXL="3"
+                    labelSpanL="3"
+                    labelSpanM="3"
+                    labelSpanS="12"
+                    adjustLabelSpan="false"
+                    emptySpanXL="4"
+                    emptySpanL="4"
+                    emptySpanM="4"
+                    emptySpanS="0"
+                    columnsXL="1"
+                    columnsL="1"
+                    columnsM="1"
+                    singleContainerFullSize="false" />
+        </f:layout>
+        <f:formContainers>
+          <f:FormContainer>
+            <f:formElements>
+              <f:FormElement label="{i18n>n}">
+                <f:fields>
+                  <Input id="txtNifUno" value="{oProveedor>/Experiencia/ExpPrincClientesDetSet/0/Nif}" editable="false" maxLength="60" required="true" change="changeValueState"/>
+                </f:fields>
+              </f:FormElement>
+              <f:FormElement label="{i18n>rs}">
+                <f:fields>
+                  <Input id="txtRsUno" value="{oProveedor>/Experiencia/ExpPrincClientesDetSet/0/Razonsocial}" editable="false" maxLength="50" required="true" change="changeValueState"/>
+                </f:fields>
+              </f:FormElement>
+            </f:formElements>
+          </f:FormContainer>
+        </f:formContainers>
+      </f:Form>
+      <f:Form id="FormPrincipalesClientes2" editable="true" class="sapUiSmallMargiTop">
+        <f:title>
+          <core:Title text="{i18n>cliente2}"/>
+        </f:title>
+        <f:layout>
+          <f:ResponsiveGridLayout
+                    labelSpanXL="3"
+                    labelSpanL="3"
+                    labelSpanM="3"
+                    labelSpanS="12"
+                    adjustLabelSpan="false"
+                    emptySpanXL="4"
+                    emptySpanL="4"
+                    emptySpanM="4"
+                    emptySpanS="0"
+                    columnsXL="1"
+                    columnsL="1"
+                    columnsM="1"
+                    singleContainerFullSize="false" />
+        </f:layout>
+        <f:formContainers>
+          <f:FormContainer>
+            <f:formElements>
+              <f:FormElement label="{i18n>ni}">
+                <f:fields>
+                  <Input id="txtNi" value="{oProveedor>/Experiencia/ExpPrincClientesDetSet/1/Nif}" editable="false" maxLength="60"/>
+                </f:fields>
+              </f:FormElement>
+              <f:FormElement label="{i18n>razon}">
+                <f:fields>
+                  <Input id="txtRazon" value="{oProveedor>/Experiencia/ExpPrincClientesDetSet/1/Razonsocial}" editable="false" maxLength="50"/>
+                </f:fields>
+              </f:FormElement>
+            </f:formElements>
+          </f:FormContainer>
+        </f:formContainers>
+      </f:Form>
+      <f:Form id="FormPrincipalesClientes3" editable="true" class="sapUiSmallMargiTop">
+        <f:title>
+          <core:Title text="{i18n>cliente3}"/>
+        </f:title>
+        <f:layout>
+          <f:ResponsiveGridLayout
+                    labelSpanXL="3"
+                    labelSpanL="3"
+                    labelSpanM="3"
+                    labelSpanS="12"
+                    adjustLabelSpan="false"
+                    emptySpanXL="4"
+                    emptySpanL="4"
+                    emptySpanM="4"
+                    emptySpanS="0"
+                    columnsXL="1"
+                    columnsL="1"
+                    columnsM="1"
+                    singleContainerFullSize="false" />
+        </f:layout>
+        <f:formContainers>
+          <f:FormContainer>
+            <f:formElements>
+              <f:FormElement label="{i18n>nif1}">
+                <f:fields>
+                  <Input id="txtNif1" value="{oProveedor>/Experiencia/ExpPrincClientesDetSet/2/Nif}" editable="false" maxLength="60" />
+                </f:fields>
+              </f:FormElement>
+              <f:FormElement label="{i18n>razonsoc}">
+                <f:fields>
+                  <Input id="txtRazonsoc" value="{oProveedor>/Experiencia/ExpPrincClientesDetSet/2/Razonsocial}" editable="false" maxLength="50" />
+                </f:fields>
+              </f:FormElement>
+            </f:formElements>
+          </f:FormContainer>
+        </f:formContainers>
+      </f:Form>
+      <FlexBox justifyContent="End">
+        <Button type="Accept"
+                        text="{i18n>grabaryseguir}"
+                        width="20em"
+                        press="onSavePrinciCliente"
+						            visible="{userData>/editable}"
+                        ariaDescribedBy="acceptButtonDescription genericButtonDescription"></Button>
+      </FlexBox>
+    </Panel>
+  </VBox>
+ -->
+  <!-- <VBox visible="{= ${oProveedor>/DatosGeneral/Land1} === 'PE' }">   -@DELETE --> 
+    <VBox>                                                              <!-- +@INSERT--> 
+    <Panel width="auto" class="sapUiResponsiveMargin">
+      <Table id="tbListaPC" items="{ListaPrincClientes>/data}" mode="SingleSelectMaster">
+          <columns>
+              <Column>
+            <Text text="Cliente"/>
+          </Column>
+          <Column>
+            <Text text="Fecha"/>
+          </Column>
+          <Column>
+            <Text text="Proyecto"/>
+          </Column>
+          <Column>
+            <Text text="Contrato/OC"/>
+          </Column>
+          <Column>
+            <Text text="{i18n>monedaMain}"/>
+          </Column>
+          <Column>
+            <Text text="Monto de Venta"/>
+          </Column>
+          <Column>
+            <Text text="Productos"/>
+          </Column>
+          <Column>
+            <Text text="Contacto del cliente"/>
+          </Column>
+          <Column>
+            <Text text="Cargo"/>
+          </Column>
+          <Column>
+            <Text text="Email"/>
+          </Column>
+          <Column>
+            <Text text="Teléfono"/>
+          </Column>
+          </columns>
+          <items>
+            <ColumnListItem>
+                <cells>
+                    <Text text="{ListaPrincClientes>Cliente}"/>
+                    <Text text="{ListaPrincClientes>Fechacontrato}"/>
+                    <Text text="{ListaPrincClientes>Nombreproyecto}"/>
+                    <Text text="{ListaPrincClientes>Ncontratooc}"/>
+                    <Text text="{ 
+                        parts: [{path: 'ListaPrincClientes>Monedaso'}, {path: 'ListaPrincClientes>Monedado'}],
+                        formatter: '.formatoMoneda'
+                    }" />
+                    <Text text="{ListaPrincClientes>Montoventa}"/>
+                    <Text text="{ListaPrincClientes>Prodservvendidos}"/>
+                    <Text text="{ListaPrincClientes>Contactocliente}"/>
+                    <Text text="{ListaPrincClientes>Cargo}"/>
+                    <Text text="{ListaPrincClientes>Email}"/>
+                    <Text text="{ListaPrincClientes>Telefonoexp}"/>
+                </cells>
+            </ColumnListItem>
+          </items>
+      </Table>
+    </Panel>
+  </VBox>
+</core:FragmentDefinition>  

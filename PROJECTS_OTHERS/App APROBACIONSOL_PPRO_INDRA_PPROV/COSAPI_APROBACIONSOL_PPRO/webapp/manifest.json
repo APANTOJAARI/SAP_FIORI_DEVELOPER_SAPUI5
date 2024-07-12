@@ -1,0 +1,211 @@
+{
+    "_version": "1.59.0",
+    "sap.app": {
+        "id": "ns.cosapi.aprobacionsolppro",
+        "type": "application",
+        "i18n": "i18n/i18n.properties",
+        "applicationVersion": {
+            "version": "0.0.1"
+        },
+        "title": "{{appTitle}}",
+        "description": "{{appDescription}}",
+        "resources": "resources.json",
+        "sourceTemplate": {
+            "id": "@sap/generator-fiori:basic",
+            "version": "1.13.0",
+            "toolsId": "6c338286-a30b-4173-9352-baf21cc886b5"
+        },
+        "crossNavigation": {
+            "inbounds": {
+                "ns-cosapi-aprobacionsolppro-inbound": {
+                    "signature": {
+                        "parameters": {},
+                        "additionalParameters": "allowed"
+                    },
+                    "semanticObject": "AprobacionSolPpro",
+                    "action": "Display",
+                    "title": "{{flpTitle}}",
+                    "subTitle": "{{flpSubtitle}}",
+                    "icon": "sap-icon://employee"
+                }
+            }
+        },
+        "dataSources": {
+            "ZMMGS_REGPROVEEPP_CRUD_SRV": {
+                "uri": "/sap/opu/odata/sap/ZMMGS_REGPROVEEPP_CRUD_SRV/",
+                "type": "OData",
+                "settings": {
+                    "annotations": [],
+                    "localUri": "localService/metadata.xml",
+                    "odataVersion": "2.0"
+                }
+            },
+            "ZMMGS_PRE_REG_PROV_SRV": {
+                "uri": "/sap/opu/odata/sap/ZMMGS_PRE_REG_PROV_SRV",
+                "type": "OData",
+                "settings": {
+                    "odataVersion": "2.0",
+                    "localUri": "localService/metadata.xml"
+                }
+            },
+            "API_BUSINESS_PARTNER": {
+                "uri": "/sap/opu/odata/sap/API_BUSINESS_PARTNER",
+                "type": "OData",
+                "settings": {
+                    "odataVersion": "2.0",
+                    "localUri": "localService/metadata.xml"
+                }
+            }
+        }
+    },
+    "sap.ui": {
+        "technology": "UI5",
+        "icons": {
+            "icon": "",
+            "favIcon": "",
+            "phone": "",
+            "phone@2": "",
+            "tablet": "",
+            "tablet@2": ""
+        },
+        "deviceTypes": {
+            "desktop": true,
+            "tablet": true,
+            "phone": true
+        }
+    },
+    "sap.ui5": {
+        "flexEnabled": false,
+        "dependencies": {
+            "minUI5Version": "1.122.0",
+            "libs": {
+                "sap.m": {},
+                "sap.ui.core": {},
+                "sap.f": {},
+                "sap.suite.ui.generic.template": {},
+                "sap.ui.comp": {},
+                "sap.ui.generic.app": {},
+                "sap.ui.table": {},
+                "sap.ushell": {}
+            }
+        },
+        "contentDensities": {
+            "compact": true,
+            "cozy": true
+        },
+        "models": {
+            "i18n": {
+                "type": "sap.ui.model.resource.ResourceModel",
+                "settings": {
+                    "bundleName": "ns.cosapi.aprobacionsolppro.i18n.i18n"
+                }
+            },
+            "ZMMGS_REGPROVEEPP_CRUD_SRV": {
+                "dataSource": "ZMMGS_REGPROVEEPP_CRUD_SRV",
+                "preload": true,
+                "settings": {}
+            },
+            "ZMMGS_PRE_REG_PROV_SRV":{
+                "dataSource": "ZMMGS_PRE_REG_PROV_SRV",
+                "preload": true,
+                "settings": {}
+            },
+            "API_BUSINESS_PARTNER":{
+                "dataSource": "API_BUSINESS_PARTNER",
+                "preload": true,
+                "settings": {}
+            },
+            "": {
+                "type": "sap.ui.model.json.JSONModel",
+                "preload": true
+            }
+        },
+        "resources": {
+            "css": [
+                {
+                    "uri": "css/style.css"
+                }
+            ],
+            "js": [
+                {
+                    "uri": "model/jszip.js"
+                }
+            ]
+        },
+        "routing": {
+            "config": {
+                "routerClass": "sap.m.routing.Router",
+                "viewType": "XML",
+                "async": true,
+                "viewPath": "ns.cosapi.aprobacionsolppro.view",
+                "controlAggregation": "pages",
+                "controlId": "app",
+                "clearControlAggregation": false
+            },
+            "routes": [
+                {
+                    "name": "RouteHome",
+                    "pattern": ":?query:",
+                    "target": [
+                        "TargetHome"
+                    ]
+                },
+                {
+                    "name": "DetallePreRegistro",
+                    "pattern": "DetallePreRegistro",
+                    "target": "TargetDetallePreRegistro"
+                },
+                {
+                    "name": "DetalleProveedor",
+                    "pattern": "DetalleProveedor",
+                    "target": "TargetDetalleProveedor"
+                },
+                {
+                    "name": "DetalleActualizacion",
+                    "pattern": "DetalleActualizacion",
+                    "target": "TargetDetalleActualizacion"
+                }
+            ],
+            "targets": {
+                "TargetHome": {
+                    "viewType": "XML",
+                    "transition": "slide",
+                    "clearControlAggregation": false,
+                    "viewId": "Home",
+                    "viewName": "Home"
+                },
+                "TargetDetallePreRegistro": {
+                    "viewType": "XML",
+                    "transition": "slide",
+                    "viewId": "DetallePreRegistro",
+                    "viewLevel": 2,
+                    "viewName": "DetallePreRegistro"
+                },
+                "TargetDetalleProveedor": {
+                    "viewType": "XML",
+                    "transition": "slide",
+                    "viewId": "DetalleProveedor",
+                    "viewLevel": 2,
+                    "viewName": "DetalleProveedor"
+                },
+                "TargetDetalleActualizacion": {
+                    "viewType": "XML",
+                    "transition": "slide",
+                    "viewId": "DetalleActualizacion",
+                    "viewLevel": 2,
+                    "viewName": "DetalleActualizacion"
+                }
+            }
+        },
+        "rootView": {
+            "viewName": "ns.cosapi.aprobacionsolppro.view.App",
+            "type": "XML",
+            "async": true,
+            "id": "App"
+        }
+    },
+    "sap.cloud": {
+        "public": true,
+        "service": "nscosapiaprobacionsolppro"
+    }
+}

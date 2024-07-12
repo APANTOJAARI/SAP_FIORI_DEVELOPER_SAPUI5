@@ -1,0 +1,111 @@
+<core:FragmentDefinition
+	xmlns="sap.m"
+	xmlns:l="sap.ui.layout"
+	xmlns:f="sap.ui.layout.form"
+	xmlns:core="sap.ui.core"
+    xmlns:u="sap.ui.unified">
+	<VBox >
+		<Panel width="auto" class="sapUiResponsiveMargin">
+			<f:Form id="FormSistemaSeguridad" editable="false">
+				<f:layout>
+					<f:ResponsiveGridLayout
+                    labelSpanXL="4"
+                    labelSpanL="4"
+                    labelSpanM="4"
+                    labelSpanS="12"
+                    adjustLabelSpan="false"
+                    emptySpanXL="4"
+                    emptySpanL="4"
+                    emptySpanM="4"
+                    emptySpanS="0"
+                    columnsXL="1"
+                    columnsL="1"
+                    columnsM="1"
+                    singleContainerFullSize="false" />
+				</f:layout>
+				<f:formContainers>
+					<f:FormContainer>
+						<f:formElements>
+
+							<f:FormElement label="{i18n>pregunt1SS}">
+								<f:fields>
+									<RadioButtonGroup id="rbgPregunta1SS" columns="2" selectedIndex="-1" editable="false">
+										<RadioButton text="{i18n>si}"/>
+										<RadioButton text="{i18n>no}" />
+									</RadioButtonGroup>
+								</f:fields>
+							</f:FormElement>
+							<f:FormElement label="{i18n>pregunt2SS}">
+								<f:fields>
+									<RadioButtonGroup id="rbgPregunta2SS" columns="2" selectedIndex="-1" editable="false">
+										<RadioButton text="{i18n>si}" />
+										<RadioButton text="{i18n>no}" />
+									</RadioButtonGroup>
+								</f:fields>
+							</f:FormElement>
+							<f:FormElement label="{i18n>pregunt3SS}">
+								<f:fields>
+									<RadioButtonGroup id="rbgPregunta3SS" columns="2" selectedIndex="-1" editable="false">
+										<RadioButton text="{i18n>si}" />
+										<RadioButton text="{i18n>no}" />
+									</RadioButtonGroup>
+									<HBox width="100%" id="hbAdjunto">
+										<Button text="Descargar Archivos" press="onVerSisSeguridadFile" class="sapUiTinyMarginBegin"/>
+									</HBox>
+                                    
+								</f:fields>
+							</f:FormElement>
+							<f:FormElement label="{i18n>pregunt4SS}">
+								<f:fields>
+									<RadioButtonGroup id="rbgPregunta4SS" columns="2" editable="false" selectedIndex="-1">
+										<RadioButton text="{i18n>si}"/>
+										<RadioButton text="{i18n>no}" />
+									</RadioButtonGroup>
+								</f:fields>
+							</f:FormElement>
+							
+							<f:FormElement label="{i18n>pregunt4SSS}" visible="false" id="txtPregunta4SS">
+								<f:fields>
+                                    <Input id="txtPregunta4SS1" value="{oProveedor>/SistemaSeguridad/IndiceAnio1}" editable="false" type="Text" change="changeValueState">
+										<layoutData>
+											<l:GridData span="XL1 L2 M2 S4" />
+										</layoutData>
+									</Input>
+									<Input id="txtPregunta4SS2" value="{oProveedor>/SistemaSeguridad/IndiceAnio2}" editable="false" type="Text" change="changeValueState">
+										<layoutData>
+											<l:GridData span="XL1 L2 M2 S4" />
+										</layoutData>
+									</Input>
+									<Input id="txtPregunta4SS3" value="{oProveedor>/SistemaSeguridad/IndiceAnio3}" editable="false" type="Text" change="changeValueState">
+										<layoutData>
+											<l:GridData span="XL1 L2 M2 S4" />
+										</layoutData>
+									</Input>
+								</f:fields>
+							</f:FormElement>
+
+							<f:FormElement label="{i18n>pregunt5SS}">
+								<f:fields>
+									<RadioButtonGroup id="rbgPregunta5SS" columns="2"  selectedIndex="-1" editable="false">
+										<RadioButton text="{i18n>si}" />
+										<RadioButton text="{i18n>no}" />
+									</RadioButtonGroup>
+								</f:fields>
+							</f:FormElement>
+
+                            <f:FormElement label="{i18n>pregunt6SS}">
+								<f:fields>
+									<RadioButtonGroup id="rbgPregunta6SS" columns="2"  selectedIndex="-1" editable="false">
+										<RadioButton text="{i18n>si}" />
+										<RadioButton text="{i18n>no}" />
+									</RadioButtonGroup>
+								</f:fields>
+							</f:FormElement>
+
+						</f:formElements>
+					</f:FormContainer>
+				</f:formContainers>
+			</f:Form>
+		</Panel>
+	</VBox>
+</core:FragmentDefinition>

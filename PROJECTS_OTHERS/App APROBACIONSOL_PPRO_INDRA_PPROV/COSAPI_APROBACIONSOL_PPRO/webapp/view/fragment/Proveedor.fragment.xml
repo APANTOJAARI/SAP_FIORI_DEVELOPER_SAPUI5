@@ -1,0 +1,283 @@
+<core:FragmentDefinition
+	xmlns="sap.m"
+	xmlns:mvc="sap.ui.core.mvc"
+    xmlns:l="sap.ui.layout"
+    xmlns:core="sap.ui.core"
+	xmlns:plugins="sap.m.plugins"
+    xmlns:columnmenu="sap.m.table.columnmenu"
+    xmlns:sap.ui.fl="sap.ui.fl"
+    xmlns:sap.ui.dt="sap.ui.dt"
+    xmlns:vm="sap.ui.fl.variants"
+    xmlns:dnd="sap.ui.core.dnd"
+    xmlns:form="sap.ui.layout.form"
+    xmlns:app="http://schemas.sap.com/sapui5/extension/sap.ui.core.CustomData/1">
+
+	<Panel expandable="true" width="auto" headerText="{i18n>filtros}" >
+		<content>
+			<form:Form editable="true" binding="{/BusquedaPro}">
+				<form:formContainers>
+					<form:FormContainer>
+						<form:formElements>
+
+					<form:FormElement>
+								<form:fields>
+									<Input id="mcbNroRuc" value="{ruc}" />
+								</form:fields>
+								<form:label>
+									<Label text="{i18n>nro}" design="Bold" />
+								</form:label>
+							</form:FormElement>
+
+							<form:FormElement>
+								<form:fields>
+									<DatePicker
+										value="{fechaInicio}"
+										placeholder="Ingrese Fecha"
+										valueFormat="yyyyMMdd"
+										change="handleChange"/>
+								</form:fields>
+								<form:label>
+									<Label text="{i18n>inicioregis}" design="Bold" />
+								</form:label>
+							</form:FormElement>
+
+							<form:FormElement>
+								<form:fields>
+									<ComboBox id="cboMainPais" items="{
+										path: 'datos>/Paises'
+									}"
+									change="onChangePais($event, 'proveedorFragment')"
+                                    selectedKey="{pais}">
+										<core:Item key="{datos>Land1}" text="{datos>Landx50}" />
+                                    </ComboBox>
+								</form:fields>
+								<form:label>
+									<Label text="{i18n>pais}" design="Bold" />
+								</form:label>
+							</form:FormElement>
+							
+						</form:formElements>
+					</form:FormContainer>
+
+					<form:FormContainer>
+						<form:formElements>
+
+							<form:FormElement>
+								<form:fields>
+									<Input 
+                                        id="mcbRazonSocial"
+										selectedKey="{razonsocial}"
+                                        placeholder="Seleccione usuario"
+                                        showSuggestion="true"
+                                        busyIndicatorDelay="0"
+                                        suggest="onSearchNifRazonSocial"
+                                        change=".onSearchUsuarioDelegar"
+                                        suggestionItems="{
+                                            path:'/RazonSocial',
+                                            limit:10
+                                        }">
+                                        <core:ListItem text="{Nifrazonsocial}" key="{Taxnumxl}" />
+                                    </Input>
+								</form:fields>
+								<form:label>
+									<Label text="{i18n>niff}" design="Bold" />
+								</form:label>
+							</form:FormElement>
+
+							<form:FormElement>
+								<form:fields>
+									<DatePicker
+										value="{fechaFin}"
+										valueFormat="yyyyMMdd"
+										placeholder="Ingrese Fecha"
+										change="handleChange"/>
+								</form:fields>
+								<form:label>
+									<Label text="{i18n>finregis}" design="Bold" />
+								</form:label>
+							</form:FormElement>
+					
+							<form:FormElement>
+								<form:fields>
+									<ComboBox id="cboMainRegionDpto" items="{
+										path: 'datos>/RegionDptp'
+									}"
+                                    selectedKey="{ort01}"
+									change="onChangeRegion">
+										<core:ListItem key="{datos>Bland}" text="{datos>Bezei}" additionalText="{datos>Bland}"></core:ListItem>
+                                    </ComboBox>
+								</form:fields>
+								<form:label>
+									<Label text="{i18n>dep}" design="Bold" />
+								</form:label>
+							</form:FormElement>
+
+						</form:formElements>
+					</form:FormContainer>
+						
+				<form:FormContainer>
+					<form:formElements>
+					
+							<form:FormElement>
+								<form:fields>
+									<ComboBox id="cboMainCategorias" items="{
+										path: 'datos>/Categorias'
+									}"
+                                    selectedKey="{categoria}"
+									change="changeValueState">
+										<core:Item key="{datos>Bklas}" text="{datos>Bkbez}" />
+                                    </ComboBox>
+								</form:fields>
+								<form:label>
+									<Label text="{i18n>categorias}" design="Bold" />
+								</form:label>
+							</form:FormElement>
+
+							<form:FormElement>
+								<form:fields>
+									<ComboBox id="cboMainGrupos" items="{
+										path: 'datos>/Grupos'
+									}"
+                                    selectedKey="{grupo}"
+									change="changeValueState">
+										<core:Item key="{datos>Matkl}" text="{datos>Wgbez60}" />
+                                    </ComboBox>
+								</form:fields>
+								<form:label>
+									<Label text="{i18n>grupos}" design="Bold" />
+								</form:label>
+							</form:FormElement>
+
+							<form:FormElement>
+								<form:fields>
+									<MultiComboBox
+										selectionChange="handleSelectionChange"
+										selectionFinish="handleSelectionFinish"
+										selectedKeys="{TipoProveedor}"
+										items="{
+											path: '/TipoProveedor'
+										}">
+										<core:Item key="{Tipoproveedor}" text="{Tipoproveedor}"/>
+									</MultiComboBox>
+								</form:fields>
+								<form:label>
+									<Label text="{i18n>tproveedor}" design="Bold" />
+								</form:label>
+							</form:FormElement>
+
+							<form:FormElement>
+								<form:fields>
+									<Button type="Neutral" text="Buscar" icon="sap-icon://search" press="onSearchProveedor"/>
+									<Button type="Default" text="Limpiar" icon="sap-icon://clear-filter" press="onCleanFilterProveedor"/>
+								</form:fields>
+							</form:FormElement>
+
+						</form:formElements>
+					</form:FormContainer>
+				</form:formContainers>
+				<form:layout>
+					<form:ColumnLayout
+						columnsL="3"
+						columnsM="3"
+						columnsXL="3"
+						emptyCellsLarge="1"
+						labelCellsLarge="3"/>
+				</form:layout>
+			</form:Form>
+		</content>
+	</Panel>
+
+	<Table id="proveedorTable" items="{path: 'aProveedores>/'}" ariaLabelledBy="title" fixedLayout="Strict"
+		    autoPopinMode="true" growing="true" sticky="ColumnHeaders,HeaderToolbar" popinLayout="GridSmall">
+
+		<headerToolbar>
+			<OverflowToolbar >
+				<!-- <Title id="title" text="Solicitudes"/> -->
+				<ToolbarSeparator/>
+				<vm:VariantManagement id="p13nVmProveedor" for="proveedorTable"/>
+				<ToolbarSpacer/>
+				<Button icon="sap-icon://action-settings" press="openPersoDialog" tooltip="Settings"/>
+			</OverflowToolbar>
+		</headerToolbar>
+		<infoToolbar>
+			<OverflowToolbar id="filterInfo" visible="false" design="Info" active="true" press="onFilterInfoPress" >
+				<Text id="filterInfoText" wrapping="false" text="Table filter active" />
+				<ToolbarSpacer />
+				<Button tooltip="Remove All Filters" icon="sap-icon://decline" type="Transparent" press="onClearFilterPress" />
+			</OverflowToolbar>
+		</infoToolbar>
+		<dependents>
+			<plugins:ColumnResizer columnResize="onColumnResize"/>
+			<columnmenu:Menu id="menu" beforeOpen="beforeOpenColumnMenu">
+				<columnmenu:QuickSort change="onSort">
+					<columnmenu:items>
+						<columnmenu:QuickSortItem></columnmenu:QuickSortItem>
+					</columnmenu:items>
+				</columnmenu:QuickSort>
+				<columnmenu:QuickGroup change="onGroup">
+					<columnmenu:items>
+						<columnmenu:QuickGroupItem></columnmenu:QuickGroupItem>
+					</columnmenu:items>
+				</columnmenu:QuickGroup>
+				<columnmenu:items>
+					<columnmenu:ActionItem icon="sap-icon://sort" label="Ordenar" press="onColumnHeaderItemPress"/>
+					<columnmenu:ActionItem icon="sap-icon://group-2" label="Agrupar" press="onColumnHeaderItemPress"/>
+					<columnmenu:ActionItem icon="sap-icon://filter" label="Filtrar" press="onColumnHeaderItemPress"/>
+					<columnmenu:ActionItem icon="sap-icon://table-column" label="Columnas" press="onColumnHeaderItemPress"/>
+				</columnmenu:items>
+			</columnmenu:Menu>
+		</dependents>
+
+		<dragDropConfig>
+			<dnd:DragDropInfo sourceAggregation="columns" targetAggregation="columns" dropPosition="Between" drop="onColumnMove"/>
+		</dragDropConfig>
+
+		<noData>
+			<IllustratedMessage/>
+		</noData>
+
+		<columns>
+
+			<Column id="codigobp_col" headerMenu="menu">
+				<Text text="{i18n>codigobp}"/>
+			</Column>
+			<Column id="nif_col" headerMenu="menu">
+				<Text text="{i18n>nif}"/>
+			</Column>
+			<Column id="razonsocial_col" headerMenu="menu">
+				<Text text="{i18n>razonsocial}"/>
+			</Column>
+			<Column id="nombrecomercial_col" headerMenu="menu" visible="{= !${/isPhone}}">
+				<Text text="{i18n>nombrecomercial}"/>
+			</Column>
+			<Column id="pais_col" headerMenu="menu">
+				<Text text="{i18n>pais}"/>
+			</Column>
+			<Column id="identificacion_col" headerMenu="menu" visible="{= !${/isPhone}}">
+				<Text text="{i18n>id}"/>
+			</Column>
+			<Column id="correoelectronico_col" headerMenu="menu" visible="{= !${/isPhone}}">
+				<Text text="{i18n>correocorp}"/>
+			</Column>
+			<Column id="telefono_col" headerMenu="menu" visible="{= !${/isPhone}}">
+				<Text text="{i18n>telefono}"/>
+			</Column>
+		</columns>
+
+		<items>
+			<ColumnListItem
+				type="Navigation"
+				press="onIrDetailProveedor" >
+				<Text text="{aProveedores>Numerodebp}"/>
+				<Text text="{aProveedores>Taxnumxl}"/>
+				<Text text="{aProveedores>Fullname}"/>
+				<Text text="{aProveedores>Nombrecomercial}"/>
+				<Text text="{aProveedores>Land1des}"/>
+				<Text text="{aProveedores>Identificacion}"/>
+				<Text text="{aProveedores>Correo}"/>
+				<Text text="{aProveedores>Telefono}"/>
+			</ColumnListItem>
+		</items>
+	</Table>
+
+</core:FragmentDefinition>

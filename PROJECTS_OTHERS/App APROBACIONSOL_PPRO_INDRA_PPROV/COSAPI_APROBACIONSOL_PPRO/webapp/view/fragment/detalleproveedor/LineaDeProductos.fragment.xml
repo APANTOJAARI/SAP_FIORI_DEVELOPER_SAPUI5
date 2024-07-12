@@ -1,0 +1,61 @@
+<core:FragmentDefinition
+	xmlns="sap.m"
+    xmlns:l="sap.ui.layout"
+    xmlns:f="sap.ui.layout.form"
+    xmlns:core="sap.ui.core">
+    <VBox>
+        <Panel width="auto" class="sapUiResponsiveMargin">
+            
+            <Table id="tbListaContactoC" items="{ListaLineaProducto>/data}" mode="SingleSelectMaster">
+                <columns>
+                    <Column>
+                        <Text text="{i18n>especialidad}"/>
+                    </Column>
+                    <Column>
+                        <Text text="{i18n>marca}"/>
+                    </Column>
+                    <Column>
+                        <Text text="{i18n>servicio}"/>
+                    </Column>
+                    <Column>
+                        <Text text="{i18n>promedio_mensual}"/>
+                    </Column>
+                    <Column>
+                        <Text text="{i18n>nombreapel}"/>
+                    </Column>
+                    <Column>
+                        <Text text="{i18n>cargo3}"/>
+                    </Column>
+                    <Column>
+                        <Text text="{i18n>correo6}"/>
+                    </Column>
+                    <Column>
+                        <Text text="{i18n>telefono8}"/>
+                    </Column>
+                    <Column>
+                        <Text text="{i18n>telefono9}"/>
+                    </Column>
+                </columns>
+                <items>
+                    <ColumnListItem>
+                        <cells>
+                            <Text text="{ListaLineaProducto>Especialidaddes}"/>
+                            <Text text="{ListaLineaProducto>Marca}"/>
+                            <Text text="{ListaLineaProducto>Lineaprodservdes}"/>
+                            <Text text="{ 
+                                parts: [{path: 'ListaLineaProducto>PromdmenventSo'}, {path: 'ListaLineaProducto>PromdmenventDo'}, {path: 'ListaLineaProducto>PromdmenventMonto'}],
+                                formatter: '.formatoMonedaLP'
+                            }" />
+                            <Text text="{ListaLineaProducto>NomApe}"/>
+                            <Text text="{ListaLineaProducto>Cargo}"/>
+                            <Text text="{ListaLineaProducto>Email}"/>
+                            <Text text="{ListaLineaProducto>TelFij}"/>
+                            <Text text="{ListaLineaProducto>Celular}"/>
+                        </cells>
+                    </ColumnListItem>
+                </items>
+            </Table>
+
+        </Panel>       
+    </VBox>
+</core:FragmentDefinition>

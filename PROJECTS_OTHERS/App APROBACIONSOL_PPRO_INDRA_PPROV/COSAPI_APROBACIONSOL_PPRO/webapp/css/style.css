@@ -1,0 +1,110 @@
+/* Enter your custom styles here */
+.sapTntSideNavigationFlexibleContent {
+    background: #f5f6f7;
+}
+
+.sapTntNL.sapTntNLCollapsed .sapTntNLI a {
+    background: #fff;
+}
+
+.sapUiSizeCompact .sapTntNL:not(.sapTntNLNoIcons) span.sapTntNLIIcon {
+    color: #0b7cf3 !important;
+}
+
+.sapUiSizeCompact .sapTntNL {
+    background: #fff;
+}
+
+.sapMFlexBoxAlignItemsCenter {
+    background: #fff;
+}
+
+.sapTntSideNavigation {
+    box-shadow: unset !important;
+}
+
+.sapTntSideNavigation.sapTntSideNavigationNotExpandedWidth {
+    min-width: 3.5rem;
+}
+.cusBoxPre {
+    background-color: #0064d9;
+    margin-bottom: 10px;
+    border-radius: 10px;
+}
+.cusBoxAct {
+    background-color: #dd6100;
+    margin-bottom: 10px;
+    border-radius: 10px;
+}
+.cusBoxApro {
+    background-color: #30914c;
+    margin-bottom: 10px;
+    border-radius: 10px;
+}
+.cusBoxRec {
+    background-color: #e90b0b;
+    margin-bottom: 10px;
+    border-radius: 10px;
+}
+
+.sapUiLargeLabel {
+    font-size: 14px;
+    color: #fff;
+}
+
+.sapUiMediumLabel {
+    font-size: 20px;
+    color: #fff;
+}
+
+.sapUiLargeButton .sapMBtnInner {
+    font-size: 16px; /* Tamaño de fuente más grande para el texto del botón */
+}
+
+.scrollCard {
+    overflow: auto;
+}
+
+.size1 {
+	font-size : 1.5rem;
+}
+
+
+/* Solicitudes Pre Registro */
+
+.cusBoxPenPre {
+    background-color: #dd6100;
+    margin-bottom: 10px;
+    border-radius: 10px;
+}
+.cusBoxAproPre {
+    background-color: #30914c;
+    margin-bottom: 10px;
+    border-radius: 10px;
+}
+.cusBoxRecPre {
+    background-color: #e90b0b;
+    margin-bottom: 10px;
+    border-radius: 10px;
+}
+
+.sapUiLargeLabelPre {
+    font-size: 14px;
+    color: #fff
+}
+
+.sapUiMediumLabelPre {
+    font-size: 20px;
+    color: #fff
+}
+
+.sapMITBTextContent {
+    white-space: nowrap; /* Evita que el texto se rompa en varias líneas */
+    overflow: hidden; /* Oculta cualquier parte del texto que desborde del contenedor */
+    text-overflow: ellipsis; /* Muestra un punto suspensivo (...) al final del texto si es demasiado largo */
+}
+
+.labelRed
+{
+  color: red;    
+}
