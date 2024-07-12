@@ -1,0 +1,49 @@
+<core:FragmentDefinition
+    xmlns="sap.m"
+    xmlns:l="sap.ui.layout"
+    xmlns:core="sap.ui.core"
+>
+    <l:VerticalLayout class="sapUiContentPadding layout">
+        <Image src="util/img/logo-cosapi.png" width="{/imageWidth}" />
+        <Title
+        class="clsTitle"
+            wrapping="true"
+            level="H3"
+            titleStyle="H2"
+            text="{i18n>bienvenida}"
+        />
+        <Text class="clsTexto" text="{i18n>avisodatos}"/>
+        <Button type="Emphasized"
+                width="180px"
+                class="sapMBtn"
+                text="{i18n>iniciarSesion}"
+                press="onIrLogin"
+                ariaDescribedBy="acceptButtonDescription genericButtonDescription">
+        </Button>
+        <Button type="Emphasized"
+                width="180px"
+                class="sapMBtn"
+                text="{i18n>terminosycondiciones}"
+                press="onIrTerminos"
+                ariaDescribedBy="acceptButtonDescription genericButtonDescription">
+        </Button>
+        <!-- <Text text="{i18n>infoImport}" class="clsTexto"></Text>-->
+        <MessageStrip
+                enableFormattedText="true"
+                text="{i18n>infoImport}"
+				showIcon="true"
+				showCloseButton="true"
+				class="sapUiMediumMarginBottom">
+            
+        </MessageStrip>
+
+                <MessageStrip
+                enableFormattedText="true"
+                text="{i18n>requisiRegis}"
+				showIcon="true"
+				showCloseButton="true"
+				class="sapUiMediumMarginBottom">
+            
+        </MessageStrip>
+    </l:VerticalLayout>
+</core:FragmentDefinition>

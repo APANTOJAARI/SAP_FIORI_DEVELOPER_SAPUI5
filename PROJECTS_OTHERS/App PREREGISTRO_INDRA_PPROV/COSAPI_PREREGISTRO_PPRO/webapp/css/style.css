@@ -1,0 +1,39 @@
+/* Enter your custom styles here */
+
+.myAppBackground {
+    background: linear-gradient(to right, #3837ac, #59c3fa); 
+    /* Fallback para navegadores que no soportan gradientes */
+    background: -webkit-linear-gradient(to right, #3837ac, #59c3fa); 
+    background: -moz-linear-gradient(to right, #3837ac, #59c3fa);
+    background: -o-linear-gradient(to right, #3837ac, #59c3fa);
+}
+.clsTitle{
+    color:#ffff;
+}
+
+.clsTexto{
+    color:#ffff;
+}
+.layout {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.customTallButton {
+    height: 50px !important; /* Ajusta la altura según sea necesario */
+    line-height: 50px !important; /* Ajusta la línea de altura según sea necesario */
+    font-size: 16px !important; /* Ajusta el tamaño de la fuente según sea necesario */
+    box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.3) !important;
+}
+
+.sapUiFormResGrid.sapUiFormBackgrSolid, .sapUiFormResGrid.sapUiFormBackgrTranslucent{
+    
+    border-bottom-left-radius: 30% !important; /* Borde redondeado en la esquina inferior izquierda */
+  
+    box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.3);
+    padding: 10px !important; /* Añade relleno alrededor del contenido */
+}
+.sapUiSizeCompact .sapMBtnInner.sapMBtnText{
+    box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.3);
+}
